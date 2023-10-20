@@ -31,6 +31,10 @@ export const FAQ = () => {
        question: "Czy można śledzić przesyłkę?",
        answer: "Tak, po wysłaniu zamówienia otrzymasz numer śledzenia, który możesz użyć do monitorowania statusu przesyłki.",
     },
+    {
+      question: "Czy oferujecie gwarancję na produkty?",
+      answer: "Tak, wszystkie nasze produkty są objęte gwarancją producenta. Więcej informacji na temat gwarancji znajdziesz w naszych Warunkach Gwarancji.",
+   },
   ];
 
   const [activeIndex, setActiveIndex] = useState(null);
