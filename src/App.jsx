@@ -8,12 +8,18 @@ import { Contact } from "./pages/contact";
 import { FAQ } from "./pages/FAQ";
 import { Cart } from "./pages/cart/cart";
 import { ShopContextProvider } from "./context/shop-context";
+import { AuthProvider } from "./context/AuthContext";
+
 
 function App() {
+  
+
   return (
     <div className="App">
-      <ShopContextProvider>
+      <ShopContextProvider> 
+     
         <Router>
+        <AuthProvider>
           <Navbar />
           <Routes>
             <Route path="/" element={<Shop />} />
@@ -23,7 +29,9 @@ function App() {
             <Route path="/FAQ" element={<FAQ />} />
             <Route path="/cart" element={<Cart />} />
           </Routes>
+          </AuthProvider>
         </Router>
+      
       </ShopContextProvider>
     </div>
   );
