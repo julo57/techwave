@@ -1,5 +1,6 @@
 import { useState } from "react";
 import useAuthContext from "../context/AuthContext";
+import "./ColorChange.css"
 
 
 export const Register = () => {
@@ -23,7 +24,7 @@ export const Register = () => {
     <div className="min-h-screen flex items-center justify-center">  
   <div className="w-full max-w-md">
   <p className="text-center">Register</p>
-      <form className="shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleRegister}>
+      <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleRegister}>
           <div>
               <label className="block font-semibold">Name</label>
               <input className=" shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" 

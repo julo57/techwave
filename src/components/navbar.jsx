@@ -30,6 +30,7 @@ export const Navbar = ({ toggleTheme, theme }) => {
               className="p-2 border rounded-lg"
             />
           </div>
+          <button>Tu będzie zmiana koloru</button>
           <ThemeSwitchButton toggleTheme={toggleTheme} theme={theme} />
           <Link to="/cart" className="text-white hover:text-blue-500">
             <ShoppingCart size={32} />
