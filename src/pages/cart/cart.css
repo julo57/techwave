@@ -42,4 +42,12 @@
   }
   
   
-  
+  #dark input{
+    background-color: black;
+  }
+
+    
+  #dark button
+  {
+    color: white;
+  }
