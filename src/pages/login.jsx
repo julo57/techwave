@@ -39,7 +39,7 @@ export const Login = () => {
         </label>
         <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" 
         type="password" 
-        placeholder="password"
+        placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         />
@@ -57,9 +57,6 @@ export const Login = () => {
         </a>
       </div>
     </form>
-    <p className="text-center text-gray-500 text-xs">
-      &copy;2020 Acme Corp. All rights reserved.
-    </p>
   </div>
 </div>
 

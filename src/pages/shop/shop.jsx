@@ -15,7 +15,7 @@ export const Shop = () => {
   }, [])
   return (
     
-    <div className="shop bg-gray-100 p-4 sm:p-8 md:p-16 lg:p-20">
+    <div className="shop p-4 sm:p-8 md:p-16 lg:p-20">
       <div className="shopTitle text-center mb-8">
         <div>{user?.name}</div>
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">

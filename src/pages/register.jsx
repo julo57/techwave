@@ -22,7 +22,7 @@ export const Register = () => {
   return (
     <div className="min-h-screen flex items-center justify-center">  
   <div className="w-full max-w-md">
-  <p className="text-center">Sign up</p>
+  <p className="text-center">Register</p>
       <form className="shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleRegister}>
           <div>
               <label className="block font-semibold">Name</label>

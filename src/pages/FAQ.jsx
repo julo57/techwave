@@ -49,7 +49,7 @@ export const FAQ = () => {
 
   return (
     <div className="faq-container">
-      <h1>Pytania i Odpowiedzi</h1>
+      <h1>Najczęstsze pytania i odpowiedzi</h1>
       {faqData.map((item, index) => (
         <div className="faq-item" key={index}>
           <div className="question" onClick={() => handleToggleAnswer(index)}>

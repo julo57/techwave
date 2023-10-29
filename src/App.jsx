@@ -11,6 +11,10 @@ import { Cart } from "./pages/cart/cart";
 import { ShopContextProvider } from "./context/shop-context";
 import PopUp from "./components/PopUp";
 import { AuthProvider } from "./context/AuthContext";
+import { NewsletterForm } from "./pages/NewsletterForm";
+import { Footer } from "./pages/Footer";
+import { AboutUs } from "./pages/AboutUs";
+
 
 export const ThemeContext = createContext();
 
@@ -41,9 +45,14 @@ function App() {
               <Route path="/" element={<Shop />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/FAQ" element={<FAQ />} />
               <Route path="/cart" element={<Cart />} />
+            </Routes>
+            <Footer />
+            <Routes>
+              <Route path="/FAQ" element={<FAQ />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/NewsletterForm" element={<NewsletterForm />} />
+              <Route path="/AboutUs" element={<AboutUs />} />
             </Routes>
             </AuthProvider>
           </Router>

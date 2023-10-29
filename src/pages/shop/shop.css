@@ -12,6 +12,10 @@
     cursor: pointer;
   }
   
+  .product:hover img {
+    transform: scale(1.1); 
+  }
+
   .addToCartBttn {
     background-color: transparent;
     border: 2px solid rgb(19, 19, 19);

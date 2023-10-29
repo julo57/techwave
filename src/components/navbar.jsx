@@ -21,12 +21,6 @@ export const Navbar = ({ toggleTheme, theme }) => {
           <Link to="/register" className="text-white hover:text-blue-500">
             Register
           </Link>
-          <Link to="/FAQ" className="text-white hover:text-blue-500">
-            FAQ
-          </Link>
-          <Link to="/contact" className="text-white hover:text-blue-500">
-            Contact
-          </Link>
         </div>
         <div className="flex items-center space-x-4">
           <div className="search-container">
