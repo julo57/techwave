@@ -1,0 +1,40 @@
+/* Navbar.css */
+
+  
+  .links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  
+  .links a:hover {
+    color: blue;
+  }
+  
+  .search-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Dostosuj szerokość pola wyszukiwania */
+  .search-container input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 400px; /* Dostosuj szerokość według potrzeb */
+    margin-right: 300px;
+  }
+  
+  /* Dostosuj marginesy dla elementów w prawej części Navbar */
+  .right-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Dostosuj odstęp między elementami w prawej części Navbar */
+  .right-content > * {
+    margin-left: 10px;
+  }
+  
