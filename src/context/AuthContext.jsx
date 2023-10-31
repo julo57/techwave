@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
         try{
             await axios.post('/login', data);
             await getUser();
-            navigate("/");
+            navigate("/profile");
           }catch(e){
             if(e.response.status === 422){
               setErrors(e.response.data.errors)
@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
         try{   
             await axios.post('/register', data);
             await getUser();
-            navigate("/");
+            navigate("/profile");
           }catch(e){
             if(e.response.status === 422){
               setErrors(e.response.data.errors)
@@ -47,6 +47,7 @@ export const AuthProvider = ({ children }) => {
     const logout = () => {
       axios.post('/logout').then(() => {
         setUser(null);
+        navigate("/");
       })
     }
 

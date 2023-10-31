@@ -13,7 +13,7 @@ export const Cart = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="cart bg-white p-4 md:p-8 flex flex-col items-center justify-center">
+    <div className="cart p-4 md:p-8 flex flex-col items-center justify-center">
       <div className="mb-4">
         <h1 className="text-2xl md:text-3xl text-center">Your Cart Items</h1>
       </div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useAuthContext from "../context/AuthContext";
+import { Link } from "react-router-dom";
 
 export const Login = () => {
   const [email ,setEmail] = useState("");
@@ -15,10 +16,14 @@ export const Login = () => {
   }
   return (
     
-    <div className="min-h-screen flex items-center justify-center">
+<div className="min-h-screen flex items-center justify-center ">
   <div className="w-full max-w-md">
-    <p className="text-center">Sign in</p>
-    <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleLogin}>
+    
+    <form className="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleLogin}>
+    <p className="text-center text-2xl font-bold">
+    Sign in
+    </p>
+    
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2" >
           Username
@@ -57,6 +62,14 @@ export const Login = () => {
         </a>
       </div>
     </form>
+  </div>
+  <div className="px-8" >
+  Don't have an account yet?  
+    <Link to="/register" className="text-black ">
+      <a className="ml-1 inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">Create one now!</a>
+    </Link>
+      
+    
   </div>
 </div>
 

@@ -27,9 +27,15 @@
     border-radius: 15px;
   }
   
-  .addToCartBttn:hover {
+#light .addToCartBttn:hover {
     background-color: rgb(19, 19, 19);
     color: white;
+    cursor: pointer;
+  }
+  
+#dark .addToCartBttn:hover {
+    background-color: white;
+    color: black;
     cursor: pointer;
   }
   

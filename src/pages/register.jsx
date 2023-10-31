@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useAuthContext from "../context/AuthContext";
-
+import { Link } from "react-router-dom";
 
 export const Register = () => {
   const [name, setName] = useState("");
@@ -22,8 +22,10 @@ export const Register = () => {
   return (
     <div className="min-h-screen flex items-center justify-center">  
   <div className="w-full max-w-md">
-  <p className="text-center">Register</p>
-      <form className="shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleRegister}>
+    <p className="text-center text-2xl font-bold">
+      Register
+    </p>
+      <form className="shadow-2xl rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleRegister}>
           <div>
               <label className="block font-semibold">Name</label>
               <input className=" shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" 
@@ -81,9 +83,9 @@ export const Register = () => {
 
           <div className="flex items-center justify-between mt-8">
               <button type="submit" className="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">Register</button>
-              <a className="font-semibold">
+              <Link to="/login" className="text-black ">
                   Already registered?
-              </a>
+              </Link>
           </div>
       </form>
   </div>
