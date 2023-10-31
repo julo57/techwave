@@ -6,18 +6,12 @@ import { useEffect } from "react";
 import useAuthContext from "../../context/AuthContext";
 
 export const Shop = () => {
-  const {user, getUser } = useAuthContext();
-
-  useEffect(() => {
-    if(!user){
-      getUser();
-    }
-  }, [])
+  
   return (
     
     <div className="shop p-4 sm:p-8 md:p-16 lg:p-20">
       <div className="shopTitle text-center mb-8">
-        <div>{user?.name}</div>
+       
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
           „TechWave” <br /> Sklep internetowy z elektroniką
         </h1>

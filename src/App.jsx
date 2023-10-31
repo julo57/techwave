@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext, useEffect } from "react";
+import React, { useState, createContext, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/navbar";
@@ -15,12 +15,13 @@ import { NewsletterForm } from "./pages/NewsletterForm";
 import { Footer } from "./pages/Footer";
 import { AboutUs } from "./pages/AboutUs";
 
+import Profile from "./components/Profile"; // Importuj komponent "Profile"
 
 export const ThemeContext = createContext();
 
 function App() {
   const [theme, setTheme] = useState("light");
-  const [timedPopup, setTimedPopup] = useState(false); // Przenieś to poza funkcję toggleTheme
+  const [timedPopup, setTimedPopup] = useState(false);
 
   const toggleTheme = () => {
     setTheme((current) => (current === "light" ? "dark" : "light"));
@@ -36,32 +37,34 @@ function App() {
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="App" id={theme}>
         <ShopContextProvider>
-        
-
           <Router>
-          <AuthProvider>
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<Shop />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/cart" element={<Cart />} />
-            </Routes>
-            <Footer />
-            <Routes>
-              <Route path="/FAQ" element={<FAQ />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/NewsletterForm" element={<NewsletterForm />} />
-              <Route path="/AboutUs" element={<AboutUs />} />
-            </Routes>
+            <AuthProvider>
+              <Navbar />
+              <Routes>
+                <Route path="/" element={<Shop />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                
+                <Route path="/profile" element={<Profile />} /> {/* Dodaj trasę do strony "Profil" */}
+              </Routes>
+              <Footer />
+              <Routes>
+                <Route path="/FAQ" element={<FAQ />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/NewsletterForm" element={<NewsletterForm />} />
+                <Route path="/AboutUs" element={<AboutUs />} />
+              </Routes>
             </AuthProvider>
           </Router>
-          
         </ShopContextProvider>
         <main>
           <PopUp trigger={timedPopup} setTrigger={setTimedPopup}>
             <h1>Noworoczne Promocje!!!</h1>
-            <img src="https://www.easypromosapp.com/blog/wp-content/uploads/xxss-new-years-eve-promotions-and-giveaways.jpg" alt="Noworoczne Promocje" />
+            <img
+              src="https://www.easypromosapp.com/blog/wp-content/uploads/xxss-new-years-eve-promotions-and-giveaways.jpg"
+              alt="Noworoczne Promocje"
+            />
           </PopUp>
         </main>
       </div>
