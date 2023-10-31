@@ -1,0 +1,89 @@
+{
+    "aboutUs": {
+      "title": "O nas",
+      "title2": "Dlaczego my",
+      "title3": "Nasza oferta",
+      "paragraph": "Jesteśmy nową firmą, która została niedawno założona z pasją do elektroniki. Nasza historia rozpoczęła się w 2023 roku, kiedy założyliśmy nasz pierwszy sklep internetowy z szerokim wyborem produktów elektronicznych. Od tamtej pory nieustannie się rozwijamy, dążąc do tego, aby stać się liderem w branży elektroniki. Łączymy naszą pasję z profesjonalizmem, aby lepiej zrozumieć i spełnić oczekiwania naszych klientów. Jesteśmy otwarci na sugestie i chętni do oferowania rozwiązań, które zapewnią 100% satysfakcji.",
+      "paragraph1": "Pasjonaci informatyki",
+      "paragraph2": "sklep internetowy",
+      "paragraph3": "produkty w ofercie",
+      "paragraph4": "stacjonarne salony",
+      "paragraph5": "Jesteśmy dumni, że jako nowa firma zdobywamy zaufanie naszych klientów. Nasza oferta obejmuje szeroki wybór elektroniki, który nieustannie poszerzamy o najnowsze produkty na rynku. Dążymy do tego, aby zapewnić naszym klientom najwyższą jakość, konkurencyjne ceny i doskonałą obsługę. Jesteśmy przekonani, że nasza pasja do informatyki i elektroniki przekłada się na satysfakcję naszych klientów.",
+      "paragraph6": "Mimo naszego krótkiego stażu na rynku zdobywamy uznanie naszych klientów dzięki naszemu zaangażowaniu i oddaniu. Twoja satysfakcja jest naszym priorytetem. Chcemy, abyś czuł się pewnie podczas zakupów i był zadowolony z naszych produktów oraz obsługi. Jesteśmy otwarci na wszelkie pytania i sugestie. Skontaktuj się z nami telefonicznie, przez czat lub e-mail, jeśli potrzebujesz pomocy w wyborze odpowiednich produktów elektronicznych.",
+      "paragraph7": "Oferujemy szeroki wybór produktów elektronicznych, takich jak smartfony, laptopy, akcesoria elektroniczne i wiele innych. Nasza oferta jest regularnie aktualizowana o najnowsze modele i marki. Nieustannie pracujemy nad tym, aby zapewnić Ci najlepsze produkty w atrakcyjnych cenach. Zachęcamy do odwiedzenia naszego sklepu internetowego i sprawdzenia naszych aktualnych promocji oraz ofert specjalnych."
+    },
+    "shop": {},
+    "navbar": {
+      "link": "Sklep",
+      "link2": "Zaloguj się",
+      "link3": "Zarejestruj się",
+      "placeholder": "Szukaj produktu"
+    },
+    "login": {
+      "paragraph": "Zaloguj się",
+      "label": "Nazwa użytkownika",
+      "label2": "Hasło",
+      "button": "Zaloguj się",
+      "placeholder": "Nazwa użytkownika",
+      "placeholder2": "Hasło",
+      "anchor": "Zapomniałeś hasła?"
+    },
+    "registry": {
+      "paragraph": "Zarejestruj się",
+      "label": "Nazwa użytkownika",
+      "label2": "E-mail",
+      "label3": "Hasło",
+      "label4": "Potwierdź hasło",
+      "button": "Zarejestruj się",
+      "placeholder": "Wprowadź nazwę użytkownika",
+      "placeholder2": "Wprowadź swój adres e-mail",
+      "placeholder3": "Wprowadź hasło",
+      "placeholder4": "Potwierdź hasło",
+      "anchor": "Masz już konto?"
+    },
+    "cart": {
+      "title": "Twoje produkty w koszyku",
+      "paragraph": "Suma częściowa",
+      "title2": "Twój koszyk jest pusty",
+      "button": "Kontynuuj zakupy",
+      "button2": "Przejdź do kasy"
+    },
+    "FAQ": {
+      "title": "Najczęściej zadawane pytania i odpowiedzi",
+      "question": "Jak złożyć zamówienie?",
+      "question2": "Jak mogę sprawdzić status mojego zamówienia?",
+      "question3": "Czy oferujecie darmową dostawę?",
+      "question4": "Jak mogę zwrócić produkt?",
+      "question5": "Czy można zmienić adres dostawy po złożeniu zamówienia?",
+      "question6": "Ile czasu trwa dostawa?",
+      "question7": "Czy można śledzić przesyłkę?",
+      "question8": "Czy oferujecie gwarancję na produkty?",
+      "answer": "Aby złożyć zamówienie, przejdź do naszego katalogu produktów, wybierz interesujące Cię produkty, dodaj je do koszyka, a następnie przejdź do kasy i dokonaj płatności.",
+      "answer2": "Możesz sprawdzić status swojego zamówienia, logując się na swoje konto na naszej stronie i przechodząc do sekcji Historia Zamówień.",
+      "answer3": "Tak, oferujemy darmową dostawę dla zamówień powyżej 200 złotych.",
+      "answer4": "Aby zwrócić produkt, skontaktuj się z naszym działem obsługi klienta, a my przewodniczymy Ci przez proces zwrotu.",
+      "answer5": "Tak, możesz zmienić adres dostawy przed wysyłką zamówienia. Skontaktuj się z nami, aby dokonać zmian.",
+      "answer6": "Czas dostawy zależy od Twojej lokalizacji. W większości przypadków dostawa trwa od 2 do 5 dni roboczych.",
+      "answer7": "Tak, po wysłaniu zamówienia otrzymasz numer śledzenia, który możesz użyć do monitorowania statusu przesyłki.",
+      "answer8": "Tak, wszystkie nasze produkty są objęte gwarancją producenta. Więcej informacji na temat gwarancji znajdziesz w naszych Warunkach Gwarancji."
+    },
+    "newsletter": {
+      "title": "Subskrybuj nasz newsletter",
+      "paragraph": "Dziękujemy za subskrypcję naszego newslettera!",
+      "placeholder": "Twój adres e-mail",
+      "button": "Subskrybuj"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "paragraph": "Adres siedziby: Prószkowska 76, 45-758 Opole.",
+      "paragraph1": "Telefon: +12 345 678 910",
+      "paragraph2": "E-mail: kontakt@techwave.com",
+      "paragraph3": "Godziny otwarcia biura: Poniedziałek - Piątek: 9:00 - 18:00, Sobota:",
+      "paragraph4": "10:00 - 14:00",
+      "placeholder": "Imię",
+      "placeholder2": "E-mail",
+      "placeholder3": "Wiadomość",
+      "button": "Wyślij"
+    }
+  }
+  
