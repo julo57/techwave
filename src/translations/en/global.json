@@ -1,0 +1,108 @@
+{
+    "aboutUs":
+    {
+        "title": "About us",
+        "title2":"Why us",
+        "title3":"Our offer",
+        "paragraph": "We are a new company that was recently established with a passion for electronics. Our story began in 2023, when we founded our first online store with a wide selection of electronic products. Since then, we have been constantly developing, striving to become a leader in the electronics industry. We combine our passion with professionalism to better understand and meet the expectations of our clients. We are open to suggestions and happy to offer solutions that will ensure 100% satisfaction.",
+        "paragraph1": "IT enthusiasts",
+        "paragraph2": "online shop",
+        "paragraph3": "products on offer",
+        "paragraph4": "stationary showrooms",
+        "paragraph5": "We are proud that as a new company we gain the trust of our customers. Our offer includes a wide selection of electronics, which we constantly expand with the latest products on the market. We strive to provide our customers with the highest quality, competitive prices and excellent service. We are convinced that our passion for IT and electronics translates into the satisfaction of our customers.",
+        "paragraph6": "Despite our short experience on the market, we gain recognition among our customers thanks to our dedication and commitment. Your satisfaction is our priority. We want you to feel confident when shopping and be satisfied with our products and service. We are open to any questions and suggestions. Contact us by phone, chat or email if you need help choosing the right electronic products.",
+        "paragraph7": "We offer a wide selection of electronic products such as smartphones, laptops, electronic accessories and many others. Our offer is regularly updated with the latest models and brands. We constantly work to provide you with the best products at attractive prices. We encourage you to visit our online store and check our current promotions and special offers."
+
+    },
+    "shop":
+    {
+         
+        
+    },
+    "navbar":
+    {
+        "link":"Shop",
+        "link2":"Log in",
+        "link3":"Register",
+        "placeholder": "Search product"
+        
+    },
+    "login":
+    {
+        "paragraph": "Sign in",
+        "label": "username",
+        "label2": "password",
+        "button": "Sign in",
+        "placeholder": "Username",
+        "placeholder2": "Password",
+        "anchor":"Forgot Password?"
+    },
+    "registry":
+    {
+        "paragraph": "Register",
+        "label": "username",
+        "label2": "Email",
+        "label3": "password",
+        "label4": "Confirm password",
+        "button": "Register",
+        "placeholder": "Enter your username",
+        "placeholder2": "Enter your email",
+        "placeholder3": "Enter your password",
+        "placeholder4": "Password confirmation",
+        "anchor":"Already registered"
+    }
+    ,
+    "cart":
+    {
+        "title": "Your Cart Items",
+        "paragraph": "Subtotal",
+        "title2": "Your Shopping Cart is Empty",
+        "button": "Continue Shopping",
+        "button2": "Checkout"
+    }
+    ,
+    "FAQ":
+    {
+        "title": "Frequently asked questions and answers",
+        "question": "How to place an order?",
+        "question2": "How can I check the status of my order?",
+        "question3": "Do you offer free delivery?",
+        "question4": "How can I return a product?",
+        "question5": "Can I change the delivery address after placing the order?",
+        "question6": "How long does delivery take?",
+        "question7": "Can I track my shipment?",
+        "question8": "Do you offer a product warranty?",
+
+        "answer": "To place an order, go to our product catalog, select the products you are interested in, add them to the cart, then go to checkout and make the payment.",
+        "answer2": "You can check the status of your order by logging into your account on our website and going to the Order History section.",
+        "answer3": "Yes, we offer free delivery for orders over PLN 200",
+        "answer4": "To return your product, please contact our customer service team and we will guide you through the return process.",
+        "answer5": "Yes, you can change your delivery address before your order ships. Please contact us to make changes.",
+        "answer6": "Delivery time depends on your location. In most cases, delivery takes 2 to 5 business days.",
+        "answer7": "Yes, once your order is shipped you will receive a tracking number that you can use to monitor the status of your shipment.",
+        "answer8": "Yes, all our products are covered by the manufacturer's warranty. You can find more information about the warranty in our Warranty Terms and Conditions."
+
+    }
+    ,
+    "newsletter":
+    {
+        "title": "Subcribe our newsletter",
+        "paragraph":"Thank you for subscribing to our newsletter!",
+        "placeholder": " Your email address",
+        "button": "Subcribe"
+    },
+    "contact":
+    {
+        "title": "Contact",
+        "paragraph": " Headquarters address: Prószkowska 76, 45-758 Opole.",
+        "paragraph1": "Phone: +12 345 678 910",
+        "paragraph2": "Email: kontakt@techwave.com",
+        "paragraph3": "Office opening hours: Monday - Friday: 9:00 - 18:00, Saturday:",
+        "paragraph4": "10:00 - 14:00",
+        "placeholder": "name",
+        "placeholder2": "Email",
+        "placeholder3": "Message",
+        "button": "Send"
+        
+    }
+}

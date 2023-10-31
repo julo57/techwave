@@ -36,8 +36,10 @@
 
 import React, { useState } from "react";
 import "./NewsletterForm.css";
+import { useTranslation } from "react-i18next";
 
 export const NewsletterForm = () => {
+  const {t} = useTranslation("global");
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
@@ -50,19 +52,19 @@ export const NewsletterForm = () => {
 
   return (
     <div className="newsletter-form">
-      <h2 className="form-title">Subskrybuj nasz newsletter</h2>
+      <h2 className="form-title">{t("newsletter.title")}</h2>
       {subscribed ? (
-        <p className="success-message">Dziękujemy za subskrypcję naszego newslettera!</p>
+        <p className="success-message">{t("newsletter.paragraph")}</p>
       ) : (
         <form onSubmit={handleSubscribe}>
           <input
             type="email"
             className="input-field"
-            placeholder="Twój adres email"
+            placeholder={t("newsletter.placeholder")}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <button type="submit" className="subscribe-button">Subskrybuj</button>
+          <button type="submit" className="subscribe-button">{t("newsletter.button")}</button>
         </form>
       )}
     </div>

@@ -1,8 +1,9 @@
 
 import React, { useState } from "react";
 import "./contact.css";
-
+import { useTranslation } from "react-i18next";
 export const Contact = () => {
+  const {t} = useTranslation("global");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -46,15 +47,15 @@ export const Contact = () => {
 
   return (
     <div className="contact-container">
-      <h1>Kontakt</h1>
+      <h1>{t("contact.title")}</h1>
       <p>
-        Adres siedziby: Prószkowska 76, 45-758 Opole
+        {t("contact.paragraph")}  
         <br />
-        Telefon: +12 345 678 910
+        {t("contact.paragraph2")}
         <br />
-        Email: kontakt@techwave.com
+        {t("contact.paragraph3")}
       </p>
-      <p>Godziny otwarcia siedziby: Poniedziałek - Piątek: 9:00 - 18:00, Sobota: 10:00 - 14:00</p>
+      <p>{t("contact.paragraph4")}</p>
       <div className="map-container">
         {/* kod interaktywnej mapy Google */}
       </div>
@@ -63,7 +64,7 @@ export const Contact = () => {
         <input
             type="text"
             name="name"
-            placeholder="Imię"
+            placeholder={t("contact.placeholder")}
             value={formData.name}
             onChange={handleInputChange}
             required
@@ -71,19 +72,19 @@ export const Contact = () => {
           <input
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder={t("contact.placeholder2")}
             value={formData.email}
             onChange={handleInputChange}
             required
           />
           <textarea
             name="message"
-            placeholder="Wiadomość"
+            placeholder={t("contact.placeholder3")}
             value={formData.message}
             onChange={handleInputChange}
             required
           />
-          <button type="submit">Wyślij</button>
+          <button type="submit">{t("contact.button")}</button>
         </form>
       </div>
       <iframe

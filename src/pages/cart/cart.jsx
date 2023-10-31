@@ -3,19 +3,21 @@ import { ShopContext } from "../../context/shop-context";
 import { PRODUCTS } from "../../products";
 import { CartItem } from "./cart-item";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import "./cart.css";
 
 export const Cart = () => {
   const { cartItems, getTotalCartAmount, checkout } = useContext(ShopContext);
   const totalAmount = getTotalCartAmount();
+  const {t} = useTranslation("global");
 
   const navigate = useNavigate();
 
   return (
     <div className="cart p-4 md:p-8 flex flex-col items-center justify-center">
       <div className="mb-4">
-        <h1 className="text-2xl md:text-3xl text-center">Your Cart Items</h1>
+        <h1 className="text-2xl md:text-3xl text-center">{t("cart.title")}</h1>
       </div>
       <div className="cart">
         {PRODUCTS.map((product) => {
@@ -33,13 +35,13 @@ export const Cart = () => {
 
       {totalAmount > 0 ? (
         <div className="checkout mt-8 text-center">
-          <p className="text-lg md:text-xl">Subtotal: ${totalAmount}</p>
+          <p className="text-lg md:text-xl">{t("cart.paragraph")}: PLN {totalAmount}</p>
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 items-center justify-center">
             <button
               className="w-40 h-12 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300"
               onClick={() => navigate("/")}
             >
-              Continue Shopping
+              {t("cart.button")}
             </button>
             <button
               className="w-40 h-12 bg-green-500 text-white rounded hover:bg-green-600 transition duration-300"
@@ -48,12 +50,12 @@ export const Cart = () => {
                 navigate("/checkout");
               }}
             >
-              Checkout
+              {t("cart.button2")}
             </button>
           </div>
         </div>
       ) : (
-        <h1 className="text-lg md:text-xl mt-4 text-center">Your Shopping Cart is Empty</h1>
+        <h1 className="text-lg md:text-xl mt-4 text-center">{t("cart.title2")}</h1>
       )}
     </div>
   );
