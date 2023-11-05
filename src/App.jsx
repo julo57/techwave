@@ -14,10 +14,28 @@ import { AuthProvider } from "./context/AuthContext";
 import { NewsletterForm } from "./pages/NewsletterForm";
 import { Footer } from "./pages/Footer";
 import { AboutUs } from "./pages/AboutUs";
+import global_en from './translations/en/global.json';
+import global_pl from './translations/pl/global.json';
+import i18next from 'i18next';
+import { I18nextProvider } from 'react-i18next';
+import { Test } from "./pages/test";
+
 
 import Profile from "./components/Profile"; // Importuj komponent "Profile"
 
 export const ThemeContext = createContext();
+i18next.init({
+  interpolation: { escapeValue: false },
+  lng: 'en',
+  resources: {
+    en: {
+      global: global_en,
+    },
+    pl: {
+      global: global_pl,
+    },
+  },
+});
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -37,6 +55,7 @@ function App() {
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="App" id={theme}>
         <ShopContextProvider>
+        <I18nextProvider i18n={i18next}>
           <Router>
             <AuthProvider>
               <Navbar />
@@ -45,7 +64,7 @@ function App() {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
-                
+                <Route path="/test" element={<Test/>} />
                 <Route path="/profile" element={<Profile />} /> {/* Dodaj trasę do strony "Profil" */}
               </Routes>
               <Footer />
@@ -57,6 +76,7 @@ function App() {
               </Routes>
             </AuthProvider>
           </Router>
+          </I18nextProvider>
         </ShopContextProvider>
         <main>
           <PopUp trigger={timedPopup} setTrigger={setTimedPopup}>

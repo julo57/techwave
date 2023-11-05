@@ -1,40 +1,43 @@
 import React, { useState } from "react";
 import "./FAQ.css";
+import { useTranslation } from "react-i18next";
 
 export const FAQ = () => {
+  const { t } = useTranslation("global");
+
   const faqData = [
     {
-      question: "Jak złożyć zamówienie?",
-      answer: "Aby złożyć zamówienie, przejdź do naszego katalogu produktów, wybierz interesujące Cię produkty, dodaj je do koszyka, a następnie przejdź do kasy i dokonaj płatności.",
+      question: t("FAQ.question"), // Updated translation key
+      answer: t("FAQ.answer"),
     },
     {
-      question: "Jak mogę sprawdzić status mojego zamówienia?",
-      answer: "Możesz sprawdzić status swojego zamówienia, logując się na swoje konto na naszej stronie i przechodząc do sekcji Historia Zamówień.",
+      question: t("FAQ.question2"), // Updated translation key
+      answer: t("FAQ.answer2"),
     },
     {
-      question: "Czy oferujecie darmową dostawę?",
-      answer: "Tak, oferujemy darmową dostawę dla zamówień powyżej 200 złotych.",
+      question: t("FAQ.question3"), // Updated translation key
+      answer: t("FAQ.answer3"),
     },
     {
-      question: "Jak mogę zwrócić produkt?",
-      answer: "Aby zwrócić produkt, skontaktuj się z naszym działem obsługi klienta, a my przewodniczymy Ci przez proces zwrotu.",
+      question: t("FAQ.question4"), // Updated translation key
+      answer: t("FAQ.answer4"),
     },
     {
-       question: "Czy można zmienić adres dostawy po złożeniu zamówienia?",
-       answer: "Tak, możesz zmienić adres dostawy przed wysyłką zamówienia. Skontaktuj się z nami, aby dokonać zmian.",
+      question: t("FAQ.question5"), // Updated translation key
+      answer: t("FAQ.answer5"),
     },
     {
-       question: "Ile czasu trwa dostawa?",
-       answer: "Czas dostawy zależy od Twojej lokalizacji. W większości przypadków dostawa trwa od 2 do 5 dni roboczych.",
+      question: t("FAQ.question6"), // Updated translation key
+      answer: t("FAQ.answer6"),
     },
     {
-       question: "Czy można śledzić przesyłkę?",
-       answer: "Tak, po wysłaniu zamówienia otrzymasz numer śledzenia, który możesz użyć do monitorowania statusu przesyłki.",
+      question: t("FAQ.question7"), // Updated translation key
+      answer: t("FAQ.answer7"),
     },
     {
-      question: "Czy oferujecie gwarancję na produkty?",
-      answer: "Tak, wszystkie nasze produkty są objęte gwarancją producenta. Więcej informacji na temat gwarancji znajdziesz w naszych Warunkach Gwarancji.",
-   },
+      question: t("FAQ.question8"), // Updated translation key
+      answer: t("FAQ.answer8"),
+    },
   ];
 
   const [activeIndex, setActiveIndex] = useState(null);
@@ -49,7 +52,7 @@ export const FAQ = () => {
 
   return (
     <div className="faq-container">
-      <h1>Najczęstsze pytania i odpowiedzi</h1>
+      <h1>{t("FAQ.title")}</h1> 
       {faqData.map((item, index) => (
         <div className="faq-item" key={index}>
           <div className="question" onClick={() => handleToggleAnswer(index)}>
@@ -64,3 +67,5 @@ export const FAQ = () => {
 };
 
 export default FAQ;
+
+

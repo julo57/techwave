@@ -7,25 +7,25 @@ import product5 from "./assets/products/5.png";
 export const PRODUCTS = [
   {
     id: 1,
-    productName: "IPhone",
+    productName: "Keyboard",
     price: 999.0,
     productImage: product1,
   },
   {
     id: 2,
-    productName: "Macbook Pro 2022 (M1)",
+    productName: "Clock",
     price: 1999.0,
     productImage: product2,
   },
   {
     id: 3,
-    productName: "Cannon M50 Camera",
+    productName: "MSI Laptop",
     price: 699.0,
     productImage: product3,
   },
   {
     id: 4,
-    productName: "huawei p20 lite",
+    productName: "Phone",
     price: 399.99,
     productImage: product4,
   },

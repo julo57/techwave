@@ -1,12 +1,19 @@
 #light form.bg-white{
-    background-color: white;
-  }
-  
-#dark form.bg-white{
-    background-color: purple;
-  }
+  background-color: white;
+}
 
-  #dark input.placeholder-black{
-    background-color: white;
-  }
-  
+#dark form.bg-white{
+  background-color: black;
+}
+
+#dark input.placeholder-black{
+  background-color: white;
+}
+
+#dark Link.text-black{
+  color: white;
+}
+
+#dark label.text-gray-700{
+  color: white;
+}

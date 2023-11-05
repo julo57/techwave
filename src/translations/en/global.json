@@ -16,8 +16,7 @@
     },
     "shop":
     {
-         
-        
+        "button":"Add To Cart"
     },
     "navbar":
     {
@@ -35,7 +34,9 @@
         "button": "Sign in",
         "placeholder": "Username",
         "placeholder2": "Password",
-        "anchor":"Forgot Password?"
+        "anchor":"Forgot Password?",
+        "anchor2": "Create one now!",
+        "div":"Don't have an account yet? "
     },
     "registry":
     {
@@ -49,7 +50,7 @@
         "placeholder2": "Enter your email",
         "placeholder3": "Enter your password",
         "placeholder4": "Password confirmation",
-        "anchor":"Already registered"
+        "link":" Already registered?"
     }
     ,
     "cart":
@@ -103,6 +104,22 @@
         "placeholder2": "Email",
         "placeholder3": "Message",
         "button": "Send"
+        
+    },
+    "foooter":
+    {
+        "link": "Contact",
+        "link2": "AboutUs"
+    },
+
+    "profile":
+    {
+        "title": "Hi",
+        "button": "Odrders",
+        "button2": "return",
+        "button3": "Opinions",
+        "button4": "account settings",
+        "button5": "Logout"
         
     }
 }

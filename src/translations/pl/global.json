@@ -12,7 +12,9 @@
       "paragraph6": "Mimo naszego krótkiego stażu na rynku zdobywamy uznanie naszych klientów dzięki naszemu zaangażowaniu i oddaniu. Twoja satysfakcja jest naszym priorytetem. Chcemy, abyś czuł się pewnie podczas zakupów i był zadowolony z naszych produktów oraz obsługi. Jesteśmy otwarci na wszelkie pytania i sugestie. Skontaktuj się z nami telefonicznie, przez czat lub e-mail, jeśli potrzebujesz pomocy w wyborze odpowiednich produktów elektronicznych.",
       "paragraph7": "Oferujemy szeroki wybór produktów elektronicznych, takich jak smartfony, laptopy, akcesoria elektroniczne i wiele innych. Nasza oferta jest regularnie aktualizowana o najnowsze modele i marki. Nieustannie pracujemy nad tym, aby zapewnić Ci najlepsze produkty w atrakcyjnych cenach. Zachęcamy do odwiedzenia naszego sklepu internetowego i sprawdzenia naszych aktualnych promocji oraz ofert specjalnych."
     },
-    "shop": {},
+    "shop": {
+      "button":"Dodaj do koszyka"
+    },
     "navbar": {
       "link": "Sklep",
       "link2": "Zaloguj się",
@@ -26,7 +28,9 @@
       "button": "Zaloguj się",
       "placeholder": "Nazwa użytkownika",
       "placeholder2": "Hasło",
-      "anchor": "Zapomniałeś hasła?"
+      "anchor": "Zapomniałeś hasła?",
+      "anchor2": "Zrób teraz!",
+      "div":"Nie masz jeszcze konta ?"
     },
     "registry": {
       "paragraph": "Zarejestruj się",
@@ -39,7 +43,7 @@
       "placeholder2": "Wprowadź swój adres e-mail",
       "placeholder3": "Wprowadź hasło",
       "placeholder4": "Potwierdź hasło",
-      "anchor": "Masz już konto?"
+      "link":" Masz już konto?"
     },
     "cart": {
       "title": "Twoje produkty w koszyku",
@@ -84,6 +88,21 @@
       "placeholder2": "E-mail",
       "placeholder3": "Wiadomość",
       "button": "Wyślij"
+    },
+
+    "foooter":
+    {
+        "link": "Kontakt",
+        "link2": "O nas"
+    },
+    "profile":
+    {
+        "title": "Cześć",
+        "button": "Zamówienia",
+        "button2": "Zwroty",
+        "button3": "Opinie",
+        "button4": "ustawienia konta",
+        "button5": "Wyloguj"   
     }
   }
   

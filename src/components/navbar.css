@@ -1,79 +1,91 @@
 /* Navbar.css */
 
   
-  .links a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  
-  .links a:hover {
-    color: blue;
-  }
-  
-  .search-container {
-    flex: 1;
-    display: flex;
-    align-items: center;
-  }
-  
-  /* Dostosuj szerokość pola wyszukiwania */
-  .search-container input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 400px; /* Dostosuj szerokość według potrzeb */
-    margin-right: 300px;
-  }
-  
-  /* Dostosuj marginesy dla elementów w prawej części Navbar */
-  .right-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  /* Dostosuj odstęp między elementami w prawej części Navbar */
-  .right-content > * {
-    margin-left: 10px;
-  }
-  
-  .user-icon-container {
-    position: relative;
-  }
-  
-  .user-icon {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    position: relative;
-  }
-  
-  .user-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    display: none;
-    z-index: 1;
-  }
-  
-  .user-icon:hover .user-menu {
-    display: block;
-  }
-  
-  .user-menu li {
-    list-style: none;
-    padding: 5px 0;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .user-menu li:hover {
-    background-color: #f0f0f0;
-  }
-  
+.links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.links a:hover {
+  color: blue;
+}
+
+.search-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Dostosuj szerokość pola wyszukiwania */
+
+
+/* Dostosuj marginesy dla elementów w prawej części Navbar */
+.right-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Dostosuj odstęp między elementami w prawej części Navbar */
+.right-content > * {
+  margin-left: 10px;
+}
+
+.user-icon-container {
+  position: relative;
+}
+
+.user-icon {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.user-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  display: none;
+  z-index: 1;
+}
+
+.user-icon:hover .user-menu {
+  display: block;
+}
+
+.user-menu li {
+  list-style: none;
+  padding: 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.user-menu li:hover {
+  background-color: #f0f0f0;
+}
+#flag{
+  width: 50px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.microphone{
+  margin-right: 300px;
+}
+.microphone:hover{
+  transform: scale(1.2, 1.2);
+}
+
+.search-container input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 400px; /* Dostosuj szerokość według potrzeb */
+}

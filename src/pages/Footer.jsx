@@ -1,9 +1,11 @@
 
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "./Footer.css";
 
 export const Footer = () => {
+  const {t} = useTranslation("global");
   const [scrollY, setScrollY] = useState(0);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768);
 
@@ -31,13 +33,13 @@ export const Footer = () => {
           FAQ
         </Link>
         <Link to="/contact" className="footer-link">
-          Contact
+          {t("foooter.link")}
         </Link>
         <Link to="/NewsletterForm" className="footer-link">
           Newsletter
         </Link>
         <Link to="/AboutUs" className="footer-link">
-          About Us
+        {t("foooter.link2")}
         </Link>
       </div>
       <p className="text-center text-gray-500 text-xs">
