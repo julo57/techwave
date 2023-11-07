@@ -30,6 +30,7 @@
       "placeholder2": "Hasło",
       "anchor": "Zapomniałeś hasła?",
       "anchor2": "Zrób teraz!",
+      "anchor3": "Pamiętasz hasło?",
       "div":"Nie masz jeszcze konta ?"
     },
     "registry": {
@@ -101,8 +102,26 @@
         "button": "Zamówienia",
         "button2": "Zwroty",
         "button3": "Opinie",
-        "button4": "ustawienia konta",
+        "button4": "Ustawienia konta",
         "button5": "Wyloguj"   
+    },
+    "forgot":
+    {
+      "paragraph": "Reset hasła",
+      "paragraph1": "Zapomniałeś hasła? Podaj nam swojego emaila",
+      "{status}": "Wysłaliśmy na twoją skrzynkę link do zresetowania hasła"
+    },
+    "reset":
+    {
+      "label": "Nowe hasło",
+      "placeholder": "Hasło",
+      "paragraph" : "Utwórz nowe hasło",
+      "label2" : "Potwierdź hasło",
+      "placeholder2": "Wpisz swoje hasło jeszcze raz.",
+      "button": "Zresetuj hasło",
+      "{status}": "Twoje hasło zostało zresetowane.",
+      "div": "Zaloguj się"
+
     }
   }
   

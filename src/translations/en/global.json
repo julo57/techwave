@@ -29,21 +29,22 @@
     "login":
     {
         "paragraph": "Sign in",
-        "label": "username",
-        "label2": "password",
+        "label": "Username",
+        "label2": "Password",
         "button": "Sign in",
         "placeholder": "Username",
         "placeholder2": "Password",
         "anchor":"Forgot Password?",
         "anchor2": "Create one now!",
+        "anchor3": "Remember your password?",
         "div":"Don't have an account yet? "
     },
     "registry":
     {
         "paragraph": "Register",
-        "label": "username",
+        "label": "Username",
         "label2": "Email",
-        "label3": "password",
+        "label3": "Password",
         "label4": "Confirm password",
         "button": "Register",
         "placeholder": "Enter your username",
@@ -115,11 +116,28 @@
     "profile":
     {
         "title": "Hi",
-        "button": "Odrders",
-        "button2": "return",
+        "button": "Orders",
+        "button2": "Return",
         "button3": "Opinions",
-        "button4": "account settings",
+        "button4": "Account settings",
         "button5": "Logout"
         
+    },
+    "forgot":
+    {
+      "paragraph": "Reset password",
+      "paragraph1": "Have you forgotten your password? Give us your email address",
+      "{status}": "We have sent a link to your email to reset your password"
+    },
+    "reset":
+    {
+      "label": "New password",
+      "placeholder": "Password",
+      "paragraph" : "Create new passoword",
+      "label2" : "Confirm your password",
+      "placeholder2": "Enter your password again",
+      "button": "Reset password",
+      "{status}": "Your password has been reset.",
+      "div": "Log in"
     }
 }

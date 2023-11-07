@@ -19,6 +19,8 @@ import global_pl from './translations/pl/global.json';
 import i18next from 'i18next';
 import { I18nextProvider } from 'react-i18next';
 import { Test } from "./pages/test";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword"; 
 
 
 import Profile from "./components/Profile"; // Importuj komponent "Profile"
@@ -66,6 +68,8 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/test" element={<Test/>} />
                 <Route path="/profile" element={<Profile />} /> {/* Dodaj trasę do strony "Profil" */}
+                <Route path="/forgot-password" element={<ForgotPassword/>} />
+                <Route path="/password-reset/:token" element={<ResetPassword/>} />
               </Routes>
               <Footer />
               <Routes>
