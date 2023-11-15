@@ -1,0 +1,175 @@
+.product-site {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.product-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin: 20px 0;
+  text-align: right; /* Wyrównanie tekstu do prawej */
+}
+
+.product-title-container { /* Zakładam, że masz taki kontener */
+  display: flex;
+  justify-content: center; /* Wyrównanie zawartości (np. tytułu) do prawej */
+  width: 100%; /* Zapewnia, że kontener rozciąga się na całą dostępną szerokość */
+}
+
+.product-content {
+  display: flex;
+  width: 100%;
+}
+
+.product-image-container {
+  width: 300px; /* Ustaw szerokość kontenera na obraz */
+  height: 300px; /* Ustaw wysokość kontenera na obraz */
+  display: flex; /* Użyj flexboxa do wyśrodkowania obrazu */
+  justify-content: center; /* Wyśrodkuj obraz w poziomie */
+  align-items: center; /* Wyśrodkuj obraz w pionie */
+  margin: 0 auto; /* Dodaj automatyczne marginesy z boków, aby wyśrodkować kontener */
+}
+
+.product-image {
+  max-width: 100%; /* Maksymalna szerokość obrazu to 100% kontenera */
+  max-height: 100%; /* Maksymalna wysokość obrazu to 100% kontenera */
+  object-fit: contain; /* Zachowaj proporcje obrazu bez jego przycinania */
+}
+
+
+.product-purchase-info {
+  display: flex;
+  width: 50%;
+  justify-content: space-between; /* Rozdziela specyfikacje i sekcję zakupu */
+}
+
+.product-specs {
+  height: 100%;
+  background-color: #eee;
+  width: 80%;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 20px;
+}
+.product-specs p {
+  margin: 30px 0;
+}
+.product-purchase-section {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.product-price {
+  font-size: 24px;
+  color: #d0011b;
+  margin: 10px 0;
+}
+
+.btn-add-to-cart {
+  background-color: rgb(0, 174, 43);
+  color: white;
+  border-radius: 20px;
+  border-color: black;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-add-to-cart:hover {
+  background-color: rgb(2, 102, 27);
+}
+
+.product-description {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 1px solid #eee;
+}
+
+.btn-add-to-cart:disabled {
+  background-color: #cccccc; /* Light grey to indicate it's disabled */
+  cursor: not-allowed;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full height of the viewport */
+}
+
+.spinner {
+  border: 2px solid #f3f3f3; /* Light grey background */
+  border-top: 2px solid #000000; /* Blue color */
+  border-radius: 50%;
+  width: 200px; /* Size of the spinner */
+  height: 200px; /* Size of the spinner */
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.reviews-section {
+  text-align: left; /* Wyrównanie zawartości sekcji do lewej */
+  margin-top: 20px; /* Dodaj margines u góry dla oddzielenia sekcji */
+}
+
+.average-rating {
+  display: flex; /* Użycie flexbox do organizacji tekstu oceny i gwiazdek */
+  align-items: center; /* Centrowanie elementów w pionie */
+  justify-content: flex-start; /* Wyrównanie gwiazdek do lewej strony */
+}
+
+.rating-stars {
+  font-size: 50px; /* Zwiększa rozmiar gwiazdek */
+  color: #cccccc; /* Kolor pustych gwiazdek */
+  /* Usuwamy właściwości display i justify-content stąd */
+}
+
+.rating-stars .full-star {
+  color: #ffcc00; /* Żółty kolor dla pełnych gwiazdek */
+}
+
+.rating-value {
+  font-size: 32px; /* Zwiększa rozmiar tekstu oceny */
+  font-weight: bold; /* Pogrubienie tekstu */
+  margin-right: 8px; /* Odstęp od gwiazdek */
+}
+
+/* Styl dla pół przezroczystych gwiazdek, jeśli są używane */
+.rating-stars .half-star::before {
+  content: "\f089"; /* Kod dla pół gwiazdki */
+  position: absolute;
+  color: #ffcc00; /* Żółty kolor dla pełnych gwiazdek */
+  width: 50%;
+  overflow: hidden;
+}
+
+.review {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-author {
+  font-weight: bold;
+}
+
+.review-content {
+  margin-top: 10px;
+}

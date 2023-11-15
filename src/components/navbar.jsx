@@ -57,6 +57,12 @@ export const Navbar = ({ toggleTheme, theme }) => {
           </Link>
         </div>
 
+        <div className="md:flex md:items-center space-x-8">
+          <Link to="/ProductSite" className="text-white hover:text-blue-500">
+            {t("ProductSite")}
+          </Link>
+        </div>
+
         <div className="md:hidden">
           <button
             className="text-white"

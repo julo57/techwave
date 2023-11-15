@@ -24,6 +24,7 @@ import ResetPassword from "./pages/ResetPassword";
 
 
 import Profile from "./components/Profile"; // Importuj komponent "Profile"
+import ProductSite from "./pages/shop/ProductSite";
 
 export const ThemeContext = createContext();
 i18next.init({
@@ -63,6 +64,7 @@ function App() {
               <Navbar />
               <Routes>
                 <Route path="/" element={<Shop />} />
+                <Route path="/ProductSite" element={<ProductSite/>} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
@@ -76,7 +78,7 @@ function App() {
                 <Route path="/FAQ" element={<FAQ />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/NewsletterForm" element={<NewsletterForm />} />
-                <Route path="/AboutUs" element={<AboutUs />} />
+                <Route path="/AboutUs" element={<AboutUs/>} />
               </Routes>
             </AuthProvider>
           </Router>
