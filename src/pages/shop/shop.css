@@ -1,5 +1,14 @@
 
-  .product img {
+.product {
+  border: 1px solid #ccc; /* Dodaj ramkę wokół każdego produktu */
+  border-radius: 25px;
+  padding: 10px;
+  text-align: center;
+  transition: 0.3s ease-in;
+  cursor: pointer;
+  
+}
+.product img {
     width: 400px;
   }
   

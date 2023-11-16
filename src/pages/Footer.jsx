@@ -41,6 +41,12 @@ export const Footer = () => {
         <Link to="/AboutUs" className="footer-link">
         {t("foooter.link2")}
         </Link>
+        <Link to="/PrivacyPolicy" className="footer-link">
+          Polityka Prywatności
+        </Link>
+        <Link to="/Statute" className="footer-link">
+          Regulamin
+        </Link>
       </div>
       <p className="text-center text-gray-500 text-xs">
         &copy;2023 TechWave. All rights reserved.

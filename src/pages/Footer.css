@@ -46,7 +46,7 @@
  */
 
  
-.footer-container {
+/* .footer-container {
     position: fixed;
     bottom: 0;
     background-color: rgb(17 24 39);
@@ -79,8 +79,7 @@
     text-decoration: underline;
   }
   
-  
-  /* Responsywność */
+ 
   @media (max-width: 768px) {
     .footer-links {
       flex-direction: column;
@@ -91,5 +90,71 @@
       margin: 10px 0;
       font-size: 14px;
     }
+  } */
+  
+
+
+  body {
+    margin-bottom: 70px; /* Dodaj margin-bottom zamiast padding-bottom */
   }
+  
+  .footer-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(17, 24, 39);
+    color: white;
+    width: 100%;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 999; /* Zadba o to, żeby stopka była zawsze na wierzchu */
+    display: flex;
+    flex-wrap: wrap; /* Ta linia dodaje obsługę zawijania elementów do nowego wiersza */
+    justify-content: center;
+    flex-direction: column; /* Dodane, aby elementy były ustawione w kolumnie */
+  }
+  
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap; /* Ta linia dodaje obsługę zawijania elementów do nowego wiersza */
+    justify-content: center; /* Centruje elementy stopki */
+  }
+  
+  
+  .footer-link {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 16px;
+    display: flex;
+    flex-wrap: wrap; /* Ta linia dodaje obsługę zawijania elementów do nowego wiersza */
+    justify-content: center;
+  }
+  
+  .footer-link:hover {
+    text-decoration: underline;
+  }
+  
+  .text-gray-500 {
+    color: #555; /* Zmiana koloru tekstu na szary */
+  }
+  
+  .text-xs {
+    font-size: 12px; /* Zmiana rozmiaru tekstu na mniejszy */
+  }
+  
+  
+    .footer-container {
+      position: fixed;
+      transform: translateY(0);
+      bottom: 0;
+    }
+  
+    .footer-copyright {
+      margin-top: auto; /* Automatyczny margines górny ustawiony na "auto" umieści element na dole kontenera */
+    }
+  
   

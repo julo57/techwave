@@ -3,7 +3,7 @@
       "title": "O nas",
       "title2": "Dlaczego my",
       "title3": "Nasza oferta",
-      "paragraph": "Jesteśmy nową firmą, która została niedawno założona z pasją do elektroniki. Nasza historia rozpoczęła się w 2023 roku, kiedy założyliśmy nasz pierwszy sklep internetowy z szerokim wyborem produktów elektronicznych. Od tamtej pory nieustannie się rozwijamy, dążąc do tego, aby stać się liderem w branży elektroniki. Łączymy naszą pasję z profesjonalizmem, aby lepiej zrozumieć i spełnić oczekiwania naszych klientów. Jesteśmy otwarci na sugestie i chętni do oferowania rozwiązań, które zapewnią 100% satysfakcji.",
+      "paragraph": "Jesteśmy nową firmą, która została niedawno założona z pasją do elektroniki i informatyki. Nasza historia rozpoczęła się w 2023 roku, kiedy założyliśmy nasz pierwszy sklep internetowy z szerokim wyborem produktów elektronicznych. Od tamtej pory nieustannie się rozwijamy, dążąc do tego, aby stać się liderem w branży elektroniki. Łączymy naszą pasję z profesjonalizmem, aby lepiej zrozumieć i spełnić oczekiwania naszych klientów. Jesteśmy otwarci na sugestie i chętni do oferowania rozwiązań, które zapewnią 100% satysfakcji.",
       "paragraph1": "Pasjonaci informatyki",
       "paragraph2": "sklep internetowy",
       "paragraph3": "produkty w ofercie",
@@ -122,6 +122,42 @@
       "{status}": "Twoje hasło zostało zresetowane.",
       "div": "Zaloguj się"
 
+    },
+    "privacyPolicy": {
+          "title": "Polityka Prywatności",
+          "section1Title": "1. Administrator Danych",
+          "section1Paragraph": "Administratorem danych osobowych zawartych w serwisie jest TechWave Sp. z o.o. z siedzibą w [Adres Firmy], zarejestrowaną w Rejestrze Przedsiębiorców pod numerem [Numer Rejestrowy], NIP: [Numer NIP], REGON: [Numer REGON].",
+          "section2Title": "2. Cele przetwarzania danych",
+          "section2Paragraph": "Dane osobowe Użytkowników przetwarzane będą w celu realizacji zamówień, obsługi konta Użytkownika, udzielenia odpowiedzi na zapytania skierowane za pośrednictwem formularza kontaktowego, a także w celach marketingowych, jeśli Użytkownik wyrazi na to zgodę.",
+          "section3Title": "3. Podanie danych osobowych",
+          "section3Paragraph": "Podanie danych osobowych jest dobrowolne, lecz niezbędne do korzystania z niektórych funkcji serwisu, takich jak składanie zamówień czy kontakt poprzez formularz.",
+          "section4Title": "4. Cookies",
+          "section4Paragraph": "Nasza strona korzysta z plików cookies. Są to niewielkie pliki tekstowe wysyłane przez serwer internetowy i przechowywane przez przeglądarkę internetową Użytkownika. Pliki te zawierają informacje niezbędne do prawidłowego funkcjonowania strony, a także umożliwiają analizę ruchu na stronie.",
+          "section5Title": "5. Zmiany w Polityce Prywatności",
+          "section5Paragraph": "Zastrzegamy sobie prawo do wprowadzania zmian w Polityce Prywatności. Wszelkie zmiany zostaną opublikowane na tej stronie.",
+          "section6Title": "6. Bezpieczeństwo danych",
+          "section6Paragraph": "TechWave dokłada wszelkich starań, aby zapewnić bezpieczeństwo przetwarzanych danych osobowych. Wdrożyliśmy odpowiednie środki techniczne i organizacyjne, aby chronić dane osobowe przed nieuprawnionym dostępem, utratą, zmianą czy zniszczeniem.",
+          "section7Title": "7. Kontakt",
+          "section7Paragraph": "W przypadku pytań dotyczących Polityki Prywatności lub przetwarzania danych osobowych Użytkownik może skontaktować się z nami pod adresem [adres email] lub telefonicznie pod numerem [numer telefonu]."
+        }, 
+    "statute": {
+      "title": "Regulamin Sklepu Internetowego TechWave",
+      "section1Title": "1. Postanowienia Ogólne",
+      "section1Content": "1.1. Sklep internetowy TechWave prowadzony jest przez TechWave Sp. z o.o. z siedzibą w [Adres Firmy], zarejestrowaną w Rejestrze Przedsiębiorców pod numerem [Numer Rejestrowy], NIP: [Numer NIP], REGON: [Numer REGON].\n\n1.2. Niniejszy regulamin określa zasady zakupów dokonywanych za pośrednictwem sklepu internetowego TechWave, dostępne pod adresem www.techwave.pl.",
+      "section2Title": "2. Zamówienia i Płatności",
+      "section2Content": "2.1. Zamówienia można składać za pośrednictwem sklepu internetowego 24 godziny na dobę, 7 dni w tygodniu.\n\n2.2. Do realizacji zamówienia niezbędne są prawidłowo wypełnione dane osobowe oraz adresowe. Klient ma możliwość wyboru formy płatności spośród dostępnych w sklepie.",
+      "section3Title": "3. Dostawa",
+      "section3Content": "3.1. Zamówienia są wysyłane kurierem lub pocztą polską na adres podany przez Klienta podczas składania zamówienia.\n\n3.2. Koszty dostawy są określone podczas składania zamówienia i są zależne od wybranej formy dostawy oraz miejscowości dostawy.",
+      "section4Title": "4. Reklamacje i Zwroty",
+      "section4Content": "4.1. Klient ma prawo do reklamacji w przypadku otrzymania produktu uszkodzonego lub niezgodnego z zamówieniem. Reklamację należy zgłosić w ciągu 14 dni od otrzymania towaru.\n\n4.2. Zwrot produktu jest możliwy w ciągu 14 dni od daty otrzymania towaru. Produkt musi być w stanie nienaruszonym, w oryginalnym opakowaniu.",
+      "section5Title": "5. Ochrona Danych Osobowych",
+      "section5Content": "5.1. Podczas składania zamówienia Klient podaje swoje dane osobowe, które są niezbędne do realizacji zamówienia. Dane te są poufne i nie są udostępniane osobom trzecim.",
+      "section6Title": "6. Prawa i Obowiązki Klienta",
+      "section6Content": "6.1. Klient ma obowiązek zapoznać się z treścią regulaminu przed złożeniem zamówienia.\n\n6.2. Klient zobowiązuje się do podawania prawdziwych danych podczas składania zamówienia.\n\n6.3. Klient ma prawo do odstąpienia od umowy w terminie 14 dni od otrzymania towaru.",
+      "section7Title": "7. Postępowanie Reklamacyjne",
+      "section7Content": "7.1. Reklamacje można składać drogą mailową na adres [adres email] lub telefonicznie pod numerem [numer telefonu].\n\n7.2. Sklep zobowiązuje się do rozpatrzenia reklamacji w terminie 14 dni od daty jej otrzymania.",
+      "section8Title": "8. Odpowiedzialność",
+      "section8Content": "8.1. Sklep nie ponosi odpowiedzialności za szkody wynikłe z niewłaściwego użytkowania zakupionego towaru.\n\n8.2. W przypadku wad fizycznych towaru, Sklep ponosi odpowiedzialność na zasadach określonych w przepisach Kodeksu Cywilnego."
     }
   }
   
