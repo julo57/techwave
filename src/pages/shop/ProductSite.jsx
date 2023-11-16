@@ -7,41 +7,50 @@ import { ShopContext } from '../../context/shop-context';
 import RatingStars from './RatingStars';
 import './ProductSite.css';
 
+
 function ProductSite() {
-  const { productId } = useParams();
+  const productId = '1'; 
+  //const { productId } = useParams();
+  console.log('ProductId:', productId);
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [ratings, setRatings] = useState(null); // Dodano stan dla ocen
-  const [reviews, setReviews] = useState(null); // Dodano stan dla recenzji
   const { addToCart } = useContext(ShopContext);
-  const [comments, setComments] = useState([]);
-
+  const [rating, setRating] = useState(0);
+  const [comments, setComments] = useState([]); // Poprawka na pustą tablicę
+  const [comment, setComment] = useState('');
+  const [commentsList, setCommentsList] = useState([]);
+  
   useEffect(() => {
     axios.get(`http://localhost:8000/api/products/${productId}`)
       .then(response => {
         setProduct(response.data);
-        setRatings(response.data.ratings);
-        fetchComments(); // Wywołaj funkcję do pobierania komentarzy
+        setCommentsList(response.data.comments || []); // Ustawienie listy komentarzy
       })
       .catch(error => {
         console.error("Error fetching product:", error);
       });
   }, [productId]);
   
-  const fetchComments = async () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!productId) {
+      console.error("ProductId is undefined");
+      return;
+    }
+
     try {
-      const response = await axios.get(`/api/products/${productId}/comments`);
-      setComments(response.data); // Ustaw pobrane komentarze
+      const response = await axios.post(`http://localhost:8000/api/products/${productId}/comments`, {
+        rating,
+        content: comment,
+      });
+      setComments([...comments, response.data]); // Dodanie nowego komentarza do stanu
+      setRating(0);
+      setComment(''); // Resetowanie pola komentarza
     } catch (error) {
-      console.error("Error fetching comments:", error);
+      console.error("Error submitting comment:", error);
     }
   };
-  
-  const handleSubmitComment = async (event) => {
-    event.preventDefault();
-    // Logika dodawania komentarza
-  };
-
 
   if (!product) {
     return (
@@ -95,31 +104,50 @@ function ProductSite() {
 
       {product && (
         <>
-          {/* ... */}
           <div className="reviews-section">
             <h3>Oceny i recenzje</h3>
             <div className="average-rating">
               <RatingStars rating={product.rating} outOf={6} />
             </div>
-            {/* ... reszta sekcji z recenzjami ... */}
-
-            // Wewnątrz JSX ProductSite
 
             <div className="comments-section">
-              {comments && comments.map(comment => (
+              {commentsList.map(comment => (
                 <div key={comment.id} className="comment">
-                  <p>{comment.content}</p>
+                  <div className="comment-content">
+                    <div className="comment-author">{comment.author}</div>
+                    <div className="comment-text">{comment.content}</div>
+                  </div>
                 </div>
               ))}
             </div>
 
-
+            {/* <form onSubmit={handleSubmit}>
+              <div>
+                <label htmlFor="rating">Ocena:</label>
+                <input
+                  id="rating"
+                  type="number"
+                  value={rating}
+                  onChange={(e) => setRating(Number(e.target.value))}
+                  min="0"
+                  max="6"
+                />
+              </div>
+              <div>
+                <label htmlFor="comment">Komentarz:</label>
+                <textarea
+                  id="comment"
+                  value={comment} // Upewnij się, że to jest 'comment', a nie 'comments'
+                  onChange={(e) => setComment(e.target.value)}
+                />
+              </div>
+              <button type="submit">Wyślij ocenę i komentarz</button>
+            </form> */}
           </div>
         </>
       )}
     </div>
   );
 }
-
 
 export default ProductSite;

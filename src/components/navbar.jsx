@@ -74,12 +74,14 @@ export const Navbar = ({ toggleTheme, theme }) => {
 
         <div className={`md:flex items-center space-x-6  ${isMobileMenuOpen ? '' : 'hidden'}`}>
           <div className="search-container">
-            <input
-              type="text"
-              value={transcript}
-              placeholder={t("navbar.placeholder")}
-              className="p-2 border rounded-lg"
-            />
+          <input
+          type="text"
+          value={transcript}
+          placeholder={t("navbar.placeholder")}
+          className="p-2 border rounded-lg"
+          readOnly // Dodanie tego atrybutu
+        />
+
             
           </div>
 
