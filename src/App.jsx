@@ -14,6 +14,8 @@ import { AuthProvider } from "./context/AuthContext";
 import { NewsletterForm } from "./pages/NewsletterForm";
 import { Footer } from "./pages/Footer";
 import { AboutUs } from "./pages/AboutUs";
+import { ComparationSite } from "./pages/ComparationSite";
+import { ProductFilterPage } from "./pages/ProductFilterPage";
 import global_en from './translations/en/global.json';
 import global_pl from './translations/pl/global.json';
 import i18next from 'i18next';
@@ -21,8 +23,7 @@ import { I18nextProvider } from 'react-i18next';
 import { Test } from "./pages/test";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword"; 
-import { PrivacyPolicy } from "./pages/PrivacyPolicy";
-import {Statute } from "./pages/Statute";
+
 
 import Profile from "./components/Profile"; // Importuj komponent "Profile"
 import ProductSite from "./pages/shop/ProductSite";
@@ -52,51 +53,51 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setTimedPopup(true);
-    }, 1000);
+    }, 3000); // Changed from 1000 to 3000 to delay the popup a bit more
   }, []);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className="App" id={theme}>
+      <I18nextProvider i18n={i18next}>
         <ShopContextProvider>
-        <I18nextProvider i18n={i18next}>
-          <Router>
-            <AuthProvider>
-              <Navbar />
-              <Routes>
-                <Route path="/" element={<Shop />} />
-                <Route path="/ProductSite" element={<ProductSite/>} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/test" element={<Test/>} />
-                <Route path="/profile" element={<Profile />} /> {/* Dodaj trasę do strony "Profil" */}
-                <Route path="/forgot-password" element={<ForgotPassword/>} />
-                <Route path="/password-reset/:token" element={<ResetPassword/>} />
-              </Routes>
-              <Footer />
-              <Routes>
-                <Route path="/FAQ" element={<FAQ />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/NewsletterForm" element={<NewsletterForm />} />
-                <Route path="/AboutUs" element={<AboutUs/>} />
-                <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
-                <Route path="/Statute" element={<Statute />} />
-              </Routes>
-            </AuthProvider>
-          </Router>
-          </I18nextProvider>
+          <div className="App" id={theme}>
+            <Router>
+              <AuthProvider>
+                <Navbar />
+                <Routes>
+                  <Route path="/" element={<Shop />} />
+                  <Route path="/ProductSite/:productId" element={<ProductSite />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/test" element={<Test />} />
+                  <Route path="/profile" element={<Profile />} />
+                  <Route path="/forgot-password" element={<ForgotPassword />} />
+                  <Route path="/password-reset/:token" element={<ResetPassword />} />
+                  <Route path="/FAQ" element={<FAQ />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/NewsletterForm" element={<NewsletterForm />} />
+                  <Route path="/AboutUs" element={<AboutUs />} />
+                  <Route path="/ComparationSite" element={<ComparationSite />} />
+                  <Route path="/ProductFilterPage" element={<ProductFilterPage />} />
+
+                  {/* Additional routes if any */}
+                </Routes>
+                <Footer />
+              </AuthProvider>
+            </Router>
+            <main>
+              <PopUp trigger={timedPopup} setTrigger={setTimedPopup}>
+                <h1>Noworoczne Promocje!!!</h1>
+                <img
+                  src="https://www.easypromosapp.com/blog/wp-content/uploads/xxss-new-years-eve-promotions-and-giveaways.jpg"
+                  alt="Noworoczne Promocje"
+                />
+              </PopUp>
+            </main>
+          </div>
         </ShopContextProvider>
-        <main>
-          <PopUp trigger={timedPopup} setTrigger={setTimedPopup}>
-            <h1>Noworoczne Promocje!!!</h1>
-            <img
-              src="https://www.easypromosapp.com/blog/wp-content/uploads/xxss-new-years-eve-promotions-and-giveaways.jpg"
-              alt="Noworoczne Promocje"
-            />
-          </PopUp>
-        </main>
-      </div>
+      </I18nextProvider>
     </ThemeContext.Provider>
   );
 }

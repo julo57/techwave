@@ -11,8 +11,8 @@ import useAuthContext from "../../context/AuthContext";
 
 
 function ProductSite() {
-  const productId = '1'; 
-  //const { productId } = useParams();
+ // const productId = '1'; 
+  const { productId } = useParams();
   console.log('ProductId:', productId);
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(false);

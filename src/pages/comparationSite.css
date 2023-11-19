@@ -1,0 +1,17 @@
+.product-details-table {
+  width: 100%;
+  border-collapse: collapse; /* Collapse the border */
+}
+
+.product-details-table th,
+.product-details-table td {
+  border: 1px solid #ddd; /* Add border to table header and table data cells */
+  padding: 8px;
+  text-align: left;
+}
+
+/* If you have specific styles for .highlight, make sure to include them */
+.highlight {
+  background-color: #ffdddd; /* Light red background for highlighting */
+  /* Add other styles for highlighting if needed */
+}

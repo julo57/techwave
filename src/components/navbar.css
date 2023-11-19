@@ -83,9 +83,84 @@
   transform: scale(1.2, 1.2);
 }
 
-.search-container input {
+
+#light .w-full input {
+  color : black;
+  background-color: white;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   width: 400px; /* Dostosuj szerokość według potrzeb */
+}
+
+#dark .w-full input {
+  color : white;
+  background-color: black;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  
+  width: 94%; /* Dostosuj szerokość według potrzeb */
+}
+.dropdown-list {
+  position: absolute;
+  background-color: white;
+  width: 400px;;
+  border: 1px solid #ddd;
+  z-index: 100; /* Upewnij się, że lista jest na wierzchu */
+  max-height: 300px; /* Opcjonalnie ogranicz wysokość */
+  overflow-y: auto; /* Opcjonalnie dodaj pasek przewijania */
+  
+}
+
+#dark  .dropdown-list li {
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
+#dark  .dropdown-list li:hover {
+  color: blue;
+  cursor: pointer;
+}
+#light  .dropdown-list li:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+
+
+#light .ok {
+  background-color: white;
+  color: black;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#light .ok:hover {
+  background-color: blue;
+  color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#dark .ok {
+  background-color: black;
+  color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#dark .ok:hover {
+  background-color: blue;
+  color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
 }

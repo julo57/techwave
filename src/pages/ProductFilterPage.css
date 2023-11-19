@@ -1,0 +1,75 @@
+/* Main layout styles */
+.product-filter-page {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Sidebar styles */
+  .filter-sidebar {
+    flex-basis: 250px;
+    padding-right: 20px;
+    border-right: 1px solid #ddd;
+  }
+  
+  .filter-sidebar h2 {
+    margin-bottom: 15px;
+  }
+  
+  .filter-sidebar h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  /* Filter input styles */
+  .filter-sidebar input[type="number"],
+  .filter-sidebar input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  /* Product list styles */
+  .product-list {
+    flex-grow: 1;
+    padding-left: 20px;
+  }
+  
+  .product-list h2 {
+    margin-bottom: 15px;
+  }
+  
+  /* Individual product item styles */
+  .product-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .product-item h3 {
+    margin: 0 0 10px 0;
+  }
+  
+  /* Additional styles */
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  button {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* You may need to adjust the styles to match exactly with your design */
+  
