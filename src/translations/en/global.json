@@ -175,5 +175,30 @@
         "section7Content": "7.1. Complaints can be submitted by email to [email address] or by phone at [phone number].\n\n7.2. The store undertakes to consider complaints within 14 days of receiving them.",
         "section8Title": "8. Liability",
         "section8Content": "8.1. The store is not responsible for damages resulting from improper use of the purchased goods.\n\n8.2. In the case of physical defects in the goods, the store is liable in accordance with the principles specified in the Civil Code."
+    },
+    "comparation":
+    {
+        "Name": "Name",
+        "Screen": "Screen",
+        "Processor": "Processor",
+        "RAM": "RAM",
+        "Storage": "Storage",
+        "Price": "Price",
+
+        "placeholder": "Search Product ",
+        "placeholder2": "Search Product ",
+        "button": "Search"
+        
+    },
+    "filter":
+    {
+        "Pricelow": "Sort by Price (Low to High)",
+        "Pricehigh": "Sort by Price (High to Low)",
+        "RAMlow": "Sort by RAM (Low to High)",
+        "RAMhigh": "Sort by RAM (High to Low)",
+        "Storagehigh": "Sort by Storage (High to Low)",
+        "Storagelow": "Sort by Storage (Low to High)",
+        "filtr" : "Filter"
     }
+
 }

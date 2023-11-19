@@ -91,15 +91,13 @@ export const Navbar = ({ toggleTheme, theme }) => {
           <img src="/logo.png" alt="logo" className="h-12" />
         </Link>
         <div>
-        <Link to="/ComparationSite"> Comparsion site</Link>
+        <Link className="Bialy" to="/ComparationSite"> Comparsion site</Link>
        
         </div>
-        <div> <Link to="/ProductFilterPage"> Product Filter Page</Link></div>
+        <div> <Link className="Bialy" to="/ProductFilterPage"> Product Filter Page</Link></div>
         
         <div className="flex items-center space-x-8">
-          <Link to="/ProductSite" className="text-white hover:text-blue-500">
-            {t("ProductSite")}
-          </Link>
+          
           <ThemeSwitchButton toggleTheme={toggleTheme} theme={theme} />
           {user ? (
             <Link to="/profile">

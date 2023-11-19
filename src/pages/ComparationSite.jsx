@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import "./comparationSite.css";
+import { useTranslation } from "react-i18next";
 
 export const ComparationSite = () => {
+  const { t } = useTranslation("global");
   // States for the left side
   const [searchTermLeft, setSearchTermLeft] = useState("");
   const [productLeft, setProductLeft] = useState(null);
@@ -48,29 +50,30 @@ export const ComparationSite = () => {
       <table className="product-details-table">
         <tbody>
           <tr>
-            <td>Name:</td>
+            <td>{t("comparation.Name")}:</td>
             <td>{product.name}</td>
           </tr>
           <tr>
-            <td>Screen:</td>
+            <td>{t("comparation.Screen")}:</td>
             <td>{product.Screen}</td>
           </tr>
           <tr>
-            <td>Processor:</td>
+            <td>{t("comparation.Processor")}:</td>
             <td>{product.Processor}</td>
           </tr>
           <tr>
-            <td>RAM:</td>
+            <td>{t("comparation.RAM")}:</td>
             <td>{product.RAM}</td>
           </tr>
           <tr>
-            <td>Storage:</td>
-            <td>{product.GB}</td>
+            <td>{t("comparation.Storage")}:</td>
+            <td>{product.storage}</td>
           </tr>
           <tr>
-            <td>Price:</td>
+            <td>{t("comparation.Price")}:</td>
             <td>{product.price}</td>
           </tr>
+         
           {/* Add more product details here */}
         </tbody>
       </table>
@@ -82,13 +85,14 @@ export const ComparationSite = () => {
       {/* Left Column */}
       <div style={{ flex: 1, padding: '10px' }}>
         <input
+          className="Czarny"
           type="text"
           value={searchTermLeft}
-          placeholder="Search Product (Left)"
+          placeholder={t("comparation.placeholder")}
           onChange={(e) => setSearchTermLeft(e.target.value)}
         />
-        <button onClick={() => fetchProductDetails(searchTermLeft, setSearchResultsLeft, setIsLoadingLeft, setErrorLeft)}>
-          Search Left
+        <button className="filter" onClick={() => fetchProductDetails(searchTermLeft, setSearchResultsLeft, setIsLoadingLeft, setErrorLeft)}>
+          {t("comparation.button")}
         </button>
         {isLoadingLeft && <p>Loading...</p>}
         {errorLeft && <p>{errorLeft}</p>}
@@ -103,13 +107,14 @@ export const ComparationSite = () => {
       {/* Right Column */}
       <div style={{ flex: 1, padding: '10px' }}>
         <input
+          className="Czarny"
           type="text"
           value={searchTermRight}
-          placeholder="Search Product (Right)"
+          placeholder={t("comparation.placeholder")}
           onChange={(e) => setSearchTermRight(e.target.value)}
         />
-        <button onClick={() => fetchProductDetails(searchTermRight, setSearchResultsRight, setIsLoadingRight, setErrorRight)}>
-          Search Right
+        <button className="filter" onClick={() => fetchProductDetails(searchTermRight, setSearchResultsRight, setIsLoadingRight, setErrorRight)}>
+        {t("comparation.button")}
         </button>
         {isLoadingRight && <p>Loading...</p>}
         {errorRight && <p>{errorRight}</p>}

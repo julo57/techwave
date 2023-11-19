@@ -100,7 +100,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   
-  width: 94%; /* Dostosuj szerokość według potrzeb */
+  width: 400px; /* Dostosuj szerokość według potrzeb */
 }
 .dropdown-list {
   position: absolute;
@@ -163,4 +163,7 @@
   border-radius: 5px;
   padding: 10px;
   cursor: pointer;
+}
+.Bialy{
+  color: white;
 }

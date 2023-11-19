@@ -158,6 +158,28 @@
       "section7Content": "7.1. Reklamacje można składać drogą mailową na adres [adres email] lub telefonicznie pod numerem [numer telefonu].\n\n7.2. Sklep zobowiązuje się do rozpatrzenia reklamacji w terminie 14 dni od daty jej otrzymania.",
       "section8Title": "8. Odpowiedzialność",
       "section8Content": "8.1. Sklep nie ponosi odpowiedzialności za szkody wynikłe z niewłaściwego użytkowania zakupionego towaru.\n\n8.2. W przypadku wad fizycznych towaru, Sklep ponosi odpowiedzialność na zasadach określonych w przepisach Kodeksu Cywilnego."
+    },
+    "comparation": {
+      "Name": "Nazwa",
+      "Screen": "Ekran",
+      "Processor": "Procesor",
+      "RAM": "Pamięć RAM",
+      "Storage": "Pamięć wewnętrzna",
+      "Price": "Cena",
+
+      "placeholder": "Szukaj produktu ",
+      "placeholder2": "Szukaj produktu ",
+      "button": "Szukaj"
+  },
+  "filter": {
+      "Pricelow": "Sortuj według ceny (Rosnąco)",
+      "Pricehigh": "Sortuj według ceny (Malejąco)",
+      "RAMlow": "Sortuj według RAM (Rosnąco)",
+      "RAMhigh": "Sortuj według RAM (Malejąco)",
+      "Storagehigh": "Sortuj według pojemności (Malejąco)",
+      "Storagelow": "Sortuj według pojemności (Rosnąco)",
+      "filtr" : "Filtruj"
     }
+
   }
   
