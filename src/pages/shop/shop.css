@@ -1,6 +1,6 @@
-
+/* 
 .product {
-  border: 1px solid #ccc; /* Dodaj ramkę wokół każdego produktu */
+  border: 1px solid #ccc; 
   border-radius: 25px;
   padding: 10px;
   text-align: center;
@@ -47,4 +47,82 @@
     color: black;
     cursor: pointer;
   }
+   */
+
+
+
+/* 
+.product {
+  border: 1px solid #ccc; 
+  border-radius: 25px;
+  padding: 10px;
+  text-align: center;
+  transition: 0.3s ease-in;
+  cursor: pointer;
+  
+  
+}
+.product img {
+    width: 150px;
+    transform: scale(0.9); 
+  }
+  
+  .product .description {
+    text-align: center;
+  } */
+
+  .product {
+    display: flex; /* Użyj flexboxa, aby zarządzać rozmieszczeniem elementów wewnątrz .product */
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 10px;
+    transition: 0.3s ease-in;
+    cursor: pointer;
+    align-items: center;
+  }
+  
+  .product img {
+    width: 150px;
+    transform: scale(0.9);
+  }
+  
+  .product .description {
+    flex-grow: 1; /* Zajmij dostępną przestrzeń, aby opis zajmował dostępną przestrzeń */
+    text-align: left; /* Dostosuj według potrzeb */
+    margin-left: 20px; /* Dodaj odstęp między obrazem a opisem */
+  }
+  
+    
+    .product:hover {
+      transition: 0.3s ease-in;
+      cursor: pointer;
+    }
+    
+   .product:hover img {
+      transform: scale(1); 
+    }
+  
+    .addToCartBttn {
+      background-color: transparent;
+      border: 2px solid rgb(19, 19, 19);
+      min-width: 100px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-radius: 15px;
+    }
+    
+  #light .addToCartBttn:hover {
+      background-color: rgb(19, 19, 19);
+      color: white;
+      cursor: pointer;
+    }
+    
+  #dark .addToCartBttn:hover {
+      background-color: white;
+      color: black;
+      cursor: pointer;
+    }
+    
   

@@ -23,6 +23,8 @@ import { I18nextProvider } from 'react-i18next';
 import { Test } from "./pages/test";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword"; 
+import { PrivacyPolicy } from "./pages/PrivacyPolicy";
+import {Statute } from "./pages/Statute";
 
 
 import Profile from "./components/Profile"; // Importuj komponent "Profile"
@@ -78,6 +80,8 @@ function App() {
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/NewsletterForm" element={<NewsletterForm />} />
                   <Route path="/AboutUs" element={<AboutUs />} />
+                  <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+                  <Route path="/Statute" element={<Statute />} />
                   <Route path="/ComparationSite" element={<ComparationSite />} />
                   <Route path="/ProductFilterPage" element={<ProductFilterPage />} />
 
