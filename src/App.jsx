@@ -11,7 +11,7 @@ import { Cart } from "./pages/cart/cart";
 import { ShopContextProvider } from "./context/shop-context";
 import PopUp from "./components/PopUp";
 import { AuthProvider } from "./context/AuthContext";
-import { NewsletterForm } from "./pages/NewsletterForm";
+import  NewsletterForm  from "./pages/NewsletterForm";
 import { Footer } from "./pages/Footer";
 import { AboutUs } from "./pages/AboutUs";
 import { ComparationSite } from "./pages/ComparationSite";

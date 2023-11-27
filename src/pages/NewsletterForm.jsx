@@ -1,53 +1,46 @@
-// import React, { useState } from "react";
-// import "./NewsletterForm.css";
-
-// export const NewsletterForm = () => {
-//   const [email, setEmail] = useState("");
-//   const [subscribed, setSubscribed] = useState(false);
-
-//   const handleSubscribe = (e) => {
-//     e.preventDefault();
-//     //kod obsługujący subskrypcję, na przykład wysyłając żądanie do API lub innej usługi backendowej.
-//     setSubscribed(true);
-//   };
-
-//   return (
-//     <div className="newsletter-form">
-//       <h2>Subskrybuj nasz newsletter</h2>
-//       {subscribed ? (
-//         <p>Dziękujemy za subskrypcję naszego newslettera!</p>
-//       ) : (
-//         <form onSubmit={handleSubscribe}>
-//           <input
-//             type="email"
-//             placeholder="Twój adres email"
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//           />
-//           <button type="submit">Subskrybuj</button>
-//         </form>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default NewsletterForm;
-
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./NewsletterForm.css";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
+import useAuthContext from "../context/AuthContext";
 
-export const NewsletterForm = () => {
-  const {t} = useTranslation("global");
+function NewsletterForm() {
+  const { t } = useTranslation("global");
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const { user } = useAuthContext();
 
-  const handleSubscribe = (e) => {
+
+  useEffect(() => {
+    if (user) {
+      setEmail(user.email);
+    }
+  }, [user]);
+
+  const handleSubscribe = async (e) => {
     e.preventDefault();
-    // W przyszlosci kod obsługujący subskrypcję, na przykład wysyłając żądanie do API lub innej usługi backendowej.
 
-    setSubscribed(true);
+    try {
+      // Pobierz CSRF cookie
+      await axios.get('http://localhost:8000/sanctum/csrf-cookie');
+
+      const response = await axios.post('http://localhost:8000/api/subscribe', {
+        email: email,
+      }, {
+        withCredentials: true,
+      });
+
+      
+      if (response.data.message === "Subskrypcja zapisana pomyślnie") {
+        setSubscribed(true);
+      } else {
+        console.error("Błąd podczas zapisywania subskrypcji");
+        alert("Użytkownik o podanym mailu juz się zapisał");
+      }
+    } catch (error) {
+      console.error("Błąd połączenia z serwerem", error);
+      alert("Tylko zalogowani użytkownicy mogą się zapisać do newslettera");
+    }
   };
 
   return (
@@ -63,12 +56,15 @@ export const NewsletterForm = () => {
             placeholder={t("newsletter.placeholder")}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            disabled={user ? true : false} // Wyłącz pole, jeśli użytkownik jest zalogowany
           />
-          <button type="submit" className="subscribe-button">{t("newsletter.button")}</button>
+          <button type="submit" className="subscribe-button">
+            {t("newsletter.button")}
+          </button>
         </form>
       )}
     </div>
   );
-};
+}
 
 export default NewsletterForm;

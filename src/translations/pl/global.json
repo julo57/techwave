@@ -19,6 +19,8 @@
       "link": "Sklep",
       "link2": "Zaloguj się",
       "link3": "Zarejestruj się",
+      "link4": "Porównaj produkty",
+      "link5":"Filtruj produkty",
       "placeholder": "Szukaj produktu"
     },
     "login": {
@@ -97,7 +99,8 @@
         "link2": "O nas",
         "link3": "Polityka prywatności",
         "link4": "Regulamin",
-        "link5": "Najczęściej zadawane pytania"
+        "link5": "Najczęściej zadawane pytania",
+        "link6": "2023 TechWave. Wszelkie prawa zastrzeżone."
     },
     "profile":
     {

@@ -49,7 +49,7 @@ export const Footer = () => {
         </Link>
       </div>
       <p className="text-center text-gray-500 text-xs">
-        &copy;2023 TechWave. All rights reserved.
+        &copy; {t("foooter.link6")} 
       </p>
     </div>
   );

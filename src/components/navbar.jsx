@@ -94,10 +94,10 @@ export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
           <img src="/logo.png" alt="logo" className="h-12" />
         </Link>
         <div>
-        <Link className="Bialy" to="/ComparationSite"> Comparsion site</Link>
+        <Link className="Bialy" to="/ComparationSite"> {t("navbar.link4")} </Link>
        
         </div>
-        <div> <Link className="Bialy" to="/ProductFilterPage"> Product Filter Page</Link></div>
+        <div> <Link className="Bialy" to="/ProductFilterPage"> {t("navbar.link5")}</Link></div>
         
         <div className="flex items-center space-x-8">
           
