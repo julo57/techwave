@@ -30,7 +30,7 @@ export const Footer = () => {
     <div className={`footer-container ${isDesktop || scrollY > 100 ? "active" : ""}`}>
       <div className="footer-links">
         <Link to="/FAQ" className="footer-link">
-          FAQ
+        {t("foooter.link5")}
         </Link>
         <Link to="/contact" className="footer-link">
           {t("foooter.link")}
@@ -42,10 +42,10 @@ export const Footer = () => {
         {t("foooter.link2")}
         </Link>
         <Link to="/PrivacyPolicy" className="footer-link">
-          Polityka Prywatności
+        {t("foooter.link3")}
         </Link>
         <Link to="/Statute" className="footer-link">
-          Regulamin
+        {t("foooter.link4")}
         </Link>
       </div>
       <p className="text-center text-gray-500 text-xs">

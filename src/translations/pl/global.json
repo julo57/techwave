@@ -94,7 +94,10 @@
     "foooter":
     {
         "link": "Kontakt",
-        "link2": "O nas"
+        "link2": "O nas",
+        "link3": "Polityka prywatności",
+        "link4": "Regulamin",
+        "link5": "Najczęściej zadawane pytania"
     },
     "profile":
     {
@@ -179,7 +182,15 @@
       "Storagehigh": "Sortuj według pojemności (Malejąco)",
       "Storagelow": "Sortuj według pojemności (Rosnąco)",
       "filtr" : "Filtruj"
+    },
+    "navbarCategories":
+    {
+        "link": "Wszystkie produkty",
+        "link2": "Telefony",
+        "link3": "Laptopy",
+        "link4": "Telewizory"
     }
+
 
   }
   

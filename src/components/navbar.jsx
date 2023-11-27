@@ -10,15 +10,15 @@ import { useTranslation } from "react-i18next";
 import 'regenerator-runtime/runtime';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import fetchProducts from '../components/fetchProducts';
+import NavbarCategories from "./NavbarCategories";
 
-export const Navbar = ({ toggleTheme, theme }) => {
+export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
   const [allProducts, setAllProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [isSearchActive, setIsSearchActive] = useState(false);
-  
   const navigate = useNavigate();
   const {
     transcript,
@@ -87,7 +87,10 @@ export const Navbar = ({ toggleTheme, theme }) => {
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900 p-4">
       <div className="container mx-auto flex flex-wrap items-center justify-between">
-        <Link to="/" className="text-white hover:text-blue-500">
+        <Link to="/" className="text-white hover:text-blue-500" onClick={()=>{
+        // console.log("clicked All");
+        props.setSelectedCategory("");
+      }}>
           <img src="/logo.png" alt="logo" className="h-12" />
         </Link>
         <div>
@@ -152,7 +155,9 @@ export const Navbar = ({ toggleTheme, theme }) => {
 </div>
         
       </div>
-      
+      <NavbarCategories  
+  setSelectedCategory={setSelectedCategory}
+      />
     </nav>
   );
 };

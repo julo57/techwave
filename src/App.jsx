@@ -25,8 +25,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword"; 
 import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 import {Statute } from "./pages/Statute";
-
-
+import { NavbarCategories } from "./components/NavbarCategories";
 import Profile from "./components/Profile"; // Importuj komponent "Profile"
 import ProductSite from "./pages/shop/ProductSite";
 
@@ -47,6 +46,8 @@ i18next.init({
 function App() {
   const [theme, setTheme] = useState("light");
   const [timedPopup, setTimedPopup] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  // console.log("selectedCategory App", selectedCategory)
 
   const toggleTheme = () => {
     setTheme((current) => (current === "light" ? "dark" : "light"));
@@ -65,9 +66,9 @@ function App() {
           <div className="App" id={theme}>
             <Router>
               <AuthProvider>
-                <Navbar />
+                <Navbar setSelectedCategory={setSelectedCategory}/>
                 <Routes>
-                  <Route path="/" element={<Shop />} />
+                  <Route path="/" element={<Shop selectedCategory={selectedCategory}/>} />
                   <Route path="/ProductSite/:productId" element={<ProductSite />} />
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/login" element={<Login />} />
@@ -76,6 +77,7 @@ function App() {
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/forgot-password" element={<ForgotPassword />} />
                   <Route path="/password-reset/:token" element={<ResetPassword />} />
+                  <Route path="/NavbarCategories" element={<NavbarCategories />} />
                   <Route path="/FAQ" element={<FAQ />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/NewsletterForm" element={<NewsletterForm />} />

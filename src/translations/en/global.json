@@ -110,7 +110,10 @@
     "foooter":
     {
         "link": "Contact",
-        "link2": "AboutUs"
+        "link2": "AboutUs",
+        "link3": "Privacy Policy",
+        "link4": "Statute",
+        "link5": "FAQ"
     },
 
     "profile":
@@ -199,6 +202,13 @@
         "Storagehigh": "Sort by Storage (High to Low)",
         "Storagelow": "Sort by Storage (Low to High)",
         "filtr" : "Filter"
+    },
+    "navbarCategories":
+    {
+        "link": "All",
+        "link2": "Mobile Phones",
+        "link3": "Laptops",
+        "link4": "TVs"
     }
 
 }
