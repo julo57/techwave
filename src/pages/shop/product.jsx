@@ -1,32 +1,32 @@
-// useProduct.js
+import React, { useContext, useMemo, useCallback } from "react";
+import { ShopContext } from "../../context/shop-context";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+export const Product = React.memo((props) => {
+  const {t} = useTranslation("global");
+  const { id, name, price, photo } = props.data;
+  const { addToCart, cartItems } = useContext(ShopContext);
+  const navigate = useNavigate();
 
-const useProduct = (productId) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [product, setProduct] = useState(null);
+  const handleProductClick = useCallback(() => {
+    navigate(`/ProductSite/${id}`);
+  }, [id, navigate]);
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        // console.log("fetchProduct")
-        const response = await axios.get(`http://localhost:8000/api/products/${productId}`);
-        setProduct(response.data);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+  const cartItemCount = useMemo(() => cartItems[id], [cartItems, id]);
 
-    if (productId) {
-      // fetchProduct();
-    }
-  }, [productId]); // Re-run the effect when productId changes
 
-  return { isLoading, error, product };
-};
+  return (
+    <div className="product" onClick={handleProductClick}>
+      <img src={photo} alt={name} loading="lazy" />
+      <div className="description">
+        <p>
+          <b>{name}</b>
+        </p>
+        <p> PLN {price}</p>
+      </div>
+    </div>
+  );
+});
 
-export default useProduct;
+export  default Product;
