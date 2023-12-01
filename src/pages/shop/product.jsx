@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useCallback } from "react";
+import React, { useContext } from "react";
 import { ShopContext } from "../../context/shop-context";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
@@ -7,15 +7,24 @@ export const Product = React.memo((props) => {
   const {t} = useTranslation("global");
   const { id, name, price, photo } = props.data;
   const { addToCart, cartItems } = useContext(ShopContext);
+  const { isLoading, error, product } = useProduct("2");
+  console.log("product", {product, isLoading, error})
   const navigate = useNavigate();
 
-  const handleProductClick = useCallback(() => {
-    navigate(`/ProductSite/${id}`);
-  }, [id, navigate]);
+  const handleProductClick = (productId) => {
+    console.log("clicked");
+    navigate(`/ProductSite/${productId}`);
+  };
+  
+  const cartItemCount = cartItems[id];
 
-  const cartItemCount = useMemo(() => cartItems[id], [cartItems, id]);
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
-
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
   return (
     <div className="product" onClick={handleProductClick}>
       <img src={photo} alt={name} loading="lazy" />
@@ -27,6 +36,5 @@ export const Product = React.memo((props) => {
       </div>
     </div>
   );
-});
+};
 
-export  default Product;

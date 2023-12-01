@@ -23,6 +23,8 @@
         "link":"Shop",
         "link2":"Log in",
         "link3":"Register",
+        "link4":"Compare products",
+        "link5":"Filter page",
         "placeholder": "Search product"
         
     },
@@ -113,7 +115,8 @@
         "link2": "AboutUs",
         "link3": "Privacy Policy",
         "link4": "Statute",
-        "link5": "FAQ"
+        "link5": "FAQ",
+        "link6": "2023 TechWave. All rights reserved."
     },
 
     "profile":
