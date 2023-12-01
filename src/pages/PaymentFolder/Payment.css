@@ -1,0 +1,39 @@
+
+#H1
+{
+    margin-left: 6%;
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.H2
+{
+    margin-left: 6%;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.deliverylabel
+{
+}
+.deliveryinput
+{
+    margin-left: 6%;
+    border: solid 1px black;
+    border-radius: 10px;
+    width: 50%;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 30px;
+}
+.paybutt
+{
+    margin-left: 6%;
+    border: solid 5px black;
+    background-color: rgb(9, 192, 9);
+}

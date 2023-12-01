@@ -1,3 +1,4 @@
+ 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -9,8 +10,24 @@ const useProducts = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const cachedProducts = JSON.parse(localStorage.getItem('products'));
+        if (cachedProducts) {
+          const currentTime = new Date().getTime();
+          const fiveMinutesInMillis = 5 * 60 * 1000;
+          const isCacheValid = currentTime - cachedProducts.timestamp < fiveMinutesInMillis;
+
+          if (isCacheValid) {
+            setProducts(cachedProducts.data);
+            setIsLoading(false);
+            return;
+          }
+        }
+
         const response = await axios.get('http://localhost:8000/api/products');
         setProducts(response.data);
+
+        const timestamp = new Date().getTime();
+        localStorage.setItem('products', JSON.stringify({ data: response.data, timestamp }));
       } catch (error) {
         setError(error);
       } finally {
@@ -19,9 +36,14 @@ const useProducts = () => {
     };
 
     fetchData();
-  }, []); // Empty dependency array means this effect runs once after the initial render
+  }, []); 
 
-  return { isLoading, error, products };
+  const getProduct = (id) => {
+    const product = products.find((product) => product.id === id);
+    return product || null;
+  };
+
+  return { isLoading, error, products, getProduct };
 };
 
 export default useProducts;

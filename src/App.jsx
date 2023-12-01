@@ -28,6 +28,9 @@ import {Statute } from "./pages/Statute";
 import { NavbarCategories } from "./components/NavbarCategories";
 import Profile from "./components/Profile"; // Importuj komponent "Profile"
 import ProductSite from "./pages/shop/ProductSite";
+import Payment from "./pages/PaymentFolder/Payment";
+import Order from "./pages/PaymentFolder/Order";
+import LoginRegistryGuest from "./pages/PaymentFolder/LoginRegistryGuest";
 
 export const ThemeContext = createContext();
 i18next.init({
@@ -86,6 +89,12 @@ function App() {
                   <Route path="/Statute" element={<Statute />} />
                   <Route path="/ComparationSite" element={<ComparationSite />} />
                   <Route path="/ProductFilterPage" element={<ProductFilterPage />} />
+                  <Route path="/Payment" element={<Payment />} />
+                  <Route path="/Order" element={<Order />} />
+                  <Route path="/LoginRegistryGuest" element={<LoginRegistryGuest />} /> 
+
+                  
+
 
                   {/* Additional routes if any */}
                 </Routes>
