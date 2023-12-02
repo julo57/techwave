@@ -15,8 +15,16 @@ export const Cart = () => {
   const navigate = useNavigate();
   const [email] = useState("");
   const [password] = useState("");
-
   const handleCheckout = async () => {
+    // Check if the cart has at least one item with quantity > 0
+    const hasItemsInCart = Object.values(cartItems).some(item => item.quantity > 0);
+  
+    if (!hasItemsInCart) {
+      // Alert the user or handle the empty cart scenario
+      alert('Please add items to your cart before proceeding to checkout.');
+      return;
+    }
+  
     if (user) {
       navigate('/payment');
     } else {
@@ -28,6 +36,7 @@ export const Cart = () => {
       }
     }
   };
+  
 
   return (
     <div className="cart p-4 md:p-8 flex flex-col items-center justify-center">

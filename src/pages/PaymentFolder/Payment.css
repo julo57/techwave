@@ -1,16 +1,14 @@
-
-#H1
-{
-    margin-left: 6%;
+#H1 {
+    margin-left: 40%;
     font-size: 50px;
     font-family: 'Times New Roman', Times, serif;
     color: black;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.H2
-{
-    margin-left: 6%;
+
+.H2 {
+    margin-left: 40%;
     font-size: 30px;
     font-family: 'Times New Roman', Times, serif;
     color: black;
@@ -18,22 +16,94 @@
     margin-bottom: 10px;
 }
 
-.deliverylabel
-{
+.deliverydiv {
+    border: solid 3px gainsboro;
+    width: 100%;
+    margin-left: 40%;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px; 
 }
-.deliveryinput
-{
-    margin-left: 6%;
+
+.deliverycheckbox {
+    margin-left: 40%;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.deliveryinput {
+    margin-left: 40%;
     border: solid 1px black;
     border-radius: 10px;
-    width: 50%;
+    width: 100%;
+    font-family: 'Times New Roman', Times, serif;
     margin-bottom: 20px;
     font-size: 14px;
     line-height: 30px;
 }
-.paybutt
-{
-    margin-left: 6%;
-    border: solid 5px black;
+
+.deliveryinputradio {
+    appearance: none;
+    font-family: 'Times New Roman', Times, serif;
+    display: block; 
+    margin-top: 1px;
+}
+.deliveryinputradio:hover {
+    appearance: none;
+    border: 3px solid black ;
+    display: block; 
+    border-radius: 7px
+}
+
+.deliveryinputradio label {
+    display: block; 
+    border: 3px solid transparent; 
+}
+
+.deliveryinputradio input[type="radio"]:checked + label {
+    border: 3px solid black; 
+    border-radius: 7px; 
+}
+
+.deliveryinputradio input[type="radio"] {
+   display: none;
+}
+.paybutt {
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 40%;
+    border: solid 1px black;
+    border-radius: 5px;
     background-color: rgb(9, 192, 9);
 }
+
+.item-photo
+{
+    max-width: 30%;
+    height: auto;
+}
+
+.container {
+    display: flex;
+  }
+  .checkout-summary {
+    position: -webkit-sticky; /* For Safari */
+    position: sticky ;
+    margin-left: 30%;
+    top: 0;
+    align-self: flex-start;
+    padding: 1rem;
+    width: 40%;
+    margin-right: -10%;
+    font-family: 'Times New Roman', Times, serif;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2); /* Optional: Adds shadow for better separation */
+  }
+  .error-message
+  {
+    margin-left: 40%;
+    color: red;
+  }
