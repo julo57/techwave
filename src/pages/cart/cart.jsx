@@ -49,7 +49,7 @@ export const Cart = () => {
         ))}
       </div>
       <div className="checkout mt-8 text-center">
-        <p className="text-lg md:text-xl">{t('cart.total')}: PLN {totalAmount}</p>
+        <p className="text-lg md:text-xl">{t('cart.paragraph')}: PLN {totalAmount}</p>
         <button
           className="w-40 h-12 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300"
           onClick={() => navigate('/')}
@@ -60,7 +60,7 @@ export const Cart = () => {
           className="w-40 h-12 bg-green-500 text-white rounded hover:bg-green-600 transition duration-300"
           onClick={handleCheckout}
         >
-          {t('cart.checkout')}
+          {t('cart.button2')}
         </button>
       </div>
     </div>
