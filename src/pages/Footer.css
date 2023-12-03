@@ -106,7 +106,7 @@
     color: white;
     width: 100%;
     text-align: center;
-    transform: translateY(100%);
+    transform: translateY(0);
     transition: transform 0.3s ease;
     padding: 10px;
     box-sizing: border-box;
@@ -146,12 +146,7 @@
     font-size: 12px; /* Zmiana rozmiaru tekstu na mniejszy */
   }
   
-  
-    .footer-container {
-      position: fixed;
-      transform: translateY(0);
-      bottom: 0;
-    }
+
   
     .footer-copyright {
       margin-top: auto; /* Automatyczny margines górny ustawiony na "auto" umieści element na dole kontenera */

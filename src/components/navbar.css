@@ -77,7 +77,7 @@
 }
 
 .microphone{
-  margin-right: 300px;
+  margin-right: auto;
 }
 .microphone:hover{
   transform: scale(1.2, 1.2);
@@ -90,7 +90,7 @@
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 400px; /* Dostosuj szerokość według potrzeb */
+  width: 300px; /* Dostosuj szerokość według potrzeb */
 }
 
 #dark .w-full input {
@@ -100,7 +100,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   
-  width: 400px; /* Dostosuj szerokość według potrzeb */
+  width: 300px; /* Dostosuj szerokość według potrzeb */
 }
 .dropdown-list {
   position: absolute;
