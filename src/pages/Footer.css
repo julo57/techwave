@@ -157,4 +157,24 @@
       margin-top: auto; /* Automatyczny margines górny ustawiony na "auto" umieści element na dole kontenera */
     }
   
+    .footer-social-media {
+      display: flex;
+      align-items: center;
+  }
+
+    .footer-icon-link .faFacebookF { 
+      color: #3b5998;
+      font-size: 30px;
+      margin-right: 10px;
+  }
   
+  .footer-icon-link .faInstagram { 
+      color: #C13584;
+      font-size: 30px;
+      margin-right: 10px;
+  }
+  
+  .footer-icon-link .faTwitter { 
+      color: #1DA1F2;
+      font-size: 30px;
+  }

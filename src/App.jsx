@@ -102,13 +102,12 @@ function App() {
               </AuthProvider>
             </Router>
             <main>
-              <PopUp trigger={timedPopup} setTrigger={setTimedPopup}>
-                <h1>Noworoczne Promocje!!!</h1>
-                <img
-                  src="https://www.easypromosapp.com/blog/wp-content/uploads/xxss-new-years-eve-promotions-and-giveaways.jpg"
-                  alt="Noworoczne Promocje"
-                />
-              </PopUp>
+            <PopUp trigger={timedPopup} setTrigger={setTimedPopup}>
+              <img
+                src="src\components\Promocje.png"
+                alt="Noworoczne Promocje"
+              />
+            </PopUp>
             </main>
           </div>
         </ShopContextProvider>

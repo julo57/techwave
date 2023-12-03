@@ -1,7 +1,8 @@
-
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebookF, faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import "./Footer.css";
 
 export const Footer = () => {
@@ -29,8 +30,8 @@ export const Footer = () => {
   return (
     <div className={`footer-container ${isDesktop || scrollY > 100 ? "active" : ""}`}>
       <div className="footer-links">
-        <Link to="/FAQ" className="footer-link">
-        {t("foooter.link5")}
+      <Link to="/FAQ" className="footer-link">
+          FAQ
         </Link>
         <Link to="/contact" className="footer-link">
           {t("foooter.link")}
@@ -42,19 +43,29 @@ export const Footer = () => {
         {t("foooter.link2")}
         </Link>
         <Link to="/PrivacyPolicy" className="footer-link">
-        {t("foooter.link3")}
+          Polityka Prywatności
         </Link>
         <Link to="/Statute" className="footer-link">
-        {t("foooter.link4")}
+          Regulamin
         </Link>
+
+        <div className="footer-social-media">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="footer-icon-link">
+            <FontAwesomeIcon icon={faFacebookF} className="faFacebookF" />
+          </a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="footer-icon-link">
+              <FontAwesomeIcon icon={faInstagram} className="faInstagram" />
+          </a>
+          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="footer-icon-link">
+              <FontAwesomeIcon icon={faTwitter} className="faTwitter" />
+          </a>
+        </div>
       </div>
       <p className="text-center text-gray-500 text-xs">
-        &copy; {t("foooter.link6")} 
+        &copy;2023 TechWave. All rights reserved.
       </p>
     </div>
   );
 };
 
 export default Footer;
-
-
