@@ -10,6 +10,10 @@ export const Payment = () => {
   const [paymentMethod, setPaymentMethod] = useState('online');
   const [privateMethod, setPrivateMethod] = useState('company');
   const [isTermsChecked, setIsTermsChecked] = useState(false);
+  const [isNewsletterChecked, setIsNewsletterChecked] = useState(false);
+  const [deliveryCost, setDeliveryCost] = useState(20);
+  const [showBlikCodeModal, setShowBlikCodeModal] = useState(false);
+  const [blikCode, setBlikCode] = useState(null);
   const [address, setAddress] = useState({
     name: '',
     street: '',
@@ -22,6 +26,12 @@ export const Payment = () => {
 
   const handleDeliveryChange = (event) => {
     setDeliveryMethod(event.target.value);
+    // Update delivery cost based on selection
+    if (event.target.value === 'courier') {
+      setDeliveryCost(20); // Cost for courier
+    } else {
+      setDeliveryCost(0); // No extra cost for other methods
+    }
   };
 
   const handlePaymentChange = (event) => {
@@ -39,6 +49,17 @@ export const Payment = () => {
     });
   };
 
+  const handleNewsletterChange = (event) => {
+    setIsNewsletterChecked(event.target.checked);
+  };
+  
+  // Obliczanie całkowitej kwoty do zapłaty przy wyświetlaniu
+  const calculateTotalWithDiscount = () => {
+    if (isNewsletterChecked) {
+      return getTotalCartAmount()* 0.95 + deliveryCost; // 5% rabatu
+    }
+    return getTotalCartAmount() + deliveryCost; // Brak rabatu
+  };
   const handlePromoCodeChange = (event) => {
     setPromoCode(event.target.value);
   };
@@ -49,6 +70,11 @@ export const Payment = () => {
 
   const handleTermsChange = (event) => {
     setIsTermsChecked(event.target.checked);
+    
+  };
+  const handleTermsChange2 = (event) => {
+    
+    setIsNewsletterChecked(event.target.checked);
   };
   const validateForm = () => {
     const newErrors = {};
@@ -63,13 +89,49 @@ export const Payment = () => {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
+   
+  const handleBLIKSubmit = () => {
+    console.log('BLIK Code:', blikCode);
+  
+    // Add validation for the BLIK code if necessary
+    if (blikCode.replace(/-/g, '').length !== 6) {
+      // Handle invalid BLIK code
+      alert('Please enter a valid 6-digit BLIK code.');
+   
+    }
+    else {
+      // Submit form logic here
+      setShowBlikCodeModal(false)
+    }
+  };
+  
+  const handleBlikChange = (e) => {
+    let value = e.target.value.replace(/[^0-9-]/g, ''); // Usuwa wszystko oprócz cyfr i myślnika
+    const onlyDigits = value.replace(/-/g, ''); // Usuwa myślniki dla dalszej logiki
+  
+    if (onlyDigits.length <= 6) {
+      // Dodaje myślnik po 3 cyfrach, jeśli potrzebne
+      if (onlyDigits.length > 3) {
+        value = onlyDigits.slice(0, 3) + '-' + onlyDigits.slice(3);
+      }
+      setBlikCode(value);
+    }
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validateForm()) {
+      if (paymentMethod === 'blik') {
+        setShowBlikCodeModal(true);
+
+      } else {
       console.log(`Delivery Method: ${deliveryMethod}, Payment Method: ${paymentMethod}, Private Method: ${privateMethod}, Address:`, address);
       // Submit form logic here
     }
+
+    
+  }
+
+  
   };
   return (
     <div className="container">
@@ -134,9 +196,15 @@ export const Payment = () => {
   
           <h2 className="H2">Billing Information</h2>
           <div className="deliverycheckbox">
-          <input type="checkbox" name="termsConditions" checked={isTermsChecked} onChange={handleTermsChange} />
-          <label>I agree to the Terms and Conditions</label>
-          {errors.terms && <p className="error-message">{errors.terms}</p>}
+            <div>
+              <input type="checkbox" name="termsConditions" checked={isTermsChecked} onChange={handleTermsChange} />
+              <label>I agree to the Terms and Conditions</label>
+              {errors.terms && <p className="error-message">{errors.terms}</p>}
+            </div>
+            <div>
+                <input type="checkbox" name="Newsletter" checked={isNewsletterChecked} onChange={handleNewsletterChange} />
+                <label>I agree to the newsletter</label>
+             </div>
         </div>
   
           
@@ -163,14 +231,30 @@ export const Payment = () => {
         </div>
         <div className="total-amount">
           <p>Koszyk: {totalAmount} zł</p>
-          <p>Dostawa i płatność: 0,00 zł</p>
-          <p>Do zapłaty: {totalAmount} zł</p>
+          <p>Dostawa {deliveryCost} zł</p>
+          <p>Rabat: {isNewsletterChecked ? '5%' : '0%'}</p>
+          <p>Do zapłaty: {calculateTotalWithDiscount()}  zł</p>
         </div>
         <form onSubmit={handleSubmit} >
         <button type="submit" className="paybutt">Proceed to Payment</button>
         </form>
       </div>
+      {showBlikCodeModal && (
+      <div className="blik-modal-overlay" >
+      <div className="blik-modal-content">
+        <h2>Enter BLIK Code</h2>
+        <input
+          type="text" // Zmieniono na text, aby umożliwić wpisanie myślnika
+          value={blikCode}
+          onChange={handleBlikChange}
+          placeholder="6-digit BLIK Code"
+        />
+        <button onClick={handleBLIKSubmit}>Submit</button>
+        <button id='xbutt'onClick={() => setShowBlikCodeModal(false)}>X</button>
+      </div>
     </div>
+    )}
+  </div>
   );
           };
 
