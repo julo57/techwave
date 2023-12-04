@@ -4,6 +4,7 @@ import './Payment.css'; // Ensure this path matches the location of your CSS fil
 
 export const Payment = () => {
   const { cartItems, getTotalCartAmount } = useContext(ShopContext);
+  const { removeFromCart} = useContext(ShopContext);
   const totalAmount = getTotalCartAmount();
   const [promoCode, setPromoCode] = useState('');
   const [deliveryMethod, setDeliveryMethod] = useState('courier');
@@ -13,7 +14,7 @@ export const Payment = () => {
   const [isNewsletterChecked, setIsNewsletterChecked] = useState(false);
   const [deliveryCost, setDeliveryCost] = useState(20);
   const [showBlikCodeModal, setShowBlikCodeModal] = useState(false);
-  const [blikCode, setBlikCode] = useState(null);
+  const [blikCode, setBlikCode] = useState('');
   const [address, setAddress] = useState({
     name: '',
     street: '',
