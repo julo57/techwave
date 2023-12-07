@@ -1,157 +1,195 @@
 #H1 {
-    margin-left: 40%;
-    font-size: 50px;
-    font-family: 'Times New Roman', Times, serif;
-    color: black;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  text-align: center;
+  font-size: 40px;
+  font-family: 'Times New Roman', Times, serif;
+  color: black;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .H2 {
-    margin-left: 40%;
-    font-size: 30px;
-    font-family: 'Times New Roman', Times, serif;
-    color: black;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.deliverydiv {
-    border: solid 3px gainsboro;
-    width: 100%;
-    margin-left: 40%;
-    font-size: 20px;
-    font-family: 'Times New Roman', Times, serif;
-    color: black;
-    margin-top: 10px;
-    margin-bottom: 10px; 
-}
-
-.deliverycheckbox {
-    margin-left: 40%;
-    font-size: 20px;
-    font-family: 'Times New Roman', Times, serif;
-    color: black;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.deliveryinput {
-    margin-left: 40%;
-    border: solid 1px black;
-    border-radius: 10px;
-    width: 100%;
-    font-family: 'Times New Roman', Times, serif;
-    margin-bottom: 20px;
-    font-size: 14px;
-    line-height: 30px;
-}
-
-.deliveryinputradio {
-    appearance: none;
-    font-family: 'Times New Roman', Times, serif;
-    display: block; 
-    margin-top: 1px;
-}
-.deliveryinputradio:hover {
-    appearance: none;
-    border: 3px solid black ;
-    display: block; 
-    border-radius: 7px
-}
-
-.deliveryinputradio label {
-    display: block; 
-    border: 3px solid transparent; 
-}
-
-.deliveryinputradio input[type="radio"]:checked + label {
-    border: 3px solid black; 
-    border-radius: 7px; 
-}
-
-.deliveryinputradio input[type="radio"] {
-   display: none;
-}
-.paybutt {
-    font-family: 'Times New Roman', Times, serif;
-    margin-left: 40%;
-    border: solid 1px black;
-    border-radius: 5px;
-    background-color: rgb(9, 192, 9);
-}
-
-.item-photo
-{
-    max-width: 30%;
-    height: auto;
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Times New Roman', Times, serif;
+  color: black;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .container {
-    display: flex;
-  }
-  .checkout-summary {
-    position: -webkit-sticky; /* For Safari */
-    position: sticky ;
-    margin-left: 30%;
-    top: 0;
-    align-self: flex-start;
-    padding: 1rem;
-    width: 40%;
-    margin-right: -10%;
-    font-family: 'Times New Roman', Times, serif;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.2); /* Optional: Adds shadow for better separation */
-  }
-  .error-message
-  {
-    margin-left: 40%;
-    color: red;
-  }
-  .blik-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgb(0, 0, 0, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 40px;
+  padding-left: 10px;
+}
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .blik-modal-content {
-    position: relative;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 30px;
-    text-align: center;
-    padding: 0px;
+.deliverydiv {
+  border: solid 3px gainsboro;
+  width: 100%;
+  max-width: 400px; /* Dostosuj maksymalną szerokość do preferencji */
+  margin: 10px auto; /* Centralizuje element na ekranie */
+  padding: 10px;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  color: black;
+  margin-top: 10px;
+  margin-bottom: 10px; 
+  border-radius: 10px;
+}
+
+.deliverycheckbox {
+  margin: 10px auto; /* Centralizuje element na ekranie */
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  color: black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.deliveryinput {
+  border: solid 1px black;
+  border-radius: 10px;
+  width: calc(100% - 20px); /* Oblicza szerokość z uwzględnieniem paddingu */
+  margin: 10px auto; /* Centralizuje element na ekranie */
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 30px;
+}
+
+.deliveryinputradio {
+  display: flex;
+  align-items: center;
+  margin-top: 1px;
+}
+
+.deliveryinputradio:hover {
+  border: 3px solid black;
+  border-radius: 7px;
+}
+
+.deliveryinputradio label {
+  margin-left: 5px;
+}
+
+.paybutt {
+  font-family: 'Times New Roman', Times, serif;
+  margin: 10px auto; /* Centralizuje element na ekranie */
+  border: solid 1px black;
+  border-radius: 5px;
+  background-color: rgb(9, 192, 9);
+  margin-bottom: 25px;
+}
+
+.item-photo {
+  max-width: 30%;
+  height: auto;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  /* margin-bottom: 20%; */
+}
+
+.form-section {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.checkout-summary {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 1rem;
+  width: 40%;
+  font-family: 'Times New Roman', Times, serif;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+
+.error-message {
+  color: red;
+}
+
+.blik-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blik-modal-content {
+  position: relative;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 30px;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 600px; /* Dostosuj maksymalną szerokość do preferencji */
+  background-color: white;
+  border-radius: 8px;
+  animation: modalFadeIn 0.3s;
+  z-index: 1001;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@keyframes modalFadeIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+#xbutt {
+  position: absolute;
+  font-size: 30px;
+  top: 8px;
+  right: 8px;
+  width: 50px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: tomato;
+}
+
+@media (max-width: 767px) {
+  .form-section,
+  .checkout-summary {
     width: 100%;
-    max-width: 1000px;
-    background-color: white;
-    border-radius: 8px;
-    animation: modalFadeIn 0.3s;
-    z-index: 1001;
+    margin-right: 0;
+    margin-left: 0;
   }
-  
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+
+  .checkout-summary {
+    width: 100%;
+    margin-top: 20px;
   }
-  @keyframes modalFadeIn {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+}
+/* 
+@media (max-width: 766px) {
+  .form-section,
+  .checkout-summary {
+    width: 100%;
   }
-  #xbutt
-  {
-    position: absolute;
-    font-size: 30px;
-    top: 8px;
-    right: 8px;
-    width: 50px;
-    height: 32px;
-    border-radius: 50%;
-    cursor: pointer;
-    color: tomato;
+
+  .deliverydiv,
+  .deliveryinputradio,
+  .deliverycheckbox,
+  .promo-code {
+    flex-wrap: wrap;
   }
+
+  .checkout-summary {
+    margin-top: 20px;
+  }
+} */
