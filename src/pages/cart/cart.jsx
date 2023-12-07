@@ -30,7 +30,7 @@ export const Cart = () => {
     } else {
       const result = await login({ email, password });
       if (result) {
-        navigate('/order');
+        navigate('/payment');
       } else {
         navigate('/loginRegistryGuest');
       }

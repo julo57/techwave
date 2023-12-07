@@ -9,6 +9,7 @@ import { Contact } from "./pages/contact";
 import { FAQ } from "./pages/FAQ";
 import { Cart } from "./pages/cart/cart";
 import { ShopContextProvider } from "./context/shop-context";
+import { PaymentContextProvider} from "./context/PaymentContext";
 import PopUp from "./components/PopUp";
 import { AuthProvider } from "./context/AuthContext";
 import  NewsletterForm  from "./pages/NewsletterForm";
@@ -29,7 +30,7 @@ import { NavbarCategories } from "./components/NavbarCategories";
 import Profile from "./components/Profile"; // Importuj komponent "Profile"
 import ProductSite from "./pages/shop/ProductSite";
 import Payment from "./pages/PaymentFolder/Payment";
-import Order from "./pages/PaymentFolder/Order";
+import Summation from "./pages/PaymentFolder/Summation";
 import LoginRegistryGuest from "./pages/PaymentFolder/LoginRegistryGuest";
 
 export const ThemeContext = createContext();
@@ -66,6 +67,7 @@ function App() {
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <I18nextProvider i18n={i18next}>
         <ShopContextProvider>
+          <PaymentContextProvider>
           <div className="App" id={theme}>
             <Router>
               <AuthProvider>
@@ -90,7 +92,7 @@ function App() {
                   <Route path="/ComparationSite" element={<ComparationSite />} />
                   <Route path="/ProductFilterPage" element={<ProductFilterPage />} />
                   <Route path="/Payment" element={<Payment />} />
-                  <Route path="/Order" element={<Order />} />
+                  <Route path="/Summation" element={<Summation />} />
                   <Route path="/LoginRegistryGuest" element={<LoginRegistryGuest />} /> 
 
                   
@@ -110,6 +112,7 @@ function App() {
             </PopUp>
             </main>
           </div>
+          </PaymentContextProvider>
         </ShopContextProvider>
       </I18nextProvider>
     </ThemeContext.Provider>

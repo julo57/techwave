@@ -1,4 +1,4 @@
-#H1 {
+#light #H11 {
     margin-left: 40%;
     font-size: 50px;
     font-family: 'Times New Roman', Times, serif;
@@ -6,8 +6,16 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+#dark #H11 {
+  margin-left: 40%;
+  font-size: 50px;
+  font-family: 'Times New Roman', Times, serif;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
-.H2 {
+#light .H2 {
     margin-left: 40%;
     font-size: 30px;
     font-family: 'Times New Roman', Times, serif;
@@ -15,6 +23,16 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+#dark .H2 {
+  margin-left: 40%;
+  font-size: 30px;
+  font-family: 'Times New Roman', Times, serif;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 
 .deliverydiv {
     border: solid 3px gainsboro;
@@ -27,7 +45,7 @@
     margin-bottom: 10px; 
 }
 
-.deliverycheckbox {
+#light .deliverycheckbox {
     margin-left: 40%;
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
@@ -35,8 +53,29 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+#dark .deliverycheckbox {
+  margin-left: 40%;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
-.deliveryinput {
+
+#light .deliveryinput {
+  margin-left: 40%;
+  border: solid 1px black;
+  border-radius: 10px;
+  width: 100%;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 30px;
+  
+}
+
+#dark .deliveryinput {
     margin-left: 40%;
     border: solid 1px black;
     border-radius: 10px;
@@ -45,29 +84,49 @@
     margin-bottom: 20px;
     font-size: 14px;
     line-height: 30px;
+    color: black;
 }
 
-.deliveryinputradio {
+#light .deliveryinputradio {
     appearance: none;
     font-family: 'Times New Roman', Times, serif;
     display: block; 
     margin-top: 1px;
 }
-.deliveryinputradio:hover {
+
+#dark .deliveryinputradio {
+  appearance: none;
+  font-family: 'Times New Roman', Times, serif;
+  display: block; 
+  margin-top: 1px;
+  color: white;
+}
+#light .deliveryinputradio:hover {
     appearance: none;
     border: 3px solid black ;
     display: block; 
     border-radius: 7px
 }
-
+#dark .deliveryinputradio:hover {
+  appearance: none;
+  border: 3px solid white ;
+  color: white;
+  display: block; 
+  border-radius: 7px
+}
 .deliveryinputradio label {
     display: block; 
     border: 3px solid transparent; 
 }
 
-.deliveryinputradio input[type="radio"]:checked + label {
+#light .deliveryinputradio input[type="radio"]:checked + label {
     border: 3px solid black; 
     border-radius: 7px; 
+}
+#dark .deliveryinputradio input[type="radio"]:checked + label {
+  border: 3px solid white; 
+  border-radius: 7px; 
+  color:white;
 }
 
 .deliveryinputradio input[type="radio"] {
@@ -89,6 +148,7 @@
 
 .container {
     display: flex;
+    margin-bottom: 5%;
   }
   .checkout-summary {
     position: -webkit-sticky; /* For Safari */
@@ -154,4 +214,9 @@
     border-radius: 50%;
     cursor: pointer;
     color: tomato;
+  }
+
+  #dark .promo-code
+  {
+    color: black;
   }

@@ -73,6 +73,7 @@ export const ShopContextProvider = ({ children }) => {
     getTotalCartAmount,
     checkout,
   };
+  
 
   return <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>;
 };

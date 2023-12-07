@@ -1,10 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useState,useEffect, useContext } from 'react';
 import { ShopContext } from '../../context/shop-context';
+import { PaymentContext } from '../../context/PaymentContext';
 import './Payment.css'; // Ensure this path matches the location of your CSS file
-
+import { useNavigate } from 'react-router-dom';
 export const Payment = () => {
-  const { cartItems, getTotalCartAmount } = useContext(ShopContext);
-  const { removeFromCart} = useContext(ShopContext);
+  const { cartItems, getTotalCartAmount} = useContext(ShopContext);
+  const { paymentDetails, updatePaymentDetails } = useContext(PaymentContext);
+  
   const totalAmount = getTotalCartAmount();
   const [promoCode, setPromoCode] = useState('');
   const [deliveryMethod, setDeliveryMethod] = useState('courier');
@@ -13,8 +15,9 @@ export const Payment = () => {
   const [isTermsChecked, setIsTermsChecked] = useState(false);
   const [isNewsletterChecked, setIsNewsletterChecked] = useState(false);
   const [deliveryCost, setDeliveryCost] = useState(20);
-  const [showBlikCodeModal, setShowBlikCodeModal] = useState(false);
-  const [blikCode, setBlikCode] = useState('');
+ 
+  const navigate = useNavigate();
+  
   const [address, setAddress] = useState({
     name: '',
     street: '',
@@ -33,6 +36,10 @@ export const Payment = () => {
     } else {
       setDeliveryCost(0); // No extra cost for other methods
     }
+  };
+  
+  const handleApplyPromoCode = () => {
+    applyPromoCode(promoCode);
   };
 
   const handlePaymentChange = (event) => {
@@ -65,10 +72,7 @@ export const Payment = () => {
     setPromoCode(event.target.value);
   };
 
-  const handleApplyPromoCode = () => {
-    console.log('Promo code applied:', promoCode);
-  };
-
+  
   const handleTermsChange = (event) => {
     setIsTermsChecked(event.target.checked);
     
@@ -91,53 +95,39 @@ export const Payment = () => {
     return Object.keys(newErrors).length === 0;
   };
    
-  const handleBLIKSubmit = () => {
-    console.log('BLIK Code:', blikCode);
-  
-    // Add validation for the BLIK code if necessary
-    if (blikCode.replace(/-/g, '').length !== 6) {
-      // Handle invalid BLIK code
-      alert('Please enter a valid 6-digit BLIK code.');
-   
+  useEffect(() => {
+    if (Object.keys(cartItems).length === 0) {
+      navigate('/'); // Przekierowanie do strony głównej, gdy koszyk jest pusty
     }
-    else {
-      // Submit form logic here
-      setShowBlikCodeModal(false)
-    }
-  };
+  }, [cartItems, navigate]);
   
-  const handleBlikChange = (e) => {
-    let value = e.target.value.replace(/[^0-9-]/g, ''); // Usuwa wszystko oprócz cyfr i myślnika
-    const onlyDigits = value.replace(/-/g, ''); // Usuwa myślniki dla dalszej logiki
   
-    if (onlyDigits.length <= 6) {
-      // Dodaje myślnik po 3 cyfrach, jeśli potrzebne
-      if (onlyDigits.length > 3) {
-        value = onlyDigits.slice(0, 3) + '-' + onlyDigits.slice(3);
-      }
-      setBlikCode(value);
-    }
-  };
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validateForm()) {
+      updatePaymentDetails({
+        deliveryMethod,
+        paymentMethod,
+        address,
+        promoCode,
+        newsletterSubscription: isNewsletterChecked,
+        termsAgreement: isTermsChecked,
+        discountRate: paymentDetails.discountRate
+      });
+
       if (paymentMethod === 'blik') {
-        setShowBlikCodeModal(true);
-
+        navigate('/Summation');
       } else {
-      console.log(`Delivery Method: ${deliveryMethod}, Payment Method: ${paymentMethod}, Private Method: ${privateMethod}, Address:`, address);
-      // Submit form logic here
+        
+        navigate('/Summation');
+      }
     }
-
-    
-  }
-
-  
   };
   return (
     <div className="container">
       <div className="form-section">
-        <h1 id="H1">Delivery and Payment</h1>
+        <h1 id="H11">Delivery and Payment</h1>
         <form onSubmit={handleSubmit}>
           <h2 className="H2">Address</h2>
           <div className="delivery">
@@ -237,24 +227,11 @@ export const Payment = () => {
           <p>Do zapłaty: {calculateTotalWithDiscount()}  zł</p>
         </div>
         <form onSubmit={handleSubmit} >
-        <button type="submit" className="paybutt">Proceed to Payment</button>
+        <button type="submit" className="paybutt"  >Proceed to Payment</button>
         </form>
-      </div>
-      {showBlikCodeModal && (
-      <div className="blik-modal-overlay" >
-      <div className="blik-modal-content">
-        <h2>Enter BLIK Code</h2>
-        <input
-          type="text" // Zmieniono na text, aby umożliwić wpisanie myślnika
-          value={blikCode}
-          onChange={handleBlikChange}
-          placeholder="6-digit BLIK Code"
-        />
-        <button onClick={handleBLIKSubmit}>Submit</button>
-        <button id='xbutt'onClick={() => setShowBlikCodeModal(false)}>X</button>
-      </div>
+      
     </div>
-    )}
+    
   </div>
   );
           };
