@@ -81,9 +81,9 @@ export const ComparationSite = () => {
   };
 
   return (
-    <div style={{ display: 'flex' }}>
+    <div className="responsive-columns" style={{ display: 'flex' }}>
       {/* Left Column */}
-      <div style={{ flex: 1, padding: '10px' }}>
+      <div className="column" style={{ flex: 1, padding: '10px' }}>
         <input
           className="Czarny"
           type="text"
@@ -105,7 +105,7 @@ export const ComparationSite = () => {
       </div>
       
       {/* Right Column */}
-      <div style={{ flex: 1, padding: '10px' }}>
+      <div className="column" style={{ flex: 1, padding: '10px', paddingBottom:'30px' }}>
         <input
           className="Czarny"
           type="text"

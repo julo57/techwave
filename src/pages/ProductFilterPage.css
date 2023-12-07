@@ -53,3 +53,24 @@
     background-color: #0056b3;
   }
   
+
+  
+  @media (max-width: 768px) {
+    .product-filter-page {
+      flex-direction: column;
+    }
+  
+    .filter-sidebar {
+      flex-basis: auto;
+      padding-right: 0;
+      border-right: none;
+      border-bottom: 1px solid #ddd;
+    }
+  
+    .product-list {
+      padding-top: 20px ;
+      padding-left: 0;
+    }
+  }
+
+  

@@ -1,22 +1,28 @@
-.product-details-table {
-  width: 100%;
-  border-collapse: collapse; /* Collapse the border */
-}
 
 .product-details-table th,
 .product-details-table td {
-  border: 1px solid #ddd; /* Add border to table header and table data cells */
+  border: 1px solid #ddd; 
   padding: 8px;
   text-align: left;
 }
 
-/* If you have specific styles for .highlight, make sure to include them */
 .highlight {
-  background-color: #ffdddd; /* Light red background for highlighting */
-  /* Add other styles for highlighting if needed */
+  background-color: #ffdddd; 
 }
 
 .Czarny{
   
   color: black;
+}
+
+
+
+@media (max-width: 768px) {
+  .responsive-columns {
+    flex-direction: column;
+  }
+
+  .column {
+    max-width: 100%;
+  }
 }

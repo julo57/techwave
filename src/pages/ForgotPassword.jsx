@@ -28,14 +28,15 @@ const ForgotPassword = () => {
     }
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="w-full max-w-md">
+      <div className="w-full max-w-md" style={{ maxWidth: '350px' }}>
     <form className="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4 " onSubmit={handleSubmit}>
     <p className="text-center text-2xl font-bold m-8">{t("forgot.paragraph1")}</p>
     {status && <div className='bg-green-700 m-2 p-2 rounded text-white text-center'>{t("forgot.{status}")}</div>}
     <div className="mb-4">
       
       <input
-        className="shadow appearance-none placeholder-black border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        className="shadow mb-4 appearance-none placeholder-black border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        style={{ maxWidth: '280px' }}
         id="username"
         type="email"
         placeholder="Email"
@@ -58,7 +59,7 @@ const ForgotPassword = () => {
               {t("forgot.paragraph")}
             </button>
             
-            <Link to="/login" className="text-black">
+            <Link to="/login" className="text-black" style={{ paddingLeft: '35px' }}>
               <a className="ml-1 inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
                 {t("login.anchor3")}
               </a>

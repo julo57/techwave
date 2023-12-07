@@ -26,7 +26,7 @@ export const Login = () => {
   else{
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="w-full max-w-md">
+      <div className="w-fullv max-w-md">
         <form className="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleLogin}>
           <p className="text-center text-2xl font-bold">{t("login.paragraph")}</p>
 
@@ -35,7 +35,7 @@ export const Login = () => {
               {t("login.label")}
             </label>
             <input
-              className="shadow appearance-none placeholder-black border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow mb-4 appearance-none placeholder-black border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="username"
               type="email"
               placeholder={t("login.placeholder")}

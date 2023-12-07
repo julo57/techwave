@@ -269,8 +269,7 @@
   background-color: #0056b3;
 }
 
-/* Styl dla kontenera paska postępu */
-/* Styl dla kontenera paska postępu */
+
 .progress {
   width: 100%;
   height: 100%;
@@ -332,4 +331,70 @@
   font-size: 20px;
   color: #333;
   font-weight: bold;
+  /* padding-top: 25px;  */
 }
+
+
+@media (max-width: 767px) {
+  .product-content {
+    /* Wyśrodkowanie zawartości na środku, gdy jest flex-direction: column */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-price,
+  .btn-add-to-cart {
+    max-width: 200px;  /* Maksymalna szerokość dla ceny i przycisku */
+    margin: 0 auto;  /* Wyśrodkowanie na środku */
+    margin: 10px 0;
+  
+  }
+  .disabled-message {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+     padding-top: 25px;  
+  }
+
+  .product-purchase-info {
+    display: flex;
+    flex-direction: column; /* Zmiana na kolumnę na mniejszych ekranach */
+    align-items: center; /* Wyśrodkowanie elementów na mniejszych ekranach */
+    width: 100%; /* Szerokość na 100% na mniejszych ekranach */
+    margin-top: 0; 
+  }
+
+  .product-specs {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .product-purchase-section {
+    width: 100%; /* Szerokość na 100% na mniejszych ekranach */
+    margin-top: 10px; /* Odstęp między sekcjami na mniejszych ekranach */
+  }
+
+  .comment-form.disabled{
+    width: 80%;
+  }
+  .disabled-message{
+    font-size: 80%;
+  }
+  .product-site {
+    width: 70%;
+  }
+  .product-image-container {
+    width: 70%
+  }
+  .product-title-container {
+    width: 70%; 
+  }
+  .product-title {
+    font-size: 90%;
+  }
+}
+

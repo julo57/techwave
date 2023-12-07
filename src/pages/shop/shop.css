@@ -1,4 +1,5 @@
-  .product {
+
+.product {
     display: flex; 
     border: 1px solid #ccc;
     border-radius: 25px;
@@ -37,12 +38,16 @@
       
     }
     
-    @media (width: 768px) {
+    @media (max-width: 768px) {
       .product {
         flex-wrap: wrap;
       }
       .product .description {
         text-align: center;
+      }
+      .product img{
+        margin: auto;
+        display: block;
       }
     }
   
