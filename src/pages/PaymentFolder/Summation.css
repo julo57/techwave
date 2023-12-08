@@ -85,3 +85,11 @@
 .summation-details p span.detail-label {
   font-weight: bold;
 }
+.thankYou
+{
+  font-size: 30px;
+  font-weight: bold;
+  color: #4CAF50;
+  text-align: center;
+  margin-top: 20px;
+}

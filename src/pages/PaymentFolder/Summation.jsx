@@ -23,12 +23,45 @@ export const Summation = () => {
   const discountRate = paymentDetails.newsletterSubscription ? 0.05 : 0; // 5% rabatu za subskrypcję newslettera
   const discountedAmount = totalAmount * (1 - discountRate);
 
-  const handleCheckout = () => {
+  const handleCheckout = async () => {
     if (paymentDetails.paymentMethod === 'blik') {
       setShowBlikCodeModal(true);
     } else {
-      checkout();
-      navigate('/'); // Przekierowanie do strony podziękowania po pomyślnej płatności
+      // Tutaj przygotowujesz dane do wysłania
+      const orderData = {
+        userId: paymentDetails.user_id, // przykładowy ID użytkownika
+        items: cartItems,
+        totalAmount: discountedAmount,
+        address: paymentDetails.address,
+        // inne dane zamówienia
+      };
+  
+      try {
+        const response = await fetch('http://localhost:8000/api/orders', { // URL do twojego endpointu API
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            // Dodaj tu inne nagłówki, jeśli są potrzebne, np. token autoryzacyjny
+          },
+          body: JSON.stringify(orderData),
+        });
+  
+        if (response.ok) {
+          const responseData = await response.json();
+          // Logika po pomyślnym zapisaniu zamówienia
+          setShowSuccessModal(true);
+          setTimeout(() => {
+            setShowSuccessModal(false);
+            checkout();
+            navigate('/'); // Przekierowanie na stronę główną
+          }, 3000);
+        } else {
+          // Obsługa błędów, jeśli żądanie nie powiedzie się
+          throw new Error('Problem with the API');
+        }
+      } catch (error) {
+        console.error('Failed to submit order:', error);
+      }
     }
   };
 
@@ -43,8 +76,9 @@ export const Summation = () => {
       setShowSuccessModal(true);
       setTimeout(() => {
         setShowSuccessModal(false);
+        navigate('/Thank-you'); // Przekierowanie do strony podziękowania po pomyślnej płatności
         checkout();
-      }, 3000); // 3 sekundy opóźnienia
+      }, 1000); 
     }
   };
 

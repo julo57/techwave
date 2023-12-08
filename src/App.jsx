@@ -27,11 +27,13 @@ import ResetPassword from "./pages/ResetPassword";
 import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 import {Statute } from "./pages/Statute";
 import { NavbarCategories } from "./components/NavbarCategories";
+import ChatBubble from './components/ChatBubble';
 import Profile from "./components/Profile"; // Importuj komponent "Profile"
 import ProductSite from "./pages/shop/ProductSite";
 import Payment from "./pages/PaymentFolder/Payment";
 import Summation from "./pages/PaymentFolder/Summation";
 import LoginRegistryGuest from "./pages/PaymentFolder/LoginRegistryGuest";
+import ThankYou from "./pages/PaymentFolder/Thank-you"; 
 
 export const ThemeContext = createContext();
 i18next.init({
@@ -72,6 +74,7 @@ function App() {
             <Router>
               <AuthProvider>
                 <Navbar setSelectedCategory={setSelectedCategory}/>
+                <ChatBubble />
                 <Routes>
                   <Route path="/" element={<Shop selectedCategory={selectedCategory}/>} />
                   <Route path="/ProductSite/:productId" element={<ProductSite />} />
@@ -94,10 +97,7 @@ function App() {
                   <Route path="/Payment" element={<Payment />} />
                   <Route path="/Summation" element={<Summation />} />
                   <Route path="/LoginRegistryGuest" element={<LoginRegistryGuest />} /> 
-
-                  
-
-
+                  <Route path="/Thank-you" element={<ThankYou />} />
                   {/* Additional routes if any */}
                 </Routes>
                 <Footer />
