@@ -1,14 +1,17 @@
+
+
+
 #light #H11 {
-    margin-left: 40%;
-    font-size: 50px;
+    text-align: center;
+    font-size: 40px;
     font-family: 'Times New Roman', Times, serif;
     color: black;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 #dark #H11 {
-  margin-left: 40%;
-  font-size: 50px;
+  text-align: center;
+  font-size: 40px;
   font-family: 'Times New Roman', Times, serif;
   color: white;
   margin-top: 10px;
@@ -16,7 +19,7 @@
 }
 
 #light .H2 {
-    margin-left: 40%;
+    text-align: center;
     font-size: 30px;
     font-family: 'Times New Roman', Times, serif;
     color: black;
@@ -25,7 +28,7 @@
 }
 
 #dark .H2 {
-  margin-left: 40%;
+  text-align: center;
   font-size: 30px;
   font-family: 'Times New Roman', Times, serif;
   color: white;
@@ -46,29 +49,32 @@
   margin-top: 10px;
   margin-bottom: 10px; 
   border-radius: 10px;
-  margin-left: 40%;
+  
 }
 
 #light .deliverycheckbox {
-    margin-left: 40%;
+  margin: 10px auto;
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
     color: black;
     margin-top: 10px;
     margin-bottom: 10px;
+    text-align: center;
 }
 #dark .deliverycheckbox {
-  margin-left: 40%;
+  margin: 10px auto;
   font-size: 20px;
   font-family: 'Times New Roman', Times, serif;
   color: white;
   margin-top: 10px;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 
 #light .deliveryinput {
-  margin-left: 40%;
+  width: calc(100% - 20px); 
+  margin: 10px auto; 
   border: solid 1px black;
   border-radius: 10px;
   width: 100%;
@@ -80,15 +86,16 @@
 }
 
 #dark .deliveryinput {
-    margin-left: 40%;
-    border: solid 1px black;
-    border-radius: 10px;
-    width: 100%;
-    font-family: 'Times New Roman', Times, serif;
-    margin-bottom: 20px;
-    font-size: 14px;
-    line-height: 30px;
-    color: black;
+  width: calc(100% - 20px); 
+  margin: 10px auto; 
+  border: solid 1px black;
+  border-radius: 10px;
+  width: 100%;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 30px;
+  color: black;
 }
 
 #light .deliveryinputradio {
@@ -96,6 +103,7 @@
     font-family: 'Times New Roman', Times, serif;
     display: block; 
     margin-top: 1px;
+    align-items: center;
 }
 
 #dark .deliveryinputradio {
@@ -104,6 +112,7 @@
   display: block; 
   margin-top: 1px;
   color: white;
+  align-items: center;
 }
 #light .deliveryinputradio:hover {
     appearance: none;
@@ -120,6 +129,7 @@
 }
 .deliveryinputradio label {
     display: block; 
+    
     border: 3px solid transparent; 
 }
 
@@ -151,24 +161,25 @@
 }
 
 .container {
-    display: flex;
-    margin-bottom: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 40px;
+  padding-left: 10px;
   }
   .checkout-summary {
     position: -webkit-sticky; /* For Safari */
     position: sticky ;
-    margin-left: 30%;
     top: 0;
     align-self: flex-start;
     padding: 1rem;
     width: 40%;
-    margin-right: -10%;
+    border-radius: 10px;
     font-family: 'Times New Roman', Times, serif;
     box-shadow: -2px 0 5px rgba(0,0,0,0.2); /* Optional: Adds shadow for better separation */
   }
   .error-message
   {
-    margin-left: 40%;
+    
     color: red;
   }
   .blik-modal-overlay {
@@ -178,7 +189,6 @@
     width: 100%;
     height: 100vh;
     background-color: rgb(0, 0, 0, 0.5);
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -189,9 +199,9 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
     text-align: center;
-    padding: 0px;
+    padding: 20px;
     width: 100%;
-    max-width: 1000px;
+    max-width: 600px;
     background-color: white;
     border-radius: 8px;
     animation: modalFadeIn 0.3s;
