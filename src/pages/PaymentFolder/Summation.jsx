@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { ShopContext } from '../../context/shop-context';
 import { PaymentContext } from '../../context/PaymentContext';
 import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 import './Summation.css';
 
 export const Summation = () => {
@@ -26,42 +27,42 @@ export const Summation = () => {
   const handleCheckout = async () => {
     if (paymentDetails.paymentMethod === 'blik') {
       setShowBlikCodeModal(true);
-    } else {
-      // Tutaj przygotowujesz dane do wysłania
-      const orderData = {
-        userId: paymentDetails.user_id, // przykładowy ID użytkownika
-        items: cartItems,
-        totalAmount: discountedAmount,
-        address: paymentDetails.address,
-        // inne dane zamówienia
-      };
+      return;
+    }
   
-      try {
-        const response = await fetch('http://localhost:8000/api/orders', { // URL do twojego endpointu API
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            // Dodaj tu inne nagłówki, jeśli są potrzebne, np. token autoryzacyjny
-          },
-          body: JSON.stringify(orderData),
-        });
+    const itemsArray = Object.values(cartItems);
   
-        if (response.ok) {
-          const responseData = await response.json();
-          // Logika po pomyślnym zapisaniu zamówienia
-          setShowSuccessModal(true);
-          setTimeout(() => {
-            setShowSuccessModal(false);
-            checkout();
-            navigate('/'); // Przekierowanie na stronę główną
-          }, 3000);
-        } else {
-          // Obsługa błędów, jeśli żądanie nie powiedzie się
-          throw new Error('Problem with the API');
-        }
-      } catch (error) {
-        console.error('Failed to submit order:', error);
+    const orderData = {
+      userId: paymentDetails.user_id,
+      items: itemsArray.map(item => ({
+        products_id: item.id, // Upewnij się, że 'id' to właściwe pole identyfikujące produkt
+        productname: item.name, // Nazwa produktu
+        Price: item.price, // Cena produktu
+        quantity: item.quantity, // Ilość produktu
+      })),
+      totalAmount: discountedAmount,
+      address: paymentDetails.address,
+    };
+  
+    try {
+      const response = await axios.post('http://localhost:8000/api/orders', orderData, {
+        withCredentials: true,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (response.status === 201) {
+        setShowSuccessModal(true);
+        setTimeout(() => {
+          setShowSuccessModal(false);
+          checkout(); // Funkcja do czyszczenia koszyka lub innych zadań związanych z finalizacją zakupu
+          navigate('/thank-you'); // Przekierowanie na stronę podziękowania
+        }, 3000); // Odczekanie 3 sekund przed przekierowaniem
       }
+    } catch (error) {
+      alert('Failed to submit order. Please try again.');
+      console.error('Failed to submit order:', error);
     }
   };
 
