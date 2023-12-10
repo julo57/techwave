@@ -13,6 +13,7 @@
     /* font-weight: bold; */
     font-size: 16px;
     transition: color 0.3s ease; 
+    cursor: pointer;
   }
   .navbar-categories-links {
     display: flex;

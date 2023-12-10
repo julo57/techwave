@@ -125,10 +125,10 @@ export const Payment = () => {
     }
   };
   return (
-    <div className="container">
+    <div className="container-payment">
       <div className="form-section">
         <h1 id="H11">Delivery and Payment</h1>
-        <form onSubmit={handleSubmit}>
+        <form className='payment-form' onSubmit={handleSubmit}>
           <h2 className="H2">Address</h2>
           <div className="delivery">
             <input type="text" name="name" placeholder="Name" value={address.name} onChange={handleAddressChange} className="deliveryinput" />

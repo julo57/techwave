@@ -40,8 +40,10 @@ export const Shop = (props) => {
     props.selectedCategory === "" ? filteredProductsByCategory.slice(0, 12) : filteredProductsByCategory;
 
   return (
-    <div className="shop p-16 sm:p-8 md:p-16 lg:p-20">
-      <div className="shopTitle text-center mb-8"></div>
+    <div className="shop p-16 sm:p-8 md:p-16 lg:p-10">
+      <div className="shopTitle text-center mb-4">
+        <h1 className="text-4xl font-bold mb-12 ">Nasza oferta </h1>
+      </div>
       <div className="products grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {displayedProducts.map((product) => (
           <Product data={product} key={product.id} />

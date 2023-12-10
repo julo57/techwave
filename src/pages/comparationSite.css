@@ -16,8 +16,17 @@
 }
 
 
+#dark .w-full input {
+  color: white;
+  background-color: #393535;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+} 
 
-@media (max-width: 768px) {
+
+@media (max-width: 767px) {
   .responsive-columns {
     flex-direction: column;
   }

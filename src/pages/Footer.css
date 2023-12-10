@@ -132,6 +132,7 @@
     display: flex;
     flex-wrap: wrap; /* Ta linia dodaje obsługę zawijania elementów do nowego wiersza */
     justify-content: center;
+    cursor: pointer;
   }
   
   .footer-link:hover {
@@ -159,17 +160,17 @@
 
     .footer-icon-link .faFacebookF { 
       color: #3b5998;
-      font-size: 30px;
+      font-size: 25px;
       margin-right: 10px;
   }
   
   .footer-icon-link .faInstagram { 
       color: #C13584;
-      font-size: 30px;
+      font-size: 25px;
       margin-right: 10px;
   }
   
   .footer-icon-link .faTwitter { 
       color: #1DA1F2;
-      font-size: 30px;
+      font-size: 25px;
   }

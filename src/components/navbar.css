@@ -15,9 +15,9 @@
   transition: color 0.2s;
 }
 
-.links a:hover {
-  color: blue;
-}
+/* .links a:hover {
+  color: #2323E8;
+} */
 
 .search-container {
   flex: 1;
@@ -93,7 +93,7 @@
 
 
 #light .w-full input {
-  color : black;
+  color : rgb(57, 53, 53);
   background-color: white;
   padding: 10px;
   border: 1px solid #ccc;
@@ -103,7 +103,7 @@
 
 #dark .w-full input {
   color : white;
-  background-color: black;
+  background-color: rgb(57, 53, 53)k;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -122,23 +122,25 @@
 }
 
 #dark  .dropdown-list li {
-  color: white;
-  background-color: black;
+  color: #797979;
+  background-color: rgb(57, 53, 53);
   cursor: pointer;
 }
 #dark  .dropdown-list li:hover {
-  color: blue;
+  color: #E8D9D9;
   cursor: pointer;
 }
 #light  .dropdown-list li:hover {
-  color: blue;
+  /* color: #2323E8; */
   cursor: pointer;
+  text-decoration: underline;
+
 }
 
 
 
 #light .ok {
-  background-color: white;
+  background-color: #ffffff;
   color: black;
   border: 2px solid #ccc;
   border-radius: 5px;
@@ -147,8 +149,8 @@
 }
 
 #light .ok:hover {
-  background-color: blue;
-  color: white;
+  background-color: rgb(17 24 39);
+  color: #ffffff;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
@@ -157,7 +159,7 @@
 
 #dark .ok {
   background-color: rgb(49, 45, 45);
-  color: white;
+  color: #797979;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
@@ -165,15 +167,15 @@
 }
 
 #dark .ok:hover {
-  background-color: blue;
-  color: white;
+  background-color: #E8D9D9;
+  color: #797979;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
   cursor: pointer;
 }
 .Bialy{
-  color: white;
+  color: #797979;
 }
 
 

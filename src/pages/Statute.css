@@ -9,19 +9,15 @@
   .regulamin-section h2 {
     font-size: 20px;
     margin-bottom: 10px;
-    color: #333;
+    color: #878787;
     cursor: pointer;
     transition: color 0.3s ease;
-  }
-
-  .regulamin-section h2:hover {
-    color: #1b1e22; 
   }
 
   .regulamin-container h1 {
     font-size: 30px;
     margin-bottom: 10px;
-    color: #333; 
+    color: #878787; 
     cursor: default;
   }
 
@@ -29,21 +25,6 @@
     font-size: 16px;
     line-height: 1.5;
     margin-bottom: 20px;
-    color: #555; 
+    color: #878787; 
   }
 
-  .button-download {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #4caf50;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .button-download:hover {
-    background-color: #45a049;
-  }

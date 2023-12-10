@@ -335,6 +335,13 @@
 }
 
 
+#dark .product-title {
+  color: #797979;
+ 
+  padding: 10px;
+  cursor: pointer;
+}
+
 @media (max-width: 767px) {
   .product-site {
     display: flex;
