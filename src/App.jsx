@@ -34,6 +34,7 @@ import Payment from "./pages/PaymentFolder/Payment";
 import Summation from "./pages/PaymentFolder/Summation";
 import LoginRegistryGuest from "./pages/PaymentFolder/LoginRegistryGuest";
 import ThankYou from "./pages/PaymentFolder/Thank-you"; 
+import AccountSettings from "./pages/AccountSettings";
 
 export const ThemeContext = createContext();
 i18next.init({
@@ -98,6 +99,7 @@ function App() {
                   <Route path="/Summation" element={<Summation />} />
                   <Route path="/LoginRegistryGuest" element={<LoginRegistryGuest />} /> 
                   <Route path="/Thank-you" element={<ThankYou />} />
+                  <Route path="/AccountSettings" element={<AccountSettings />} /> 
                   {/* Additional routes if any */}
                 </Routes>
                 <Footer />

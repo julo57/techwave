@@ -126,7 +126,8 @@
         "button2": "Return",
         "button3": "Opinions",
         "button4": "Account settings",
-        "button5": "Logout"
+        "button5": "Logout",
+        "button6": "Profile"
         
     },
     "forgot":
@@ -212,6 +213,28 @@
         "link2": "Mobile Phones",
         "link3": "Laptops",
         "link4": "TVs"
-    }
+    },
 
+    "settings":
+    {
+        "sett": "Enter passwords",
+        "sett1": "Account settings",
+        "sett2": "Password",
+        "sett3": "Current password",
+        "sett4": "New password",
+        "sett5": "Change passoword",
+        "sett6": "E-mail adress",
+        "sett7": "Current email address",
+        "sett8": "New email address",
+        "sett9": "Change your email address",
+        "sett10": "Delete account",
+        "sett12": "Delete your account",
+        "sett13": "Error deleting account",
+        "sett14": "Password changed",
+        "sett15": "Error while changing password",
+        "sett16": "Please enter valid email addresses.",
+        "sett17": "Email address changed!",
+        "sett18": "Error changing email address. Try again."
+
+    }
 }
