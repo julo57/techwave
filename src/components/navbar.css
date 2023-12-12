@@ -1,13 +1,14 @@
 /* Navbar.css */
  .container{
-
   display: flex;
   /* justify-content: center; */
   align-items: center;
-
-
 } 
-
+nav.bg-white.border-gray-200.dark\:bg-gray-900.p-4 {
+  background-color: #191b1b; /* Ustawienie koloru tła na #191b1b */
+  border-color: #191b1b; /* Ustawienie koloru obramowania na #191b1b */
+  color: white; /* Ustawienie koloru tekstu na biały, aby był czytelny na ciemnym tle */
+}
 
 .links a {
   color: white;
@@ -25,17 +26,14 @@
   align-items: center;
 }
 
-/* Dostosuj szerokość pola wyszukiwania */
 
 
-/* Dostosuj marginesy dla elementów w prawej części Navbar */
 .right-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* Dostosuj odstęp między elementami w prawej części Navbar */
 .right-content > * {
   margin-left: 10px;
 }
@@ -98,7 +96,7 @@
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 300px; /* Dostosuj szerokość według potrzeb */
+  width: 300px; 
 }
 
 #dark .w-full input {
@@ -106,9 +104,8 @@
   background-color: rgb(57, 53, 53)k;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  
-  width: 300px; /* Dostosuj szerokość według potrzeb */
+  border-radius: 5px;  
+  width: 300px; 
 }
 .dropdown-list {
   position: absolute;
@@ -136,7 +133,6 @@
   text-decoration: underline;
 
 }
-
 
 
 #light .ok {

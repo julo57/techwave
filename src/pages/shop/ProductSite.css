@@ -15,7 +15,7 @@
   text-align: right; /* Wyrównanie tekstu do prawej */
 }
 
-.product-title-container { /* Zakładam, że masz taki kontener */
+.product-title-container { 
   display: flex;
   justify-content: center; /* Wyrównanie zawartości (np. tytułu) do prawej */
   width: 100%; /* Zapewnia, że kontener rozciąga się na całą dostępną szerokość */
@@ -41,6 +41,13 @@
   object-fit: contain; /* Zachowaj proporcje obrazu bez jego przycinania */
 }
 
+#dark .product-image {
+   filter: invert(100%);  
+}
+
+#dark .product-image {
+  filter: invert(100%);  
+}
 
 .product-purchase-info {
   display: flex;
@@ -320,7 +327,6 @@
   background-color: #f7f7f7;
   opacity: 0.5; /* Wyszarzenie formularza */
   pointer-events: none; /* Wyłączenie interakcji */
-  /* ... reszta styli dla formularza ... */
 }
 
 .disabled-message {
@@ -340,6 +346,11 @@
  
   padding: 10px;
   cursor: pointer;
+}
+
+#dark .product-description {
+  color: #797979;
+  padding: 10px;
 }
 
 @media (max-width: 767px) {
