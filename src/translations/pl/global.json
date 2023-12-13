@@ -1,199 +1,221 @@
 {
-    "aboutUs": {
-      "title": "O nas",
-      "title2": "Dlaczego my",
-      "title3": "Nasza oferta",
-      "paragraph": "Jesteśmy nową firmą, która została niedawno założona z pasją do elektroniki i informatyki. Nasza historia rozpoczęła się w 2023 roku, kiedy założyliśmy nasz pierwszy sklep internetowy z szerokim wyborem produktów elektronicznych. Od tamtej pory nieustannie się rozwijamy, dążąc do tego, aby stać się liderem w branży elektroniki. Łączymy naszą pasję z profesjonalizmem, aby lepiej zrozumieć i spełnić oczekiwania naszych klientów. Jesteśmy otwarci na sugestie i chętni do oferowania rozwiązań, które zapewnią 100% satysfakcji.",
-      "paragraph1": "Pasjonaci informatyki",
-      "paragraph2": "sklep internetowy",
-      "paragraph3": "produkty w ofercie",
-      "paragraph4": "stacjonarne salony",
-      "paragraph5": "Jesteśmy dumni, że jako nowa firma zdobywamy zaufanie naszych klientów. Nasza oferta obejmuje szeroki wybór elektroniki, który nieustannie poszerzamy o najnowsze produkty na rynku. Dążymy do tego, aby zapewnić naszym klientom najwyższą jakość, konkurencyjne ceny i doskonałą obsługę. Jesteśmy przekonani, że nasza pasja do informatyki i elektroniki przekłada się na satysfakcję naszych klientów.",
-      "paragraph6": "Mimo naszego krótkiego stażu na rynku zdobywamy uznanie naszych klientów dzięki naszemu zaangażowaniu i oddaniu. Twoja satysfakcja jest naszym priorytetem. Chcemy, abyś czuł się pewnie podczas zakupów i był zadowolony z naszych produktów oraz obsługi. Jesteśmy otwarci na wszelkie pytania i sugestie. Skontaktuj się z nami telefonicznie, przez czat lub e-mail, jeśli potrzebujesz pomocy w wyborze odpowiednich produktów elektronicznych.",
-      "paragraph7": "Oferujemy szeroki wybór produktów elektronicznych, takich jak smartfony, laptopy, akcesoria elektroniczne i wiele innych. Nasza oferta jest regularnie aktualizowana o najnowsze modele i marki. Nieustannie pracujemy nad tym, aby zapewnić Ci najlepsze produkty w atrakcyjnych cenach. Zachęcamy do odwiedzenia naszego sklepu internetowego i sprawdzenia naszych aktualnych promocji oraz ofert specjalnych."
-    },
-    "shop": {
-      "button":"Dodaj do koszyka"
-    },
-    "navbar": {
-      "link": "Sklep",
-      "link2": "Zaloguj się",
-      "link3": "Zarejestruj się",
-      "link4": "Porównaj produkty",
-      "link5":"Filtruj produkty",
-      "placeholder": "Szukaj produktu"
-    },
-    "login": {
-      "paragraph": "Zaloguj się",
-      "label": "Nazwa użytkownika",
-      "label2": "Hasło",
-      "button": "Zaloguj się",
-      "placeholder": "Nazwa użytkownika",
-      "placeholder2": "Hasło",
-      "anchor": "Zapomniałeś hasła?",
-      "anchor2": "Zrób teraz!",
-      "anchor3": "Pamiętasz hasło?",
-      "div":"Nie masz jeszcze konta ?"
-    },
-    "registry": {
-      "paragraph": "Zarejestruj się",
-      "label": "Nazwa użytkownika",
-      "label2": "E-mail",
-      "label3": "Hasło",
-      "label4": "Potwierdź hasło",
-      "button": "Zarejestruj się",
-      "placeholder": "Wprowadź nazwę użytkownika",
-      "placeholder2": "Wprowadź swój adres e-mail",
-      "placeholder3": "Wprowadź hasło",
-      "placeholder4": "Potwierdź hasło",
-      "link":" Masz już konto?"
-    },
-    "cart": {
-      "title": "Twoje produkty w koszyku",
-      "paragraph": "Suma częściowa",
-      "title2": "Twój koszyk jest pusty",
-      "button": "Kontynuuj zakupy",
-      "button2": "Przejdź do kasy"
-    },
-    "FAQ": {
-      "title": "Najczęściej zadawane pytania i odpowiedzi",
-      "question": "Jak złożyć zamówienie?",
-      "question2": "Jak mogę sprawdzić status mojego zamówienia?",
-      "question3": "Czy oferujecie darmową dostawę?",
-      "question4": "Jak mogę zwrócić produkt?",
-      "question5": "Czy można zmienić adres dostawy po złożeniu zamówienia?",
-      "question6": "Ile czasu trwa dostawa?",
-      "question7": "Czy można śledzić przesyłkę?",
-      "question8": "Czy oferujecie gwarancję na produkty?",
-      "answer": "Aby złożyć zamówienie, przejdź do naszego katalogu produktów, wybierz interesujące Cię produkty, dodaj je do koszyka, a następnie przejdź do kasy i dokonaj płatności.",
-      "answer2": "Możesz sprawdzić status swojego zamówienia, logując się na swoje konto na naszej stronie i przechodząc do sekcji Historia Zamówień.",
-      "answer3": "Tak, oferujemy darmową dostawę dla zamówień powyżej 200 złotych.",
-      "answer4": "Aby zwrócić produkt, skontaktuj się z naszym działem obsługi klienta, a my przewodniczymy Ci przez proces zwrotu.",
-      "answer5": "Tak, możesz zmienić adres dostawy przed wysyłką zamówienia. Skontaktuj się z nami, aby dokonać zmian.",
-      "answer6": "Czas dostawy zależy od Twojej lokalizacji. W większości przypadków dostawa trwa od 2 do 5 dni roboczych.",
-      "answer7": "Tak, po wysłaniu zamówienia otrzymasz numer śledzenia, który możesz użyć do monitorowania statusu przesyłki.",
-      "answer8": "Tak, wszystkie nasze produkty są objęte gwarancją producenta. Więcej informacji na temat gwarancji znajdziesz w naszych Warunkach Gwarancji."
-    },
-    "newsletter": {
-      "title": "Subskrybuj nasz newsletter",
-      "paragraph": "Dziękujemy za subskrypcję naszego newslettera!",
-      "placeholder": "Twój adres e-mail",
-      "button": "Subskrybuj"
-    },
-    "contact": {
-      "title": "Kontakt",
-      "paragraph": "Adres siedziby: Prószkowska 76, 45-758 Opole.",
-      "paragraph1": "Telefon: +12 345 678 910",
-      "paragraph2": "E-mail: kontakt@techwave.com",
-      "paragraph3": "Godziny otwarcia biura: Poniedziałek - Piątek: 9:00 - 18:00, Sobota:",
-      "paragraph4": "10:00 - 14:00",
-      "placeholder": "Imię",
-      "placeholder2": "E-mail",
-      "placeholder3": "Wiadomość",
-      "button": "Wyślij"
-    },
-
-    "foooter":
-    {
-        "link": "Kontakt",
-        "link2": "O nas",
-        "link3": "Polityka prywatności",
-        "link4": "Regulamin",
-        "link5": "Najczęściej zadawane pytania",
-        "link6": "2023 TechWave. Wszelkie prawa zastrzeżone."
-    },
-    "profile":
-    {
-        "title": "Cześć",
-        "button": "Zamówienia",
-        "button2": "Zwroty",
-        "button3": "Opinie",
-        "button4": "Ustawienia konta",
-        "button5": "Wyloguj"   
-    },
-    "forgot":
-    {
-      "paragraph": "Reset hasła",
-      "paragraph1": "Zapomniałeś hasła? Podaj nam swojego emaila",
-      "{status}": "Wysłaliśmy na twoją skrzynkę link do zresetowania hasła"
-    },
-    "reset":
-    {
-      "label": "Nowe hasło",
-      "placeholder": "Hasło",
-      "paragraph" : "Utwórz nowe hasło",
-      "label2" : "Potwierdź hasło",
-      "placeholder2": "Wpisz swoje hasło jeszcze raz.",
-      "button": "Zresetuj hasło",
-      "{status}": "Twoje hasło zostało zresetowane.",
-      "div": "Zaloguj się"
-
-    },
-    "privacyPolicy": {
-          "title": "Polityka Prywatności",
-          "section1Title": "1. Administrator Danych",
-          "section1Paragraph": "Administratorem danych osobowych zawartych w serwisie jest TechWave Sp. z o.o. z siedzibą w [Adres Firmy], zarejestrowaną w Rejestrze Przedsiębiorców pod numerem [Numer Rejestrowy], NIP: [Numer NIP], REGON: [Numer REGON].",
-          "section2Title": "2. Cele przetwarzania danych",
-          "section2Paragraph": "Dane osobowe Użytkowników przetwarzane będą w celu realizacji zamówień, obsługi konta Użytkownika, udzielenia odpowiedzi na zapytania skierowane za pośrednictwem formularza kontaktowego, a także w celach marketingowych, jeśli Użytkownik wyrazi na to zgodę.",
-          "section3Title": "3. Podanie danych osobowych",
-          "section3Paragraph": "Podanie danych osobowych jest dobrowolne, lecz niezbędne do korzystania z niektórych funkcji serwisu, takich jak składanie zamówień czy kontakt poprzez formularz.",
-          "section4Title": "4. Cookies",
-          "section4Paragraph": "Nasza strona korzysta z plików cookies. Są to niewielkie pliki tekstowe wysyłane przez serwer internetowy i przechowywane przez przeglądarkę internetową Użytkownika. Pliki te zawierają informacje niezbędne do prawidłowego funkcjonowania strony, a także umożliwiają analizę ruchu na stronie.",
-          "section5Title": "5. Zmiany w Polityce Prywatności",
-          "section5Paragraph": "Zastrzegamy sobie prawo do wprowadzania zmian w Polityce Prywatności. Wszelkie zmiany zostaną opublikowane na tej stronie.",
-          "section6Title": "6. Bezpieczeństwo danych",
-          "section6Paragraph": "TechWave dokłada wszelkich starań, aby zapewnić bezpieczeństwo przetwarzanych danych osobowych. Wdrożyliśmy odpowiednie środki techniczne i organizacyjne, aby chronić dane osobowe przed nieuprawnionym dostępem, utratą, zmianą czy zniszczeniem.",
-          "section7Title": "7. Kontakt",
-          "section7Paragraph": "W przypadku pytań dotyczących Polityki Prywatności lub przetwarzania danych osobowych Użytkownik może skontaktować się z nami pod adresem [adres email] lub telefonicznie pod numerem [numer telefonu]."
-        }, 
-    "statute": {
-      "title": "Regulamin Sklepu Internetowego TechWave",
-      "section1Title": "1. Postanowienia Ogólne",
-      "section1Content": "1.1. Sklep internetowy TechWave prowadzony jest przez TechWave Sp. z o.o. z siedzibą w [Adres Firmy], zarejestrowaną w Rejestrze Przedsiębiorców pod numerem [Numer Rejestrowy], NIP: [Numer NIP], REGON: [Numer REGON].\n\n1.2. Niniejszy regulamin określa zasady zakupów dokonywanych za pośrednictwem sklepu internetowego TechWave, dostępne pod adresem www.techwave.pl.",
-      "section2Title": "2. Zamówienia i Płatności",
-      "section2Content": "2.1. Zamówienia można składać za pośrednictwem sklepu internetowego 24 godziny na dobę, 7 dni w tygodniu.\n\n2.2. Do realizacji zamówienia niezbędne są prawidłowo wypełnione dane osobowe oraz adresowe. Klient ma możliwość wyboru formy płatności spośród dostępnych w sklepie.",
-      "section3Title": "3. Dostawa",
-      "section3Content": "3.1. Zamówienia są wysyłane kurierem lub pocztą polską na adres podany przez Klienta podczas składania zamówienia.\n\n3.2. Koszty dostawy są określone podczas składania zamówienia i są zależne od wybranej formy dostawy oraz miejscowości dostawy.",
-      "section4Title": "4. Reklamacje i Zwroty",
-      "section4Content": "4.1. Klient ma prawo do reklamacji w przypadku otrzymania produktu uszkodzonego lub niezgodnego z zamówieniem. Reklamację należy zgłosić w ciągu 14 dni od otrzymania towaru.\n\n4.2. Zwrot produktu jest możliwy w ciągu 14 dni od daty otrzymania towaru. Produkt musi być w stanie nienaruszonym, w oryginalnym opakowaniu.",
-      "section5Title": "5. Ochrona Danych Osobowych",
-      "section5Content": "5.1. Podczas składania zamówienia Klient podaje swoje dane osobowe, które są niezbędne do realizacji zamówienia. Dane te są poufne i nie są udostępniane osobom trzecim.",
-      "section6Title": "6. Prawa i Obowiązki Klienta",
-      "section6Content": "6.1. Klient ma obowiązek zapoznać się z treścią regulaminu przed złożeniem zamówienia.\n\n6.2. Klient zobowiązuje się do podawania prawdziwych danych podczas składania zamówienia.\n\n6.3. Klient ma prawo do odstąpienia od umowy w terminie 14 dni od otrzymania towaru.",
-      "section7Title": "7. Postępowanie Reklamacyjne",
-      "section7Content": "7.1. Reklamacje można składać drogą mailową na adres [adres email] lub telefonicznie pod numerem [numer telefonu].\n\n7.2. Sklep zobowiązuje się do rozpatrzenia reklamacji w terminie 14 dni od daty jej otrzymania.",
-      "section8Title": "8. Odpowiedzialność",
-      "section8Content": "8.1. Sklep nie ponosi odpowiedzialności za szkody wynikłe z niewłaściwego użytkowania zakupionego towaru.\n\n8.2. W przypadku wad fizycznych towaru, Sklep ponosi odpowiedzialność na zasadach określonych w przepisach Kodeksu Cywilnego."
-    },
-    "comparation": {
-      "Name": "Nazwa",
-      "Screen": "Ekran",
-      "Processor": "Procesor",
-      "RAM": "Pamięć RAM",
-      "Storage": "Pamięć wewnętrzna",
-      "Price": "Cena",
-
-      "placeholder": "Szukaj produktu ",
-      "placeholder2": "Szukaj produktu ",
-      "button": "Szukaj"
+  "aboutUs": {
+    "title": "O nas",
+    "title2": "Dlaczego my",
+    "title3": "Nasza oferta",
+    "paragraph": "Jesteśmy nową firmą, która została niedawno założona z pasją do elektroniki i informatyki. Nasza historia rozpoczęła się w 2023 roku, kiedy założyliśmy nasz pierwszy sklep internetowy z szerokim wyborem produktów elektronicznych. Od tamtej pory nieustannie się rozwijamy, dążąc do tego, aby stać się liderem w branży elektroniki. Łączymy naszą pasję z profesjonalizmem, aby lepiej zrozumieć i spełnić oczekiwania naszych klientów. Jesteśmy otwarci na sugestie i chętni do oferowania rozwiązań, które zapewnią 100% satysfakcji.",
+    "paragraph1": "Pasjonaci informatyki",
+    "paragraph2": "sklep internetowy",
+    "paragraph3": "produkty w ofercie",
+    "paragraph4": "stacjonarne salony",
+    "paragraph5": "Jesteśmy dumni, że jako nowa firma zdobywamy zaufanie naszych klientów. Nasza oferta obejmuje szeroki wybór elektroniki, który nieustannie poszerzamy o najnowsze produkty na rynku. Dążymy do tego, aby zapewnić naszym klientom najwyższą jakość, konkurencyjne ceny i doskonałą obsługę. Jesteśmy przekonani, że nasza pasja do informatyki i elektroniki przekłada się na satysfakcję naszych klientów.",
+    "paragraph6": "Mimo naszego krótkiego stażu na rynku zdobywamy uznanie naszych klientów dzięki naszemu zaangażowaniu i oddaniu. Twoja satysfakcja jest naszym priorytetem. Chcemy, abyś czuł się pewnie podczas zakupów i był zadowolony z naszych produktów oraz obsługi. Jesteśmy otwarci na wszelkie pytania i sugestie. Skontaktuj się z nami telefonicznie, przez czat lub e-mail, jeśli potrzebujesz pomocy w wyborze odpowiednich produktów elektronicznych.",
+    "paragraph7": "Oferujemy szeroki wybór produktów elektronicznych, takich jak smartfony, laptopy, akcesoria elektroniczne i wiele innych. Nasza oferta jest regularnie aktualizowana o najnowsze modele i marki. Nieustannie pracujemy nad tym, aby zapewnić Ci najlepsze produkty w atrakcyjnych cenach. Zachęcamy do odwiedzenia naszego sklepu internetowego i sprawdzenia naszych aktualnych promocji oraz ofert specjalnych."
   },
-  "filter": {
-      "Pricelow": "Sortuj według ceny (Rosnąco)",
-      "Pricehigh": "Sortuj według ceny (Malejąco)",
-      "RAMlow": "Sortuj według RAM (Rosnąco)",
-      "RAMhigh": "Sortuj według RAM (Malejąco)",
-      "Storagehigh": "Sortuj według pojemności (Malejąco)",
-      "Storagelow": "Sortuj według pojemności (Rosnąco)",
-      "filtr" : "Filtruj"
-    },
-    "navbarCategories":
-    {
-        "link": "Wszystkie produkty",
-        "link2": "Telefony",
-        "link3": "Laptopy",
-        "link4": "Telewizory"
-    }
+  "shop": {
+    "button":"Dodaj do koszyka"
+  },
+  "navbar": {
+    "link": "Sklep",
+    "link2": "Zaloguj się",
+    "link3": "Zarejestruj się",
+    "link4": "Porównaj produkty",
+    "link5":"Filtruj produkty",
+    "placeholder": "Szukaj produktu"
+  },
+  "login": {
+    "paragraph": "Zaloguj się",
+    "label": "Nazwa użytkownika",
+    "label2": "Hasło",
+    "button": "Zaloguj się",
+    "placeholder": "Nazwa użytkownika",
+    "placeholder2": "Hasło",
+    "anchor": "Zapomniałeś hasła?",
+    "anchor2": "Zrób teraz!",
+    "anchor3": "Pamiętasz hasło?",
+    "div":"Nie masz jeszcze konta ?"
+  },
+  "registry": {
+    "paragraph": "Zarejestruj się",
+    "label": "Nazwa użytkownika",
+    "label2": "E-mail",
+    "label3": "Hasło",
+    "label4": "Potwierdź hasło",
+    "button": "Zarejestruj się",
+    "placeholder": "Wprowadź nazwę użytkownika",
+    "placeholder2": "Wprowadź swój adres e-mail",
+    "placeholder3": "Wprowadź hasło",
+    "placeholder4": "Potwierdź hasło",
+    "link":" Masz już konto?"
+  },
+  "cart": {
+    "title": "Twoje produkty w koszyku",
+    "paragraph": "Suma częściowa",
+    "title2": "Twój koszyk jest pusty",
+    "button": "Kontynuuj zakupy",
+    "button2": "Przejdź do kasy"
+  },
+  "FAQ": {
+    "title": "Najczęściej zadawane pytania i odpowiedzi",
+    "question": "Jak złożyć zamówienie?",
+    "question2": "Jak mogę sprawdzić status mojego zamówienia?",
+    "question3": "Czy oferujecie darmową dostawę?",
+    "question4": "Jak mogę zwrócić produkt?",
+    "question5": "Czy można zmienić adres dostawy po złożeniu zamówienia?",
+    "question6": "Ile czasu trwa dostawa?",
+    "question7": "Czy można śledzić przesyłkę?",
+    "question8": "Czy oferujecie gwarancję na produkty?",
+    "answer": "Aby złożyć zamówienie, przejdź do naszego katalogu produktów, wybierz interesujące Cię produkty, dodaj je do koszyka, a następnie przejdź do kasy i dokonaj płatności.",
+    "answer2": "Możesz sprawdzić status swojego zamówienia, logując się na swoje konto na naszej stronie i przechodząc do sekcji Historia Zamówień.",
+    "answer3": "Tak, oferujemy darmową dostawę dla zamówień powyżej 200 złotych.",
+    "answer4": "Aby zwrócić produkt, skontaktuj się z naszym działem obsługi klienta, a my przewodniczymy Ci przez proces zwrotu.",
+    "answer5": "Tak, możesz zmienić adres dostawy przed wysyłką zamówienia. Skontaktuj się z nami, aby dokonać zmian.",
+    "answer6": "Czas dostawy zależy od Twojej lokalizacji. W większości przypadków dostawa trwa od 2 do 5 dni roboczych.",
+    "answer7": "Tak, po wysłaniu zamówienia otrzymasz numer śledzenia, który możesz użyć do monitorowania statusu przesyłki.",
+    "answer8": "Tak, wszystkie nasze produkty są objęte gwarancją producenta. Więcej informacji na temat gwarancji znajdziesz w naszych Warunkach Gwarancji."
+  },
+  "newsletter": {
+    "title": "Subskrybuj nasz newsletter",
+    "paragraph": "Dziękujemy za subskrypcję naszego newslettera!",
+    "placeholder": "Twój adres e-mail",
+    "button": "Subskrybuj"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "paragraph": "Adres siedziby: Prószkowska 76, 45-758 Opole.",
+    "paragraph1": "Telefon: +12 345 678 910",
+    "paragraph2": "E-mail: kontakt@techwave.com",
+    "paragraph3": "Godziny otwarcia biura: Poniedziałek - Piątek: 9:00 - 18:00, Sobota:",
+    "paragraph4": "10:00 - 14:00",
+    "placeholder": "Imię",
+    "placeholder2": "E-mail",
+    "placeholder3": "Wiadomość",
+    "button": "Wyślij"
+  },
 
+  "foooter":
+  {
+      "link": "Kontakt",
+      "link2": "O nas",
+      "link3": "Polityka prywatności",
+      "link4": "Regulamin",
+      "link5": "Najczęściej zadawane pytania",
+      "link6": "2023 TechWave. Wszelkie prawa zastrzeżone."
+  },
+  "profile":
+  {
+      "title": "Cześć",
+      "button": "Zamówienia",
+      "button2": "Zwroty",
+      "button3": "Opinie",
+      "button4": "Ustawienia konta",
+      "button5": "Wyloguj",
+      "button6": "Profil"   
+  },
+  "forgot":
+  {
+    "paragraph": "Reset hasła",
+    "paragraph1": "Zapomniałeś hasła? Podaj nam swojego emaila",
+    "{status}": "Wysłaliśmy na twoją skrzynkę link do zresetowania hasła"
+  },
+  "reset":
+  {
+    "label": "Nowe hasło",
+    "placeholder": "Hasło",
+    "paragraph" : "Utwórz nowe hasło",
+    "label2" : "Potwierdź hasło",
+    "placeholder2": "Wpisz swoje hasło jeszcze raz.",
+    "button": "Zresetuj hasło",
+    "{status}": "Twoje hasło zostało zresetowane.",
+    "div": "Zaloguj się"
 
+  },
+  "privacyPolicy": {
+        "title": "Polityka Prywatności",
+        "section1Title": "1. Administrator Danych",
+        "section1Paragraph": "Administratorem danych osobowych zawartych w serwisie jest TechWave Sp. z o.o. z siedzibą w [Adres Firmy], zarejestrowaną w Rejestrze Przedsiębiorców pod numerem [Numer Rejestrowy], NIP: [Numer NIP], REGON: [Numer REGON].",
+        "section2Title": "2. Cele przetwarzania danych",
+        "section2Paragraph": "Dane osobowe Użytkowników przetwarzane będą w celu realizacji zamówień, obsługi konta Użytkownika, udzielenia odpowiedzi na zapytania skierowane za pośrednictwem formularza kontaktowego, a także w celach marketingowych, jeśli Użytkownik wyrazi na to zgodę.",
+        "section3Title": "3. Podanie danych osobowych",
+        "section3Paragraph": "Podanie danych osobowych jest dobrowolne, lecz niezbędne do korzystania z niektórych funkcji serwisu, takich jak składanie zamówień czy kontakt poprzez formularz.",
+        "section4Title": "4. Cookies",
+        "section4Paragraph": "Nasza strona korzysta z plików cookies. Są to niewielkie pliki tekstowe wysyłane przez serwer internetowy i przechowywane przez przeglądarkę internetową Użytkownika. Pliki te zawierają informacje niezbędne do prawidłowego funkcjonowania strony, a także umożliwiają analizę ruchu na stronie.",
+        "section5Title": "5. Zmiany w Polityce Prywatności",
+        "section5Paragraph": "Zastrzegamy sobie prawo do wprowadzania zmian w Polityce Prywatności. Wszelkie zmiany zostaną opublikowane na tej stronie.",
+        "section6Title": "6. Bezpieczeństwo danych",
+        "section6Paragraph": "TechWave dokłada wszelkich starań, aby zapewnić bezpieczeństwo przetwarzanych danych osobowych. Wdrożyliśmy odpowiednie środki techniczne i organizacyjne, aby chronić dane osobowe przed nieuprawnionym dostępem, utratą, zmianą czy zniszczeniem.",
+        "section7Title": "7. Kontakt",
+        "section7Paragraph": "W przypadku pytań dotyczących Polityki Prywatności lub przetwarzania danych osobowych Użytkownik może skontaktować się z nami pod adresem [adres email] lub telefonicznie pod numerem [numer telefonu]."
+      }, 
+  "statute": {
+    "title": "Regulamin Sklepu Internetowego TechWave",
+    "section1Title": "1. Postanowienia Ogólne",
+    "section1Content": "1.1. Sklep internetowy TechWave prowadzony jest przez TechWave Sp. z o.o. z siedzibą w [Adres Firmy], zarejestrowaną w Rejestrze Przedsiębiorców pod numerem [Numer Rejestrowy], NIP: [Numer NIP], REGON: [Numer REGON].\n\n1.2. Niniejszy regulamin określa zasady zakupów dokonywanych za pośrednictwem sklepu internetowego TechWave, dostępne pod adresem www.techwave.pl.",
+    "section2Title": "2. Zamówienia i Płatności",
+    "section2Content": "2.1. Zamówienia można składać za pośrednictwem sklepu internetowego 24 godziny na dobę, 7 dni w tygodniu.\n\n2.2. Do realizacji zamówienia niezbędne są prawidłowo wypełnione dane osobowe oraz adresowe. Klient ma możliwość wyboru formy płatności spośród dostępnych w sklepie.",
+    "section3Title": "3. Dostawa",
+    "section3Content": "3.1. Zamówienia są wysyłane kurierem lub pocztą polską na adres podany przez Klienta podczas składania zamówienia.\n\n3.2. Koszty dostawy są określone podczas składania zamówienia i są zależne od wybranej formy dostawy oraz miejscowości dostawy.",
+    "section4Title": "4. Reklamacje i Zwroty",
+    "section4Content": "4.1. Klient ma prawo do reklamacji w przypadku otrzymania produktu uszkodzonego lub niezgodnego z zamówieniem. Reklamację należy zgłosić w ciągu 14 dni od otrzymania towaru.\n\n4.2. Zwrot produktu jest możliwy w ciągu 14 dni od daty otrzymania towaru. Produkt musi być w stanie nienaruszonym, w oryginalnym opakowaniu.",
+    "section5Title": "5. Ochrona Danych Osobowych",
+    "section5Content": "5.1. Podczas składania zamówienia Klient podaje swoje dane osobowe, które są niezbędne do realizacji zamówienia. Dane te są poufne i nie są udostępniane osobom trzecim.",
+    "section6Title": "6. Prawa i Obowiązki Klienta",
+    "section6Content": "6.1. Klient ma obowiązek zapoznać się z treścią regulaminu przed złożeniem zamówienia.\n\n6.2. Klient zobowiązuje się do podawania prawdziwych danych podczas składania zamówienia.\n\n6.3. Klient ma prawo do odstąpienia od umowy w terminie 14 dni od otrzymania towaru.",
+    "section7Title": "7. Postępowanie Reklamacyjne",
+    "section7Content": "7.1. Reklamacje można składać drogą mailową na adres [adres email] lub telefonicznie pod numerem [numer telefonu].\n\n7.2. Sklep zobowiązuje się do rozpatrzenia reklamacji w terminie 14 dni od daty jej otrzymania.",
+    "section8Title": "8. Odpowiedzialność",
+    "section8Content": "8.1. Sklep nie ponosi odpowiedzialności za szkody wynikłe z niewłaściwego użytkowania zakupionego towaru.\n\n8.2. W przypadku wad fizycznych towaru, Sklep ponosi odpowiedzialność na zasadach określonych w przepisach Kodeksu Cywilnego."
+  },
+  "comparation": {
+    "Name": "Nazwa",
+    "Screen": "Ekran",
+    "Processor": "Procesor",
+    "RAM": "Pamięć RAM",
+    "Storage": "Pamięć wewnętrzna",
+    "Price": "Cena",
+
+    "placeholder": "Szukaj produktu ",
+    "placeholder2": "Szukaj produktu ",
+    "button": "Szukaj"
+},
+"filter": {
+    "Pricelow": "Sortuj według ceny (Rosnąco)",
+    "Pricehigh": "Sortuj według ceny (Malejąco)",
+    "RAMlow": "Sortuj według RAM (Rosnąco)",
+    "RAMhigh": "Sortuj według RAM (Malejąco)",
+    "Storagehigh": "Sortuj według pojemności (Malejąco)",
+    "Storagelow": "Sortuj według pojemności (Rosnąco)",
+    "filtr" : "Filtruj"
+  },
+  "navbarCategories":
+  {
+      "link": "Wszystkie produkty",
+      "link2": "Telefony",
+      "link3": "Laptopy",
+      "link4": "Telewizory"
+  },
+
+  "settings":
+  {
+      "sett": "Wpisz hasła",
+      "sett1": "Ustawienia konta",
+      "sett2": "Hasło",
+      "sett3": "Aktualne hasło",
+      "sett4": "Nowe hasło",
+      "sett5": "Zmień hasło",
+      "sett6": "Adres e-mail",
+      "sett7": "Aktualny adres e-mail",
+      "sett8": "Nowy adres e-mail",
+      "sett9": "Zmień adres e-mail",
+      "sett10": "Usuń konto",
+      "sett12": "Usuń swoje konto",
+      "sett13": "Błąd podczas usuwania konta",
+      "sett14": "Hasło zmienione",
+      "sett15": "Błąd podczas zmianu hasła",
+      "sett16": "Wprowadź poprawne adresy e-mail.",
+      "sett17": "Adres Email zmieniony!",
+      "sett18": "Błąd podczas zmiany adresu e-mail. Spróbuj ponownie."
   }
-  
+
+
+}

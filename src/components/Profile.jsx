@@ -1,6 +1,6 @@
 import React from "react";
 import useAuthContext from "../context/AuthContext";
-import { Navigate } from "react-router-dom";
+import {Link,Navigate } from "react-router-dom";
 import Cookies from 'js-cookie'; // Importuj bibliotekę js-cookie
 import { useTranslation } from "react-i18next";
 
@@ -28,7 +28,9 @@ const Profile = () => {
             <button className="block w-full p-3 mb-4 text-black-500 rounded hover:border-gray-500 hover:border-2 hover:rounded-lg hover:bg-gray-200">{t("profile.button")}</button>
             <button className="block w-full p-3 mb-4 text-black-500 rounded hover:border-gray-500 hover:border-2 hover:rounded-lg hover:bg-gray-200">{t("profile.button2")}</button>
             <button className="block w-full p-3 mb-4 text-black-500 rounded hover:border-gray-500 hover:border-2 hover:rounded-lg hover:bg-gray-200">{t("profile.button3")}</button>
+            <Link to="/AccountSettings">
             <button className="block w-full p-3 mb-4 text-black-500 rounded hover:border-gray-500 hover:border-2 hover:rounded-lg hover:bg-gray-200">{t("profile.button4")}</button>
+            </Link>
             <button className="block w-full p-3 mb-4 text-red-600 rounded hover:border-red-500 hover:border-2 hover:rounded-lg hover:bg-red-200" onClick={handleLogout}>{t("profile.button5")}</button>
           </div>
         </div>
