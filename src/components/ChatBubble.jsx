@@ -1,19 +1,36 @@
 import React, { useState } from 'react';
 import { ChatCircleDots } from "phosphor-react";
+import Koksuś from '../assets/products/Koksuś.png';
+import { useTranslation } from "react-i18next";
+import data from '../translations/en/global.json';
 import './ChatBubble.css';
 
 const ChatBubble = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState('');
-  const [messages, setMessages] = useState([]);
+  const {t} = useTranslation("global");
+  const [messages, setMessages] = useState([
+    { text: `${t("bot.welcome")} `, sender: "bot" }
+  ]);
 
   const toggleChatWindow = () => {
     setIsOpen(!isOpen);
   };
 
+  const getBotResponse = (userMessage) => {
+    const botResponses = data.bot; // Używa sekcji 'bot' z Twojego JSON-a.
+    for (let keyword in botResponses) {
+      if (userMessage.includes(keyword)) {
+        return botResponses[keyword];
+      }
+    }
+  
+    return "Przepraszam, nie rozumiem."; // Domyślna odpowiedź
+  };
   const handleSendMessage = () => {
     if (message) {
-      setMessages([...messages, message]);
+      const botResponse = getBotResponse(message.toLowerCase());
+      setMessages([...messages, { text: message, sender: "user" }, { text: botResponse, sender: "bot" }]);
       setMessage('');
     }
   };
@@ -28,7 +45,15 @@ const ChatBubble = () => {
           <div className="chat-header">Czat z Botem Koksuś</div>
           <div className="messages">
             {messages.map((msg, index) => (
-              <div key={index} className="message">{msg}</div>
+              <div key={index} className={`message ${msg.sender}`}>
+                {msg.sender === "bot" && (
+                  <div className="message-content">
+                    <img src={Koksuś} alt="Koksuś" className="bot-icon" />
+                    <p>{msg.text}</p>
+                  </div>
+                )}
+                {msg.sender === "user" && <p>{msg.text}</p>}
+              </div>
             ))}
           </div>
           <div className="message-input">

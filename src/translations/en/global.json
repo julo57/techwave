@@ -212,6 +212,37 @@
         "link2": "Mobile Phones",
         "link3": "Laptops",
         "link4": "TVs"
+    },
+
+    "bot":
+    {
+        "welcome": "Hi, I'm the TechWave Bot. My name is Koksuś. How can I assist you today?",
+    "hi": "Hi How can I assist you?",
+    "hello": "Hellow How can I assist you?",
+    "help": "How can I help you?",
+
+    "televisions": "Looking for a new television? Check out our wide range of options.",
+    "laptops": "In need of a new laptop? We have a variety of models to choose from.",
+    "smartphones": "Interested in smartphones? Find the latest models here.",
+    "tablets": "Check out our selection of tablets, perfect for work and entertainment.",
+    "monitors": "Need a new monitor? Explore our range of options.",
+    "computers": "Looking for a desktop computer? Here are our top models.",
+    "accessories": "Browse our assortment of computer accessories.",
+    "speakers": "Need speakers? We offer various models for every need.",
+    "headphones": "Searching for headphones? We have a wide selection.",
+    "printers": "Looking for a printer? Check out our home and office solutions.",
+    "hard drives": "Need more storage? Take a look at our hard drives.",
+    "RAM": "Want to upgrade your RAM? We have what you need.",
+    "processors": "Looking for a new processor? We offer top models.",
+    "questions": "What are yours questions?",
+    "question": "What is your question?",
+    "bye": "Bye! Hope to see you again soon.",
+    "What is your name?": "My name is Koksuś",
+    "My name is {name}": "Hi {name}, nice to meet you!",
+    "Dance": "OK I will try"
+   
+   
+    
     }
 
 }
