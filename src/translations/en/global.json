@@ -244,14 +244,20 @@
     "hi": "Hi How can I assist you?",
     "hello": "Hellow How can I assist you?",
     "help": "How can I help you?",
-
+    "TV": "Looking for a new television? Check out our wide range of options.",
     "televisions": "Looking for a new television? Check out our wide range of options.",
+    "laptop": "In need of a new laptop? We have a variety of models to choose from.",
     "laptops": "In need of a new laptop? We have a variety of models to choose from.",
     "smartphones": "Interested in smartphones? Find the latest models here.",
+    "smartphone": "Interested in smartphones? Find the latest models here.",
     "tablets": "Check out our selection of tablets, perfect for work and entertainment.",
+    "tablet": "Check out our selection of tablets, perfect for work and entertainment.",
+    "monitor": "Need a new monitor? Explore our range of options.",
     "monitors": "Need a new monitor? Explore our range of options.",
-    "computers": "Looking for a desktop computer? Here are our top models.",
+    "newsletter": "Subscribe to our newsletter to receive the latest news and promotions.",
     "accessories": "Browse our assortment of computer accessories.",
+    "payment": "We accept all major credit cards and Blik.",
+    "delivery": "We offer free delivery for orders over PLN 200.",
     "speakers": "Need speakers? We offer various models for every need.",
     "headphones": "Searching for headphones? We have a wide selection.",
     "printers": "Looking for a printer? Check out our home and office solutions.",
@@ -263,11 +269,10 @@
     "bye": "Bye! Hope to see you again soon.",
     "What is your name?": "My name is Koksuś",
     "My name is {name}": "Hi {name}, nice to meet you!",
-    "Dance": "OK I will try"
-   
-   
+    "wonderful": "I am happy to hear that! ",
+    "great": "I am happy to hear that!"
     
+   
     }
-
 
 }

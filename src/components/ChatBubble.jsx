@@ -3,12 +3,14 @@ import { ChatCircleDots } from "phosphor-react";
 import Koksuś from '../assets/products/Koksuś.png';
 import { useTranslation } from "react-i18next";
 import data from '../translations/en/global.json';
+import data2 from '../translations/pl/global.json';
+
 import './ChatBubble.css';
 
 const ChatBubble = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState('');
-  const {t} = useTranslation("global");
+  const { t } = useTranslation("global");
   const [messages, setMessages] = useState([
     { text: `${t("bot.welcome")} `, sender: "bot" }
   ]);
@@ -18,18 +20,26 @@ const ChatBubble = () => {
   };
 
   const getBotResponse = (userMessage) => {
-    const botResponses = data.bot; // Używa sekcji 'bot' z Twojego JSON-a.
-    for (let keyword in botResponses) {
-      if (userMessage.includes(keyword)) {
-        return botResponses[keyword];
+    const botResponses = data.bot;
+    let response = "Przepraszam, nie rozumiem."; // Default response
+    let lowerCaseMessage = userMessage.toLowerCase();
+
+    Object.keys(botResponses).forEach((key) => {
+      if (lowerCaseMessage.includes(key.toLowerCase())) {
+        response = botResponses[key];
+        if (key.includes("{name}")) {
+          const userName = userMessage.split(' ').pop(); // Assuming the last word is the name
+          response = response.replace("{name}", userName);
+        }
       }
-    }
-  
-    return "Przepraszam, nie rozumiem."; // Domyślna odpowiedź
+    });
+
+    return response;
   };
+
   const handleSendMessage = () => {
     if (message) {
-      const botResponse = getBotResponse(message.toLowerCase());
+      const botResponse = getBotResponse(message);
       setMessages([...messages, { text: message, sender: "user" }, { text: botResponse, sender: "bot" }]);
       setMessage('');
     }
