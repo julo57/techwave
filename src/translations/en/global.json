@@ -212,7 +212,11 @@
         "link": "All",
         "link2": "Mobile Phones",
         "link3": "Laptops",
-        "link4": "TVs"
+        "link4": "TVs",
+        "link5": "Headphones",
+        "link6": "Printers",
+        "link7": "Monitors",
+        "link8": "Tablets"
     },
 
     "settings":

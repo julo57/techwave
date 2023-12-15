@@ -21,9 +21,10 @@
     margin-left: auto; 
   }
   
-  #dark .product img {
+  /* #dark .product img {
     filter: invert(100%);  
- }
+ } */
+ 
 
 
     .product:hover {

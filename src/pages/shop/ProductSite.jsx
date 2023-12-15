@@ -132,7 +132,7 @@ function ProductSite() {
             <p><strong>Ekran:</strong> {product.Screen}</p>
             <p><strong>Procesor:</strong> {product.Processor}</p>
             <p><strong>Pamięć RAM:</strong> {product.RAM}</p>
-            <p><strong>Pamięć wbudowana:</strong> {product.GB}</p>
+            <p><strong>Pamięć wbudowana:</strong> {product.storage}</p>
           </div>
           <div className="product-purchase-section">
             <p className="product-price">{product.price} zł</p>

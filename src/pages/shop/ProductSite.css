@@ -41,14 +41,6 @@
   object-fit: contain; /* Zachowaj proporcje obrazu bez jego przycinania */
 }
 
-#dark .product-image {
-   filter: invert(100%);  
-}
-
-#dark .product-image {
-  filter: invert(100%);  
-}
-
 .product-purchase-info {
   display: flex;
   width: 50%;
@@ -239,7 +231,7 @@
   background-color: #f7f7f7;
   border-radius: 10px;
   width: 100%;
-  max-width: 1300px;
+  /* max-width: 1300px; */
 }
 
 .comment-form label {
