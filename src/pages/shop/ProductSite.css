@@ -1,3 +1,5 @@
+
+
 .product-site {
   display: flex;
   flex-direction: column;
@@ -39,14 +41,6 @@
   max-width: 100%; /* Maksymalna szerokość obrazu to 100% kontenera */
   max-height: 100%; /* Maksymalna wysokość obrazu to 100% kontenera */
   object-fit: contain; /* Zachowaj proporcje obrazu bez jego przycinania */
-}
-
-#dark .product-image {
-   filter: invert(100%);  
-}
-
-#dark .product-image {
-  filter: invert(100%);  
 }
 
 .product-purchase-info {
@@ -239,7 +233,7 @@
   background-color: #f7f7f7;
   border-radius: 10px;
   width: 100%;
-  max-width: 1300px;
+  /* max-width: 1300px; */
 }
 
 .comment-form label {

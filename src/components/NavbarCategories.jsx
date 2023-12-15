@@ -45,6 +45,43 @@ export const NavbarCategories = (props) => {
       >
         {t("navbarCategories.link4")}
       </span>
+      <span
+        className="navbar-category-link"
+        onClick={() => {
+          navigate("/");
+          props.setSelectedCategory("Headphones");
+        }}
+      >
+        {t("navbarCategories.link5")}
+      </span>
+      <span
+        className="navbar-category-link"
+        onClick={() => {
+          navigate("/");
+          props.setSelectedCategory("Printer");
+        }}
+      >
+        {t("navbarCategories.link6")}
+      </span>
+      <span
+        className="navbar-category-link"
+        onClick={() => {
+          navigate("/");
+          props.setSelectedCategory("Monitor");
+        }}
+      >
+        {t("navbarCategories.link7")}
+      </span>
+      <span
+        className="navbar-category-link"
+        onClick={() => {
+          navigate("/");
+
+          props.setSelectedCategory("Tablet");
+        }}
+      >
+        {t("navbarCategories.link8")}
+      </span>
     </div>
   );
 };

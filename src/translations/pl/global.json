@@ -192,7 +192,11 @@
       "link": "Wszystkie produkty",
       "link2": "Telefony",
       "link3": "Laptopy",
-      "link4": "Telewizory"
+      "link4": "Telewizory",
+      "link5": "Słuchawki",
+      "link6": "Drukarki",
+      "link7": "Monitory",
+      "link8": "Tablety"
   },
 
   "settings":
