@@ -76,7 +76,6 @@ export const NavbarCategories = (props) => {
         className="navbar-category-link"
         onClick={() => {
           navigate("/");
-
           props.setSelectedCategory("Tablet");
         }}
       >
