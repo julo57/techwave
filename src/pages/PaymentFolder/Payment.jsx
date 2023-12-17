@@ -269,6 +269,6 @@ const { updatePaymentDetails, updateDeliveryCost,paymentDetails } = useContext(P
   </div>
   
   );
-          };
+        };
         
 export default Payment;

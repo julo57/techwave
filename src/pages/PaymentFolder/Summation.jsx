@@ -161,7 +161,7 @@ export const Summation = () => {
   </div>
 
 )}
-          </div>
+        </div>
         </div>
       )}
     </div>

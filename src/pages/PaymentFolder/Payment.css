@@ -266,6 +266,7 @@ input[type="number"]::-webkit-outer-spin-button {
     padding: 8px; /* Odstęp od tekstu do ramki */
     border-radius: 5px; /* Zaokrąglenie narożników */
   }
+  
 
   .promo-code button {
     border: 1px solid #ccc; /* Grubość i kolor ramki */
