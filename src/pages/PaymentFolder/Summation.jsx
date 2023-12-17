@@ -123,9 +123,9 @@ export const Summation = () => {
       <div className="summation-cart">
         <h2>Zakupy</h2>
         <ul>
-        <p>Payment Method: {paymentDetails.paymentMethod}</p>
+        <p>Metoda płatności: {paymentDetails.paymentMethod}</p>
         
-        <p>Delivery Cost: {deliveryCost} zł</p> {/* Display delivery cost */}
+        <p>Koszty dostawy: {deliveryCost} zł</p> {/* Display delivery cost */}
           {Object.values(cartItems).map((item, index) => (
             <li key={index}>
               <img src={item.photo} alt={item.name} className="item-photo" />

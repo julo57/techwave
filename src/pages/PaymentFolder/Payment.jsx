@@ -155,45 +155,45 @@ const { updatePaymentDetails, updateDeliveryCost,paymentDetails } = useContext(P
   return (
     <div className="container-payment">
       <div className="form-section">
-        <h1 id="H11">Delivery and Payment</h1>
+        <h1 id="H11">Dostawa i płatność</h1>
         <form className='payment-form' onSubmit={handleSubmit}>
-          <h2 className="H2">Address</h2>
+          <h2 className="H2">Adres</h2>
           <div className="delivery">
-            <input type="text" name="name" placeholder="Name" value={address.name} onChange={handleAddressChange} className="deliveryinput" />
+            <input type="text" name="name" placeholder="Imie i Nazwisko" value={address.name} onChange={handleAddressChange} className="deliveryinput" />
             {errors.name && <p className="error-message">{errors.name}</p>}
-            <input type="text" name="street" placeholder="Street" value={address.street} onChange={handleAddressChange} className="deliveryinput" />
+            <input type="text" name="street" placeholder="Ulica" value={address.street} onChange={handleAddressChange} className="deliveryinput" />
             {errors.street && <p className="error-message">{errors.street}</p>}
-            <input type="text" name="city" placeholder="City" value={address.city} onChange={handleAddressChange} className="deliveryinput" />
+            <input type="text" name="city" placeholder="Miasto" value={address.city} onChange={handleAddressChange} className="deliveryinput" />
             {errors.city && <p className="error-message">{errors.city}</p>}
-            <input type="text" name="zip" placeholder="ZIP Code 46-113" value={address.zip} onChange={handleAddressChange} className="deliveryinput" />
+            <input type="text" name="zip" placeholder="Kod pocztowy 46-113" value={address.zip} onChange={handleAddressChange} className="deliveryinput" />
             {errors.zip && <p className="error-message">{errors.zip}</p>}
           </div>
   
-          <h2 className="H2">Delivery Options</h2>
+          <h2 className="H2">Opcje dostawy</h2>
           <div className="deliverydiv">
             <div className="deliveryinputradio">
               <input type="radio" id="courier" name="deliveryMethod" value="courier" checked={deliveryMethod === 'courier'} onChange={handleDeliveryChange} />
-              <label htmlFor="courier">Courier</label>
+              <label htmlFor="courier">Kurier</label>
             </div>
             <div className="deliveryinputradio">
               <input type="radio" id="inStore" name="deliveryMethod" value="inStore" checked={deliveryMethod === 'inStore'} onChange={handleDeliveryChange} />
-              <label htmlFor="inStore">In-Store Pickup</label>
+              <label htmlFor="inStore">Odbiór w sklepie</label>
             </div>
             <div className="deliveryinputradio">
               <input type="radio" id="idex" name="deliveryMethod" value="idex" checked={deliveryMethod === 'idex'} onChange={handleDeliveryChange} />
-              <label htmlFor="idex">Idex</label>
+              <label htmlFor="idex">InPost</label>
             </div>
           </div>
   
-          <h2 className="H2">Payment Options</h2>
+          <h2 className="H2">Opcje płatności</h2>
           <div className="deliverydiv">
             <div className="deliveryinputradio">
               <input type="radio" id="online" name="paymentMethod" value="online" checked={paymentMethod === 'online'} onChange={handlePaymentChange} />
-              <label htmlFor="online">Online Payment</label>
+              <label htmlFor="online">Płatność Online</label>
             </div>
             <div className="deliveryinputradio">
               <input type="radio" id="creditCard" name="paymentMethod" value="creditCard" checked={paymentMethod === 'creditCard'} onChange={handlePaymentChange} />
-              <label htmlFor="creditCard">Credit Card</label>
+              <label htmlFor="creditCard">Karta kredytowa</label>
             </div>
             <div className="deliveryinputradio">
               <input type="radio" id="blik" name="paymentMethod" value="blik" checked={paymentMethod === 'blik'} onChange={handlePaymentChange} />
@@ -201,28 +201,28 @@ const { updatePaymentDetails, updateDeliveryCost,paymentDetails } = useContext(P
             </div>
           </div>
   
-          <h2 className="H2">You are buying as</h2>
+          <h2 className="H2">Kupujesz jako</h2>
           <div className="deliverydiv">
             <div className="deliveryinputradio">
               <input type="radio" id="company" name="privateMethod" value="company" checked={privateMethod === 'company'} onChange={handlePrivateMethodChange} />
-              <label htmlFor="company">Company</label>
+              <label htmlFor="company">Firma</label>
             </div>
             <div className="deliveryinputradio">
               <input type="radio" id="privatePerson" name="privateMethod" value="privatePerson" checked={privateMethod === 'privatePerson'} onChange={handlePrivateMethodChange} />
-              <label htmlFor="privatePerson">Private Person</label>
+              <label htmlFor="privatePerson">Osoba prywatna</label>
             </div>
           </div>
   
-          <h2 className="H2">Billing Information</h2>
+          <h2 className="H2">Informacje rozliczeniowe</h2>
           <div className="deliverycheckbox">
             <div>
               <input type="checkbox" name="termsConditions" checked={isTermsChecked} onChange={handleTermsChange} />
-              <label>I agree to the Terms and Conditions</label>
+              <label>Zapoznałem\zapoznałam się z regulaminem.</label>
               {errors.terms && <p className="error-message">{errors.terms}</p>}
             </div>
             <div>
                 <input type="checkbox" name="Newsletter" checked={isNewsletterChecked} onChange={handleNewsletterChange} />
-                <label>I agree to the newsletter</label>
+                <label>Zgadzam się na newsletter.</label>
              </div>
         </div>
   
@@ -261,7 +261,7 @@ const { updatePaymentDetails, updateDeliveryCost,paymentDetails } = useContext(P
   <p>Do zapłaty: {calculateTotalWithDiscount()} zł</p>
 </div>
         <form onSubmit={handleSubmit} >
-        <button type="submit" className="paybutt"  >Proceed to Payment</button>
+        <button type="submit" className="paybutt"  >Przejdź do płatności</button>
         </form>
       
     </div>

@@ -45,3 +45,13 @@
 .return-button:hover {
   background-color: #f57a7a; /* Kolor przewodni przycisku Zwróć po najechaniu myszą */
 }
+
+
+@media screen and (max-width: 600px) {
+  .return-button {
+    font-size: 14px;
+    padding: 8px 16px;
+    position: static; /* Anuluj position absolute */
+    margin-top: 10px; /* Dodaj margines u góry, aby oddzielić od diva z danymi produktu */
+  }
+}
