@@ -7,7 +7,7 @@
 
 .chat-bubble-icon {
   cursor: pointer;
-  background-color: blue;
+  background-color: #333;
   border-radius: 50%;
   display: flex;
   justify-content: center;

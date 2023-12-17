@@ -7,11 +7,14 @@ import './Summation.css';
 
 export const Summation = () => {
   const { cartItems, getTotalCartAmount, checkout } = useContext(ShopContext);
-  const { paymentDetails } = useContext(PaymentContext);
+  
   const [blikCode, setBlikCode] = useState('');
   const [showBlikCodeModal, setShowBlikCodeModal] = useState(false);
   const navigate = useNavigate();
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const { paymentDetails } = useContext(PaymentContext);
+  const deliveryCost = paymentDetails.deliveryCost; // Accessing delivery cost
+  console.log("Delivery cost from context:", deliveryCost);
 
 
   useEffect(() => {
@@ -120,6 +123,9 @@ export const Summation = () => {
       <div className="summation-cart">
         <h2>Zakupy</h2>
         <ul>
+        <p>Payment Method: {paymentDetails.paymentMethod}</p>
+        
+        <p>Delivery Cost: {deliveryCost} zł</p> {/* Display delivery cost */}
           {Object.values(cartItems).map((item, index) => (
             <li key={index}>
               <img src={item.photo} alt={item.name} className="item-photo" />
@@ -127,10 +133,11 @@ export const Summation = () => {
             </li>
           ))}
         </ul>
-        <p>Całkowity koszt: {totalAmount.toFixed(2)} zł</p>
+        <p>Całkowity koszt: {(totalAmount + deliveryCost).toFixed(2)} zł</p>
         {paymentDetails.newsletterSubscription && (
           <p>
             Po zastosowaniu rabatu za newsletter: {discountedAmount.toFixed(2)} zł
+            
             (Rabat: 5%)
           </p>
         )}

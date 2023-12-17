@@ -1,13 +1,11 @@
 import React, { createContext, useState } from 'react';
 
-// Utworzenie nowego kontekstu
 export const PaymentContext = createContext();
 
-// Domyślne wartości dla szczegółów płatności
 const getDefaultPaymentDetails = () => {
   return {
-    deliveryMethod: 'courier', // domyślna metoda dostawy
-    paymentMethod: 'online', // domyślna metoda płatności
+    deliveryMethod: 'courier',
+    paymentMethod: 'online',
     address: {
       name: '',
       street: '',
@@ -15,42 +13,52 @@ const getDefaultPaymentDetails = () => {
       zip: '',
     },
     promoCode: '',
-    discountRate: 0, // domyślna wartość zniżki
+    discountRate: 0,
     newsletterSubscription: false,
     termsAgreement: false,
   };
 };
 
-// Provider kontekstu
 export const PaymentContextProvider = ({ children }) => {
   const [paymentDetails, setPaymentDetails] = useState(getDefaultPaymentDetails());
+  const [deliveryCost, setDeliveryCost] = useState(0);
 
-  // Metoda aktualizująca szczegóły płatności
   const updatePaymentDetails = (details) => {
     setPaymentDetails(prevDetails => ({ ...prevDetails, ...details }));
   };
 
-  // Metoda aplikowania kodu promocyjnego
   const applyPromoCode = (code) => {
-    // Logika sprawdzająca kod i ustawiająca zniżkę
     if (code === 'PROMO10') {
       setPaymentDetails(currentDetails => ({
         ...currentDetails,
         promoCode: code,
-        discountRate: 0.1 // 10% zniżki
+        discountRate: 0.1 // 10% discount
       }));
     }
-    // Dalsze przypadki kodów promocyjnych
+    // Additional promo code logic here
   };
 
-  // Wartości przekazywane przez Provider
+  const updateDeliveryCost = (cost) => {
+    console.log("Updating delivery cost in context to:", cost);
+    setPaymentDetails(prevDetails => ({
+      ...prevDetails,
+      deliveryCost: cost
+    }));
+  };
+
   const contextValue = {
     paymentDetails,
     updatePaymentDetails,
-    applyPromoCode, // Dodanie tej metody do wartości kontekstu
+    applyPromoCode,
+    deliveryCost,
+    updateDeliveryCost,
   };
 
-  return <PaymentContext.Provider value={contextValue}>{children}</PaymentContext.Provider>;
+  return (
+    <PaymentContext.Provider value={contextValue}>
+      {children}
+    </PaymentContext.Provider>
+  );
 };
 
 export default PaymentContextProvider;

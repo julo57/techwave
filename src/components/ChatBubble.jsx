@@ -3,7 +3,7 @@ import { ChatCircleDots } from "phosphor-react";
 import Koksuś from '../assets/products/Koksuś.png';
 import { useTranslation } from "react-i18next";
 import data from '../translations/en/global.json';
-import data2 from '../translations/pl/global.json';
+
 
 import './ChatBubble.css';
 
@@ -20,20 +20,25 @@ const ChatBubble = () => {
   };
 
   const getBotResponse = (userMessage) => {
-    const botResponses = data.bot;
-    let response = "Przepraszam, nie rozumiem."; // Default response
+    let response = t("settings.bott"); // Domyślna odpowiedź
     let lowerCaseMessage = userMessage.toLowerCase();
-
-    Object.keys(botResponses).forEach((key) => {
+  
+    // Tworzenie tablicy par klucz-wartość i sortowanie według kryteriów
+    const sortedResponses = Object.entries(data.bot).sort((a, b) => {
+      // Sortuj według własnych kryteriów, na przykład długości klucza
+      return b[0].length - a[0].length;
+    });
+  
+    sortedResponses.forEach(([key, value]) => {
       if (lowerCaseMessage.includes(key.toLowerCase())) {
-        response = botResponses[key];
+        response = t(`bot.${key}`); // Użyj funkcji t do uzyskania tłumaczenia
         if (key.includes("{name}")) {
-          const userName = userMessage.split(' ').pop(); // Assuming the last word is the name
+          const userName = userMessage.split(' ').pop();
           response = response.replace("{name}", userName);
         }
       }
     });
-
+  
     return response;
   };
 

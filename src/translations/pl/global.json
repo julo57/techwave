@@ -219,12 +219,12 @@
       "sett15": "Błąd podczas zmianu hasła",
       "sett16": "Wprowadź poprawne adresy e-mail.",
       "sett17": "Adres Email zmieniony!",
-      "sett18": "Błąd podczas zmiany adresu e-mail. Spróbuj ponownie."
+      "sett18": "Błąd podczas zmiany adresu e-mail. Spróbuj ponownie.",
+      "bott" : "Przeprasza, nie rozumiem. Spróbuj ponownie."
   },
 
   "bot":
   {
-    "witaj": "Cześć, jestem Botem TechWave. Nazywam się Koksuś. Jak mogę Ci dzisiaj pomóc?",
-    "cześć": "Cześć! Jak mogę Ci pomóc?"
+    
   }
 }

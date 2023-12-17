@@ -5,7 +5,10 @@ import './Payment.css'; // Ensure this path matches the location of your CSS fil
 import { useNavigate } from 'react-router-dom';
 export const Payment = () => {
   const { cartItems, getTotalCartAmount} = useContext(ShopContext);
-  const { paymentDetails, updatePaymentDetails } = useContext(PaymentContext);
+  
+  
+const { updatePaymentDetails, updateDeliveryCost,paymentDetails } = useContext(PaymentContext);
+  
   
   const totalAmount = getTotalCartAmount();
   const [promoCode, setPromoCode] = useState('');
@@ -29,15 +32,16 @@ export const Payment = () => {
   const [errors, setErrors] = useState({});
 
   const handleDeliveryChange = (event) => {
-    setDeliveryMethod(event.target.value);
-    // Update delivery cost based on selection
-    if (event.target.value === 'courier') {
-      setDeliveryCost(20); // Cost for courier
-    } else {
-      setDeliveryCost(0); // No extra cost for other methods
-    }
-  };
+    const selectedMethod = event.target.value;
+    setDeliveryMethod(selectedMethod);
   
+    let cost = 0;
+    if (selectedMethod === 'courier') {
+      cost = 20;
+    } // Możesz dodać inne warunki dla różnych metod dostawy
+  
+    updateDeliveryCost(cost);
+  };
   const handleApplyPromoCode = () => {
     applyPromoCode(promoCode);
   };
@@ -63,11 +67,26 @@ export const Payment = () => {
   
   // Obliczanie całkowitej kwoty do zapłaty przy wyświetlaniu
   const calculateTotalWithDiscount = () => {
-    if (isNewsletterChecked) {
-      return getTotalCartAmount()* 0.95 + deliveryCost; // 5% rabatu
+    const cartTotal = getTotalCartAmount();
+    let deliveryCharge = deliveryCost;
+  
+    // Jeśli wartość koszyka przekracza 200 zł, ustawiamy koszt dostawy na 0 zł
+    if (cartTotal > 200) {
+      deliveryCharge = 0;
     }
-    return getTotalCartAmount() + deliveryCost; // Brak rabatu
+  
+    let total = cartTotal + deliveryCharge;
+  
+    // Aplikowanie rabatu za subskrypcję newslettera, jeśli jest zaznaczony
+    if (isNewsletterChecked) {
+       total = cartTotal *0.95 + deliveryCharge;
+      
+    }
+  
+    return total.toFixed(2);
   };
+  
+
   const handlePromoCodeChange = (event) => {
     setPromoCode(event.target.value);
   };
@@ -101,7 +120,15 @@ export const Payment = () => {
     }
   }, [cartItems, navigate]);
   
-  
+  useEffect(() => {
+    // Aktualizacja kontekstu tylko przy pierwszym renderowaniu
+    updateDeliveryCost(deliveryCost);
+    
+    // Inne instrukcje z useEffect
+    if (Object.keys(cartItems).length === 0) {
+      navigate('/');
+    }
+  }, []); 
   
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -124,6 +151,7 @@ export const Payment = () => {
       }
     }
   };
+  
   return (
     <div className="container-payment">
       <div className="form-section">
@@ -221,11 +249,17 @@ export const Payment = () => {
           <button onClick={handleApplyPromoCode}>Zastosuj</button>
         </div>
         <div className="total-amount">
-          <p>Koszyk: {totalAmount} zł</p>
-          <p>Dostawa {deliveryCost} zł</p>
-          <p>Rabat: {isNewsletterChecked ? '5%' : '0%'}</p>
-          <p>Do zapłaty: {calculateTotalWithDiscount()}  zł</p>
-        </div>
+  <p>Koszyk: {totalAmount} zł</p>
+  {totalAmount > 200 ? (
+    <>
+      <p>Dostawa: 0 zł <span className="free-delivery"> (za produkt powyżej 200 zł dostawa gratis) </span></p>
+    </>
+  ) : (
+    <p>Dostawa: {deliveryCost} zł</p>
+  )}
+  <p>Rabat: {isNewsletterChecked ? '5%' : '0%'}</p>
+  <p>Do zapłaty: {calculateTotalWithDiscount()} zł</p>
+</div>
         <form onSubmit={handleSubmit} >
         <button type="submit" className="paybutt"  >Proceed to Payment</button>
         </form>
@@ -233,7 +267,8 @@ export const Payment = () => {
     </div>
     
   </div>
+  
   );
           };
-
+        
 export default Payment;

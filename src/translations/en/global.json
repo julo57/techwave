@@ -238,7 +238,8 @@
         "sett15": "Error while changing password",
         "sett16": "Please enter valid email addresses.",
         "sett17": "Email address changed!",
-        "sett18": "Error changing email address. Try again."
+        "sett18": "Error changing email address. Try again.",
+        "bott": "Sorry, I don't understand. Please try again."
     },
 
 
@@ -266,7 +267,7 @@
     "headphones": "Searching for headphones? We have a wide selection.",
     "printers": "Looking for a printer? Check out our home and office solutions.",
     "hard drives": "Need more storage? Take a look at our hard drives.",
-    "RAM": "Want to upgrade your RAM? We have what you need.",
+    
     "processors": "Looking for a new processor? We offer top models.",
     "questions": "What are yours questions?",
     "question": "What is your question?",
@@ -274,9 +275,37 @@
     "What is your name?": "My name is Koksuś",
     "My name is {name}": "Hi {name}, nice to meet you!",
     "wonderful": "I am happy to hear that! ",
-    "great": "I am happy to hear that!"
+    "great": "I am happy to hear that!",
+    "witaj": "Cześć, jestem Botem TechWave. Nazywam się Koksuś. Jak mogę Ci dzisiaj pomóc?",
+    "cześć": "Cześć! Jak mogę Ci pomóc?",
+    "pomoc": "Jak mogę ci pomóc?",
+    "Telewizor": "Szukasz nowego telewizora? Sprawdź naszą szeroką ofertę.",
+    "Telewizory": "Szukasz nowego telewizora? Sprawdź naszą szeroką ofertę.",
+    "Laptop": "Potrzebujesz nowego laptopa? Mamy różne modele do wyboru.Przejdz do zakładki Laptopy.",
+    "Laptopy": "Potrzebujesz nowego laptopa? Mamy różne modele do wyboru.",
+    "Smartfony": "Interesują cię smartfony? Znajdź najnowsze modele tutaj.",
+    "Smartfon": "Interesują cię smartfony? Znajdź najnowsze modele tutaj.",
+    "Tablety": "Sprawdź nasz wybór tabletów, idealnych do pracy i rozrywki.",
+    "Tablet": "Sprawdź nasz wybór tabletów, idealnych do pracy i rozrywki.",
+    "Monitor": "Potrzebujesz nowego monitora? Odkryj naszą gamę opcji.",
+    "Monitory": "Potrzebujesz nowego monitora? Odkryj naszą gamę opcji.",
+    "Biuletyn": "Zapisz się do naszego biuletynu, aby otrzymywać najnowsze wiadomości i promocje.",
+    "Akcesoria": "Przeglądaj nasz asortyment akcesoriów komputerowych.",
+    "Płatność": "Akceptujemy wszystkie główne karty kredytowe oraz Blik.",
+    "Dostawa": "Oferujemy darmową dostawę dla zamówień powyżej 200 PLN.",
+    "Głośniki": "Potrzebujesz głośników? Oferujemy różne modele na każdą potrzebę.",
+    "Słuchawki": "Szukasz słuchawek? Mamy szeroką selekcję.",
+    "Drukarki": "Szukasz drukarki? Sprawdź nasze rozwiązania do domu i biura.",
+    "Dyski twarde": "Potrzebujesz więcej miejsca do przechowywania? Zajrzyj na nasze dyski twarde.",
     
-   
+    "Procesory": "Szukasz nowego procesora? Oferujemy najlepsze modele.",
+    "Pytania": "Jakie są twoje pytania?",
+    "Pytanie": "Jakie jest twoje pytanie?",
+    "Do widzenia": "Do widzenia! Mam nadzieję, że wkrótce się znowu zobaczymy.",
+    "Jak masz na imię?": "Nazywam się Koksuś",
+    "Mam na imię {imię}": "Cześć {imię}, miło cię poznać!",
+    "wspaniale": "Cieszę się, że tak mówisz!",
+    "świetnie": "Cieszę się, że tak mówisz!"
     }
 
 }
