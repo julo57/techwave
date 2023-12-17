@@ -220,7 +220,8 @@
       "sett16": "Wprowadź poprawne adresy e-mail.",
       "sett17": "Adres Email zmieniony!",
       "sett18": "Błąd podczas zmiany adresu e-mail. Spróbuj ponownie.",
-      "bott" : "Przeprasza, nie rozumiem. Spróbuj ponownie."
+      "bott" : "Przeprasza, nie rozumiem. Spróbuj ponownie.",
+      "bott2":"Cześc nazwyam się jestem Chatbotem techwave. Jak mogę Ci pomóc?"
   },
 
   "bot":
