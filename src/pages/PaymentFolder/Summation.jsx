@@ -97,6 +97,7 @@ export const Summation = () => {
     }
   };
 
+  
   return (
     <div className="summation-container">
       <div className="summation-details">
