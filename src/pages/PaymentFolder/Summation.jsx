@@ -8,6 +8,7 @@ import './Summation.css';
 export const Summation = () => {
   const { cartItems, getTotalCartAmount, checkout } = useContext(ShopContext);
   
+  
   const [blikCode, setBlikCode] = useState('');
   const [showBlikCodeModal, setShowBlikCodeModal] = useState(false);
   const navigate = useNavigate();
@@ -15,6 +16,8 @@ export const Summation = () => {
   const { paymentDetails } = useContext(PaymentContext);
   const deliveryCost = paymentDetails.deliveryCost; // Accessing delivery cost
   console.log("Delivery cost from context:", deliveryCost);
+
+  
 
 
   useEffect(() => {
@@ -26,7 +29,8 @@ export const Summation = () => {
   const totalAmount = getTotalCartAmount();
   const discountRate = paymentDetails.newsletterSubscription ? 0.05 : 0; // 5% rabatu za subskrypcję newslettera
   const discountedAmount = totalAmount * (1 - discountRate);
-
+  const freeDelivery = Object.values(cartItems).some(item => item.price > 200);
+  const finalDeliveryCost = freeDelivery ? 0 : deliveryCost;
   const handleCheckout = async () => {
     if (paymentDetails.paymentMethod === 'blik') {
       setShowBlikCodeModal(true);
@@ -34,6 +38,9 @@ export const Summation = () => {
     }
   
     const itemsArray = Object.values(cartItems);
+    const totalPriceOfProducts = Object.values(cartItems).reduce((total, item) => {
+      return total + (item.price * item.quantity);
+    }, 0);
   
     const orderData = {
       userId: paymentDetails.user_id,
@@ -124,9 +131,9 @@ export const Summation = () => {
       <div className="summation-cart">
         <h2>Zakupy</h2>
         <ul>
-        <p>Metoda płatności: {paymentDetails.paymentMethod}</p>
+       
         
-        <p>Koszty dostawy: {deliveryCost} zł</p> {/* Display delivery cost */}
+        
           {Object.values(cartItems).map((item, index) => (
             <li key={index}>
               <img src={item.photo} alt={item.name} className="item-photo" />
@@ -134,7 +141,8 @@ export const Summation = () => {
             </li>
           ))}
         </ul>
-        <p>Całkowity koszt: {(totalAmount + deliveryCost).toFixed(2)} zł</p>
+        <p>Koszty dostawy: {freeDelivery ? 'Darmowa' : `${finalDeliveryCost} zł`}</p>
+        <p>Całkowity koszt: {(totalAmount + finalDeliveryCost).toFixed(2)} zł</p>
         {paymentDetails.newsletterSubscription && (
           <p>
             Po zastosowaniu rabatu za newsletter: {discountedAmount.toFixed(2)} zł
