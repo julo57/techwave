@@ -107,15 +107,21 @@ nav.bg-white.border-gray-200.dark\:bg-gray-900.p-4 {
   border-radius: 5px;  
   width: 300px; 
 }
+.w-full {
+  position: relative; /* Ustawienie pozycji rodzica dla .dropdown-list */
+}
+
 .dropdown-list {
   position: absolute;
-  background-color: white;
-  width: 400px;;
-  border: 1px solid #ddd;
-  z-index: 100; /* Upewnij się, że lista jest na wierzchu */
-  max-height: 300px; /* Opcjonalnie ogranicz wysokość */
-  overflow-y: auto; /* Opcjonalnie dodaj pasek przewijania */
-  
+ margin-top: 150px;
+  left: 50%; /* Ustawienie lewej krawędzi na 50% szerokości rodzica */
+  transform: translate(-50%, -50%); /* Przesunięcie na środek przy użyciu transformacji */
+  background-color: rgb(103, 91, 91);
+  width: 360px;
+  border: 1px solid #1b1919;
+  z-index: 100;
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 #dark  .dropdown-list li {
@@ -132,6 +138,19 @@ nav.bg-white.border-gray-200.dark\:bg-gray-900.p-4 {
   cursor: pointer;
   text-decoration: underline;
 
+}
+.dropdown-list li {
+  background-color: #f0f0f0; 
+  color: #333; 
+  padding: 10px; /* Dodatkowy padding dla estetyki, opcjonalnie */
+  cursor: pointer; /* Zmiana kursora na wskaźnik, aby wskazywać na klikalność */
+  align-items: center;
+}
+
+.dropdown-list li:hover {
+  background-color: #ccc; /* Kolor tła po najechaniu myszką */
+  color: #000; /* Kolor tekstu po najechaniu myszką */
+  /* Dodatkowe stylizacje po najechaniu myszką, opcjonalnie */
 }
 
 
@@ -240,6 +259,18 @@ nav.bg-white.border-gray-200.dark\:bg-gray-900.p-4 {
 @media (max-width: 320px) {
   element.style{
     width: 320px;
+  }
+  .dropdown-list {
+    position: absolute;
+   margin-top: 150px;
+    left: 50%; /* Ustawienie lewej krawędzi na 50% szerokości rodzica */
+    transform: translate(-50%, -50%); /* Przesunięcie na środek przy użyciu transformacji */
+    background-color: rgb(103, 91, 91);
+    width: 310px;
+    border: 1px solid #1b1919;
+    z-index: 100;
+    max-height: 300px;
+    overflow-y: auto;
   }
 
 }
