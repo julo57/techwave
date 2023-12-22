@@ -8,7 +8,8 @@ import './Summation.css';
 export const Summation = () => {
   const { cartItems, getTotalCartAmount, checkout } = useContext(ShopContext);
   
-  
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(true);
+
   const [blikCode, setBlikCode] = useState('');
   const [showBlikCodeModal, setShowBlikCodeModal] = useState(false);
   const navigate = useNavigate();
@@ -18,8 +19,6 @@ export const Summation = () => {
   console.log("Delivery cost from context:", deliveryCost);
 
   
-
-
   useEffect(() => {
     if (Object.keys(cartItems).length === 0) {
       navigate('/'); // Przekierowanie do strony głównej, gdy koszyk jest pusty
@@ -32,11 +31,12 @@ export const Summation = () => {
   const freeDelivery = Object.values(cartItems).some(item => item.price > 200);
   const finalDeliveryCost = freeDelivery ? 0 : deliveryCost;
   const handleCheckout = async () => {
-    if (paymentDetails.paymentMethod === 'blik') {
-      setShowBlikCodeModal(true);
+    if (!paymentDetails.user_id) {
+      // Jeśli nie ma zalogowanego użytkownika
+      navigate('/thank-you'); // Przekieruj na finalną stronę
+      checkout(); // Opcjonalnie: możesz oczyścić koszyk
       return;
     }
-  
     const itemsArray = Object.values(cartItems);
     const totalPriceOfProducts = Object.values(cartItems).reduce((total, item) => {
       return total + (item.price * item.quantity);
@@ -132,8 +132,6 @@ export const Summation = () => {
         <h2>Zakupy</h2>
         <ul>
        
-        
-        
           {Object.values(cartItems).map((item, index) => (
             <li key={index}>
               <img src={item.photo} alt={item.name} className="item-photo" />

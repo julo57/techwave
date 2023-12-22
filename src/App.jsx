@@ -16,7 +16,7 @@ import  NewsletterForm  from "./pages/NewsletterForm";
 import { Footer } from "./pages/Footer";
 import { AboutUs } from "./pages/AboutUs";
 import { ComparationSite } from "./pages/ComparationSite";
-import { ProductFilterPage } from "./pages/ProductFilterPage";
+
 import global_en from './translations/en/global.json';
 import global_pl from './translations/pl/global.json';
 import i18next from 'i18next';
@@ -96,7 +96,7 @@ function App() {
                   <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
                   <Route path="/Statute" element={<Statute />} />
                   <Route path="/ComparationSite" element={<ComparationSite />} />
-                  <Route path="/ProductFilterPage" element={<ProductFilterPage />} />
+                  
                   <Route path="/Payment" element={<Payment />} />
                   <Route path="/Summation" element={<Summation />} />
                   <Route path="/LoginRegistryGuest" element={<LoginRegistryGuest />} /> 

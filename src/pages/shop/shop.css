@@ -1,59 +1,65 @@
+.shop {
+  display: flex;
+  padding: 16px; /* This is your large padding, which you can adjust as needed */
+}
 
-.product {
-    display: flex; 
-    border: 1px solid #111827;
-    border-radius: 25px;
+.filters {
+  flex-basis: 20%; /* Adjust the width of the filter section as needed */
+  padding: 10px;
+  /* If you want to add a border or make it stand out, add styles here */
+}
+
+.products {
+  flex-grow: 1; /* This makes the product list take up the rest of the horizontal space */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust minmax for your product size */
+  gap: 16px; /* This is your grid gap, adjust as needed */
+}
+
+/* Responsive padding */
+@media (max-width: 1024px) {
+  .shop {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .shop {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .shop {
+    flex-direction: column; /* Stack filters and products on smaller screens */
     padding: 10px;
-    transition: 0.3s ease-in;
-    cursor: pointer;
-    align-items: center;
   }
-  
-  
-  .product img {
-    height: 150px;
-    transform: scale(0.9);
+  .filters {
+    width: 100%; /* Filters take full width on smaller screens */
+    margin-bottom: 16px; /* Adds space between filters and products */
   }
-  
-  .product .description {
-    flex-grow: 1; 
-    text-align: left; 
-    margin-left: auto; 
+  .products {
+    width: 100%;
   }
-  
-  /* #dark .product img {
-    filter: invert(100%);  
- } */
- 
+}
 
+/* Adjustments for the .product class might be needed depending on the layout you want */
+.product {
+  border: 1px solid #111827;
+  border-radius: 25px;
+  padding: 10px;
+  transition: 0.3s ease-in;
+  cursor: pointer;
+  align-items: center;
+}
 
-    .product:hover {
-      transition: 0.3s ease-in;
-      cursor: pointer;
-    }
+.product img {
+  height: 150px;
+  transition: transform 0.3s ease-in;
+}
 
+.product:hover img {
+  transform: scale(1); /* This will enlarge the image on hover */
+}
 
-    @media (width: 1024px) {
-      .product {
-        flex-wrap: wrap; 
-      }
-      .product .description {
-        text-align: center;
-      }
-      
-    }
-    
-    @media (max-width: 768px) {
-      .product {
-        flex-wrap: wrap;
-      }
-      .product .description {
-        text-align: center;
-      }
-      .product img{
-        margin: auto;
-        display: block;
-      }
-    }
-  
-    
+/* Remember to remove any duplicated or conflicting styles from the original CSS */

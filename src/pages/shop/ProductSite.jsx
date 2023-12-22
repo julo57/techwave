@@ -46,17 +46,19 @@ function ProductSite() {
 } else {
   console.log('Zalogowany');
 }
-  useEffect(() => {
-    axios.get(`http://localhost:8000/api/products/${productId}`)
-      .then(response => {
-        setProduct(response.data);
-        setCommentsList(response.data.comments || []); // Ustawienie listy komentarzy
-      })
-      .catch(error => {
-        console.error("Error fetching product:", error);
-      });
-  }, [productId]);
-  
+useEffect(() => {
+  axios.get(`http://localhost:8000/api/products/${productId}`)
+    .then(response => {
+      setProduct(response.data);
+      setCommentsList(response.data.comments || []);
+      setIsLoading(false);
+    })
+    .catch(error => {
+      console.error("Error fetching product:", error);
+      setIsLoading(false);
+    });
+}, [productId]);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsSubmitting(true);
@@ -117,6 +119,70 @@ function ProductSite() {
       setIsLoading(false);
     }, 500);
   };
+
+  const renderProductSpecs = (product) => {
+    switch (product.Category) {
+      case 'Monitor':
+      case 'TV':
+        return (
+          <>
+            <p><strong>Diagonal:</strong> {product.diagonal}</p>
+            <p><strong>Matrix:</strong> {product.Matrix}</p>
+            <p><strong>Resolution:</strong> {product.Resolution}</p>
+            <p><strong>Energy Class:</strong> {product.Energyclass}</p>
+          </>
+        );
+      case 'Tablet':
+      case 'Laptop':
+      case 'Phone':
+        return (
+          <>
+            <p><strong>Screen:</strong> {product.Screen}</p>
+            <p><strong>Processor:</strong> {product.Processor}</p>
+            <p><strong>RAM:</strong> {product.RAM}</p>
+            <p><strong>Storage:</strong> {product.Storage}</p>
+          </>
+
+          
+        );
+
+        case 'Headphones':
+        return (
+          <>
+            <p><strong>Connection:</strong> {product.connection}</p>
+            <p><strong>Microphone:</strong> {product.microphone}</p>
+            <p><strong>Noise Cancelling:</strong> {product.noisecancelling}</p>
+            <p><strong>Headphone Type:</strong> {product.headphonetype}</p>
+          </>
+        );
+        
+        case 'Printer':
+          return (
+            <>
+              <p><strong>Printing Technology:</strong> {product.Printingtechnology}</p>
+              <p><strong>Interfaces:</strong> {product.Interfaces}</p>
+              <p><strong>Print Speed:</strong> {product.Printspeed}</p>
+              <p><strong>Duplex Printing:</strong> {product.Duplexprinting}</p>
+            </>
+          );
+      // Add other cases for different categories as needed
+      default:
+        return <p>No specifications available for this category.</p>;
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <div className="spinner-container">
+        <FontAwesomeIcon icon={faSpinner} spin />
+      </div>
+    );
+  }
+
+  if (!product) {
+    return <p>Product not found.</p>;
+  }
+
   return (
     <div className="product-site">
       <div className="product-title-container">
@@ -128,20 +194,12 @@ function ProductSite() {
         </div>
         <div className="product-purchase-info">
           <div className="product-specs">
-            {/* Tutaj wstawiasz specyfikacje produktu. Przykład: */}
-            <p><strong>Ekran:</strong> {product.Screen}</p>
-            <p><strong>Procesor:</strong> {product.Processor}</p>
-            <p><strong>Pamięć RAM:</strong> {product.RAM}</p>
-            <p><strong>Pamięć wbudowana:</strong> {product.storage}</p>
+            {renderProductSpecs(product)}
           </div>
           <div className="product-purchase-section">
             <p className="product-price">{product.price} zł</p>
-            <button className="btn-add-to-cart" onClick={handleAddToCart} disabled={isLoading}>
-              {isLoading ? (
-                <FontAwesomeIcon icon={faSpinner} spin />
-              ) : (
-                <FontAwesomeIcon icon={faShoppingCart} />
-              )}
+            <button className="btn-add-to-cart" onClick={handleAddToCart} disabled={isLoading || isSubmitting}>
+              {isLoading ? <FontAwesomeIcon icon={faSpinner} spin /> : <FontAwesomeIcon icon={faShoppingCart} />}
               Dodaj do koszyka
             </button>
           </div>
@@ -150,80 +208,50 @@ function ProductSite() {
       <div className="product-description">
         <p>{product.description}</p>
       </div>
-
-
-      {product && (
-        <>
-          <div className="reviews-section">
-            {/* <h3>Oceny i recenzje</h3> */}
-            <div className="average-rating">
-            <div className="average-rating">
-              <div className='rating'><RatingStars rating= {calculateAverageRating()} outOf={5} /></div>
-            </div>
-            </div>
-
-            <div className="comments-section">
-              {commentsList.map(comment => (
-                <div key={comment.id} className="comment">
-                  <div className="comment-content">
-                    <div className="comment-author">{comment.author}</div>
-                    <div className="comment-text">{comment.content}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-
-            {user ? (
-              <form className="comment-form" onSubmit={handleSubmit}>
-              </form>
-            ) : (
-              <div className="comment-form disabled">
-                <div className="disabled-message">Zaloguj sie aby dodać Opinie i Komentarz</div>
+  
+      <div className="reviews-section">
+        <div className="average-rating">
+          <RatingStars rating={calculateAverageRating()} outOf={5} />
+        </div>
+        <div className="comments-section">
+          {commentsList.map(comment => (
+            <div key={comment.id} className="comment">
+              <div className="comment-content">
+                <div className="comment-author">{comment.author}</div>
+                <div className="comment-text">{comment.content}</div>
               </div>
-            )}
-
-
-            {user && ( // Sprawdzenie, czy użytkownik jest zalogowany
-            <form className="comment-form" onSubmit={handleSubmit}>
-              <div>
-                <label htmlFor="rating">Ocena:</label>
-                <select
-                  id="rating"
-                  value={rating}
-                  onChange={(e) => setRating(Number(e.target.value))}
-                >
-                  <option value="0">0</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
-              </div>
-              <div>
-                <label htmlFor="comment">Komentarz:</label>
-                <textarea
-                  id="comment"
-                  value={comment}
-                  onChange={(e) => setComment(e.target.value)}
-                />
-              </div>
-              <button type="submit" className={`submit-button ${isSubmitting ? 'loading' : ''}`} disabled={isSubmitting}>
-                Wyślij ocenę i komentarz
-                {isSubmitting && (
-                  <div className="progress">
-                    <div className="progress-bar"></div>
-                  </div>
-                )}
-              </button>
-
-
-            </form>
-            )}
+            </div>
+          ))}
+        </div>
+  
+        {user ? (
+          <form className="comment-form" onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="rating">Ocena:</label>
+              <select id="rating" value={rating} onChange={(e) => setRating(Number(e.target.value))}>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="comment">Komentarz:</label>
+              <textarea id="comment" value={comment} onChange={(e) => setComment(e.target.value)} />
+            </div>
+            <button type="submit" className={`submit-button ${isSubmitting ? 'loading' : ''}`} disabled={isSubmitting}>
+              Wyślij ocenę i komentarz
+              {isSubmitting && <FontAwesomeIcon icon={faSpinner} spin />}
+            </button>
+          </form>
+        ) : (
+          <div className="comment-form disabled">
+            <div className="disabled-message">Zaloguj się, aby dodać opinię i komentarz.</div>
           </div>
-        </>
-      )}
+        )}
+      </div>
     </div>
   );
 }

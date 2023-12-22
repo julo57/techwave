@@ -72,15 +72,7 @@ export const NavbarCategories = (props) => {
       >
         {t("navbarCategories.link7")}
       </span>
-      <span
-        className="navbar-category-link"
-        onClick={() => {
-          navigate("/");
-          props.setSelectedCategory("Tablet");
-        }}
-      >
-        {t("navbarCategories.link8")}
-      </span>
+      
     </div>
   );
 };

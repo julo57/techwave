@@ -12,7 +12,7 @@ const ChatBubble = () => {
   const [message, setMessage] = useState('');
   const { t } = useTranslation("global");
   const [messages, setMessages] = useState([
-    { text: `${t("settings.bott2")} `, sender: "bot" }
+    { text: "Cześc nazwyam się jestem Chatbotem techwave. Jak mogę Ci pomóc?", sender: "bot" }
   ]);
 
   const toggleChatWindow = () => {
