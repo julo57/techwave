@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ShoppingCart, User, Microphone } from "phosphor-react";
 import ThemeSwitchButton from "../components/ThemeSwitchButton";
@@ -25,6 +25,12 @@ export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
     listening,
     browserSupportsSpeechRecognition
   } = useSpeechRecognition();
+  const { user, logout } = useAuthContext();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState(flagaImage);
+  const [dropdownVisible, setDropdownVisible] = useState(false); // Dodane
+  const dropdownRef = useRef(null); // Dodane
+  const { t, i18n } = useTranslation("global");
 
   useEffect(() => {
     if (listening) {
@@ -39,8 +45,8 @@ export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
         product.name.toLowerCase().includes(filter)
       ));
     } else {
-      setFilteredProducts([]); // Jeśli searchTerm jest pusty, wyczyść filtrowane produkty
-      setIsSearchActive(false); // Deaktywuj tryb wyszukiwania
+      setFilteredProducts([]);
+      setIsSearchActive(false);
     }
   }, [searchTerm, allProducts]);
 
@@ -59,20 +65,16 @@ export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
       });
   }
 
-  const { user, logout } = useAuthContext();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState(flagaImage);
-  const { t, i18n } = useTranslation("global");
-
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+
   const handleProductClick = (productId) => {
     console.log('Kliknięto produkt o ID:', productId);
+    setDropdownVisible(false);
     navigate(`/ProductSite/${productId}`);
   }
-
   const handleFlagClick = () => {
     const newImage = currentImage === flagaImage ? flagaImage2 : flagaImage;
     setCurrentImage(newImage);
@@ -84,18 +86,29 @@ export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
     SpeechRecognition.startListening();
   };
 
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setDropdownVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900 p-4">
       <div className="container mx-auto flex flex-wrap items-center justify-between">
         <Link to="/" className="text-white hover:text-blue-500" onClick={()=>{
-        // console.log("clicked All");
-        props.setSelectedCategory("");
-      }}>
+          setSelectedCategory("");
+        }}>
           <img src="/logo.png" alt="logo" className="h-12" />
         </Link>
-        
+
         <div className="flex items-center space-x-8">
-          
           <ThemeSwitchButton toggleTheme={toggleTheme} theme={theme} />
           {user ? (
             <Link to="/profile">
@@ -125,33 +138,34 @@ export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
         </button>
 
         <div className={`w-full md:block ${isMobileMenuOpen ? '' : 'hidden'}`}>
-  <input
-    type="text"
-    value={searchTerm}
-    placeholder={t("navbar.placeholder")}
-    className="p-2 border rounded-lg w-full"
-    onChange={(e) => setSearchTerm(e.target.value)}
-  />
- 
-  {isLoading && <div>Loading...</div>}
-  {error && <div>{error}</div>}
-  {isSearchActive && (
-    <ul className="dropdown-list">
-      {filteredProducts.map(product => (
-        <Link to={`/ProductSite/${product.id}`} key={product.id}>
-          <li key={product.id} onClick={() => handleProductClick(product.id)}>
-            {product.name}
-          </li>
-        </Link>
-      ))}
-    </ul>
-  )}
-  <button className="ok"onClick={handleSearch}>Szukaj</button>
-</div>
-        
+          <input
+            type="text"
+            value={searchTerm}
+            placeholder={t("navbar.placeholder")}
+            className="p-2 border rounded-lg w-full"
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onFocus={() => setDropdownVisible(true)}
+          />
+          {isLoading && <div>Loading...</div>}
+          {error && <div>{error}</div>}
+          {isSearchActive && dropdownVisible && (
+            <ul className="dropdown-list" ref={dropdownRef}>
+              {filteredProducts.map(product => (
+                <Link to={`/ProductSite/${product.id}`} key={product.id}>
+                  <li key={product.id} onClick={() => handleProductClick(product.id)}>
+                    {product.name}
+                  </li>
+                </Link>
+              ))}
+            </ul>
+          )}
+          <button className="ok" onClick={handleSearch}>
+            Szukaj
+          </button>
+        </div>
       </div>
       <NavbarCategories  
-  setSelectedCategory={setSelectedCategory}
+        setSelectedCategory={setSelectedCategory}
       />
     </nav>
   );

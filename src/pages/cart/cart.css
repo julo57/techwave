@@ -71,3 +71,7 @@
 .cart-item-remove:hover {
   opacity: 0.7;
 }
+
+#dark .cart-item-remove {
+  color: rgb(47, 41, 41); 
+}
