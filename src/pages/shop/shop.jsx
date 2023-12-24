@@ -5,79 +5,209 @@ import useProducts from "./useProducts";
 
 export const Shop = (props) => {
   const { isLoading, error, products } = useProducts();
+  const [displayedProducts, setDisplayedProducts] = useState([]);
+
   const [filters, setFilters] = useState({
     RAM: '',  // For Laptop and Phone categories
     Storage: '',  // For Laptop and Phone categories
+    Diagonal: '',  // For TV and Monitor categories
+    Matrix: '',  // For TV and Monitor categories
+    Resolution: '',  // For TV and Monitor categories
+    EnergyClass: '',  // For TV and Monitor categories
+    PrintSpeed: '',  // For Printer category
+    NoiseCancelling: '',  // For Headphones category
+    // ... add other specific filters for each category
+    priceMin: '',
+    priceMax: '',
   });
 
-  // Function to filter products
+  // Function to filter products based on selected category and filters
   const getFilteredProducts = () => {
-    let filtered = products.filter(
-      (product) => !props.selectedCategory || product.Category === props.selectedCategory
-    );
+    return products.filter(product => {
+      // Category filter
+      if (props.selectedCategory && product.Category !== props.selectedCategory) {
+        return false;
+      }
 
-    if (filters.RAM) {
-      filtered = filtered.filter(product => product.RAM === parseInt(filters.RAM));
-    }
+      // Price range filter
+      const price = parseFloat(product.price);
+      if ((filters.priceMin && price < parseFloat(filters.priceMin)) ||
+          (filters.priceMax && price > parseFloat(filters.priceMax))) {
+        return false;
+      }
 
-    if (filters.Storage) {
-      filtered = filtered.filter(product => product.Storage === parseInt(filters.Storage));
-    }
+      // Specific filters for Laptops and Phones
+      if (["Laptop", "Phone"].includes(props.selectedCategory)) {
+        if (filters.RAM && parseInt(product.RAM) !== parseInt(filters.RAM)) {
+          return false;
+        }
+        if (filters.Storage && parseInt(product.Storage) !== parseInt(filters.Storage)) {
+          return false;
+        }
+      }
 
-    // Add more conditions for other filters if necessary
+      // Specific filters for TVs and Monitors
+      if (["TV", "Monitor"].includes(props.selectedCategory)) {
+        if (filters.Diagonal && parseFloat(product.Diagonal) !== parseFloat(filters.Diagonal)) {
+          return false;
+        }
+        if (filters.Matrix && product.Matrix !== filters.Matrix) {
+          return false;
+        }
+        if (filters.Resolution && product.Resolution !== filters.Resolution) {
+          return false;
+        }
+        if (filters.EnergyClass && product.EnergyClass !== filters.EnergyClass) {
+          return false;
+        }
+      }
 
-    return filtered;
+      // Specific filters for Printers
+      if (props.selectedCategory === "Printer") {
+        if (filters.PrintSpeed && parseInt(product.PrintSpeed) !== parseInt(filters.PrintSpeed)) {
+          return false;
+        }
+        // ... add other specific filters for printers
+      }
+
+      // Specific filters for Headphones
+      if (props.selectedCategory === "Headphones") {
+        if (filters.NoiseCancelling && product.NoiseCancelling !== filters.NoiseCancelling) {
+          return false;
+        }
+        // ... add other specific filters for headphones
+      }
+
+      // ... add more conditions for other categories
+
+      // If all checks pass, include the product
+      return true;
+    });
   };
 
-  // Call getFilteredProducts and store the results in state
-  const [displayedProducts, setDisplayedProducts] = useState([]);
-
-  // Use useEffect to update products when filters or selectedCategory changes
+  // Update displayed products when filters or selectedCategory changes
   useEffect(() => {
     setDisplayedProducts(getFilteredProducts());
   }, [products, filters, props.selectedCategory]);
 
-  // Use useEffect to reset filters when the selectedCategory changes
+  // Reset filters when selectedCategory changes
   useEffect(() => {
     setFilters({
       RAM: '',
       Storage: '',
-      // Reset other filters if necessary
+      Diagonal: '',
+      Matrix: '',
+      Resolution: '',
+      EnergyClass: '',
+      PrintSpeed: '',
+      NoiseCancelling: '',
+      // ... reset other specific filters for each category
+      priceMin: '',
+      priceMax: '',
     });
   }, [props.selectedCategory]);
 
   // User interface for filters
-  const filtersUI = () => (
-    <div className="filters">
-      <label htmlFor="RAM">RAM:</label>
-      <select
-        id="RAM"
-        value={filters.RAM}
-        onChange={(e) => setFilters({ ...filters, RAM: e.target.value })}
-      >
-        <option value="">Wybierz</option>
-        <option value="8">8GB</option>
-        <option value="16">16GB</option>
-        {/* Add more options */}
-      </select>
+  // This needs to be updated to include the UI elements for each specific filter
+  // For example, dropdowns for RAM, Storage, Diagonal, etc.
+  // And input fields for priceMin and priceMax
+  // ...
 
-      <label htmlFor="Storage">Storage:</label>
-      <select
-        id="Storage"
-        value={filters.Storage}
-        onChange={(e) => setFilters({ ...filters, Storage: e.target.value })}
-      >
-        <option value="">Wybierz</option>
-        <option value="64">64GB</option>
-        <option value="128">128GB</option>
-        <option value="256">256GB</option>
-        {/* Add more options */}
-      </select>
-
-      {/* Add more interfaces for other categories if necessary */}
-    </div>
-  );
-
+  const filtersUI = () => {
+    // UI for category-specific filters
+    let categorySpecificFilters;
+    switch (props.selectedCategory) {
+      case "Laptop":
+      case "Phone":
+        categorySpecificFilters = (
+          <>
+            <label htmlFor="RAM">RAM:</label>
+            <select
+              id="RAM"
+              value={filters.RAM}
+              onChange={(e) => setFilters({ ...filters, RAM: e.target.value })}
+            >
+              <option value="">Select</option>
+              <option value="8">8 GB</option>
+              <option value="16">16 GB</option>
+              {/* Add more options as needed */}
+            </select>
+  
+            <label htmlFor="Storage">Storage:</label>
+            <select
+              id="Storage"
+              value={filters.Storage}
+              onChange={(e) => setFilters({ ...filters, Storage: e.target.value })}
+            >
+              <option value="">Select</option>
+              <option value="256">256 GB</option>
+              <option value="512">512 GB</option>
+              {/* Add more options as needed */}
+            </select>
+          </>
+        );
+        break;
+      case "TV":
+      case "Monitor":
+        categorySpecificFilters = (
+          <>
+            <label htmlFor="Diagonal">Diagonal:</label>
+            <input
+              id="Diagonal"
+              type="number"
+              value={filters.Diagonal}
+              onChange={(e) => setFilters({ ...filters, Diagonal: e.target.value })}
+            />
+  
+            <label htmlFor="Matrix">Matrix Type:</label>
+            <select
+              id="Matrix"
+              value={filters.Matrix}
+              onChange={(e) => setFilters({ ...filters, Matrix: e.target.value })}
+            >
+              <option value="">Select</option>
+              <option value="IPS">IPS</option>
+              <option value="VA">VA</option>
+              {/* Add more options as needed */}
+            </select>
+          </>
+        );
+        break;
+      // Add cases for other categories like Printers, Headphones, etc.
+      default:
+        categorySpecificFilters = null;  // No filters for unspecified or unknown categories
+    }
+  
+    // Common price range filter for all categories
+    const priceRangeFilter = (
+      <>
+        <label htmlFor="priceMin">Min Price:</label>
+        <input
+          id="priceMin"
+          type="number"
+          value={filters.priceMin}
+          onChange={(e) => setFilters({ ...filters, priceMin: e.target.value })}
+        />
+  
+        <label htmlFor="priceMax">Max Price:</label>
+        <input
+          id="priceMax"
+          type="number"
+          value={filters.priceMax}
+          onChange={(e) => setFilters({ ...filters, priceMax: e.target.value })}
+        />
+      </>
+    );
+  
+    // Combine category-specific filters with the common price range filter
+    return (
+      <div className="filter-container">
+        {categorySpecificFilters}
+        {priceRangeFilter}
+      </div>
+    );
+  };
+  
   // Display products and handle loading and errors
   return (
     <div className="shop p-16 sm:p-8 md:p-16 lg:p-10">
@@ -85,9 +215,10 @@ export const Shop = (props) => {
       {error && <div>Error: {error.message}</div>}
       {!isLoading && !error && (
         <>
+          {/* filtersUI function should be defined to render the filter UI based on selectedCategory */}
           {filtersUI()}
           <div className="shopTitle text-center mb-4">
-            <h1 className="text-4xl font-bold mb-12">Nasza oferta</h1>
+            
           </div>
           <div className="products grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {displayedProducts.map((product) => (
