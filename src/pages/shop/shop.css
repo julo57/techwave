@@ -63,3 +63,19 @@
 }
 
 /* Remember to remove any duplicated or conflicting styles from the original CSS */
+.filter-container {
+  display: flex;
+  flex-direction: column;
+}
+.filter-item {
+  border: 1px solid #ccc; /* Szara ramka */
+  padding: 8px; /* Dodatkowe wypełnienie wewnątrz ramki */
+  margin-bottom: 10px; /* Odstęp pomiędzy filtrami */
+  border-radius: 4px; /* Zaokrąglone rogi dla estetyki */
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px; /* Odstęp pomiędzy różnymi grupami filtrów */
+}

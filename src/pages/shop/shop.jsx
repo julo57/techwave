@@ -180,24 +180,30 @@ export const Shop = (props) => {
   
     // Common price range filter for all categories
     const priceRangeFilter = (
-      <>
-        <label htmlFor="priceMin">Min Price:</label>
-        <input
-          id="priceMin"
-          type="number"
-          value={filters.priceMin}
-          onChange={(e) => setFilters({ ...filters, priceMin: e.target.value })}
-        />
-  
-        <label htmlFor="priceMax">Max Price:</label>
-        <input
-          id="priceMax"
-          type="number"
-          value={filters.priceMax}
-          onChange={(e) => setFilters({ ...filters, priceMax: e.target.value })}
-        />
-      </>
+      <div className="filter-container">
+        <div className="filter-item">
+          <label htmlFor="priceMin">Min Price:</label>
+          <input
+            id="priceMin"
+            type="number"
+            value={filters.priceMin}
+            onChange={(e) => setFilters({ ...filters, priceMin: e.target.value })}
+          />
+        </div>
+    
+        <div className="filter-item">
+          <label htmlFor="priceMax">Max Price:</label>
+          <input
+            id="priceMax"
+            type="number"
+            value={filters.priceMax}
+            onChange={(e) => setFilters({ ...filters, priceMax: e.target.value })}
+          />
+        </div>
+      </div>
     );
+  
+    
   
     // Combine category-specific filters with the common price range filter
     return (
@@ -215,10 +221,11 @@ export const Shop = (props) => {
       {error && <div>Error: {error.message}</div>}
       {!isLoading && !error && (
         <>
-          {/* filtersUI function should be defined to render the filter UI based on selectedCategory */}
-          {filtersUI()}
+          <div className="filter-container">
+            {filtersUI()}
+          </div>
           <div className="shopTitle text-center mb-4">
-            
+           
           </div>
           <div className="products grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {displayedProducts.map((product) => (
