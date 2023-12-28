@@ -243,6 +243,45 @@
         "bott2":"Hi, I'm the TechWave ChatBot. My name is Koksuś. How can I assist you today?"
     },
 
+ "payment":
+    {
+        "title": "Delivery and Payment",
+        "title2": "Delivery",
+        "title3": "Delivery Options",
+        "title4": "Payment Options",
+        "title5": "You are buying as",
+        "title6": "Billing Information",
+
+        "placeholder2": "First and Last Name",
+        "placeholder1": "Street",
+        "placeholder3": "City",
+        "placeholder4": "Postal Code e.g. 46-113",
+        "placeholder5": "Do you have a promo code?",
+
+        "label": "I have read and agree to the Terms and Conditions",
+        "label2": "I agree to receive the newsletter",
+        "label3": "Courier",
+        "label4": "In-store Pickup",
+        "label5": "Online Payment",
+        "label6": "Credit Card",
+        "label7": "Business",
+        "label8": "Individual",
+
+        "button": "Apply",
+        "button2": "Proceed to Payment",
+
+        "paragraph": "Delivery: 0 zł",
+        "paragraph2": "(free delivery for products over 200 zł)",
+        "paragraph3": "Delivery:",
+        "paragraph4": "Discount:",
+        "paragraph5": "Total to Pay:",
+        "paragraph6": "Cart:",
+        "paragraph7": "Discount:",
+        "paragraph8": "Total to Pay:",
+        "paragraph9": "Delivery:"
+    },
+
+
 
  "bot":
     {

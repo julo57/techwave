@@ -224,6 +224,44 @@
       "bott2":"Cześc nazwyam się jestem Chatbotem techwave. Jak mogę Ci pomóc?"
   },
 
+  "payment":
+    {
+        "title":"Dostawa i płatność" ,
+        "title2":"Dostawa",
+        "title3":"Opcje dostawy",
+        "title4":"Opcje płatności",
+        "title5":"Kupujesz jako",
+        "title6":"Informacje rozliczeniowe",
+
+        "placeholder2":"Imie i Nazwisko",
+        "placeholder1":"Ulica",
+        "placeholder3":"Miasto",  
+        "placeholder4":"Kod pocztowy np 46-113",
+        "placeholder5":"Masz kod promocyjny?",
+
+        "label": "Zapoznałem/Zapoznałam się z regulaminem",
+        "label2": "Zgadzam się na newsletter",
+        "label3": "Kurier",
+        "label4": "Odbiór w sklepie",
+        "label6": "Karta kredytowa",
+        "label5": "Płatność Online",
+        "label7": "Firma",
+        "label8": "Osoba prywatna",
+      
+       " button": "Zastosuj",
+       " button2": "Przejdź do płatności",
+
+       "paragraph": "Dostawa: 0 zł",
+       "paragraph2": "(za produkt powyżej 200 zł dostawa gratis)",
+        "paragraph3": "Dostawa:",
+        "paragraph4": "Rabat:",
+        "paragraph5": "Do zapłaty:",
+        "paragraph6": "Koszyk:",
+        "paragraph7": "Rabat:",
+        "paragraph8": "Do zapłaty:",
+        "paragraph9": "Dostawa:"
+    },
+
   "bot":
   {
     

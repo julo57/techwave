@@ -41,7 +41,7 @@ import Return from "./pages/Return";
 export const ThemeContext = createContext();
 i18next.init({
   interpolation: { escapeValue: false },
-  lng: 'en',
+  lng: 'pl',
   resources: {
     en: {
       global: global_en,

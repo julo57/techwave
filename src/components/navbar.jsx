@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ShoppingCart, User, Microphone } from "phosphor-react";
+import { ShoppingCart, User, Microphone, Scales } from "phosphor-react";
 import ThemeSwitchButton from "../components/ThemeSwitchButton";
 import "./navbar.css";
 import useAuthContext from "../context/AuthContext";
-import flagaImage from '../assets/products/flaga2.png';
-import flagaImage2 from '../assets/products/flaga.png';
+import flagaImage2 from '../assets/products/flaga2.png';
+import flagaImage from '../assets/products/flaga.png';
 import { useTranslation } from "react-i18next";
 import 'regenerator-runtime/runtime';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
@@ -76,9 +76,9 @@ export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
     navigate(`/ProductSite/${productId}`);
   }
   const handleFlagClick = () => {
-    const newImage = currentImage === flagaImage ? flagaImage2 : flagaImage;
+    const newImage = currentImage === flagaImage2 ? flagaImage : flagaImage2;
     setCurrentImage(newImage);
-    const newLang = i18n.language === "en" ? "pl" : "en";
+    const newLang = i18n.language === "pl" ? "en" : "pl";
     i18n.changeLanguage(newLang);
   };
 
@@ -110,7 +110,8 @@ export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
 
         <div className="flex items-center space-x-8">
           <ThemeSwitchButton toggleTheme={toggleTheme} theme={theme} />
-          {user ? (
+          {user ? 
+          (
             <Link to="/profile">
               <User size={32} className="text-white hover:text-blue-500" />
             </Link>
@@ -119,6 +120,13 @@ export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
               <User size={32} className="text-white hover:text-blue-500" />
             </Link>
           )}
+
+
+            <Link to="/ComparationSite">
+              <Scales size={32} className="text-white hover:text-blue-500" />
+            </Link>
+          
+          
           <Link to="/cart" className="text-white hover:text-blue-500">
             <ShoppingCart size={32} />
           </Link>
