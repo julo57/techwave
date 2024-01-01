@@ -293,3 +293,24 @@ input[type="number"]::-webkit-outer-spin-button {
     }
   }
 
+  .company-details {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* or however much space you want between inputs */
+  }
+  
+  .company-detail-input {
+  font-family: 'Times New Roman', Times, serif;
+
+    /* Styles to make the input take the full width of its container */
+    width: 100%;
+    /* Additional styles for padding, borders, etc. */
+  }
+  

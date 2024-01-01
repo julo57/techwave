@@ -6,8 +6,11 @@ export const ShopContext = createContext(null);
 
 // Domyślny stan dla koszyka
 const getDefaultCart = () => {
-  return {};
+  const savedCart = localStorage.getItem('cart');
+  return savedCart ? JSON.parse(savedCart) : {};
 };
+
+
 
 // Provider dla ShopContext
 export const ShopContextProvider = ({ children }) => {
@@ -29,7 +32,9 @@ export const ShopContextProvider = ({ children }) => {
         // Assuming 'photo' is the property from the product object
         newCartItems[product.id] = { ...product, quantity: 1, imageUrl: product.photo };
       }
+      localStorage.setItem('cart', JSON.stringify(newCartItems));
       return newCartItems;
+      
     });
   };
 
@@ -61,7 +66,8 @@ export const ShopContextProvider = ({ children }) => {
 
   // Funkcja realizująca zakup
   const checkout = () => {
-    setCartItems(getDefaultCart());
+    setCartItems({}); // Ustaw stan koszyka na pusty obiekt
+    localStorage.removeItem('cart'); // Usuń koszyk z Local Storage
   };
 
   // Wartości przekazywane przez Provider

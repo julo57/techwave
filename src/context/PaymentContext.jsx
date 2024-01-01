@@ -16,15 +16,20 @@ const getDefaultPaymentDetails = () => {
     discountRate: 0,
     newsletterSubscription: false,
     termsAgreement: false,
+    privateMethod: 'individual', // Add this line to handle the method of payment (individual/company)
   };
 };
 
 export const PaymentContextProvider = ({ children }) => {
   const [paymentDetails, setPaymentDetails] = useState(getDefaultPaymentDetails());
-  const [deliveryCost, setDeliveryCost] = useState(0);
+  const [companyDetails, setCompanyDetails] = useState({ nip: '', companyName: '' });
 
   const updatePaymentDetails = (details) => {
     setPaymentDetails(prevDetails => ({ ...prevDetails, ...details }));
+  };
+
+  const updateCompanyDetails = (details) => {
+    setCompanyDetails(details);
   };
 
   const applyPromoCode = (code) => {
@@ -32,14 +37,18 @@ export const PaymentContextProvider = ({ children }) => {
       setPaymentDetails(currentDetails => ({
         ...currentDetails,
         promoCode: code,
-        discountRate: 0.1 // 10% discount
+        discountRate: 0.1
+      }));
+    } else {
+      setPaymentDetails(currentDetails => ({
+        ...currentDetails,
+        promoCode: '',
+        discountRate: 0
       }));
     }
-    // Additional promo code logic here
   };
 
   const updateDeliveryCost = (cost) => {
-    console.log("Updating delivery cost in context to:", cost);
     setPaymentDetails(prevDetails => ({
       ...prevDetails,
       deliveryCost: cost
@@ -50,8 +59,9 @@ export const PaymentContextProvider = ({ children }) => {
     paymentDetails,
     updatePaymentDetails,
     applyPromoCode,
-    deliveryCost,
-    updateDeliveryCost,
+    companyDetails, // Include companyDetails in the context value
+    updateCompanyDetails,
+    updateDeliveryCost
   };
 
   return (

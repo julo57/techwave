@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 export const Payment = () => {
   const { cartItems, getTotalCartAmount} = useContext(ShopContext);
   
-  
+  const { applyPromoCode } = useContext(PaymentContext);
 const { updatePaymentDetails, updateDeliveryCost,paymentDetails } = useContext(PaymentContext);
   
 const {t} = useTranslation("global");
@@ -70,30 +70,44 @@ const {t} = useTranslation("global");
   
   // Obliczanie całkowitej kwoty do zapłaty przy wyświetlaniu
   const calculateTotalWithDiscount = () => {
+    // Calculate cart total from the items in the cart
     const cartTotal = getTotalCartAmount();
+  
+    // Initialize delivery charge
     let deliveryCharge = deliveryCost;
   
-    // Jeśli wartość koszyka przekracza 200 zł, ustawiamy koszt dostawy na 0 zł
+    // Apply free delivery for orders over a certain amount (e.g., 200 zł)
     if (cartTotal > 200) {
       deliveryCharge = 0;
     }
   
+    // Calculate total with delivery charge
     let total = cartTotal + deliveryCharge;
   
-    // Aplikowanie rabatu za subskrypcję newslettera, jeśli jest zaznaczony
-    if (isNewsletterChecked) {
-       total = cartTotal *0.95 + deliveryCharge;
-      
+    // Apply discount from promo code if any
+    if (paymentDetails.discountRate) {
+      total = total * (1 - paymentDetails.discountRate);
     }
   
+    // Apply additional 5% discount for newsletter subscription
+    if (isNewsletterChecked) {
+      total = total * 0.95; // Applying 5% discount
+    }
+  
+    // Return the total amount rounded to two decimal places
     return total.toFixed(2);
   };
-  
 
   const handlePromoCodeChange = (event) => {
     setPromoCode(event.target.value);
   };
 
+  const { updateCompanyDetails } = useContext(PaymentContext);
+
+const handleCompanyInputChange = (event) => {
+  const { name, value } = event.target;
+  updateCompanyDetails(prev => ({ ...prev, [name]: value }));
+};
   
   const handleTermsChange = (event) => {
     setIsTermsChecked(event.target.checked);
@@ -110,11 +124,28 @@ const {t} = useTranslation("global");
     if (!address.city.trim()) newErrors.city = 'City is required';
     if (!address.zip.trim()) newErrors.zip = 'ZIP code is required';
     if (!isTermsChecked) newErrors.terms = 'You must agree to the terms and conditions';
+    
     // Add other validations as needed
     const zipCodeRegex = /^\d{2}-\d{3}$/;
     if (!zipCodeRegex.test(address.zip)) newErrors.zip = 'ZIP code must be in the format **-***';
+    if (privateMethod === 'company') {
+      if (!companyDetails.companyName.trim()) {
+        newErrors.companyName = 'Company name is required';
+      }
+      if (!companyDetails.nip.match(/^\d{10}$/)) {
+        newErrors.nip = 'NIP must be exactly 10 digits';
+      }
+    }
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+  return Object.keys(newErrors).length === 0;
+  };
+ 
+  const {  companyDetails } = useContext(PaymentContext);
+
+
+  const handleCompanyDetailsChange = (event) => {
+    const { name, value } = event.target;
+    updateCompanyDetails({ ...companyDetails, [name]: value });
   };
    
   useEffect(() => {
@@ -154,7 +185,7 @@ const {t} = useTranslation("global");
       }
     }
   };
-  
+
   return (
     <div className="container-payment">
       <div className="form-section">
@@ -205,16 +236,40 @@ const {t} = useTranslation("global");
           </div>
   
           <h2 className="H2">{t("payment.title5")}</h2>
-          <div className="deliverydiv">
-            <div className="deliveryinputradio">
-              <input type="radio" id="company" name="privateMethod" value="company" checked={privateMethod === 'company'} onChange={handlePrivateMethodChange} />
-              <label htmlFor="company">{t("payment.label7")}</label>
-            </div>
-            <div className="deliveryinputradio">
-              <input type="radio" id="privatePerson" name="privateMethod" value="privatePerson" checked={privateMethod === 'privatePerson'} onChange={handlePrivateMethodChange} />
-              <label htmlFor="privatePerson">{t("payment.label8")}</label>
-            </div>
-          </div>
+<div className="deliverydiv">
+  <div className="deliveryinputradio">
+    <input type="radio" id="company" name="privateMethod" value="company" checked={privateMethod === 'company'} onChange={handlePrivateMethodChange} />
+    <label htmlFor="company">{t("payment.label7")}</label>
+  </div>
+  <div className="deliveryinputradio">
+    <input type="radio" id="privatePerson" name="privateMethod" value="privatePerson" checked={privateMethod === 'privatePerson'} onChange={handlePrivateMethodChange} />
+    <label htmlFor="privatePerson">{t("payment.label8")}</label>
+  </div>
+</div>
+
+{privateMethod === 'company' && (
+    <div>
+    <input
+      type="text"
+      name="nip"
+      placeholder={t("payment.placeholderNIP")}
+      value={companyDetails.nip}
+      onChange={handleCompanyDetailsChange}
+      className="deliveryinput"
+    />
+    {errors.nip && <p className="error-message">{errors.nip}</p>}
+    
+    <input
+      type="text"
+      name="companyName"
+      placeholder={t("payment.placeholderCompanyName")}
+      value={companyDetails.companyName}
+      onChange={handleCompanyDetailsChange}
+      className="deliveryinput"
+    />
+    {errors.companyName && <p className="error-message">{errors.companyName}</p>}
+  </div>
+)}
   
           <h2 className="H2">{t("payment.title6")}</h2>
           <div className="deliverycheckbox">
@@ -261,6 +316,7 @@ const {t} = useTranslation("global");
     <p>{t("payment.paragraph9")} {deliveryCost} zł</p>
   )}
   <p>{t("payment.paragraph7")} {isNewsletterChecked ? '5%' : '0%'}</p>
+  
   <p>{t("payment.paragraph8")} {calculateTotalWithDiscount()} zł</p>
 </div>
         <form onSubmit={handleSubmit} >

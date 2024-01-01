@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef , useContext} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ShoppingCart, User, Microphone, Scales } from "phosphor-react";
 import ThemeSwitchButton from "../components/ThemeSwitchButton";
@@ -11,8 +11,13 @@ import 'regenerator-runtime/runtime';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import fetchProducts from '../components/fetchProducts';
 import NavbarCategories from "./NavbarCategories";
+import { ShopContext } from '../context/shop-context';
+
 
 export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
+  const { cartItems } = useContext(ShopContext);
+  const cartItemCount = Object.values(cartItems).reduce((total, item) => total + item.quantity, 0);
+
   const [allProducts, setAllProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -127,8 +132,13 @@ export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
             </Link>
           
           
-          <Link to="/cart" className="text-white hover:text-blue-500">
+            <Link to="/cart" className="text-white hover:text-blue-500 relative">
             <ShoppingCart size={32} />
+            {cartItemCount > 0 && (
+              <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs px-2">
+                {cartItemCount <= 9 ? cartItemCount : '9+'}
+              </span>
+            )}
           </Link>
           <button onClick={handleMicClick}>
             <Microphone className="microphone" color="white" size={32} />

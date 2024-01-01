@@ -53,14 +53,36 @@ i18next.init({
 });
 
 function App() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const [timedPopup, setTimedPopup] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
   // console.log("selectedCategory App", selectedCategory)
 
   const toggleTheme = () => {
-    setTheme((current) => (current === "light" ? "dark" : "light"));
+    setTheme((currentTheme) => {
+      const newTheme = currentTheme === "light" ? "dark" : "light";
+      localStorage.setItem("theme", newTheme); // Zapisz motyw do Local Storage
+      return newTheme;
+    });
   };
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      setTheme(savedTheme);
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setCartItems(getDefaultCart());
+    };
+  
+    window.addEventListener('storage', handleStorageChange);
+  
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {

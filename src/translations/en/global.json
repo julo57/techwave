@@ -278,10 +278,44 @@
         "paragraph6": "Cart:",
         "paragraph7": "Discount:",
         "paragraph8": "Total to Pay:",
-        "paragraph9": "Delivery:"
+        "paragraph9": "Delivery:",
+
+        "placeholderNIP": "NIP",
+        "placeholderCompanyName": "Company Name"
     },
 
+    "summation": {
+        "orderSummary": "Order Summary",
+        "deliveryAddress": "Delivery Address",
+        "fullName": "Full Name",
+        "street": "Street",
+        "city": "City",
+        "zipCode": "Postal Code",
+        "deliveryMethod": "Delivery Method",
+        "paymentMethod": "Payment Method",
+        "promoCodeTitle": "Promotional Code",
+        "subscribedToNewsletter": "Subscribed to Newsletter",
+        "notSubscribedToNewsletter": "Not Subscribed to Newsletter",
+        "shopping": "Shopping",
+        "deliveryCosts": "Delivery Costs",
+        "free": "Free",
+        "totalCost": "Total Cost",
+        "totalCostAfterDiscounts": "Total Cost After Discounts",
+        "afterNewsletterDiscount": "After Newsletter Discount",
+        "discount": "Discount",
+        "purchaseAndPay": "Purchase and Pay",
 
+        "nip": "NIP",
+      "companyName": "Company name"
+      },
+
+     "guest":
+     {
+        "continueWithoutLoggingIn": "continue Without Logging In",
+        "info": "info",
+        "continueAsGuest": "Continue "
+
+     },
 
  "bot":
     {

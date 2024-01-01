@@ -140,7 +140,7 @@ useEffect(() => {
             <p><strong>Screen:</strong> {product.Screen}</p>
             <p><strong>Processor:</strong> {product.Processor}</p>
             <p><strong>RAM:</strong> {product.RAM}</p>
-            <p><strong>Storage:</strong> {product.Storage}</p>
+            <p><strong>storage:</strong> {product.storage}</p>
           </>
 
           

@@ -248,8 +248,8 @@
         "label7": "Firma",
         "label8": "Osoba prywatna",
       
-       " button": "Zastosuj",
-       " button2": "Przejdź do płatności",
+       "button": "Zastosuj",
+       "button2": "Przejdź do płatności",
 
        "paragraph": "Dostawa: 0 zł",
        "paragraph2": "(za produkt powyżej 200 zł dostawa gratis)",
@@ -259,9 +259,49 @@
         "paragraph6": "Koszyk:",
         "paragraph7": "Rabat:",
         "paragraph8": "Do zapłaty:",
-        "paragraph9": "Dostawa:"
+        "paragraph9": "Dostawa:",
+
+        "placeholderNIP": "NIP",
+        "placeholderCompanyName": "Nazwa firmy"
+
     },
 
+    "summation":
+    {
+      "orderSummary": "Podsumowanie Zamówienia",
+      "deliveryAddress": "Adres dostawy",
+      "fullName": "Imię i nazwisko",
+      "street": "Ulica",
+      "city": "Miasto",
+      "zipCode": "Kod pocztowy",
+      "deliveryMethod": "Metoda dostawy",
+      "paymentMethod": "Metoda płatności",
+
+      "promoCodeTitle": "Kod promocyjny",
+      "subscribedToNewsletter": "Zapisano do newslettera",
+      "notSubscribedToNewsletter": "Nie zapisano do newslettera",
+      "shopping": "Zakupy",
+      "deliveryCosts": "Koszty dostawy",
+      "free": "Darmowa",
+      "totalCost": "Całkowity koszt",
+      "totalCostAfterDiscounts": "Całkowity koszt po zastosowaniu rabatów",
+      "afterNewsletterDiscount": "Po zastosowaniu rabatu za newsletter",
+      "discount": "Rabat",
+      "purchaseAndPay": "Kupuję i płacę",
+
+      "nip": "NIP",
+      "companyName": "Nazwa firmy"
+
+    },
+
+    "guest":
+     {
+        "continueWithoutLoggingIn": "Kontynuuj bez zalogowania sie",
+        "info": "info",
+        "continueAsGuest": "Kontynuuj "
+
+
+     },
   "bot":
   {
     

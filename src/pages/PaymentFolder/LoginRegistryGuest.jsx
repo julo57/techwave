@@ -152,7 +152,7 @@ export const LoginRegistryGuest = () => {
         <div className="w-full max-w-md">
           <div className="bg-white shadow px-8 pt-6 pb-8 mb-4 text-center">
             <h2 className="text-xl font-semibold mb-4">{t("guest.continueWithoutLoggingIn")}</h2>
-            <p className="mb-4">{t("guest.info")}</p>
+          
             <button
               className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="button"
