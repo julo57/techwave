@@ -137,10 +137,10 @@ useEffect(() => {
       case 'Phone':
         return (
           <>
-            <p><strong>Screen:</strong> {product.Screen}</p>
+            <p><strong>Screen:</strong> {product.Screen}<strong>HZ</strong></p>
             <p><strong>Processor:</strong> {product.Processor}</p>
-            <p><strong>RAM:</strong> {product.RAM}</p>
-            <p><strong>storage:</strong> {product.storage}</p>
+            <p><strong>RAM:</strong> {product.RAM}<strong>GB</strong></p>
+            <p><strong>storage:</strong> {product.storage}<strong>GB</strong></p>
           </>
 
           

@@ -19,7 +19,7 @@ export const ComparationSite = () => {
   const [errorRight, setErrorRight] = useState(null);
   const [searchResultsRight, setSearchResultsRight] = useState([]);
 
-  const [category, setCategory] = useState("");
+  const [Category, setCategory] = useState("");
 
   // Funkcja do pobierania szczegółów produktu
   const fetchProductDetails = async (side, searchTerm) => {
@@ -38,7 +38,7 @@ export const ComparationSite = () => {
     
     try {
       const response = await axios.get(`http://localhost:8000/api/products`, {
-        params: { search: searchTerm, category: category }
+        params: { search: searchTerm, Category: Category }
       });
       setSearchResults(response.data.length > 0 ? response.data : []);
       setError(response.data.length > 0 ? null : "No products found with that name");
@@ -54,67 +54,102 @@ export const ComparationSite = () => {
   const renderProductSpecs = (product) => {
     if (!product) return null;
   
-    switch (product.Category) {
-      case 'Monitor':
-      case 'TV':
-        return (
-          <>
-            <p><strong>Diagonal:</strong> {product.diagonal}</p>
-            <p><strong>Matrix:</strong> {product.Matrix}</p>
-            <p><strong>Resolution:</strong> {product.Resolution}</p>
-            <p><strong>Energy Class:</strong> {product.Energyclass}</p>
-          </>
-        );
-      case 'Tablet':
-      case 'Laptop':
-      case 'Phone':
-        return (
-          <>
-            <p><strong>Screen:</strong> {product.Screen}</p>
-            <p><strong>Processor:</strong> {product.Processor}</p>
-            <p><strong>RAM:</strong> {product.RAM}</p>
-            <p><strong>Storage:</strong> {product.Storage}</p>
-          </>
-        );
-      case 'Headphones':
-        return (
-          <>
-            <p><strong>Connection:</strong> {product.connection}</p>
-            <p><strong>Microphone:</strong> {product.microphone}</p>
-            <p><strong>Noise Cancelling:</strong> {product.noisecancelling}</p>
-            <p><strong>Headphone Type:</strong> {product.headphonetype}</p>
-          </>
-        );
-      case 'Printer':
-        return (
-          <>
-            <p><strong>Printing Technology:</strong> {product.Printingtechnology}</p>
-            <p><strong>Interfaces:</strong> {product.Interfaces}</p>
-            <p><strong>Print Speed:</strong> {product.Printspeed}</p>
-            <p><strong>Duplex Printing:</strong> {product.Duplexprinting}</p>
-          </>
-        );
-      // Dodaj inne przypadki dla różnych kategorii, jeśli potrzebne
-      default:
-        return <p>Brak dostępnych specyfikacji dla tej kategorii.</p>;
-    }
+    return (
+      <>
+        <p><strong>Zaznaczyłeś:</strong> {product.name}</p>
+      </>
+    );
   };
 
   // Funkcja do renderowania wyboru kategorii
+  const handleCategoryChange = (e) => {
+    const newCategory = e.target.value;
+    setCategory(newCategory);
+  
+    // Resetuj wybrane produkty, gdy kategoria się zmienia
+    setProductLeft(null);
+    setProductRight(null);
+  
+    // Możesz także zresetować wyniki wyszukiwania, jeśli to konieczne
+    setSearchResultsLeft([]);
+    setSearchResultsRight([]);
+  };
+  
+  // Funkcja renderująca wybór kategorii
   const renderCategorySelection = () => (
-    <select onChange={(e) => {
-      console.log("Wybrano kategorię:", e.target.value); // Logowanie zmiany kategorii
-      setCategory(e.target.value);
-    }}>
+    <select onChange={handleCategoryChange}>
       <option value="">Select Category</option>
+      <option value="Phone">Phone</option>
       <option value="Laptop">Laptop</option>
       <option value="TV">TV</option>
+      <option value="Headphones">Headphones</option>
+      <option value="Monitor">Monitor</option>
+      <option value="Printers">Printers</option>
       {/* Dodaj więcej kategorii tutaj */}
     </select>
   );
   
+  const compareValuesAndGetClass = (attribute, leftValue, rightValue) => {
+    if (attribute === 'Processor') {
+      return ""; // Nie nadawaj klasy dla procesora
+    }
+    
+    if (leftValue > rightValue) {
+      return "higher-value";
+    } else if (leftValue < rightValue) {
+      return "lower-value";
+    }
+    return "";
+  };
+  // Funkcja do renderowania wierszy tabeli z porównaniem produktów
+  const renderComparisonRows = () => {
+    if (!productLeft || !productRight) return null;
+  
+    // Wspólne atrybuty dla wszystkich produktów
+    const commonAttributes = ['price'];
+  
+    // Atrybuty specyficzne dla każdej kategorii
+    const categoryAttributes = {
+      Phone: ['Screen', 'Processor', 'RAM', 'Storage'],
+      Laptop: ['Screen', 'Processor', 'RAM', 'Storage'],
+      Headphones: ['Connection', 'Microphone', 'NoiseCancelling', 'HeadphoneType'],
+      Printer: ['PrintingTechnology', 'Interfaces', 'PrintSpeed', 'DuplexPrinting'],
+      Monitor: ['Diagonal', 'Matrix', 'Resolution', 'EnergyClass'],
+      TV: ['Diagonal', 'Matrix', 'Resolution', 'EnergyClass'],
+    };
+  
+    // Wybór atrybutów na podstawie kategorii produktu
+    const attributesToCompare = productLeft.Category && productRight.Category
+    ? [...commonAttributes, ...categoryAttributes[productLeft.Category]]
+    : commonAttributes;
 
+  return (
+    <>
+      {attributesToCompare.map((attribute) => {
+        const leftValue = productLeft[attribute];
+        const rightValue = productRight[attribute];
 
+        // Nie koloruj komórek dla procesora
+        const cellClass = attribute !== 'Processor' 
+          ? compareValuesAndGetClass(attribute, leftValue, rightValue)
+          : "";
+
+        return (
+          <tr key={attribute}>
+            <td>{attribute}</td>
+            <td className={cellClass}>
+              {leftValue}
+            </td>
+            <td className={cellClass}>
+              {rightValue}
+            </td>
+          </tr>
+        );
+      })}
+    </>
+  );
+};
+        
   return (
     <div className="comparation-site-container">
       {/* Wybór kategorii */}
@@ -145,6 +180,18 @@ export const ComparationSite = () => {
           </div>
           {productLeft && renderProductSpecs(productLeft)}
         </div>
+        <table className="table-comparison">
+        <thead>
+          <tr>
+            <th>Specyfikacja</th>
+            <th>Lewy Produkt</th>
+            <th>Prawy Produkt</th>
+          </tr>
+        </thead>
+        <tbody>
+          {renderComparisonRows()}
+        </tbody>
+      </table>
     
         {/* Prawa Kolumna */}
         <div className="column" style={{ flex: 1, padding: '10px' }}>
