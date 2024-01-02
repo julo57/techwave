@@ -126,10 +126,10 @@ useEffect(() => {
       case 'TV':
         return (
           <>
-            <p><strong>Diagonal:</strong> {product.diagonal}</p>
-            <p><strong>Matrix:</strong> {product.Matrix}</p>
-            <p><strong>Resolution:</strong> {product.Resolution}</p>
-            <p><strong>Energy Class:</strong> {product.Energyclass}</p>
+            <p><strong>{t("product.Diagonal")}: {product.diagonal}</strong></p>
+            <p><strong>{t("product.Matrix")}: {product.Matrix}</strong></p>
+            <p><strong>{t("product.Resolution")}: {product.Resolution}</strong></p>
+            <p><strong>{t("product.EnergyClass")}: {product.Energyclass}</strong></p>
           </>
         );
       case 'Tablet':
@@ -137,37 +137,33 @@ useEffect(() => {
       case 'Phone':
         return (
           <>
-            <p><strong>Screen:</strong> {product.Screen}<strong>HZ</strong></p>
-            <p><strong>Processor:</strong> {product.Processor}</p>
-            <p><strong>RAM:</strong> {product.RAM}<strong>GB</strong></p>
-            <p><strong>storage:</strong> {product.storage}<strong>GB</strong></p>
+            <p><strong>{t("product.Screen")}: {product.Screen}Hz</strong></p>
+            <p><strong>{t("product.Processor")}: {product.Processor}</strong></p>
+            <p><strong>{t("product.RAM")}: {product.RAM}GB</strong></p>
+            <p><strong>{t("product.Storage")}: {product.Storage}GB</strong></p>
           </>
-
-          
         );
-
-        case 'Headphones':
+      case 'Headphones':
         return (
           <>
-            <p><strong>Connection:</strong> {product.connection}</p>
-            <p><strong>Microphone:</strong> {product.microphone}</p>
-            <p><strong>Noise Cancelling:</strong> {product.noisecancelling}</p>
-            <p><strong>Headphone Type:</strong> {product.headphonetype}</p>
+            <p><strong>{t("product.Connection")}: {product.Connection}</strong></p>
+            <p><strong>{t("product.Microphone")}: {product.Microphone}</strong></p>
+            <p><strong>{t("product.NoiseCancelling")}: {product.NoiseCancelling}</strong></p>
+            <p><strong>{t("product.HeadphoneType")}: {product.HeadphoneType}</strong></p>
           </>
         );
-        
-        case 'Printer':
-          return (
-            <>
-              <p><strong>Printing Technology:</strong> {product.Printingtechnology}</p>
-              <p><strong>Interfaces:</strong> {product.Interfaces}</p>
-              <p><strong>Print Speed:</strong> {product.Printspeed}</p>
-              <p><strong>Duplex Printing:</strong> {product.Duplexprinting}</p>
-            </>
-          );
+      case 'Printer':
+        return (
+          <>
+            <p><strong>{t("product.PrintingTechnology")}: {product.PrintingTechnology}</strong></p>
+            <p><strong>{t("product.Interfaces")}: {product.Interfaces}</strong></p>
+            <p><strong>{t("product.PrintSpeed")}: {product.PrintSpeed}</strong></p>
+            <p><strong>{t("product.DuplexPrinting")}: {product.DuplexPrinting}</strong></p>
+          </>
+        );
       // Add other cases for different categories as needed
       default:
-        return <p>No specifications available for this category.</p>;
+        return <p>{t("product.NoSpecifications")}</p>;
     }
   };
 

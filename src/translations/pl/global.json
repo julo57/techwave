@@ -302,6 +302,25 @@
 
 
      },
+     "product": {
+      "Diagonal": "Przekątna",
+      "Matrix": "Matryca",
+      "Resolution": "Rozdzielczość",
+      "EnergyClass": "Klasa energetyczna",
+      "Screen": "Ekran",
+      "Processor": "Procesor",
+      "RAM": "RAM",
+      "Storage": "Pamięć",
+      "Connection": "Połączenie",
+      "Microphone": "Mikrofon",
+      "NoiseCancelling": "Redukcja szumów",
+      "HeadphoneType": "Typ słuchawek",
+      "PrintingTechnology": "Technologia druku",
+      "Interfaces": "Interfejsy",
+      "PrintSpeed": "Prędkość druku",
+      "DuplexPrinting": "Druk dwustronny",
+      "NoSpecifications": "Brak specyfikacji dla tej kategorii."
+    },
   "bot":
   {
     

@@ -380,6 +380,25 @@
     "Mam na imię {imię}": "Cześć {imię}, miło cię poznać!",
     "wspaniale": "Cieszę się, że tak mówisz!",
     "świetnie": "Cieszę się, że tak mówisz!"
-    }
+    },
+    "product": {
+        "Diagonal": "Diagonal",
+        "Matrix": "Matrix",
+        "Resolution": "Resolution",
+        "EnergyClass": "Energy Class",
+        "Screen": "Screen",
+        "Processor": "Processor",
+        "RAM": "RAM",
+        "Storage": "Storage",
+        "Connection": "Connection",
+        "Microphone": "Microphone",
+        "NoiseCancelling": "Noise Cancelling",
+        "HeadphoneType": "Headphone Type",
+        "PrintingTechnology": "Printing Technology",
+        "Interfaces": "Interfaces",
+        "PrintSpeed": "Print Speed",
+        "DuplexPrinting": "Duplex Printing",
+        "NoSpecifications": "No specifications available for this category."
+      }
 
 }
