@@ -1,0 +1,41 @@
+.show-comment .rating-stars {
+    font-size: 30px;
+    color: #cccccc;
+}
+
+.show-comment .rating-stars .full-star {
+    color: #ffcc00;
+}
+
+.show-comment .comment-text {
+    padding-left: 0.5%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.show-comment .product-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.show-comment .product-info {
+    display: flex;
+    align-items: center;
+}
+
+.show-comment .product-image {
+    width: 70px;
+    height: 70px;
+    margin-right: 20px;
+}
+
+.show-comment .product-text {
+    flex: 1;
+}
+
+.show-comment .product-text p {
+    margin: 0;
+    font-size: 18px;
+}
