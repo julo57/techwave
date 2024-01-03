@@ -321,8 +321,12 @@
       "DuplexPrinting": "Druk dwustronny",
       "NoSpecifications": "Brak specyfikacji dla tej kategorii."
     },
-  "bot":
-  {
-    
-  }
+
+      "chat": {
+        "hi":"Cześć, jestem Botem TechWave. Nazywam się Koksuś. Jak mogę Ci dzisiaj pomóc?",
+        "apple_expert": "Spytaj eksperta Apple",
+        "apple_expert_message": "Chcę porozmawiać z ekspertem Apple.",
+        "delivery_status": "Status dostawy",
+        "delivery_status_message": "Jaki jest status mojej dostawy?"
+      }
 }
