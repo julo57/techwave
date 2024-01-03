@@ -219,8 +219,110 @@
       "sett15": "Błąd podczas zmianu hasła",
       "sett16": "Wprowadź poprawne adresy e-mail.",
       "sett17": "Adres Email zmieniony!",
-      "sett18": "Błąd podczas zmiany adresu e-mail. Spróbuj ponownie."
+      "sett18": "Błąd podczas zmiany adresu e-mail. Spróbuj ponownie.",
+      "bott" : "Przeprasza, nie rozumiem. Spróbuj ponownie.",
+      "bott2":"Cześc nazwyam się jestem Chatbotem techwave. Jak mogę Ci pomóc?"
+  },
+
+  "payment":
+    {
+        "title":"Dostawa i płatność" ,
+        "title2":"Dostawa",
+        "title3":"Opcje dostawy",
+        "title4":"Opcje płatności",
+        "title5":"Kupujesz jako",
+        "title6":"Informacje rozliczeniowe",
+
+        "placeholder2":"Imie i Nazwisko",
+        "placeholder1":"Ulica",
+        "placeholder3":"Miasto",  
+        "placeholder4":"Kod pocztowy np 46-113",
+        "placeholder5":"Masz kod promocyjny?",
+
+        "label": "Zapoznałem/Zapoznałam się z regulaminem",
+        "label2": "Zgadzam się na newsletter",
+        "label3": "Kurier",
+        "label4": "Odbiór w sklepie",
+        "label6": "Karta kredytowa",
+        "label5": "Płatność Online",
+        "label7": "Firma",
+        "label8": "Osoba prywatna",
+      
+       "button": "Zastosuj",
+       "button2": "Przejdź do płatności",
+
+       "paragraph": "Dostawa: 0 zł",
+       "paragraph2": "(za produkt powyżej 200 zł dostawa gratis)",
+        "paragraph3": "Dostawa:",
+        "paragraph4": "Rabat:",
+        "paragraph5": "Do zapłaty:",
+        "paragraph6": "Koszyk:",
+        "paragraph7": "Rabat:",
+        "paragraph8": "Do zapłaty:",
+        "paragraph9": "Dostawa:",
+
+        "placeholderNIP": "NIP",
+        "placeholderCompanyName": "Nazwa firmy"
+
+    },
+
+    "summation":
+    {
+      "orderSummary": "Podsumowanie Zamówienia",
+      "deliveryAddress": "Adres dostawy",
+      "fullName": "Imię i nazwisko",
+      "street": "Ulica",
+      "city": "Miasto",
+      "zipCode": "Kod pocztowy",
+      "deliveryMethod": "Metoda dostawy",
+      "paymentMethod": "Metoda płatności",
+
+      "promoCodeTitle": "Kod promocyjny",
+      "subscribedToNewsletter": "Zapisano do newslettera",
+      "notSubscribedToNewsletter": "Nie zapisano do newslettera",
+      "shopping": "Zakupy",
+      "deliveryCosts": "Koszty dostawy",
+      "free": "Darmowa",
+      "totalCost": "Całkowity koszt",
+      "totalCostAfterDiscounts": "Całkowity koszt po zastosowaniu rabatów",
+      "afterNewsletterDiscount": "Po zastosowaniu rabatu za newsletter",
+      "discount": "Rabat",
+      "purchaseAndPay": "Kupuję i płacę",
+
+      "nip": "NIP",
+      "companyName": "Nazwa firmy"
+
+    },
+
+    "guest":
+     {
+        "continueWithoutLoggingIn": "Kontynuuj bez zalogowania sie",
+        "info": "info",
+        "continueAsGuest": "Kontynuuj "
+
+
+     },
+     "product": {
+      "Diagonal": "Przekątna",
+      "Matrix": "Matryca",
+      "Resolution": "Rozdzielczość",
+      "EnergyClass": "Klasa energetyczna",
+      "Screen": "Ekran",
+      "Processor": "Procesor",
+      "RAM": "RAM",
+      "Storage": "Pamięć",
+      "Connection": "Połączenie",
+      "Microphone": "Mikrofon",
+      "NoiseCancelling": "Redukcja szumów",
+      "HeadphoneType": "Typ słuchawek",
+      "PrintingTechnology": "Technologia druku",
+      "Interfaces": "Interfejsy",
+      "PrintSpeed": "Prędkość druku",
+      "DuplexPrinting": "Druk dwustronny",
+      "NoSpecifications": "Brak specyfikacji dla tej kategorii."
+    },
+  "bot":
+  {
+    
   }
-
-
 }

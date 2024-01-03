@@ -330,6 +330,10 @@
 	color: #333;
 	font-weight: bold;
 }
+.related-products {
+	margin-bottom: 50px;
+  }
+  
 
 #dark .product-title {
 	color: #797979;

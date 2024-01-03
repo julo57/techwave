@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import Order from "../pages/Order"; 
 import Return from "../pages/Return";
 import ShowComment from "../pages/ShowComment";
+import AccountSettings from "../pages/AccountSettings";
 import { motion } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
 import { BsList, BsBoxArrowInRight, BsArrowReturnRight, BsPencil, BsGear, BsBoxArrowLeft } from 'react-icons/bs'; // Import różnych ikon
@@ -70,12 +71,10 @@ const Profile = () => {
               <BsPencil className="inline mr-2" />
               {t("profile.button3")}
             </button>
-            <Link to="/AccountSettings">
-              <button className="block w-full p-3 mb-4 text-1xl font-semibold text-black-500 rounded hover:border-gray-500 hover:border-2 hover:rounded-lg hover:bg-gray-200">
+              <button className="block w-full p-3 mb-4 text-1xl font-semibold text-black-500 rounded hover:border-gray-500 hover:border-2 hover:rounded-lg hover:bg-gray-200" onClick={() => changeView("AccountSettings")}>
                 <BsGear className="inline mr-2" />
                 {t("profile.button4")}
               </button>
-            </Link>
             <button className="block w-full p-3 mb-4 text-1xl font-semibold text-red-600 rounded hover:border-red-500 hover:border-2 hover:rounded-lg hover:bg-red-200" onClick={handleLogout}>
               <BsBoxArrowLeft className="inline mr-2" />
               {t("profile.button5")}
@@ -93,6 +92,7 @@ const Profile = () => {
           {currentView === "Order" && <Order />}
           {currentView === "Return" && <Return />}
           {currentView === "ShowComment" && <ShowComment />}
+          {currentView === "AccountSettings" && <AccountSettings />}
         </div>
       </div>
     );
