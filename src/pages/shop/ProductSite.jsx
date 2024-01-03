@@ -7,10 +7,12 @@ import { ShopContext } from '../../context/shop-context';
 import RatingStars from './RatingStars';
 import './ProductSite.css';
 import useAuthContext from "../../context/AuthContext";
+import { useTranslation } from "react-i18next";
 
 
 
 function ProductSite() {
+  const {t} = useTranslation("global");
  
   const { productId } = useParams();
   console.log('ProductId:', productId);
