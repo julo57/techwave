@@ -90,16 +90,21 @@ export const ComparationSite = () => {
   );
   
   const compareValuesAndGetClass = (attribute, leftValue, rightValue) => {
-    if (attribute === 'Processor') {
-      return ""; // Nie nadawaj klasy dla procesora
+    // Sprawdź czy wartości są liczbami
+    const leftNumber = parseFloat(leftValue);
+    const rightNumber = parseFloat(rightValue);
+  
+    if (!isNaN(leftNumber) && !isNaN(rightNumber)) {
+      if (leftNumber > rightNumber) {
+        return "higher-value";
+      } else if (leftNumber < rightNumber) {
+        return "lower-value";
+      }
+      else if (leftNumber == rightNumber) {
+        return "equal-value";
+      }
     }
-    
-    if (leftValue > rightValue) {
-      return "higher-value";
-    } else if (leftValue < rightValue) {
-      return "lower-value";
-    }
-    return "";
+    return ""; // Nie nadawaj klasy, jeśli wartości nie są liczbami
   };
   // Funkcja do renderowania wierszy tabeli z porównaniem produktów
   const renderComparisonRows = () => {
@@ -123,33 +128,31 @@ export const ComparationSite = () => {
     ? [...commonAttributes, ...categoryAttributes[productLeft.Category]]
     : commonAttributes;
 
-  return (
-    <>
-      {attributesToCompare.map((attribute) => {
-        const leftValue = productLeft[attribute];
-        const rightValue = productRight[attribute];
-
-        // Nie koloruj komórek dla procesora
-        const cellClass = attribute !== 'Processor' 
-          ? compareValuesAndGetClass(attribute, leftValue, rightValue)
-          : "";
-
-        return (
-          <tr key={attribute}>
-            <td>{attribute}</td>
-            <td className={cellClass}>
-              {leftValue}
-            </td>
-            <td className={cellClass}>
-              {rightValue}
-            </td>
-          </tr>
-        );
-      })}
-    </>
-  );
-};
-        
+    return (
+      <>
+        {attributesToCompare.map((attribute) => {
+          const leftValue = productLeft[attribute];
+          const rightValue = productRight[attribute];
+  
+          const leftClass = compareValuesAndGetClass(attribute, leftValue, rightValue);
+          const rightClass = compareValuesAndGetClass(attribute, rightValue, leftValue);
+  
+          return (
+            <tr key={attribute}>
+              <td>{attribute}</td>
+              <td className={leftClass}>
+                {leftValue}
+              </td>
+              <td className={rightClass}>
+                {rightValue}
+              </td>
+            </tr>
+          );
+        })}
+      </>
+    );
+  };
+  
   return (
     <div className="comparation-site-container">
       {/* Wybór kategorii */}

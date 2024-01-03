@@ -7,10 +7,12 @@ import { ShopContext } from '../../context/shop-context';
 import RatingStars from './RatingStars';
 import './ProductSite.css';
 import useAuthContext from "../../context/AuthContext";
+import { useTranslation } from "react-i18next";
 
 
 
 function ProductSite() {
+  const {t} = useTranslation("global");
  
   const { productId } = useParams();
   console.log('ProductId:', productId);
@@ -146,19 +148,19 @@ useEffect(() => {
       case 'Headphones':
         return (
           <>
-            <p><strong>{t("product.Connection")}: {product.Connection}</strong></p>
-            <p><strong>{t("product.Microphone")}: {product.Microphone}</strong></p>
-            <p><strong>{t("product.NoiseCancelling")}: {product.NoiseCancelling}</strong></p>
-            <p><strong>{t("product.HeadphoneType")}: {product.HeadphoneType}</strong></p>
+            <p><strong>{t("product.Connection")}: {product.connection}</strong></p>
+            <p><strong>{t("product.Microphone")}: {product.microphone}</strong></p>
+            <p><strong>{t("product.NoiseCancelling")}: {product.noisecancelling}</strong></p>
+            <p><strong>{t("product.HeadphoneType")}: {product.headphonetype}</strong></p>
           </>
         );
       case 'Printer':
         return (
           <>
-            <p><strong>{t("product.PrintingTechnology")}: {product.PrintingTechnology}</strong></p>
+            <p><strong>{t("product.PrintingTechnology")}: {product.Printingtechnology}</strong></p>
             <p><strong>{t("product.Interfaces")}: {product.Interfaces}</strong></p>
-            <p><strong>{t("product.PrintSpeed")}: {product.PrintSpeed}</strong></p>
-            <p><strong>{t("product.DuplexPrinting")}: {product.DuplexPrinting}</strong></p>
+            <p><strong>{t("product.PrintSpeed")}: {product.Printspeed}</strong></p>
+            <p><strong>{t("product.DuplexPrinting")}: {product.Duplexprinting}</strong></p>
           </>
         );
       // Add other cases for different categories as needed

@@ -32,6 +32,10 @@
   }
 }
 
+.equal-value {
+  background-color: grey; 
+
+}
 
 .lower-value {
   background-color: green; 
