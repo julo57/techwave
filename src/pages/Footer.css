@@ -1,178 +1,77 @@
-/* .footer-container {
-  position: fixed;
-  bottom: 0;
-  background-color: rgb(17 24 39);
-  color: white;
-  margin-top: 30px;
-  width: 100%;
-  text-align: center;
-  transform: translateY(100%);
-  transition: transform 0.3s ease;
-  }
+body {
+	margin-bottom: 40px;
+}
 
-  .footer-container.active {
-    transform: translateY(0);
-  }
-  
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .footer-link {
-    color: white;
-    text-decoration: none;
-    margin: 0 20px;
-    font-size: 16px;
-  }
-  
-  .footer-link:hover {
-    text-decoration: underline;
-  }
-  
-  .footer-social-icons {
-    font-size: 24px;
-  }
-  
-  .footer-social-icons a {
-    color: white;
-    margin: 0 10px;
-    display: inline-flex; /* Dodaj ten styl, aby elementy były ułożone w jednej linii 
-    align-items: center; 
-  }
+.footer-container {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background-color: #191b1b;
+	color: white;
+	width: 100%;
+	text-align: center;
+	transform: translateY(0);
+	transition: transform .3s ease;
+	padding: 10px;
+	box-sizing: border-box;
+	z-index: 999;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	flex-direction: column;
+}
 
-  
- */
+.footer-links {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
 
- 
-/* .footer-container {
-    position: fixed;
-    bottom: 0;
-    background-color: rgb(17 24 39);
-    color: white;
-    margin-top: 30px;
-    width: 100%;
-    text-align: center;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
-  }
-  
-  .footer-container.active {
-    transform: translateY(0);
-  }
-  
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .footer-link {
-    color: white;
-    text-decoration: none;
-    margin: 0 20px;
-    font-size: 16px;
-  }
-  
-  .footer-link:hover {
-    text-decoration: underline;
-  }
-  
- 
-  @media (max-width: 768px) {
-    .footer-links {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .footer-link {
-      margin: 10px 0;
-      font-size: 14px;
-    }
-  } */
-  
+.footer-link {
+	color: white;
+	text-decoration: none;
+	margin: 0 20px;
+	font-size: 16px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	cursor: pointer;
+}
 
+.footer-link:hover {
+	text-decoration: underline;
+}
 
-  body {
-    margin-bottom: 40px; 
-  }
-  
-  .footer-container {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    /* background-color: rgb(17, 24, 39); */
-    background-color: #191b1b;
-    color: white;
-    width: 100%;
-    text-align: center;
-    transform: translateY(0);
-    transition: transform 0.3s ease;
-    padding: 10px;
-    box-sizing: border-box;
-    z-index: 999; /* Zadba o to, żeby stopka była zawsze na wierzchu */
-    display: flex;
-    flex-wrap: wrap; /* Ta linia dodaje obsługę zawijania elementów do nowego wiersza */
-    justify-content: center;
-    flex-direction: column; /* Dodane, aby elementy były ustawione w kolumnie */
-  }
-  /* #191b1b; */
+.text-gray-500 {
+	color: #555;
+}
 
-  .footer-links {
-    display: flex;
-    flex-wrap: wrap; /* Ta linia dodaje obsługę zawijania elementów do nowego wiersza */
-    justify-content: center; /* Centruje elementy stopki */
-  }
-  
-  
-  .footer-link {
-    color: white;
-    text-decoration: none;
-    margin: 0 20px;
-    font-size: 16px;
-    display: flex;
-    flex-wrap: wrap; /* Ta linia dodaje obsługę zawijania elementów do nowego wiersza */
-    justify-content: center;
-    cursor: pointer;
-  }
-  
-  .footer-link:hover {
-    text-decoration: underline;
-  }
-  
-  .text-gray-500 {
-    color: #555; /* Zmiana koloru tekstu na szary */
-  }
-  
-  .text-xs {
-    font-size: 12px; /* Zmiana rozmiaru tekstu na mniejszy */
-  }
-  
+.text-xs {
+	font-size: 12px;
+}
 
-  
-    .footer-copyright {
-      margin-top: auto; /* Automatyczny margines górny ustawiony na "auto" umieści element na dole kontenera */
-    }
-  
-    .footer-social-media {
-      display: flex;
-      align-items: center;
-  }
+.footer-copyright {
+	margin-top: auto;
+}
 
-    .footer-icon-link .faFacebookF { 
-      color: #3b5998;
-      font-size: 25px;
-      margin-right: 10px;
-  }
-  
-  .footer-icon-link .faInstagram { 
-      color: #C13584;
-      font-size: 25px;
-      margin-right: 10px;
-  }
-  
-  .footer-icon-link .faTwitter { 
-      color: #1DA1F2;
-      font-size: 25px;
-  }
+.footer-social-media {
+	display: flex;
+	align-items: center;
+}
+
+.footer-icon-link .faFacebookF {
+	color: #3b5998;
+	font-size: 25px;
+	margin-right: 10px;
+}
+
+.footer-icon-link .faInstagram {
+	color: #c13584;
+	font-size: 25px;
+	margin-right: 10px;
+}
+
+.footer-icon-link .faTwitter {
+	color: #1da1f2;
+	font-size: 25px;
+}

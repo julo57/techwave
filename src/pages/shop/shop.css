@@ -1,81 +1,80 @@
 .shop {
-  display: flex;
-  padding: 16px; /* This is your large padding, which you can adjust as needed */
+	display: flex;
+	padding: 16px;
 }
 
 .filters {
-  flex-basis: 20%; /* Adjust the width of the filter section as needed */
-  padding: 10px;
-  /* If you want to add a border or make it stand out, add styles here */
+	flex-basis: 20%;
+	padding: 10px;
 }
 
 .products {
-  flex-grow: 1; /* This makes the product list take up the rest of the horizontal space */
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust minmax for your product size */
-  gap: 16px; /* This is your grid gap, adjust as needed */
+	flex-grow: 1;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: 16px;
 }
 
-/* Responsive padding */
 @media (max-width: 1024px) {
-  .shop {
-    padding: 8px;
-  }
+	.shop {
+		padding: 8px;
+	}
 }
 
 @media (max-width: 768px) {
-  .shop {
-    padding: 16px;
-  }
+	.shop {
+		padding: 16px;
+	}
 }
 
 @media (max-width: 640px) {
-  .shop {
-    flex-direction: column; /* Stack filters and products on smaller screens */
-    padding: 10px;
-  }
-  .filters {
-    width: 100%; /* Filters take full width on smaller screens */
-    margin-bottom: 16px; /* Adds space between filters and products */
-  }
-  .products {
-    width: 100%;
-  }
+	.shop {
+		flex-direction: column;
+		padding: 10px;
+	}
+	
+	.filters {
+		width: 100%;
+		margin-bottom: 16px;
+	}
+	
+	.products {
+		width: 100%;
+	}
 }
 
-/* Adjustments for the .product class might be needed depending on the layout you want */
 .product {
-  border: 1px solid #111827;
-  border-radius: 25px;
-  padding: 10px;
-  transition: 0.3s ease-in;
-  cursor: pointer;
-  align-items: center;
+	border: 1px solid #111827;
+	border-radius: 25px;
+	padding: 10px;
+	transition: .3s ease-in;
+	cursor: pointer;
+	align-items: center;
 }
 
 .product img {
-  height: 150px;
-  transition: transform 0.3s ease-in;
+	height: 150px;
+	transition: transform .3s ease-in;
 }
 
 .product:hover img {
-  transform: scale(1); /* This will enlarge the image on hover */
+	transform: scale(1);
 }
 
-/* Remember to remove any duplicated or conflicting styles from the original CSS */
 .filter-container {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
+
 .filter-item {
-  border: 1px solid #ccc; /* Szara ramka */
-  padding: 8px; /* Dodatkowe wypełnienie wewnątrz ramki */
-  margin-bottom: 10px; /* Odstęp pomiędzy filtrami */
-  border-radius: 4px; /* Zaokrąglone rogi dla estetyki */
+	border: 1px solid #ccc;
+	padding: 8px;
+	margin-bottom: 10px;
+	border-radius: 4px;
 }
 
 .filter-container {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px; /* Odstęp pomiędzy różnymi grupami filtrów */
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 20px;
 }

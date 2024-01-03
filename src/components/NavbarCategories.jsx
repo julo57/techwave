@@ -12,6 +12,7 @@ export const NavbarCategories = (props) => {
       <span
         className="navbar-category-link"
         onClick={() => {
+          navigate("/");
           props.setSelectedCategory("");
         }}
       >
