@@ -16,7 +16,7 @@ import  NewsletterForm  from "./pages/NewsletterForm";
 import { Footer } from "./pages/Footer";
 import { AboutUs } from "./pages/AboutUs";
 import { ComparationSite } from "./pages/ComparationSite";
-import { ProductFilterPage } from "./pages/ProductFilterPage";
+
 import global_en from './translations/en/global.json';
 import global_pl from './translations/pl/global.json';
 import i18next from 'i18next';
@@ -42,7 +42,7 @@ import ShowComment from "./pages/ShowComment";
 export const ThemeContext = createContext();
 i18next.init({
   interpolation: { escapeValue: false },
-  lng: 'en',
+  lng: 'pl',
   resources: {
     en: {
       global: global_en,
@@ -54,14 +54,36 @@ i18next.init({
 });
 
 function App() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const [timedPopup, setTimedPopup] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
   // console.log("selectedCategory App", selectedCategory)
 
   const toggleTheme = () => {
-    setTheme((current) => (current === "light" ? "dark" : "light"));
+    setTheme((currentTheme) => {
+      const newTheme = currentTheme === "light" ? "dark" : "light";
+      localStorage.setItem("theme", newTheme); // Zapisz motyw do Local Storage
+      return newTheme;
+    });
   };
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      setTheme(savedTheme);
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setCartItems(getDefaultCart());
+    };
+  
+    window.addEventListener('storage', handleStorageChange);
+  
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -97,7 +119,7 @@ function App() {
                   <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
                   <Route path="/Statute" element={<Statute />} />
                   <Route path="/ComparationSite" element={<ComparationSite />} />
-                  <Route path="/ProductFilterPage" element={<ProductFilterPage />} />
+                  
                   <Route path="/Payment" element={<Payment />} />
                   <Route path="/Summation" element={<Summation />} />
                   <Route path="/LoginRegistryGuest" element={<LoginRegistryGuest />} /> 

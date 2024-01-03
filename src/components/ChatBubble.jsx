@@ -3,14 +3,16 @@ import { ChatCircleDots } from "phosphor-react";
 import Koksuś from '../assets/products/Koksuś.png';
 import { useTranslation } from "react-i18next";
 import data from '../translations/en/global.json';
+
+
 import './ChatBubble.css';
 
 const ChatBubble = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState('');
-  const {t} = useTranslation("global");
+  const { t } = useTranslation("global");
   const [messages, setMessages] = useState([
-    { text: `${t("bot.welcome")} `, sender: "bot" }
+    { text: "Cześć, jestem Botem TechWave. Nazywam się Koksuś. Jak mogę Ci dzisiaj pomóc?", sender: "bot" }
   ]);
 
   const toggleChatWindow = () => {
@@ -18,18 +20,31 @@ const ChatBubble = () => {
   };
 
   const getBotResponse = (userMessage) => {
-    const botResponses = data.bot; // Używa sekcji 'bot' z Twojego JSON-a.
-    for (let keyword in botResponses) {
-      if (userMessage.includes(keyword)) {
-        return botResponses[keyword];
-      }
-    }
+    let response = t("settings.bott"); // Domyślna odpowiedź
+    let lowerCaseMessage = userMessage.toLowerCase();
   
-    return "Przepraszam, nie rozumiem."; // Domyślna odpowiedź
+    // Tworzenie tablicy par klucz-wartość i sortowanie według kryteriów
+    const sortedResponses = Object.entries(data.bot).sort((a, b) => {
+      // Sortuj według własnych kryteriów, na przykład długości klucza
+      return b[0].length - a[0].length;
+    });
+  
+    sortedResponses.forEach(([key, value]) => {
+      if (lowerCaseMessage.includes(key.toLowerCase())) {
+        response = t(`bot.${key}`); // Użyj funkcji t do uzyskania tłumaczenia
+        if (key.includes("{name}")) {
+          const userName = userMessage.split(' ').pop();
+          response = response.replace("{name}", userName);
+        }
+      }
+    });
+  
+    return response;
   };
+
   const handleSendMessage = () => {
     if (message) {
-      const botResponse = getBotResponse(message.toLowerCase());
+      const botResponse = getBotResponse(message);
       setMessages([...messages, { text: message, sender: "user" }, { text: botResponse, sender: "bot" }]);
       setMessage('');
     }

@@ -5,37 +5,42 @@ import { useTranslation } from "react-i18next";
 
 export const ComparationSite = () => {
   const { t } = useTranslation("global");
-  // States for the left side
+
+  // Stany dla lewej i prawej strony
   const [searchTermLeft, setSearchTermLeft] = useState("");
   const [productLeft, setProductLeft] = useState(null);
   const [isLoadingLeft, setIsLoadingLeft] = useState(false);
   const [errorLeft, setErrorLeft] = useState(null);
   const [searchResultsLeft, setSearchResultsLeft] = useState([]);
 
-  // States for the right side
   const [searchTermRight, setSearchTermRight] = useState("");
   const [productRight, setProductRight] = useState(null);
   const [isLoadingRight, setIsLoadingRight] = useState(false);
   const [errorRight, setErrorRight] = useState(null);
   const [searchResultsRight, setSearchResultsRight] = useState([]);
 
-  // Function to fetch product details
-  const fetchProductDetails = async (searchTerm, setSearchResults, setIsLoading, setError) => {
+  const [Category, setCategory] = useState("");
+
+  // Funkcja do pobierania szczegółów produktu
+  const fetchProductDetails = async (side, searchTerm) => {
+    const setIsLoading = side === 'left' ? setIsLoadingLeft : setIsLoadingRight;
+    const setSearchResults = side === 'left' ? setSearchResultsLeft : setSearchResultsRight;
+    const setError = side === 'left' ? setErrorLeft : setErrorRight;
+  
     setIsLoading(true);
     setError(null);
-    setProductLeft(null); // Clear previous product details for the left
-    setProductRight(null); // Clear previous product details for the right
+  
     if (!searchTerm.trim()) {
-      setSearchResults([]); // Clear the search results if the search term is empty
+      setSearchResults([]);
       setIsLoading(false);
       return;
     }
     
     try {
       const response = await axios.get(`http://localhost:8000/api/products`, {
-        params: { search: searchTerm }
+        params: { search: searchTerm, Category: Category }
       });
-      setSearchResults(response.data.length > 0 ? response.data : null);
+      setSearchResults(response.data.length > 0 ? response.data : []);
       setError(response.data.length > 0 ? null : "No products found with that name");
     } catch (error) {
       setError("Error fetching product details");
@@ -43,87 +48,176 @@ export const ComparationSite = () => {
     }
     setIsLoading(false);
   };
+  
 
-  // Function to render a product's details in a table
-  const renderProductTable = (product) => {
-    return product && (
-      <table className="product-details-table">
-        <tbody>
-          <tr>
-            <td>{t("comparation.Name")}:</td>
-            <td>{product.name}</td>
-          </tr>
-          <tr>
-            <td>{t("comparation.Screen")}:</td>
-            <td>{product.Screen}</td>
-          </tr>
-          <tr>
-            <td>{t("comparation.Processor")}:</td>
-            <td>{product.Processor}</td>
-          </tr>
-          <tr>
-            <td>{t("comparation.RAM")}:</td>
-            <td>{product.RAM}</td>
-          </tr>
-          <tr>
-            <td>{t("comparation.Storage")}:</td>
-            <td>{product.storage}</td>
-          </tr>
-          <tr>
-            <td>{t("comparation.Price")}:</td>
-            <td>{product.price}</td>
-          </tr>
-         
-          {/* Add more product details here */}
-        </tbody>
-      </table>
+  // Funkcja renderująca specyfikacje produktu
+  const renderProductSpecs = (product) => {
+    if (!product) return null;
+  
+    return (
+      <>
+        <p><strong>Zaznaczyłeś:</strong> {product.name}</p>
+      </>
     );
   };
 
+  // Funkcja do renderowania wyboru kategorii
+  const handleCategoryChange = (e) => {
+    const newCategory = e.target.value;
+    setCategory(newCategory);
+  
+    // Resetuj wybrane produkty, gdy kategoria się zmienia
+    setProductLeft(null);
+    setProductRight(null);
+  
+    // Możesz także zresetować wyniki wyszukiwania, jeśli to konieczne
+    setSearchResultsLeft([]);
+    setSearchResultsRight([]);
+  };
+  
+  // Funkcja renderująca wybór kategorii
+  const renderCategorySelection = () => (
+    <select onChange={handleCategoryChange}>
+      <option value="">Select Category</option>
+      <option value="Phone">Phone</option>
+      <option value="Laptop">Laptop</option>
+      <option value="TV">TV</option>
+      <option value="Headphones">Headphones</option>
+      <option value="Monitor">Monitor</option>
+      <option value="Printers">Printers</option>
+      {/* Dodaj więcej kategorii tutaj */}
+    </select>
+  );
+  
+  const compareValuesAndGetClass = (attribute, leftValue, rightValue) => {
+    // Sprawdź czy wartości są liczbami
+    const leftNumber = parseFloat(leftValue);
+    const rightNumber = parseFloat(rightValue);
+  
+    if (!isNaN(leftNumber) && !isNaN(rightNumber)) {
+      if (leftNumber > rightNumber) {
+        return "higher-value";
+      } else if (leftNumber < rightNumber) {
+        return "lower-value";
+      }
+      else if (leftNumber == rightNumber) {
+        return "equal-value";
+      }
+    }
+    return ""; // Nie nadawaj klasy, jeśli wartości nie są liczbami
+  };
+  // Funkcja do renderowania wierszy tabeli z porównaniem produktów
+  const renderComparisonRows = () => {
+    if (!productLeft || !productRight) return null;
+  
+    // Wspólne atrybuty dla wszystkich produktów
+    const commonAttributes = ['price'];
+  
+    // Atrybuty specyficzne dla każdej kategorii
+    const categoryAttributes = {
+      Phone: ['Screen', 'Processor', 'RAM', 'Storage'],
+      Laptop: ['Screen', 'Processor', 'RAM', 'Storage'],
+      Headphones: ['Connection', 'Microphone', 'NoiseCancelling', 'HeadphoneType'],
+      Printer: ['PrintingTechnology', 'Interfaces', 'PrintSpeed', 'DuplexPrinting'],
+      Monitor: ['Diagonal', 'Matrix', 'Resolution', 'EnergyClass'],
+      TV: ['Diagonal', 'Matrix', 'Resolution', 'EnergyClass'],
+    };
+  
+    // Wybór atrybutów na podstawie kategorii produktu
+    const attributesToCompare = productLeft.Category && productRight.Category
+    ? [...commonAttributes, ...categoryAttributes[productLeft.Category]]
+    : commonAttributes;
+
+    return (
+      <>
+        {attributesToCompare.map((attribute) => {
+          const leftValue = productLeft[attribute];
+          const rightValue = productRight[attribute];
+  
+          const leftClass = compareValuesAndGetClass(attribute, leftValue, rightValue);
+          const rightClass = compareValuesAndGetClass(attribute, rightValue, leftValue);
+  
+          return (
+            <tr key={attribute}>
+              <td>{attribute}</td>
+              <td className={leftClass}>
+                {leftValue}
+              </td>
+              <td className={rightClass}>
+                {rightValue}
+              </td>
+            </tr>
+          );
+        })}
+      </>
+    );
+  };
+  
   return (
-    <div className="responsive-columns" style={{ display: 'flex' }}>
-      {/* Left Column */}
-      <div className="column" style={{ flex: 1, padding: '10px' }}>
-        <input
-          className="Czarny"
-          type="text"
-          value={searchTermLeft}
-          placeholder={t("comparation.placeholder")}
-          onChange={(e) => setSearchTermLeft(e.target.value)}
-        />
-        <button className="filter" onClick={() => fetchProductDetails(searchTermLeft, setSearchResultsLeft, setIsLoadingLeft, setErrorLeft)}>
-          {t("comparation.button")}
-        </button>
-        {isLoadingLeft && <p>Loading...</p>}
-        {errorLeft && <p>{errorLeft}</p>}
-        {searchResultsLeft && searchResultsLeft.map(product => (
-          <div key={product.id} onClick={() => setProductLeft(product)}>
-            {product.name}
-          </div>
-        ))}
-        {renderProductTable(productLeft)}
+    <div className="comparation-site-container">
+      {/* Wybór kategorii */}
+      <div className="category-selection" style={{ textAlign: 'center', marginBottom: '20px' }}>
+        {renderCategorySelection()}
       </div>
-      
-      {/* Right Column */}
-      <div className="column" style={{ flex: 1, padding: '10px', paddingBottom:'30px' }}>
-        <input
-          className="Czarny"
-          type="text"
-          value={searchTermRight}
-          placeholder={t("comparation.placeholder")}
-          onChange={(e) => setSearchTermRight(e.target.value)}
-        />
-        <button className="filter" onClick={() => fetchProductDetails(searchTermRight, setSearchResultsRight, setIsLoadingRight, setErrorRight)}>
-        {t("comparation.button")}
-        </button>
-        {isLoadingRight && <p>Loading...</p>}
-        {errorRight && <p>{errorRight}</p>}
-        {searchResultsRight && searchResultsRight.map(product => (
-          <div key={product.id} onClick={() => setProductRight(product)}>
-            {product.name}
+    
+      <div className="responsive-columns" style={{ display: 'flex' }}>
+        {/* Lewa Kolumna */}
+        <div className="column" style={{ flex: 1, padding: '10px' }}>
+          <input
+            type="text"
+            value={searchTermLeft}
+            placeholder="Wyszukaj produkt"
+            onChange={(e) => setSearchTermLeft(e.target.value)}
+          />
+          <button onClick={() => fetchProductDetails('left', searchTermLeft)}>
+            Szukaj
+          </button>
+          {isLoadingLeft && <p>Loading...</p>}
+          {errorLeft && <p>{errorLeft}</p>}
+          <div>
+            {searchResultsLeft.map((product) => (
+              <div key={product.id} onClick={() => setProductLeft(product)}>
+                {product.name}
+              </div>
+            ))}
           </div>
-        ))}
-        {renderProductTable(productRight)}
+          {productLeft && renderProductSpecs(productLeft)}
+        </div>
+        <table className="table-comparison">
+        <thead>
+          <tr>
+            <th>Specyfikacja</th>
+            <th>Lewy Produkt</th>
+            <th>Prawy Produkt</th>
+          </tr>
+        </thead>
+        <tbody>
+          {renderComparisonRows()}
+        </tbody>
+      </table>
+    
+        {/* Prawa Kolumna */}
+        <div className="column" style={{ flex: 1, padding: '10px' }}>
+          <input
+            type="text"
+            value={searchTermRight}
+            placeholder="Wyszukaj produkt"
+            onChange={(e) => setSearchTermRight(e.target.value)}
+          />
+          <button onClick={() => fetchProductDetails('right', searchTermRight)}>
+            Szukaj
+          </button>
+          {isLoadingRight && <p>Loading...</p>}
+          {errorRight && <p>{errorRight}</p>}
+          <div>
+            {searchResultsRight.map((product) => (
+              <div key={product.id} onClick={() => setProductRight(product)}>
+                {product.name}
+              </div>
+            ))}
+          </div>
+          {productRight && renderProductSpecs(productRight)}
+        </div>
       </div>
     </div>
   );

@@ -1,13 +1,11 @@
 import React, { createContext, useState } from 'react';
 
-// Utworzenie nowego kontekstu
 export const PaymentContext = createContext();
 
-// Domyślne wartości dla szczegółów płatności
 const getDefaultPaymentDetails = () => {
   return {
-    deliveryMethod: 'courier', // domyślna metoda dostawy
-    paymentMethod: 'online', // domyślna metoda płatności
+    deliveryMethod: 'courier',
+    paymentMethod: 'online',
     address: {
       name: '',
       street: '',
@@ -15,42 +13,62 @@ const getDefaultPaymentDetails = () => {
       zip: '',
     },
     promoCode: '',
-    discountRate: 0, // domyślna wartość zniżki
+    discountRate: 0,
     newsletterSubscription: false,
     termsAgreement: false,
+    privateMethod: 'individual', // Add this line to handle the method of payment (individual/company)
   };
 };
 
-// Provider kontekstu
 export const PaymentContextProvider = ({ children }) => {
   const [paymentDetails, setPaymentDetails] = useState(getDefaultPaymentDetails());
+  const [companyDetails, setCompanyDetails] = useState({ nip: '', companyName: '' });
 
-  // Metoda aktualizująca szczegóły płatności
   const updatePaymentDetails = (details) => {
     setPaymentDetails(prevDetails => ({ ...prevDetails, ...details }));
   };
 
-  // Metoda aplikowania kodu promocyjnego
+  const updateCompanyDetails = (details) => {
+    setCompanyDetails(details);
+  };
+
   const applyPromoCode = (code) => {
-    // Logika sprawdzająca kod i ustawiająca zniżkę
     if (code === 'PROMO10') {
       setPaymentDetails(currentDetails => ({
         ...currentDetails,
         promoCode: code,
-        discountRate: 0.1 // 10% zniżki
+        discountRate: 0.1
+      }));
+    } else {
+      setPaymentDetails(currentDetails => ({
+        ...currentDetails,
+        promoCode: '',
+        discountRate: 0
       }));
     }
-    // Dalsze przypadki kodów promocyjnych
   };
 
-  // Wartości przekazywane przez Provider
+  const updateDeliveryCost = (cost) => {
+    setPaymentDetails(prevDetails => ({
+      ...prevDetails,
+      deliveryCost: cost
+    }));
+  };
+
   const contextValue = {
     paymentDetails,
     updatePaymentDetails,
-    applyPromoCode, // Dodanie tej metody do wartości kontekstu
+    applyPromoCode,
+    companyDetails, // Include companyDetails in the context value
+    updateCompanyDetails,
+    updateDeliveryCost
   };
 
-  return <PaymentContext.Provider value={contextValue}>{children}</PaymentContext.Provider>;
+  return (
+    <PaymentContext.Provider value={contextValue}>
+      {children}
+    </PaymentContext.Provider>
+  );
 };
 
 export default PaymentContextProvider;

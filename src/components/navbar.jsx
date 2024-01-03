@@ -1,18 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef , useContext} from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ShoppingCart, User, Microphone } from "phosphor-react";
+import { ShoppingCart, User, Microphone, Scales } from "phosphor-react";
 import ThemeSwitchButton from "../components/ThemeSwitchButton";
 import "./navbar.css";
 import useAuthContext from "../context/AuthContext";
-import flagaImage from '../assets/products/flaga2.png';
-import flagaImage2 from '../assets/products/flaga.png';
+import flagaImage2 from '../assets/products/flaga2.png';
+import flagaImage from '../assets/products/flaga.png';
 import { useTranslation } from "react-i18next";
 import 'regenerator-runtime/runtime';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import fetchProducts from '../components/fetchProducts';
 import NavbarCategories from "./NavbarCategories";
+import { ShopContext } from '../context/shop-context';
+
 
 export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
+  const { cartItems } = useContext(ShopContext);
+  const cartItemCount = Object.values(cartItems).reduce((total, item) => total + item.quantity, 0);
+
   const [allProducts, setAllProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -25,6 +30,12 @@ export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
     listening,
     browserSupportsSpeechRecognition
   } = useSpeechRecognition();
+  const { user, logout } = useAuthContext();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState(flagaImage);
+  const [dropdownVisible, setDropdownVisible] = useState(false); // Dodane
+  const dropdownRef = useRef(null); // Dodane
+  const { t, i18n } = useTranslation("global");
 
   useEffect(() => {
     if (listening) {
@@ -39,8 +50,8 @@ export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
         product.name.toLowerCase().includes(filter)
       ));
     } else {
-      setFilteredProducts([]); // Jeśli searchTerm jest pusty, wyczyść filtrowane produkty
-      setIsSearchActive(false); // Deaktywuj tryb wyszukiwania
+      setFilteredProducts([]);
+      setIsSearchActive(false);
     }
   }, [searchTerm, allProducts]);
 
@@ -59,24 +70,20 @@ export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
       });
   }
 
-  const { user, logout } = useAuthContext();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState(flagaImage);
-  const { t, i18n } = useTranslation("global");
-
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+
   const handleProductClick = (productId) => {
     console.log('Kliknięto produkt o ID:', productId);
+    setDropdownVisible(false);
     navigate(`/ProductSite/${productId}`);
   }
-
   const handleFlagClick = () => {
-    const newImage = currentImage === flagaImage ? flagaImage2 : flagaImage;
+    const newImage = currentImage === flagaImage2 ? flagaImage : flagaImage2;
     setCurrentImage(newImage);
-    const newLang = i18n.language === "en" ? "pl" : "en";
+    const newLang = i18n.language === "pl" ? "en" : "pl";
     i18n.changeLanguage(newLang);
   };
 
@@ -84,20 +91,32 @@ export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
     SpeechRecognition.startListening();
   };
 
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setDropdownVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900 p-4">
       <div className="container mx-auto flex flex-wrap items-center justify-between">
         <Link to="/" className="text-white hover:text-blue-500" onClick={()=>{
-        // console.log("clicked All");
-        props.setSelectedCategory("");
-      }}>
+          setSelectedCategory("");
+        }}>
           <img src="/logo.png" alt="logo" className="h-12" />
         </Link>
-        
+
         <div className="flex items-center space-x-8">
-          
           <ThemeSwitchButton toggleTheme={toggleTheme} theme={theme} />
-          {user ? (
+          {user ? 
+          (
             <Link to="/profile">
               <User size={32} className="text-white hover:text-blue-500" />
             </Link>
@@ -106,8 +125,20 @@ export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
               <User size={32} className="text-white hover:text-blue-500" />
             </Link>
           )}
-          <Link to="/cart" className="text-white hover:text-blue-500">
+
+
+            <Link to="/ComparationSite">
+              <Scales size={32} className="text-white hover:text-blue-500" />
+            </Link>
+          
+          
+            <Link to="/cart" className="text-white hover:text-blue-500 relative">
             <ShoppingCart size={32} />
+            {cartItemCount > 0 && (
+              <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs px-2">
+                {cartItemCount <= 9 ? cartItemCount : '9+'}
+              </span>
+            )}
           </Link>
           <button onClick={handleMicClick}>
             <Microphone className="microphone" color="white" size={32} />
@@ -125,33 +156,34 @@ export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
         </button>
 
         <div className={`w-full md:block ${isMobileMenuOpen ? '' : 'hidden'}`}>
-  <input
-    type="text"
-    value={searchTerm}
-    placeholder={t("navbar.placeholder")}
-    className="p-2 border rounded-lg w-full"
-    onChange={(e) => setSearchTerm(e.target.value)}
-  />
- 
-  {isLoading && <div>Loading...</div>}
-  {error && <div>{error}</div>}
-  {isSearchActive && (
-    <ul className="dropdown-list">
-      {filteredProducts.map(product => (
-        <Link to={`/ProductSite/${product.id}`} key={product.id}>
-          <li key={product.id} onClick={() => handleProductClick(product.id)}>
-            {product.name}
-          </li>
-        </Link>
-      ))}
-    </ul>
-  )}
-  <button className="ok"onClick={handleSearch}>Szukaj</button>
-</div>
-        
+          <input
+            type="text"
+            value={searchTerm}
+            placeholder={t("navbar.placeholder")}
+            className="p-2 border rounded-lg w-full"
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onFocus={() => setDropdownVisible(true)}
+          />
+          {isLoading && <div>Loading...</div>}
+          {error && <div>{error}</div>}
+          {isSearchActive && dropdownVisible && (
+            <ul className="dropdown-list" ref={dropdownRef}>
+              {filteredProducts.map(product => (
+                <Link to={`/ProductSite/${product.id}`} key={product.id}>
+                  <li key={product.id} onClick={() => handleProductClick(product.id)}>
+                    {product.name}
+                  </li>
+                </Link>
+              ))}
+            </ul>
+          )}
+          <button className="ok" onClick={handleSearch}>
+            Szukaj
+          </button>
+        </div>
       </div>
       <NavbarCategories  
-  setSelectedCategory={setSelectedCategory}
+        setSelectedCategory={setSelectedCategory}
       />
     </nav>
   );

@@ -1,273 +1,314 @@
 #light #H11 {
-  text-align: center;
-  font-size: 40px;
-  font-family: 'Times New Roman', Times, serif;
-  color: black;
-  margin-top: 10px;
-  margin-bottom: 10px;
+	text-align: center;
+	font-size: 40px;
+	font-family: "Times New Roman", Times, serif;
+	color: black;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
+
 #dark #H11 {
-text-align: center;
-font-size: 40px;
-font-family: 'Times New Roman', Times, serif;
-color: white;
-margin-top: 10px;
-margin-bottom: 10px;
+	text-align: center;
+	font-size: 40px;
+	font-family: "Times New Roman", Times, serif;
+	color: white;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 #light .H2 {
-  text-align: center;
-  font-size: 30px;
-  font-family: 'Times New Roman', Times, serif;
-  color: black;
-  margin-top: 10px;
-  margin-bottom: 10px;
+	text-align: center;
+	font-size: 30px;
+	font-family: "Times New Roman", Times, serif;
+	color: black;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 #dark .H2 {
-text-align: center;
-font-size: 30px;
-font-family: 'Times New Roman', Times, serif;
-color: white;
-margin-top: 10px;
-margin-bottom: 10px;
+	text-align: center;
+	font-size: 30px;
+	font-family: "Times New Roman", Times, serif;
+	color: white;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .container-payment {
-  display: flex;
-  flex-wrap: wrap;
-  padding-bottom: 40px;
-  padding-left: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	padding-bottom: 40px;
+	padding-left: 10px;
+	justify-content: center;
+	align-items: flex-start;
 }
 
 .payment-form {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: 'Times New Roman', Times, serif;
-
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+	font-family: "Times New Roman", Times, serif;
 }
 
 .deliverydiv {
-  border: solid 3px gainsboro;
-  /* width: 100%; */
-  max-width: 400px; /* Dostosuj maksymalną szerokość do preferencji */
-  margin: 10px auto; /* Centralizuje element na ekranie */
-  padding: 10px;
-  font-size: 20px;
-  font-family: 'Times New Roman', Times, serif;
-  color: black;
-  margin-top: 10px;
-  margin-bottom: 10px; 
-  border-radius: 10px;
-  
+	border: solid 3px gainsboro;
+	max-width: 400px;
+	margin: 10px auto;
+	padding: 10px;
+	font-size: 20px;
+	font-family: "Times New Roman", Times, serif;
+	color: black;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 10px;
 }
 
 #light .deliverycheckbox {
-  margin: 10px auto;
-    font-size: 20px;
-    font-family: 'Times New Roman', Times, serif;
-    color: black;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    text-align: center;
+	margin: 10px auto;
+	font-size: 20px;
+	font-family: "Times New Roman", Times, serif;
+	color: black;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
 }
 
 #dark .deliverycheckbox {
-  margin: 10px auto;
-  font-size: 20px;
-  font-family: 'Times New Roman', Times, serif;
-  color: white;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  text-align: center;
+	margin: 10px auto;
+	font-size: 20px;
+	font-family: "Times New Roman", Times, serif;
+	color: white;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
 }
 
 #light .deliveryinput {
-  width: calc(100% - 20px); 
-  margin: 10px auto; 
-  border: solid 1px black;
-  border-radius: 10px;
-  width: 100%;
-  font-family: 'Times New Roman', Times, serif;
-  margin-bottom: 20px;
-  font-size: 14px;
-  line-height: 30px;
-  
+	width: calc(100% - 20px);
+	width: 100%;
+	margin: 10px auto;
+	border: solid 1px black;
+	border-radius: 10px;
+	font-family: "Times New Roman", Times, serif;
+	margin-bottom: 20px;
+	font-size: 14px;
+	line-height: 30px;
 }
 
 #dark .deliveryinput {
-  width: calc(100% - 20px); 
-  margin: 10px auto; 
-  border: solid 1px black;
-  border-radius: 10px;
-  width: 100%;
-  font-family: 'Times New Roman', Times, serif;
-  margin-bottom: 20px;
-  font-size: 14px;
-  line-height: 30px;
-  color: black;
+	width: calc(100% - 20px);
+	width: 100%;
+	margin: 10px auto;
+	border: solid 1px black;
+	border-radius: 10px;
+	font-family: "Times New Roman", Times, serif;
+	margin-bottom: 20px;
+	font-size: 14px;
+	line-height: 30px;
+	color: black;
 }
 
 #light .deliveryinputradio {
-  appearance: none;
-  font-family: 'Times New Roman', Times, serif;
-  display: block; 
-  margin-top: 1px;
-  align-items: center;
+	appearance: none;
+	font-family: "Times New Roman", Times, serif;
+	display: block;
+	margin-top: 1px;
+	align-items: center;
 }
 
 #dark .deliveryinputradio {
-appearance: none;
-font-family: 'Times New Roman', Times, serif;
-display: block; 
-margin-top: 1px;
-color: white;
-align-items: center;
+	appearance: none;
+	font-family: "Times New Roman", Times, serif;
+	display: block;
+	margin-top: 1px;
+	color: white;
+	align-items: center;
 }
 
 #light .deliveryinputradio:hover {
-  appearance: none;
-  border: 3px solid black ;
-  display: block; 
-  border-radius: 7px
+	appearance: none;
+	border: 3px solid black;
+	display: block;
+	border-radius: 7px;
 }
+
 #dark .deliveryinputradio:hover {
-appearance: none;
-border: 3px solid white ;
-color: white;
-display: block; 
-border-radius: 7px
+	appearance: none;
+	border: 3px solid white;
+	color: white;
+	display: block;
+	border-radius: 7px;
 }
+
 .deliveryinputradio label {
-  display: block; 
-  
-  border: 3px solid transparent; 
+	display: block;
+	border: 3px solid transparent;
 }
 
 #light .deliveryinputradio input[type="radio"]:checked + label {
-  border: 3px solid black; 
-  border-radius: 7px; 
+	border: 3px solid black;
+	border-radius: 7px;
 }
+
 #dark .deliveryinputradio input[type="radio"]:checked + label {
-border: 3px solid white; 
-border-radius: 7px; 
-color:white;
+	border: 3px solid white;
+	border-radius: 7px;
+	color: white;
 }
 
 .deliveryinputradio input[type="radio"] {
- display: none;
+	display: none;
 }
+
 .paybutt {
-  font-family: 'Times New Roman', Times, serif;
-  margin: 10px auto; /* Centralizuje element na ekranie */
-  border: solid 1px black;
-  border-radius: 5px;
-  background-color: rgb(9, 192, 9);
-  margin-bottom: 25px;
-  color: white;
+	font-family: "Times New Roman", Times, serif;
+	margin: 10px auto;
+	border: solid 1px black;
+	border-radius: 5px;
+	background-color: #09c009;
+	margin-bottom: 25px;
+	color: white;
 }
 
 .item-photo {
-  max-width: 30%;
-  height: auto;
-  padding-bottom: 5px;
+	max-width: 30%;
+	height: auto;
+	padding-bottom: 5px;
 }
 
 .checkout-summary {
-  position: -webkit-sticky; /* For Safari */
-  position: sticky ;
-  top: 0;
-  align-self: flex-start;
-  padding: 1rem;
-  width: 40%;
-  border-radius: 10px;
-  font-family: 'Times New Roman', Times, serif;
-  /* box-shadow: 2px 0 5px rgba(0,0,0,0.2);  */
-  margin-left: 15px;
-/*   
-  text-align: center; */
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	align-self: flex-start;
+	padding: 1rem;
+	width: 40%;
+	border-radius: 10px;
+	font-family: "Times New Roman", Times, serif;
+	margin-left: 15px;
 }
 
-.error-message
-{
-  
-  color: red;
+.error-message {
+	color: red;
 }
+
 .blik-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: rgb(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .blik-modal-content {
-  position: relative;
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 30px;
-  text-align: center;
-  padding: 20px;
-  width: 100%;
-  max-width: 600px;
-  background-color: white;
-  border-radius: 8px;
-  animation: modalFadeIn 0.3s;
-  z-index: 1001;
+	position: relative;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 30px;
+	text-align: center;
+	padding: 20px;
+	width: 100%;
+	max-width: 600px;
+	background-color: white;
+	border-radius: 8px;
+	animation: modalFadeIn .3s;
+	z-index: 1001;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
 }
+
 @keyframes modalFadeIn {
-  from { transform: translateY(-50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+	from {
+		transform: translateY(-50px);
+		opacity: 0;
+	}
+	
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
 }
 
-#xbutt
-  {
-    position: absolute;
-    font-size: 30px;
-    top: 8px;
-    right: 8px;
-    width: 50px;
-    height: 32px;
-    border-radius: 50%;
-    cursor: pointer;
-    color: tomato;
-  }
+#xbutt {
+	position: absolute;
+	font-size: 30px;
+	top: 8px;
+	right: 8px;
+	width: 50px;
+	height: 32px;
+	border-radius: 50%;
+	cursor: pointer;
+	color: tomato;
+}
 
-  #dark .promo-code
-  {
-    color: rgb(0, 0, 0);
-  }
+#dark .promo-code {
+	color: #000;
+}
 
-  #dark button:hover{
-    color: white;
-    cursor: pointer;
-    text-decoration: underline;
-  }
-  #dark button{
-    color: white;
-    cursor: pointer;
-    padding-left: 5px;
-  }
-  @media (max-width: 768px) {
-    
-    .checkout-summary {
-      width: 100%;
-      /* margin-left: 30%; */
-    }
-    .item-photo {
-      max-width: 80%;
-      height: auto;
-      padding-bottom: 5px;
-    }
-  }
+#dark button:hover {
+	color: white;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+#dark button {
+	color: white;
+	cursor: pointer;
+	padding-left: 5px;
+}
+
+.promo-code input {
+	border: 1px solid #ccc;
+	padding: 8px;
+	border-radius: 5px;
+}
+
+.promo-code button {
+	border: 1px solid #ccc;
+	padding: 8px;
+	border-radius: 5px;
+}
+
+@media (max-width: 767px) {
+	.checkout-summary {
+		width: 100%;
+	}
+	
+	.item-photo {
+		max-width: 80%;
+		height: auto;
+		padding-bottom: 5px;
+	}
+	
+	.container-payment {
+		display: flex;
+		flex-wrap: wrap;
+		padding-bottom: 40px;
+		padding-left: 10px;
+		align-items: flex-start;
+	}
+}
+
+.company-details {
+	font-family: "Times New Roman", Times, serif;
+	font-family: "Times New Roman", Times, serif;
+	text-align: center;
+	font-size: 30px;
+	color: black;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.company-detail-input {
+	font-family: "Times New Roman", Times, serif;
+	width: 100%;
+}

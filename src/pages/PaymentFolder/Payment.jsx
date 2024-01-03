@@ -3,9 +3,15 @@ import { ShopContext } from '../../context/shop-context';
 import { PaymentContext } from '../../context/PaymentContext';
 import './Payment.css'; // Ensure this path matches the location of your CSS file
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
+
 export const Payment = () => {
   const { cartItems, getTotalCartAmount} = useContext(ShopContext);
-  const { paymentDetails, updatePaymentDetails } = useContext(PaymentContext);
+  
+  const { applyPromoCode } = useContext(PaymentContext);
+const { updatePaymentDetails, updateDeliveryCost,paymentDetails } = useContext(PaymentContext);
+  
+const {t} = useTranslation("global");
   
   const totalAmount = getTotalCartAmount();
   const [promoCode, setPromoCode] = useState('');
@@ -29,15 +35,16 @@ export const Payment = () => {
   const [errors, setErrors] = useState({});
 
   const handleDeliveryChange = (event) => {
-    setDeliveryMethod(event.target.value);
-    // Update delivery cost based on selection
-    if (event.target.value === 'courier') {
-      setDeliveryCost(20); // Cost for courier
-    } else {
-      setDeliveryCost(0); // No extra cost for other methods
-    }
-  };
+    const selectedMethod = event.target.value;
+    setDeliveryMethod(selectedMethod);
   
+    let cost = 0;
+    if (selectedMethod === 'courier') {
+      cost = 20;
+    } // Możesz dodać inne warunki dla różnych metod dostawy
+  
+    updateDeliveryCost(cost);
+  };
   const handleApplyPromoCode = () => {
     applyPromoCode(promoCode);
   };
@@ -63,15 +70,44 @@ export const Payment = () => {
   
   // Obliczanie całkowitej kwoty do zapłaty przy wyświetlaniu
   const calculateTotalWithDiscount = () => {
-    if (isNewsletterChecked) {
-      return getTotalCartAmount()* 0.95 + deliveryCost; // 5% rabatu
+    // Calculate cart total from the items in the cart
+    const cartTotal = getTotalCartAmount();
+  
+    // Initialize delivery charge
+    let deliveryCharge = deliveryCost;
+  
+    // Apply free delivery for orders over a certain amount (e.g., 200 zł)
+    if (cartTotal > 200) {
+      deliveryCharge = 0;
     }
-    return getTotalCartAmount() + deliveryCost; // Brak rabatu
+  
+    // Calculate total with delivery charge
+    let total = cartTotal + deliveryCharge;
+  
+    // Apply discount from promo code if any
+    if (paymentDetails.discountRate) {
+      total = total * (1 - paymentDetails.discountRate);
+    }
+  
+    // Apply additional 5% discount for newsletter subscription
+    if (isNewsletterChecked) {
+      total = total * 0.95; // Applying 5% discount
+    }
+  
+    // Return the total amount rounded to two decimal places
+    return total.toFixed(2);
   };
+
   const handlePromoCodeChange = (event) => {
     setPromoCode(event.target.value);
   };
 
+  const { updateCompanyDetails } = useContext(PaymentContext);
+
+const handleCompanyInputChange = (event) => {
+  const { name, value } = event.target;
+  updateCompanyDetails(prev => ({ ...prev, [name]: value }));
+};
   
   const handleTermsChange = (event) => {
     setIsTermsChecked(event.target.checked);
@@ -88,11 +124,28 @@ export const Payment = () => {
     if (!address.city.trim()) newErrors.city = 'City is required';
     if (!address.zip.trim()) newErrors.zip = 'ZIP code is required';
     if (!isTermsChecked) newErrors.terms = 'You must agree to the terms and conditions';
+    
     // Add other validations as needed
     const zipCodeRegex = /^\d{2}-\d{3}$/;
     if (!zipCodeRegex.test(address.zip)) newErrors.zip = 'ZIP code must be in the format **-***';
+    if (privateMethod === 'company') {
+      if (!companyDetails.companyName.trim()) {
+        newErrors.companyName = 'Company name is required';
+      }
+      if (!companyDetails.nip.match(/^\d{10}$/)) {
+        newErrors.nip = 'NIP must be exactly 10 digits';
+      }
+    }
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+  return Object.keys(newErrors).length === 0;
+  };
+ 
+  const {  companyDetails } = useContext(PaymentContext);
+
+
+  const handleCompanyDetailsChange = (event) => {
+    const { name, value } = event.target;
+    updateCompanyDetails({ ...companyDetails, [name]: value });
   };
    
   useEffect(() => {
@@ -101,7 +154,15 @@ export const Payment = () => {
     }
   }, [cartItems, navigate]);
   
-  
+  useEffect(() => {
+    // Aktualizacja kontekstu tylko przy pierwszym renderowaniu
+    updateDeliveryCost(deliveryCost);
+    
+    // Inne instrukcje z useEffect
+    if (Object.keys(cartItems).length === 0) {
+      navigate('/');
+    }
+  }, []); 
   
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -124,48 +185,49 @@ export const Payment = () => {
       }
     }
   };
+
   return (
     <div className="container-payment">
       <div className="form-section">
-        <h1 id="H11">Delivery and Payment</h1>
+        <h1 id="H11">{t("payment.title")} </h1>
         <form className='payment-form' onSubmit={handleSubmit}>
-          <h2 className="H2">Address</h2>
+          <h2 className="H2">{t("payment.title2")}</h2>
           <div className="delivery">
-            <input type="text" name="name" placeholder="Name" value={address.name} onChange={handleAddressChange} className="deliveryinput" />
+            <input type="text" name="name" placeholder={t("payment.placeholder1")} value={address.name} onChange={handleAddressChange} className="deliveryinput" />
             {errors.name && <p className="error-message">{errors.name}</p>}
-            <input type="text" name="street" placeholder="Street" value={address.street} onChange={handleAddressChange} className="deliveryinput" />
+            <input type="text" name="street" placeholder={t("payment.placeholder2")} value={address.street} onChange={handleAddressChange} className="deliveryinput" />
             {errors.street && <p className="error-message">{errors.street}</p>}
-            <input type="text" name="city" placeholder="City" value={address.city} onChange={handleAddressChange} className="deliveryinput" />
+            <input type="text" name="city" placeholder={t("payment.placeholder3")} value={address.city} onChange={handleAddressChange} className="deliveryinput" />
             {errors.city && <p className="error-message">{errors.city}</p>}
-            <input type="text" name="zip" placeholder="ZIP Code 46-113" value={address.zip} onChange={handleAddressChange} className="deliveryinput" />
+            <input type="text" name="zip" placeholder={t("payment.placeholder4")} value={address.zip} onChange={handleAddressChange} className="deliveryinput" />
             {errors.zip && <p className="error-message">{errors.zip}</p>}
           </div>
   
-          <h2 className="H2">Delivery Options</h2>
+          <h2 className="H2">{t("payment.title3")}</h2>
           <div className="deliverydiv">
             <div className="deliveryinputradio">
               <input type="radio" id="courier" name="deliveryMethod" value="courier" checked={deliveryMethod === 'courier'} onChange={handleDeliveryChange} />
-              <label htmlFor="courier">Courier</label>
+              <label htmlFor="courier">{t("payment.label3")}</label>
             </div>
             <div className="deliveryinputradio">
               <input type="radio" id="inStore" name="deliveryMethod" value="inStore" checked={deliveryMethod === 'inStore'} onChange={handleDeliveryChange} />
-              <label htmlFor="inStore">In-Store Pickup</label>
+              <label htmlFor="inStore">{t("payment.label4")}</label>
             </div>
             <div className="deliveryinputradio">
               <input type="radio" id="idex" name="deliveryMethod" value="idex" checked={deliveryMethod === 'idex'} onChange={handleDeliveryChange} />
-              <label htmlFor="idex">Idex</label>
+              <label htmlFor="idex">InPost</label>
             </div>
           </div>
   
-          <h2 className="H2">Payment Options</h2>
+          <h2 className="H2">{t("payment.title4")}</h2>
           <div className="deliverydiv">
             <div className="deliveryinputradio">
               <input type="radio" id="online" name="paymentMethod" value="online" checked={paymentMethod === 'online'} onChange={handlePaymentChange} />
-              <label htmlFor="online">Online Payment</label>
+              <label htmlFor="online">{t("payment.label5")}</label>
             </div>
             <div className="deliveryinputradio">
               <input type="radio" id="creditCard" name="paymentMethod" value="creditCard" checked={paymentMethod === 'creditCard'} onChange={handlePaymentChange} />
-              <label htmlFor="creditCard">Credit Card</label>
+              <label htmlFor="creditCard">{t("payment.label6")}</label>
             </div>
             <div className="deliveryinputradio">
               <input type="radio" id="blik" name="paymentMethod" value="blik" checked={paymentMethod === 'blik'} onChange={handlePaymentChange} />
@@ -173,28 +235,52 @@ export const Payment = () => {
             </div>
           </div>
   
-          <h2 className="H2">You are buying as</h2>
-          <div className="deliverydiv">
-            <div className="deliveryinputradio">
-              <input type="radio" id="company" name="privateMethod" value="company" checked={privateMethod === 'company'} onChange={handlePrivateMethodChange} />
-              <label htmlFor="company">Company</label>
-            </div>
-            <div className="deliveryinputradio">
-              <input type="radio" id="privatePerson" name="privateMethod" value="privatePerson" checked={privateMethod === 'privatePerson'} onChange={handlePrivateMethodChange} />
-              <label htmlFor="privatePerson">Private Person</label>
-            </div>
-          </div>
+          <h2 className="H2">{t("payment.title5")}</h2>
+<div className="deliverydiv">
+  <div className="deliveryinputradio">
+    <input type="radio" id="company" name="privateMethod" value="company" checked={privateMethod === 'company'} onChange={handlePrivateMethodChange} />
+    <label htmlFor="company">{t("payment.label7")}</label>
+  </div>
+  <div className="deliveryinputradio">
+    <input type="radio" id="privatePerson" name="privateMethod" value="privatePerson" checked={privateMethod === 'privatePerson'} onChange={handlePrivateMethodChange} />
+    <label htmlFor="privatePerson">{t("payment.label8")}</label>
+  </div>
+</div>
+
+{privateMethod === 'company' && (
+    <div>
+    <input
+      type="text"
+      name="nip"
+      placeholder={t("payment.placeholderNIP")}
+      value={companyDetails.nip}
+      onChange={handleCompanyDetailsChange}
+      className="deliveryinput"
+    />
+    {errors.nip && <p className="error-message">{errors.nip}</p>}
+    
+    <input
+      type="text"
+      name="companyName"
+      placeholder={t("payment.placeholderCompanyName")}
+      value={companyDetails.companyName}
+      onChange={handleCompanyDetailsChange}
+      className="deliveryinput"
+    />
+    {errors.companyName && <p className="error-message">{errors.companyName}</p>}
+  </div>
+)}
   
-          <h2 className="H2">Billing Information</h2>
+          <h2 className="H2">{t("payment.title6")}</h2>
           <div className="deliverycheckbox">
             <div>
               <input type="checkbox" name="termsConditions" checked={isTermsChecked} onChange={handleTermsChange} />
-              <label>I agree to the Terms and Conditions</label>
+              <label>.{t("payment.label")}</label>
               {errors.terms && <p className="error-message">{errors.terms}</p>}
             </div>
             <div>
                 <input type="checkbox" name="Newsletter" checked={isNewsletterChecked} onChange={handleNewsletterChange} />
-                <label>I agree to the newsletter</label>
+                <label>.{t("payment.label2")}</label>
              </div>
         </div>
   
@@ -216,24 +302,32 @@ export const Payment = () => {
             type="text"
             value={promoCode}
             onChange={handlePromoCodeChange}
-            placeholder="Masz kod promocyjny?"
+            placeholder={t("payment.placeholder5")}
           />
-          <button onClick={handleApplyPromoCode}>Zastosuj</button>
+          <button onClick={handleApplyPromoCode}>{t("payment.button")}</button>
         </div>
         <div className="total-amount">
-          <p>Koszyk: {totalAmount} zł</p>
-          <p>Dostawa {deliveryCost} zł</p>
-          <p>Rabat: {isNewsletterChecked ? '5%' : '0%'}</p>
-          <p>Do zapłaty: {calculateTotalWithDiscount()}  zł</p>
-        </div>
+  <p>{t("payment.paragraph6")} {totalAmount} zł</p>
+  {totalAmount > 200 ? (
+    <>
+      <p>{t("payment.paragraph")} <span className="free-delivery"> {t("payment.paragraph2")} </span></p>
+    </>
+  ) : (
+    <p>{t("payment.paragraph9")} {deliveryCost} zł</p>
+  )}
+  <p>{t("payment.paragraph7")} {isNewsletterChecked ? '5%' : '0%'}</p>
+  
+  <p>{t("payment.paragraph8")} {calculateTotalWithDiscount()} zł</p>
+</div>
         <form onSubmit={handleSubmit} >
-        <button type="submit" className="paybutt"  >Proceed to Payment</button>
+        <button type="submit" className="paybutt"  >{t("payment.button2")}</button>
         </form>
       
     </div>
     
   </div>
+  
   );
-          };
-
+       };
+        
 export default Payment;

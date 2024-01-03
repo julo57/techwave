@@ -43,10 +43,10 @@ export const Footer = () => {
         {t("foooter.link2")}
         </Link>
         <Link to="/PrivacyPolicy" className="footer-link">
-          Polityka Prywatności
+        {t("foooter.link3")}
         </Link>
         <Link to="/Statute" className="footer-link">
-          Regulamin
+        {t("foooter.link4")}
         </Link>
 
         <div className="footer-social-media">

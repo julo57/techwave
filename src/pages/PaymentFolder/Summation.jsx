@@ -4,33 +4,63 @@ import { PaymentContext } from '../../context/PaymentContext';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import './Summation.css';
+import { useTranslation } from "react-i18next";
 
 export const Summation = () => {
   const { cartItems, getTotalCartAmount, checkout } = useContext(ShopContext);
-  const { paymentDetails } = useContext(PaymentContext);
+  
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(true);
+
   const [blikCode, setBlikCode] = useState('');
   const [showBlikCodeModal, setShowBlikCodeModal] = useState(false);
   const navigate = useNavigate();
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const { paymentDetails } = useContext(PaymentContext);
+  const deliveryCost = paymentDetails.deliveryCost; // Accessing delivery cost
+  const { companyDetails } = useContext(PaymentContext);
+  
+  
 
-
+  
   useEffect(() => {
     if (Object.keys(cartItems).length === 0) {
       navigate('/'); // Przekierowanie do strony głównej, gdy koszyk jest pusty
     }
   }, [cartItems, navigate]);
+  
 
-  const totalAmount = getTotalCartAmount();
-  const discountRate = paymentDetails.newsletterSubscription ? 0.05 : 0; // 5% rabatu za subskrypcję newslettera
-  const discountedAmount = totalAmount * (1 - discountRate);
+
+  const {t} = useTranslation("global");
+  // Get the total amount from the cart
+const totalAmount = getTotalCartAmount();
+
+// Calculate promo code discount
+const promoDiscountRate = paymentDetails.promoCode ? paymentDetails.discountRate : 0; // Discount for promo code
+const amountAfterPromo = totalAmount * (1 - promoDiscountRate);
+
+// Calculate newsletter discount on the amount after promo code discount
+const newsletterDiscountRate = paymentDetails.newsletterSubscription ? 0.05 : 0; // 5% discount for newsletter subscription
+const discountedAmount = amountAfterPromo * (1 - newsletterDiscountRate);
+
+// Determine if there's free delivery
+const freeDelivery = discountedAmount > 200; // Adjust the condition for free delivery if needed
+const finalDeliveryCost = freeDelivery ? 0 : deliveryCost;
+
+// Calculate final amount with discounts and delivery cost
+const finalAmountWithDiscounts = discountedAmount + finalDeliveryCost;
+
 
   const handleCheckout = async () => {
-    if (paymentDetails.paymentMethod === 'blik') {
-      setShowBlikCodeModal(true);
+    if (!paymentDetails.user_id) {
+      // Jeśli nie ma zalogowanego użytkownika
+      navigate('/thank-you'); // Przekieruj na finalną stronę
+      checkout(); // Opcjonalnie: możesz oczyścić koszyk
       return;
     }
-  
     const itemsArray = Object.values(cartItems);
+    const totalPriceOfProducts = Object.values(cartItems).reduce((total, item) => {
+      return total + (item.price * item.quantity);
+    }, 0);
   
     const orderData = {
       userId: paymentDetails.user_id,
@@ -67,8 +97,7 @@ export const Summation = () => {
   };
 
   const handleBLIKSubmit = () => {
-    console.log('BLIK Code:', blikCode);
-  
+   
     if (blikCode.replace(/-/g, '').length !== 6) {
       alert('Please enter a valid 6-digit BLIK code.');
     } else {
@@ -93,49 +122,57 @@ export const Summation = () => {
       setBlikCode(value);
     }
   };
-
+  
+  
   return (
     <div className="summation-container">
-      <div className="summation-details">
-        <h1>Podsumowanie Zamówienia</h1>
+    <div className="summation-details">
+      <h1>{t("summation.orderSummary")}</h1>
+      <div>
+        <h2>{t("summation.deliveryAddress")}</h2>
+        <p>{t("summation.fullName")}:<span className="detail-label"> {paymentDetails.address.name}</span></p>
+        <p>{t("summation.street")}: <span className="detail-label">{paymentDetails.address.street}</span></p>
+        <p>{t("summation.city")}: <span className="detail-label">{paymentDetails.address.city}</span></p>
+        <p>{t("summation.zipCode")}: <span className="detail-label">{paymentDetails.address.zip}</span></p>
+        <p>{t("summation.deliveryMethod")}:<span className="detail-label">{paymentDetails.deliveryMethod}</span></p>
+        <p>{t("summation.paymentMethod")}:<span className="detail-label">{paymentDetails.paymentMethod}</span></p>
+        <p>{t("summation.companyName")}:<span className="detail-label"> {companyDetails.companyName}</span></p>
+        <p>{t("summation.nip")}:<span className="detail-label"> {companyDetails.nip}</span></p>
+       
+
+      </div>
+      {paymentDetails.promoCode && (
         <div>
-          <h2>Adres dostawy</h2>
-          <p>Imię i nazwisko:<span className="detail-label"> {paymentDetails.address.name}</span></p>
-          <p>Ulica: <span className="detail-label">{paymentDetails.address.street}</span></p>
-          <p>Miasto: <span className="detail-label">{paymentDetails.address.city}</span></p>
-          <p>Kod pocztowy: <span className="detail-label">{paymentDetails.address.zip}</span></p>      
-          <p>Metoda dostawy:<span className="detail-label">{paymentDetails.deliveryMethod}</span></p>
-          <p>Metoda płatności:<span className="detail-label">{paymentDetails.paymentMethod}</span></p>
+          <h2>{t("summation.promoCodeTitle")}</h2>
+          <p>{paymentDetails.promoCode}</p>
         </div>
-        {paymentDetails.promoCode && (
-          <div>
-            <h2>Kod promocyjny</h2>
-            <p>{paymentDetails.promoCode}</p>
-          </div>
-        )}
-        <div>
-          <p>{paymentDetails.newsletterSubscription ? 'Zapisano do newslettera' : 'Nie zapisano do newslettera'}</p>
-        </div>
+      )}
+      <div>
+        <p>{paymentDetails.newsletterSubscription ? t("summation.subscribedToNewsletter") : t("summation.notSubscribedToNewsletter")}</p>
+      </div>
       </div>
       <div className="summation-cart">
-        <h2>Zakupy</h2>
+      <h2>{t("summation.shopping")}</h2>
         <ul>
+       
           {Object.values(cartItems).map((item, index) => (
             <li key={index}>
               <img src={item.photo} alt={item.name} className="item-photo" />
               {item.name} - {item.price} zł x {item.quantity}
             </li>
           ))}
-        </ul>
-        <p>Całkowity koszt: {totalAmount.toFixed(2)} zł</p>
-        {paymentDetails.newsletterSubscription && (
-          <p>
-            Po zastosowaniu rabatu za newsletter: {discountedAmount.toFixed(2)} zł
-            (Rabat: 5%)
-          </p>
-        )}
-        <button onClick={handleCheckout} className="final-purchase-button">Kupuję i płacę</button>
-      </div>
+         </ul>
+          <p>{t("summation.deliveryCosts")}: {freeDelivery ? t("summation.free") : `${finalDeliveryCost} zł`}</p>
+          <p>{t("summation.totalCost")}: {(totalAmount + finalDeliveryCost).toFixed(2)} zł</p>
+          <p>{t("summation.totalCostAfterDiscounts")}: {finalAmountWithDiscounts.toFixed(2)} zł</p>
+          {paymentDetails.newsletterSubscription && (
+            <p>
+              {t("summation.afterNewsletterDiscount")}: {discountedAmount.toFixed(2)} zł
+              ({t("summation.discount")}: 5%)
+            </p>
+          )}
+          <button onClick={handleCheckout} className="final-purchase-button">{t("summation.purchaseAndPay")}</button>
+        </div>
       {showBlikCodeModal && (
         <div className="blik-modal-overlay">
           <div className="blik-modal-content">
@@ -154,7 +191,7 @@ export const Summation = () => {
   </div>
 
 )}
-          </div>
+        </div>
         </div>
       )}
     </div>
