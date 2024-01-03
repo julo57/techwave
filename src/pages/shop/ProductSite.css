@@ -1,430 +1,428 @@
 .product-site {
-  display: flex;
-  flex-direction: column;
-  font-family: 'Arial', sans-serif;
-  color: #333;
-  width: 80%;
-  margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	font-family: "Arial", sans-serif;
+	color: #333;
+	width: 80%;
+	margin: 0 auto;
 }
 
 .product-title {
-  font-size: 32px;
-  font-weight: bold;
-  color: #333;
-  margin: 20px 0;
-  text-align: right; /* Wyrównanie tekstu do prawej */
+	font-size: 32px;
+	font-weight: bold;
+	color: #333;
+	margin: 20px 0;
+	text-align: right;
 }
 
-.product-title-container { 
-  display: flex;
-  justify-content: center; /* Wyrównanie zawartości (np. tytułu) do prawej */
-  width: 100%; /* Zapewnia, że kontener rozciąga się na całą dostępną szerokość */
+.product-title-container {
+	display: flex;
+	justify-content: center;
+	width: 100%;
 }
 
 .product-content {
-  display: flex;
-  width: 100%;
+	display: flex;
+	width: 100%;
 }
 
 .product-image-container {
-  width: 300px; /* Ustaw szerokość kontenera na obraz */
-  height: 300px; /* Ustaw wysokość kontenera na obraz */
-  display: flex; /* Użyj flexboxa do wyśrodkowania obrazu */
-  justify-content: center; /* Wyśrodkuj obraz w poziomie */
-  align-items: center; /* Wyśrodkuj obraz w pionie */
-  margin: 0 auto; /* Dodaj automatyczne marginesy z boków, aby wyśrodkować kontener */
+	width: 300px;
+	height: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
 }
 
 .product-image {
-  max-width: 100%; /* Maksymalna szerokość obrazu to 100% kontenera */
-  max-height: 100%; /* Maksymalna wysokość obrazu to 100% kontenera */
-  object-fit: contain; /* Zachowaj proporcje obrazu bez jego przycinania */
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
 }
 
 .product-purchase-info {
-  display: flex;
-  width: 50%;
-  justify-content: space-between; /* Rozdziela specyfikacje i sekcję zakupu */
+	display: flex;
+	width: 50%;
+	justify-content: space-between;
 }
 
 .product-specs {
-  height: 100%;
-  background-color: #eee;
-  width: 80%;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 20px;
+	height: 100%;
+	background-color: #eee;
+	width: 80%;
+	margin: 10px;
+	padding: 10px;
+	border-radius: 20px;
 }
+
 .product-specs p {
-  margin: 30px 0;
+	margin: 30px 0;
 }
+
 .product-purchase-section {
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 }
 
 .product-price {
-  font-size: 24px;
-  color: #d0011b;
-  margin: 10px 0;
+	font-size: 24px;
+	color: #d0011b;
+	margin: 10px 0;
 }
 
 .btn-add-to-cart {
-  background-color: rgb(0, 174, 43);
-  color: white;
-  border-radius: 20px;
-  border-color: black;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px;
+	background-color: #00ae2b;
+	color: white;
+	border-radius: 20px;
+	border-color: black;
+	padding: 10px 20px;
+	cursor: pointer;
+	font-size: 16px;
 }
 
 .btn-add-to-cart:hover {
-  background-color: rgb(2, 102, 27);
+	background-color: #02661b;
 }
 
 .product-description {
-  width: 100%;
-  margin-top: 20px;
-  padding: 10px;
-  border-top: 1px solid #eee;
+	width: 100%;
+	margin-top: 20px;
+	padding: 10px;
+	border-top: 1px solid #eee;
 }
 
 .btn-add-to-cart:disabled {
-  background-color: #cccccc; /* Light grey to indicate it's disabled */
-  cursor: not-allowed;
+	background-color: #ccc;
+	cursor: not-allowed;
 }
 
 .spinner-container {
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 100vh; /* Full height of the viewport */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
 }
 
 .spinner {
-  border: 2px solid #f3f3f3; /* Light grey background */
-  border-top: 2px solid #000000; /* Blue color */
-  border-radius: 50%;
-  width: 200px; /* Size of the spinner */
-  height: 200px; /* Size of the spinner */
-  animation: spin 2s linear infinite;
+	border: 2px solid #f3f3f3;
+	border-top: 2px solid #000;
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+	animation: spin 2s linear infinite;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+	0% {
+		transform: rotate(0deg);
+	}
+	
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 .reviews-section {
-  text-align: left; /* Wyrównanie zawartości sekcji do lewej */
-  margin-top: 20px; /* Dodaj margines u góry dla oddzielenia sekcji */
-  margin-bottom: 80px;
+	text-align: left;
+	margin-top: 20px;
+	margin-bottom: 80px;
 }
 
 .review-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
 }
 
 .average-rating {
-  display: flex; /* Użycie flexbox do organizacji tekstu oceny i gwiazdek */
-  align-items: center; /* Centrowanie elementów w pionie */
-  justify-content: flex-start; /* Wyrównanie gwiazdek do lewej strony */
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
 }
 
 .rating-stars {
-  font-size: 50px; /* Zwiększa rozmiar gwiazdek */
-  color: #cccccc; /* Kolor pustych gwiazdek */
-  /* Usuwamy właściwości display i justify-content stąd */
+	font-size: 50px;
+	color: #ccc;
 }
 
 .rating-stars .full-star {
-  color: #ffcc00; /* Żółty kolor dla pełnych gwiazdek */
+	color: #fc0;
 }
 
 .rating-value {
-  font-size: 32px; /* Zwiększa rozmiar tekstu oceny */
-  font-weight: bold; /* Pogrubienie tekstu */
-  margin-right: 8px; /* Odstęp od gwiazdek */
+	font-size: 32px;
+	font-weight: bold;
+	margin-right: 8px;
 }
 
-/* Styl dla pół przezroczystych gwiazdek, jeśli są używane */
 .rating-stars .half-star::before {
-  content: "\f089"; /* Kod dla pół gwiazdki */
-  position: absolute;
-  color: #ffcc00; /* Żółty kolor dla pełnych gwiazdek */
-  width: 50%;
-  overflow: hidden;
+	content: "";
+	position: absolute;
+	color: #fc0;
+	width: 50%;
+	overflow: hidden;
 }
 
 .review {
-  border-bottom: 1px solid #ccc;
-  padding: 10px 0;
+	border-bottom: 1px solid #ccc;
+	padding: 10px 0;
 }
 
 .review-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .review-author {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 .review-content {
-  margin-top: 10px;
+	margin-top: 10px;
 }
 
 .comments-container {
-  margin-top: 20px;
+	margin-top: 20px;
 }
 
 .comment-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 5px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 5px;
 }
 
 .comment-content {
-  background: #f7f7f7;
-  border-radius: 10px;
-  padding: 10px;
-  /* Upewnij się, że szerokość nie jest zbyt mała */
-  width: 100%;
+	background: #f7f7f7;
+	border-radius: 10px;
+	padding: 10px;
+	width: 100%;
 }
 
 .comment-author {
-  font-weight: bold;
-  margin-bottom: 5px;
+	font-weight: bold;
+	margin-bottom: 5px;
 }
 
 .comment-text {
-  font-size: 14px;
+	font-size: 14px;
 }
 
 .comments-section {
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto; /* Dzięki temu, jeśli komentarzy jest więcej, będą one przewijane */
-  margin-top: 10px; /* Odstęp od poprzedniej sekcji */
-  padding: 0; /* Dodatkowy odstęp wewnątrz sekcji komentarzy */
-  max-height: 400px; /* Maksymalna wysokość sekcji, po przekroczeniu której pojawi się przewijanie */
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
+	margin-top: 10px;
+	padding: 0;
+	max-height: 400px;
 }
 
 .comment {
-  margin-bottom: 0px; /* Odstęp pomiędzy komentarzami */
-  padding: 10px;
+	margin-bottom: 0px;
+	padding: 10px;
 }
 
-/* Style dla formularza oceny i komentarza */
 .comment-form {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  /* margin-left: 25px; */
-  padding: 20px;
-  background-color: #f7f7f7;
-  border-radius: 10px;
-  width: 100%;
-  /* max-width: 1300px; */
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+	padding: 20px;
+	background-color: #f7f7f7;
+	border-radius: 10px;
+	width: 100%;
 }
 
 .comment-form label {
-  display: block;
-  margin-bottom: 8px;
+	display: block;
+	margin-bottom: 8px;
 }
 
-.comment-form input,
-.comment-form textarea,
-.comment-form select {
-  width: 100%;
-  padding: 8px;
-  font-size: 16px;
-  margin-bottom: 16px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+.comment-form input, .comment-form textarea, .comment-form select {
+	width: 100%;
+	padding: 8px;
+	font-size: 16px;
+	margin-bottom: 16px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
 }
 
 .comment-form textarea {
-  resize: vertical; /* Umożliwia pionowe zmiany wielkości pola tekstowego */
+	resize: vertical;
 }
 
 .comment-form button {
-  padding: 10px 16px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+	padding: 10px 16px;
+	font-size: 16px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
 .comment-form button:hover {
-  background-color: #0056b3;
+	background-color: #0056b3;
 }
-
 
 .progress {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #cccccc; /* Szary kolor tła paska postępu */
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #ccc;
 }
 
-/* Styl dla samego paska postępu */
 .progress-bar {
-  height: 100%;
-  background-color: #00ff00; /* Zielony kolor paska */
-  width: 0; /* Początkowa szerokość paska */
-  animation: progressAnimation 2s linear forwards;
+	height: 100%;
+	background-color: #0f0;
+	width: 0;
+	animation: progressAnimation 2s linear forwards;
 }
 
-/* Animacja dla paska postępu */
 @keyframes progressAnimation {
-  from { width: 0; }
-  to { width: 100%; }
+	from {
+		width: 0;
+	}
+	
+	to {
+		width: 100%;
+	}
 }
 
-/* Styl dla przycisku */
 .submit-button {
-  position: relative;
-  overflow: hidden; /* Zapobiega wyświetlaniu się paska poza przyciskiem */
-  padding: 10px 16px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	padding: 10px 16px;
+	font-size: 16px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
 .submit-button:hover {
-  background-color: #0056b3;
+	background-color: #0056b3;
 }
 
 .submit-button:disabled {
-  background-color: #cccccc; /* Kolor tła dla wyłączonego przycisku */
-  cursor: not-allowed;
+	background-color: #ccc;
+	cursor: not-allowed;
 }
 
 .comment-form.disabled {
-  position: relative;
-  background-color: #f7f7f7;
-  opacity: 0.5; /* Wyszarzenie formularza */
-  pointer-events: none; /* Wyłączenie interakcji */
+	position: relative;
+	background-color: #f7f7f7;
+	opacity: .5;
+	pointer-events: none;
 }
 
 .disabled-message {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 20px;
-  color: #333;
-  font-weight: bold;
-  /* padding-top: 25px;  */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 20px;
+	color: #333;
+	font-weight: bold;
 }
 
-
 #dark .product-title {
-  color: #797979;
- 
-  padding: 10px;
-  cursor: pointer;
+	color: #797979;
+	padding: 10px;
+	cursor: pointer;
 }
 
 #dark .product-description {
-  color: #797979;
-  padding: 10px;
+	color: #797979;
+	padding: 10px;
 }
 
 @media (max-width: 767px) {
-  .product-site {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Wyśrodkowanie elementów w pionie */
-    justify-content: center; 
-    margin-bottom: 90px;
-    
-  }
-  
-
-  .product-content {
-    /* Wyśrodkowanie zawartości na środku, gdy jest flex-direction: column */
-    display: flex;
-    flex-direction: column;
-  }
-
-  .product-price,
-  .btn-add-to-cart {
-    max-width: 200px;  /* Maksymalna szerokość dla ceny i przycisku */
-    margin: 0 auto;  /* Wyśrodkowanie na środku */
-    margin: 10px 0;
-  
-  }
-  .disabled-message {
-    position: absolute;
-    top: 50%;
-    left: 35%;
-    transform: translate(-50%, -50%);
-    font-size: 20px;
-    color: #333;
-    font-weight: bold;
-     padding-top: 25px;  
-  }
-
-  .product-purchase-info {
-    display: flex;
-    flex-direction: column; /* Zmiana na kolumnę na mniejszych ekranach */
-    align-items: center; /* Wyśrodkowanie elementów na mniejszych ekranach */
-    width: 100%; /* Szerokość na 100% na mniejszych ekranach */
-    margin-top: 0; 
-  }
-
-  .product-specs {
-    width: 100%;
-    margin: 10px 0;
-  }
-
-  .product-purchase-section {
-    width: 100%; /* Szerokość na 100% na mniejszych ekranach */
-    margin-top: 10px; /* Odstęp między sekcjami na mniejszych ekranach */
-  }
-
-  .comment-form.disabled{
-    width: 80%;
-  }
-  .disabled-message{
-    font-size: 80%;
-  }
-  .product-site {
-    width: 70%;
-  }
-  .product-image-container {
-    width: 70%
-  }
-  .product-title-container {
-    width: 70%; 
-  }
-  .product-title {
-    font-size: 100%;
-  }
-  .reviews-section {
-    width: 100%;
-    margin: auto;
-    margin-left: 2px;
-  }
-
-  .comment-form{
-    margin-bottom: 10%;
-    padding-bottom: 10%;
-  }
+	.product-site {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 90px;
+	}
+	
+	.product-content {
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.product-price, .btn-add-to-cart {
+		max-width: 200px;
+		margin: 0 auto;
+		margin: 10px 0;
+	}
+	
+	.disabled-message {
+		position: absolute;
+		top: 50%;
+		left: 35%;
+		transform: translate(-50%, -50%);
+		font-size: 20px;
+		color: #333;
+		font-weight: bold;
+		padding-top: 25px;
+	}
+	
+	.product-purchase-info {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		margin-top: 0;
+	}
+	
+	.product-specs {
+		width: 100%;
+		margin: 10px 0;
+	}
+	
+	.product-purchase-section {
+		width: 100%;
+		margin-top: 10px;
+	}
+	
+	.comment-form.disabled {
+		width: 80%;
+	}
+	
+	.disabled-message {
+		font-size: 80%;
+	}
+	
+	.product-site {
+		width: 70%;
+	}
+	
+	.product-image-container {
+		width: 70%;
+	}
+	
+	.product-title-container {
+		width: 70%;
+	}
+	
+	.product-title {
+		font-size: 100%;
+	}
+	
+	.reviews-section {
+		width: 100%;
+		margin: auto;
+		margin-left: 2px;
+	}
+	
+	.comment-form {
+		margin-bottom: 10%;
+		padding-bottom: 10%;
+	}
 }
-
