@@ -13,7 +13,7 @@ export const PrivacyPolicy = () => {
     { title: t("privacyPolicy.section5Title"), content: t("privacyPolicy.section5Paragraph") },
     { title: t("privacyPolicy.section6Title"), content: t("privacyPolicy.section6Paragraph") },
     { title: t("privacyPolicy.section7Title"), content: t("privacyPolicy.section7Paragraph") },
-  ];
+  ]; 
 
   return (
     <div className="privacy-policy-container">

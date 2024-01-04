@@ -125,7 +125,7 @@ export const LoginRegistryGuest = () => {
               type="password"
               placeholder={t("registry.placeholder3")}
               value={registerPassword}
-              onChange={(e) => setRegisterPassword(e.target.value)}
+              onChange={(e) => setRegisterPassword(e.target.value)} 
             />
           </div>
           {/* ...obsługa błędów hasła... */}

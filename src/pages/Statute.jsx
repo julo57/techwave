@@ -17,7 +17,7 @@ export const Statute = () => {
     { title: t("statute.section6Title"), content: t("statute.section6Content") },
     { title: t("statute.section7Title"), content: t("statute.section7Content") },
     { title: t("statute.section8Title"), content: t("statute.section8Content") },
-  ];
+  ]; 
 
   return (
     <div className="regulamin-container">
