@@ -92,7 +92,7 @@
 
 
 .blik-modal-overlay {
-	border: 2px;
+	border: 2px solid #ccc;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -101,29 +101,55 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-}
-
-.blik-modal-content {
-	border: solid 2px;
+	background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  }
+  
+  #dark .blik-modal-overlay {
+	background-color: rgba(0, 0, 0, 0.8); /* Darker background for dark mode */
+  }
+  
+  .blik-modal-content {
+	border: solid 2px #ccc;
 	position: relative;
-	font-family: "Times New Roman", Times, serif;
-	font-size: 60px;
+	font-family: "Arial", sans-serif;
+	font-size: 24px; /* Adjusted font size */
 	text-align: center;
-	padding: 0px;
+	padding: 20px; /* Added padding */
 	width: 100%;
-	max-width: 1000px;
+	max-width: 500px; /* Adjusted max-width */
 	background-color: white;
 	border-radius: 8px;
-}
-
-.blik-modal-content .close-btn {
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+  }
+  
+   .blik-modal-content .close-btn {
 	position: absolute;
-	font-size: 30px;
-	top: 8px;
-	right: 8px;
-	width: 50px;
-	height: 32px;
-	border-radius: 50%;
+	top: 10px;
+	right: 10px;
+	font-size: 16px; /* Adjusted font size */
+	border: none;
+	background-color: transparent;
 	cursor: pointer;
 	color: tomato;
-}
+  }
+  #dark .blik-modal-content .close-btn {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 16px; /* Adjusted font size */
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	color: tomato;
+  }
+  
+  .blik-modal-content .pop-btn {
+	font-size: 18px; /* Adjusted font size */
+	margin-top: 20px;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	background-color: #4CAF50; /* Green background */
+	color: white;
+	border: none;
+  }

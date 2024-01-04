@@ -200,7 +200,7 @@ const finalAmountWithDiscounts = discountedAmount + finalDeliveryCost;
               onChange={handleBlikChange}
               placeholder="6-digit BLIK Code"
             />
-            <button onClick={handleBLIKSubmit}>Submit</button>
+            <button className="pop-btn"onClick={handleBLIKSubmit}>Submit</button>
             <button className="close-btn" onClick={() => setShowBlikCodeModal(false)}>X</button>
             {showSuccessModal && (
   <div className="success-modal">
