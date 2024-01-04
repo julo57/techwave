@@ -98,6 +98,10 @@ const {t} = useTranslation("global");
     return total.toFixed(2);
   };
 
+  useEffect(() => {
+    console.log("Current payment method:", paymentMethod);
+  }, [paymentMethod]);
+
   const handlePromoCodeChange = (event) => {
     setPromoCode(event.target.value);
   };

@@ -23,14 +23,23 @@ export const Summation = () => {
   const { user } = useAuthContext();
   
   
-
+  console.log("BLIK Modal State:", showBlikCodeModal)
   
   useEffect(() => {
     if (Object.keys(cartItems).length === 0) {
       navigate('/'); // Przekierowanie do strony głównej, gdy koszyk jest pusty
     }
   }, [cartItems, navigate]);
-  
+
+  useEffect(() => {
+    // Check if the payment method is 'blik' and update the modal visibility
+    if (paymentDetails.paymentMethod === 'blik') {
+      setShowBlikCodeModal(true);
+    } else {
+      setShowBlikCodeModal(false);
+    }
+  }, [paymentDetails.paymentMethod]);
+
 
 
   const {t} = useTranslation("global");
@@ -192,7 +201,7 @@ const finalAmountWithDiscounts = discountedAmount + finalDeliveryCost;
               placeholder="6-digit BLIK Code"
             />
             <button onClick={handleBLIKSubmit}>Submit</button>
-            <button onClick={() => setShowBlikCodeModal(false)}>X</button>
+            <button className="close-btn" onClick={() => setShowBlikCodeModal(false)}>X</button>
             {showSuccessModal && (
   <div className="success-modal">
     <p>Dziękujemy za zakup! Zaraz zostaniesz przekierowany na stronę główną.</p>
