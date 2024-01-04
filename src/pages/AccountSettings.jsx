@@ -123,7 +123,7 @@ const AccountSettings = () => {
   return (
     <div className='grid grid-cols-3 '>
 
-     <div className='mt-4 flex flex-col gap-4 relative justify-self-start'>
+     {/* <div className='mt-4 flex flex-col gap-4 relative justify-self-start'>
         <Link to='/Profile' className='transition duration-300 flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-gray-800 hover:text-white rounded-md'>
           <User size={30} />
           <h2 className='text-xl'>{t("profile.button6")}</h2>
@@ -149,7 +149,7 @@ const AccountSettings = () => {
           <SignOut size={30} className='cursor-pointer' />
           {t("profile.button5")}
         </button>
-      </div> 
+      </div>  */}
 
 
       <div className='m-3 text-xl text-gray-900 col-span-2 font-semibold '>

@@ -8,63 +8,87 @@ import RatingStars from './RatingStars';
 import './ProductSite.css';
 import useAuthContext from "../../context/AuthContext";
 import { useTranslation } from "react-i18next";
-
-
+import Product from './Product';
 
 function ProductSite() {
-  const {t} = useTranslation("global");
- 
+  const { t } = useTranslation("global");
   const { productId } = useParams();
-  console.log('ProductId:', productId);
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { addToCart } = useContext(ShopContext);
   const [rating, setRating] = useState(0);
-  const [comments, setComments] = useState([]); 
+  const [comments, setComments] = useState([]);
   const [comment, setComment] = useState('');
   const [commentsList, setCommentsList] = useState([]);
   const { user } = useAuthContext();
+  const [relatedProducts, setRelatedProducts] = useState([]);
+
+  // Te wartości można umieścić poza komponentem, jeśli są stałe
+  const maxProductId = 98; // Dostosuj do maksymalnego dostępnego ID produktu
+  const numberOfProducts = 5; // Liczba produktów do wylosowania
+
+  const fetchRandomProducts = async () => {
+    try {
+      const response = await axios.get('http://localhost:8000/api/products');
+      const allProducts = response.data;
+      let randomProducts = [];
   
+      while (randomProducts.length < 5) {
+        const randomIndex = Math.floor(Math.random() * allProducts.length);
+        const selectedProduct = allProducts[randomIndex];
+  
+        // Sprawdzenie, czy produkt nie został już wcześniej wybrany
+        if (!randomProducts.some(product => product.id === selectedProduct.id)) {
+          randomProducts.push(selectedProduct);
+        }
+      }
+  
+      setRelatedProducts(randomProducts);
+    } catch (error) {
+      console.error('Error fetching products:', error);
+    }
+  };
+  
+
+  
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      setIsLoading(true);
+      try {
+        const response = await axios.get(`http://localhost:8000/api/products/${productId}`);
+        setProduct(response.data);
+        setCommentsList(response.data.comments || []);
+      } catch (error) {
+        console.error("Error fetching product:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchProduct();
+    fetchRandomProducts();
+  }, [productId]);
 
   const calculateAverageRating = () => {
     let sum = 0;
     if (commentsList.length === 0) return 0;
-  
+
     commentsList.forEach(comment => {
-      // Sprawdzenie, czy ocena jest liczbą i czy nie jest pusta
       if (!isNaN(comment.rating) && comment.rating !== '') {
         sum += parseFloat(comment.rating);
       }
     });
-  
-    // Obliczenie średniej oceny
+
     const averageRating = sum / commentsList.length;
-    return isNaN(averageRating) ? 0 : averageRating; // Zapobieganie zwracaniu NaN
+    return isNaN(averageRating) ? 0 : averageRating;
   };
 
-  if (!user) {
-  console.log('Nie zalogowany');
-} else {
-  console.log('Zalogowany');
-}
-useEffect(() => {
-  axios.get(`http://localhost:8000/api/products/${productId}`)
-    .then(response => {
-      setProduct(response.data);
-      setCommentsList(response.data.comments || []);
-      setIsLoading(false);
-    })
-    .catch(error => {
-      console.error("Error fetching product:", error);
-      setIsLoading(false);
-    });
-}, [productId]);
-
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsSubmitting(true);
-
 
     if (!productId) {
       console.error("ProductId is undefined");
@@ -77,30 +101,29 @@ useEffect(() => {
     }
 
     try {
-      await axios.get('/sanctum/csrf-cookie'); // Pobranie CSRF token
+      await axios.get('/sanctum/csrf-cookie');
       const response = await axios.post(`http://localhost:8000/api/products/${productId}/comments`, {
         rating,
         content: comment,
-    }, {
-      headers: {
-        Authorization: `Bearer ${user ? user.access_token : null}`, // Przekazanie tokena uwierzytelniającego
-      }, 
+      }, {
+        headers: {
+          Authorization: `Bearer ${user ? user.access_token : null}`,
+        },
       });
-      setComments([...comments, response.data]); // Dodanie nowego komentarza do stanu
+      setComments([...comments, response.data]);
       setRating(0);
-      setComment(''); // Resetowanie pola komentarza
+      setComment('');
       axios.get(`http://localhost:8000/api/products/${productId}`)
-      .then(response => {
-        setProduct(response.data);
-        setCommentsList(response.data.comments || []); // Ustawienie listy komentarzy
-        alert('Dodano komentarz.');
-      })
+        .then(response => {
+          setProduct(response.data);
+          setCommentsList(response.data.comments || []);
+          alert('Dodano komentarz.');
+        });
     } catch (error) {
       if (error.response && error.response.status === 401) {
-        // Użytkownik niezalogowany - wyświetl alert
         alert('Nie zalogowany użytkownik nie może dodać komentarza.');
       } else {
-      console.error("Error submitting comment:", error);
+        console.error("Error submitting comment:", error);
       }
     }
     setIsSubmitting(false);
@@ -163,23 +186,10 @@ useEffect(() => {
             <p><strong>{t("product.DuplexPrinting")}: {product.Duplexprinting}</strong></p>
           </>
         );
-      // Add other cases for different categories as needed
       default:
         return <p>{t("product.NoSpecifications")}</p>;
     }
   };
-
-  if (isLoading) {
-    return (
-      <div className="spinner-container">
-        <FontAwesomeIcon icon={faSpinner} spin />
-      </div>
-    );
-  }
-
-  if (!product) {
-    return <p>Product not found.</p>;
-  }
 
   return (
     <div className="product-site">
@@ -206,7 +216,7 @@ useEffect(() => {
       <div className="product-description">
         <p>{product.description}</p>
       </div>
-  
+
       <div className="reviews-section">
         <div className="average-rating">
           <RatingStars rating={calculateAverageRating()} outOf={5} />
@@ -221,7 +231,7 @@ useEffect(() => {
             </div>
           ))}
         </div>
-  
+
         {user ? (
           <form className="comment-form" onSubmit={handleSubmit}>
             <div>
@@ -250,6 +260,16 @@ useEffect(() => {
           </div>
         )}
       </div>
+
+      <div className="related-products">
+        <div className="products grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {relatedProducts.map(product => (
+            <Product key={product.id} data={product} />
+          ))}
+        </div>
+      </div>
+
+
     </div>
   );
 }

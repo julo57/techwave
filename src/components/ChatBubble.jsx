@@ -1,24 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChatCircleDots } from "phosphor-react";
 import Koksuś from '../assets/products/Koksuś.png';
 import { useTranslation } from "react-i18next";
-import data from '../translations/en/global.json';
-
+import data from '../translations/bot/global.json';
 
 import './ChatBubble.css';
 
 const ChatBubble = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState('');
-  const { t } = useTranslation("global");
+  const { t, i18n } = useTranslation("global");
   const [messages, setMessages] = useState([
-    { text: "Cześć, jestem Botem TechWave. Nazywam się Koksuś. Jak mogę Ci dzisiaj pomóc?", sender: "bot" }
+    { text: t("chat.hi"), sender: "bot" }
   ]);
+
+  useEffect(() => {
+    // Funkcja resetująca wiadomości i dodająca wiadomość powitalną
+    const resetMessages = () => {
+      setMessages([{ text: t("chat.hi"), sender: "bot" }]);
+    };
+
+    // Dodaj nasłuchiwacz zmiany języka
+    const languageChangeHandler = () => {
+      resetMessages();
+    };
+
+    i18n.on('languageChanged', languageChangeHandler);
+
+    // Usuń nasłuchiwacz przy demontowaniu komponentu
+    return () => {
+      i18n.off('languageChanged', languageChangeHandler);
+    };
+  }, [i18n, t]);
 
   const toggleChatWindow = () => {
     setIsOpen(!isOpen);
   };
 
+  const quickReplies = [
+    { label: t("chat.apple_expert"), message: t("chat.apple_expert_message") },
+    { label: t("chat.delivery_status"), message: t("chat.delivery_status_message") },
+    // ...inne przyciski
+  ];
+  
   const getBotResponse = (userMessage) => {
     let response = t("settings.bott"); // Domyślna odpowiedź
     let lowerCaseMessage = userMessage.toLowerCase();
@@ -50,6 +74,11 @@ const ChatBubble = () => {
     }
   };
 
+  const handleQuickReplyClick = (replyMessage) => {
+    setMessage(replyMessage);
+    handleSendMessage();
+  };
+
   return (
     <div className="chat-bubble-container">
       <div className={`chat-bubble-icon ${isOpen ? 'open' : ''}`} onClick={toggleChatWindow}>
@@ -77,8 +106,20 @@ const ChatBubble = () => {
               value={message} 
               onChange={(e) => setMessage(e.target.value)} 
               placeholder="Wpisz wiadomość..." 
+              onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
             />
             <button onClick={handleSendMessage}>Wyślij</button>
+          </div>
+          <div className="quick-reply-container">
+            {quickReplies.map((reply, index) => (
+              <div 
+                key={index} 
+                onClick={() => handleQuickReplyClick(reply.message)}
+                className="quick-reply-bubble"
+              >
+                {reply.label}
+              </div>
+            ))}
           </div>
         </div>
       )}

@@ -37,6 +37,7 @@ import ThankYou from "./pages/PaymentFolder/Thank-you";
 import AccountSettings from "./pages/AccountSettings";
 import Order from "./pages/Order";
 import Return from "./pages/Return";
+import ShowComment from "./pages/ShowComment";
 
 export const ThemeContext = createContext();
 i18next.init({
@@ -126,6 +127,7 @@ function App() {
                   <Route path="/AccountSettings" element={<AccountSettings />} /> 
                   <Route  path="/Order" element={<Order />} />
                   <Route path="/Return" element={<Return />} /> 
+                  <Route path="/ShowComment" element={<ShowComment />} />
                   {/* Additional routes if any */}
                 </Routes>
                 <Footer />
