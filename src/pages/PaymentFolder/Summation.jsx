@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import './Summation.css';
 import { useTranslation } from "react-i18next";
+import useAuthContext from "../../context/AuthContext";
+
 
 export const Summation = () => {
   const { cartItems, getTotalCartAmount, checkout } = useContext(ShopContext);
@@ -18,6 +20,7 @@ export const Summation = () => {
   const { paymentDetails } = useContext(PaymentContext);
   const deliveryCost = paymentDetails.deliveryCost; // Accessing delivery cost
   const { companyDetails } = useContext(PaymentContext);
+  const { user } = useAuthContext();
   
   
 
@@ -51,7 +54,10 @@ const finalAmountWithDiscounts = discountedAmount + finalDeliveryCost;
 
 
   const handleCheckout = async () => {
-    if (!paymentDetails.user_id) {
+    console.log("Payment details:", paymentDetails);
+    console.log("user", user);
+    if (user == null) {
+     
       // Jeśli nie ma zalogowanego użytkownika
       navigate('/thank-you'); // Przekieruj na finalną stronę
       checkout(); // Opcjonalnie: możesz oczyścić koszyk
@@ -73,6 +79,7 @@ const finalAmountWithDiscounts = discountedAmount + finalDeliveryCost;
       totalAmount: discountedAmount,
       address: paymentDetails.address,
     };
+    console.log("Order data being sent to server:", orderData);
   
     try {
       const response = await axios.post('http://localhost:8000/api/orders', orderData, {
@@ -90,6 +97,7 @@ const finalAmountWithDiscounts = discountedAmount + finalDeliveryCost;
           navigate('/thank-you'); // Przekierowanie na stronę podziękowania
         }, 3000); // Odczekanie 3 sekund przed przekierowaniem
       }
+      console.log("Response from server:", response);
     } catch (error) {
       alert('Failed to submit order. Please try again.');
       console.error('Failed to submit order:', error);
