@@ -278,13 +278,13 @@ const handleCompanyInputChange = (event) => {
           <h2 className="H2">{t("payment.title6")}</h2>
           <div className="deliverycheckbox">
             <div>
-              <input type="checkbox" name="termsConditions" checked={isTermsChecked} onChange={handleTermsChange} />
-              <label>{t("payment.label")}</label>
+              <input type="checkbox" name="termsConditions" checked={isTermsChecked} onChange={handleTermsChange} style={{ width: "15px", height: "15px" }} />
+              <label>  {t("payment.label")}</label>
               {errors.terms && <p className="error-message">{errors.terms}</p>}
             </div>
             <div>
-                <input type="checkbox" name="Newsletter" checked={isNewsletterChecked} onChange={handleNewsletterChange} />
-                <label>{t("payment.label2")}</label>
+                <input type="checkbox" name="Newsletter" checked={isNewsletterChecked} onChange={handleNewsletterChange} style={{ width: "15px", height: "15px" }} />
+                <label>  {t("payment.label2")}</label>
              </div>
         </div>
   
