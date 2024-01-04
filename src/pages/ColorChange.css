@@ -3,17 +3,17 @@
 }
 
 #dark form.bg-white{
-  background-color: black;
+  background-color: #3d3a3a;
 }
 
 #dark input.placeholder-black{
-  background-color: white;
+  background-color: #aca9a9;
 }
 
 #dark Link.text-black{
-  color: white;
+  color: #aca9a9;
 }
 
 #dark label.text-gray-700{
-  color: white;
+  color: #aca9a9;
 }

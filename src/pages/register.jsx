@@ -25,11 +25,11 @@ export const Register = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">  
     <div className="w-full max-w-md"  style={{ maxWidth: '320px' }}>
-    <p className="text-center">{t("registry.paragraph")}</p>
+    <p className="text-center text-2xl font-bold">{t("registry.paragraph")}</p>
         <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleRegister}>
             <div>
                 <label className="block font-semibold">{t("registry.label")}</label>
-                <input className=" shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full " 
+                <input className=" shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                 style={{ width: '270px' }}
                 type="text" 
                 value={name}
@@ -43,7 +43,7 @@ export const Register = () => {
   
             <div className="mt-4">
                 <label className="block font-semibold">{t("registry.label2")}</label>
-                <input className=" shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full " 
+                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                 style={{ width: '270px' }}
                 type="email" 
                 value={email}
@@ -57,7 +57,7 @@ export const Register = () => {
   
             <div className="mt-4">
                 <label className="block font-semibold">{t("registry.label3")}</label>
-                <input className=" shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" 
+                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                 style={{ width: '270px' }}
                 type="password" 
                 value={password}
@@ -71,7 +71,7 @@ export const Register = () => {
   
             <div className="mt-4">
                 <label className="block font-semibold" >{t("registry.label4")}</label>
-                <input className=" shadow-inner bg-gray-100 rounded-lg placeholder-black text-2xl p-4 border-none block mt-1 w-full" 
+                <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                 style={{ width: '270px' }}
                 type="password" 
                 value={password_confirmation }
@@ -84,7 +84,7 @@ export const Register = () => {
   
             <div className="flex items-center justify-between mt-8">
                 <button type="submit" className="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10" >{t("registry.button")}</button>
-                <Link to="/login" className="text-black " style={{ paddingLeft: '35px' }}>
+                <Link to="/login" className="text-center text-m font-bold " style={{ paddingLeft: '35px' }}>
                    {t("registry.link")}
                 </Link>
             </div>

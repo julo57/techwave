@@ -35,7 +35,7 @@ const ForgotPassword = () => {
     <div className="mb-4">
       
       <input
-        className="shadow mb-4 appearance-none placeholder-black border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        className="shadow mb-4 appearance-none placeholder-gray border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         style={{ maxWidth: '280px' }}
         id="username"
         type="email"
