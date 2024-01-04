@@ -45,7 +45,7 @@ export const LoginRegistryGuest = () => {
     <div className="min-h-screen flex items-center justify-center">
       {/* Formularz logowania */}
       <div className="w-full max-w-md">
-        <form className="bg-white shadow-2xl rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleLogin}>
+        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleLogin}>
           <p className="text-center text-2xl font-bold">{t("login.paragraph")}</p>
           {/* Pole email do logowania */}
           <div className="mb-4">
@@ -77,7 +77,7 @@ export const LoginRegistryGuest = () => {
           {/* ...obsługa błędów hasła... */}
           <div className="flex items-center justify-between">
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-indigo-700"
               type="submit"
             >
               {t("login.button")}
@@ -92,12 +92,12 @@ export const LoginRegistryGuest = () => {
       {/* Formularz rejestracji */}
       <div className="w-full max-w-md">
         <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleRegister}>
-          <p className="text-center">{t("registry.paragraph")}</p>
+          <p className="text-center text-2xl font-bold">{t("registry.paragraph")}</p>
           {/* Pole imienia do rejestracji */}
           <div>
             <label className="block font-semibold">{t("registry.label")}</label>
             <input
-              className="shadow-inner bg-gray-100 rounded-lg text-2xl p-4 block mt-1 w-full"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="text"
               placeholder={t("registry.placeholder")}
               value={registerName}
@@ -109,7 +109,7 @@ export const LoginRegistryGuest = () => {
           <div className="mt-4">
             <label className="block font-semibold">{t("registry.label2")}</label>
             <input
-              className="shadow-inner bg-gray-100 rounded-lg text-2xl p-4 block mt-1 w-full"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="email"
               placeholder={t("registry.placeholder2")}
               value={registerEmail}
@@ -121,7 +121,7 @@ export const LoginRegistryGuest = () => {
           <div className="mt-4">
             <label className="block font-semibold">{t("registry.label3")}</label>
             <input
-              className="shadow-inner bg-gray-100 rounded-lg text-2xl p-4 block mt-1 w-full"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="password"
               placeholder={t("registry.placeholder3")}
               value={registerPassword}
@@ -133,7 +133,7 @@ export const LoginRegistryGuest = () => {
           <div className="mt-4">
             <label className="block font-semibold">{t("registry.label4")}</label>
             <input
-              className="shadow-inner bg-gray-100 rounded-lg text-2xl p-4 block mt-1 w-full"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="password"
               placeholder={t("registry.placeholder4")}
               value={passwordConfirmation}
@@ -142,7 +142,7 @@ export const LoginRegistryGuest = () => {
           </div>
           <div className="flex items-center justify-between mt-8">
             <button
-              className="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+              className="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-indigo-700"
               type="submit"
             >
               {t("registry.button")}
@@ -154,7 +154,7 @@ export const LoginRegistryGuest = () => {
             <h2 className="text-xl font-semibold mb-4">{t("guest.continueWithoutLoggingIn")}</h2>
           
             <button
-              className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 hover:bg-indigo-700"
               type="button"
               onClick={handleGuestCheckout}
             >

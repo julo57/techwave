@@ -275,12 +275,12 @@ const handleCompanyInputChange = (event) => {
           <div className="deliverycheckbox">
             <div>
               <input type="checkbox" name="termsConditions" checked={isTermsChecked} onChange={handleTermsChange} />
-              <label>.{t("payment.label")}</label>
+              <label>{t("payment.label")}</label>
               {errors.terms && <p className="error-message">{errors.terms}</p>}
             </div>
             <div>
                 <input type="checkbox" name="Newsletter" checked={isNewsletterChecked} onChange={handleNewsletterChange} />
-                <label>.{t("payment.label2")}</label>
+                <label>{t("payment.label2")}</label>
              </div>
         </div>
   
