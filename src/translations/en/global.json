@@ -77,7 +77,7 @@
         "question7": "Can I track my shipment?",
         "question8": "Do you offer a product warranty?",
 
-        "answer": "To place an order, go to our product catalog, select the products you are interested in, add them to the cart, then go to checkout and make the payment.",
+        "answer1": "To place an order, go to our product catalog, select the products you are interested in, add them to the cart, then go to checkout and make the payment.",
         "answer2": "You can check the status of your order by logging into your account on our website and going to the Order History section.",
         "answer3": "Yes, we offer free delivery for orders over PLN 200",
         "answer4": "To return your product, please contact our customer service team and we will guide you through the return process.",
