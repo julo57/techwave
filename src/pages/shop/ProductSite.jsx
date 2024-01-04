@@ -29,18 +29,29 @@ function ProductSite() {
   const numberOfProducts = 5; // Liczba produktów do wylosowania
 
   const fetchRandomProducts = async () => {
-    const specificIds = [15, 33, 54, 69, 77];
     try {
-      const response = await axios.get('http://localhost:8000/api/products', {
-        params: {
-          ids: specificIds.join(','), // Przesyłamy określone ID jako łańcuch
-        },
-      });
-      setRelatedProducts(response.data.slice(0, specificIds.length));
+      const response = await axios.get('http://localhost:8000/api/products');
+      const allProducts = response.data;
+      let randomProducts = [];
+  
+      while (randomProducts.length < 5) {
+        const randomIndex = Math.floor(Math.random() * allProducts.length);
+        const selectedProduct = allProducts[randomIndex];
+  
+        // Sprawdzenie, czy produkt nie został już wcześniej wybrany
+        if (!randomProducts.some(product => product.id === selectedProduct.id)) {
+          randomProducts.push(selectedProduct);
+        }
+      }
+  
+      setRelatedProducts(randomProducts);
     } catch (error) {
-      console.error('Error fetching specific products:', error);
+      console.error('Error fetching products:', error);
     }
   };
+  
+
+  
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -252,11 +263,13 @@ function ProductSite() {
 
       <div className="related-products">
         <div className="products grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {relatedProducts.map(relatedProduct => (
-            <Product key={relatedProduct.id} data={relatedProduct} />
+          {relatedProducts.map(product => (
+            <Product key={product.id} data={product} />
           ))}
         </div>
       </div>
+
+
     </div>
   );
 }
