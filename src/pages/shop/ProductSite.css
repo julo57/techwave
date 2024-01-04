@@ -346,6 +346,13 @@
 	padding: 10px;
 }
 
+#dark p {
+	color: #b8b0b0;
+	padding: 10px;
+}
+
+
+
 @media (max-width: 767px) {
 	.product-site {
 		display: flex;

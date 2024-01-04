@@ -8,7 +8,7 @@ import RatingStars from './RatingStars';
 import './ProductSite.css';
 import useAuthContext from "../../context/AuthContext";
 import { useTranslation } from "react-i18next";
-import Product from './Product';
+import Product from './product';
 
 function ProductSite() {
   const { t } = useTranslation("global");
