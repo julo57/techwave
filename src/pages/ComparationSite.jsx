@@ -35,14 +35,16 @@ export const ComparationSite = () => {
       setIsLoading(false);
       return;
     }
-    
+    console.log(`Wyszukiwanie: ${searchTerm}, Kategoria: ${Category}`); // Dodaj ten log
     try {
       const response = await axios.get(`http://localhost:8000/api/products`, {
         params: { search: searchTerm, Category: Category }
       });
       setSearchResults(response.data.length > 0 ? response.data : []);
       setError(response.data.length > 0 ? null : "No products found with that name");
+      console.log("Odpowiedź API:", response.data); // Dodaj ten log
     } catch (error) {
+      console.error("Błąd podczas pobierania szczegółów produktu:", error); // Dodaj ten log
       setError("Error fetching product details");
       console.error(error);
     }
@@ -64,15 +66,23 @@ export const ComparationSite = () => {
   // Funkcja do renderowania wyboru kategorii
   const handleCategoryChange = (e) => {
     const newCategory = e.target.value;
+    console.log("Zmiana kategorii na:", newCategory);
     setCategory(newCategory);
   
-    // Resetuj wybrane produkty, gdy kategoria się zmienia
-    setProductLeft(null);
-    setProductRight(null);
+    // Resetuj stan dla obu stron
+    resetStateForSide('left');
+    resetStateForSide('right');
+  };
   
-    // Możesz także zresetować wyniki wyszukiwania, jeśli to konieczne
-    setSearchResultsLeft([]);
-    setSearchResultsRight([]);
+  const resetStateForSide = (side) => {
+    const setSearchTerm = side === 'left' ? setSearchTermLeft : setSearchTermRight;
+    const setProduct = side === 'left' ? setProductLeft : setProductRight;
+    const setSearchResults = side === 'left' ? setSearchResultsLeft : setSearchResultsRight;
+  
+    setSearchTerm("");
+    setProduct(null);
+    setSearchResults([]);
+    console.log(`Resetowanie stanu dla ${side}`);
   };
   
   // Funkcja renderująca wybór kategorii
@@ -186,9 +196,9 @@ export const ComparationSite = () => {
         <table className="table-comparison">
         <thead>
           <tr>
-            <th>Specyfikacja</th>
-            <th>Lewy Produkt</th>
-            <th>Prawy Produkt</th>
+            <th className="specyfikacja">Specyfikacja</th>
+            <th>{productLeft ? productLeft.name : "Lewy Produkt"}</th>
+            <th>{productRight ? productRight.name : "Prawy Produkt"}</th>
           </tr>
         </thead>
         <tbody>

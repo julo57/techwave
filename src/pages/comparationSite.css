@@ -45,9 +45,36 @@
   border-collapse: collapse;
 }
 
+.table-comparison {
+  width: 100%;
+  max-width: 100%; /* Dodane dla zapewnienia, że tabela nie przekroczy szerokości kontenera */
+  border-collapse: collapse;
+  table-layout: fixed; /* Umożliwia jednolite rozłożenie szerokości kolumn */
+}
+
 .table-comparison th,
 .table-comparison td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
+  overflow: hidden; /* Zapobiega wychodzeniu treści poza komórkę */
+  text-overflow: ellipsis; /* Dodaje '...' na końcu tekstu, który nie mieści się w komórce */
+  white-space: nowrap; /* Zapobiega zawijaniu tekstu */
+}
+
+/* Styl dla nagłówków kolumn */
+.table-comparison th:not(.specyfikacja) {
+  width: 40%; /* Większa szerokość dla pozostałych nagłówków */
+  /* ewentualne inne style */
+}
+
+
+.specyfikacja
+{
+  width: 20%;
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 2px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
