@@ -17,3 +17,7 @@
 #dark label.text-gray-700{
   color: #aca9a9;
 }
+
+#dark div.bg-white{
+  background-color: #3d3a3a;
+}

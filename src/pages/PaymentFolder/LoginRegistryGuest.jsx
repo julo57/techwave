@@ -82,7 +82,7 @@ export const LoginRegistryGuest = () => {
             >
               {t("login.button")}
             </button>
-            <Link to="/forgot-password" className="text-black">
+            <Link to="/forgot-password" className="text-gray">
               {t("login.anchor")}
             </Link>
           </div>
