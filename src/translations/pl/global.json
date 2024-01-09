@@ -25,10 +25,10 @@
   },
   "login": {
     "paragraph": "Zaloguj się",
-    "label": "Nazwa użytkownika",
+    "label": "Email użytkownika",
     "label2": "Hasło",
     "button": "Zaloguj się",
-    "placeholder": "Nazwa użytkownika",
+    "placeholder": "Email użytkownika",
     "placeholder2": "Hasło",
     "anchor": "Zapomniałeś hasła?",
     "anchor2": "Zrób teraz!",
@@ -328,5 +328,8 @@
         "apple_expert_message": "Chcę porozmawiać z ekspertem Apple.",
         "delivery_status": "Status dostawy",
         "delivery_status_message": "Jaki jest status mojej dostawy?"
+      },
+      "PaymentContext":{
+        "deliveryMethod": "kurier"
       }
 }

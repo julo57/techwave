@@ -39,7 +39,7 @@ export const Cart = () => {
   
 
   return (
-    <div className="cart p-4 md:p-8 flex flex-col items-center justify-center">
+    <div className="cart p-4 md:p-8 flex flex-col items-center justify-center mb-40">
       <div className="mb-4">
         <h1 className="text-2xl md:text-3xl text-center">{t('cart.title')}</h1>
       </div>

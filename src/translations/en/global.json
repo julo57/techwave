@@ -31,10 +31,10 @@
     "login":
     {
         "paragraph": "Sign in",
-        "label": "Username",
+        "label": "Email",
         "label2": "Password",
         "button": "Sign in",
-        "placeholder": "Username",
+        "placeholder": "Email",
         "placeholder2": "Password",
         "anchor":"Forgot Password?",
         "anchor2": "Create one now!",

@@ -216,7 +216,7 @@ export const Shop = (props) => {
   
   // Display products and handle loading and errors
   return (
-    <div className="shop p-16 sm:p-8 md:p-16 lg:p-10">
+    <div className="shop p-16 sm:p-8 md:p-16 lg:p-10 mb-40">
       {isLoading && <div>Loading...</div>}
       {error && <div>Error: {error.message}</div>}
       {!isLoading && !error && (
