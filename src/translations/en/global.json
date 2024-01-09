@@ -25,7 +25,9 @@
         "link3":"Register",
         "link4":"Compare products",
         "link5":"Filter page",
-        "placeholder": "Search product"
+        "placeholder": "Search product ",
+        "Search": "Search"
+
         
     },
     "login":
@@ -316,8 +318,12 @@
         "continueAsGuest": "Continue "
 
      },
+    
+  
+
 
     "product": {
+        "Select":"Select",
         "Diagonal": "Diagonal",
         "Matrix": "Matrix",
         "Resolution": "Resolution",

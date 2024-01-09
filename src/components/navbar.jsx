@@ -14,6 +14,7 @@ import NavbarCategories from "./NavbarCategories";
 import { ShopContext } from '../context/shop-context';
 
 
+
 export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
   const { cartItems } = useContext(ShopContext);
   const cartItemCount = Object.values(cartItems).reduce((total, item) => total + item.quantity, 0);
@@ -151,7 +152,7 @@ export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
           />
         </div>
 
-        <button className="md:hidden text-white" onClick={handleMobileMenuToggle}>
+        <button className="md:hidden text-white " onClick={handleMobileMenuToggle}>
           &#9776;
         </button>
 
@@ -178,7 +179,8 @@ export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
             </ul>
           )}
           <button className="ok" onClick={handleSearch}>
-            Szukaj
+          {t("navbar.Search")}
+           
           </button>
         </div>
       </div>

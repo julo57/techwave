@@ -262,7 +262,7 @@ function ProductSite() {
       </div>
 
       <div className="related-products">
-        <div className="products grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="products grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 m-10">
           {relatedProducts.map(product => (
             <Product key={product.id} data={product} />
           ))}

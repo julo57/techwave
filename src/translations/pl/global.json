@@ -21,7 +21,8 @@
     "link3": "Zarejestruj się",
     "link4": "Porównaj produkty",
     "link5":"Filtruj produkty",
-    "placeholder": "Szukaj produktu"
+    "placeholder": "Szukaj produktu",
+    "Search": "Szukaj"
   },
   "login": {
     "paragraph": "Zaloguj się",
@@ -101,7 +102,10 @@
       "link4": "Regulamin",
       "link5": "Najczęściej zadawane pytania",
       "link6": "2023 TechWave. Wszelkie prawa zastrzeżone."
+     
   },
+
+
   "profile":
   {
       "title": "Cześć",
@@ -303,6 +307,7 @@
 
      },
      "product": {
+      "Select":"Wybierz",
       "Diagonal": "Przekątna",
       "Matrix": "Matryca",
       "Resolution": "Rozdzielczość",
