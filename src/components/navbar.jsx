@@ -114,7 +114,7 @@ export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
           <img src="/logo.png" alt="logo" className="h-12" />
         </Link>
 
-        <div className="flex items-center space-x-8">
+        <div className="flex items-center space-x-4">
           <ThemeSwitchButton toggleTheme={toggleTheme} theme={theme} />
           {user ? 
           (
