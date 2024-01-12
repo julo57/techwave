@@ -324,9 +324,45 @@
 
       "chat": {
         "hi":"Cześć, jestem Botem TechWave. Nazywam się Koksuś. Jak mogę Ci dzisiaj pomóc?",
-        "apple_expert": "Spytaj eksperta Apple",
-        "apple_expert_message": "Chcę porozmawiać z ekspertem Apple.",
+        "apple_expert": "Ekspert Apple",
+        "apple_expert_message": "Jak mogę pomóc w kwestiach produktów Apple?",
         "delivery_status": "Status dostawy",
-        "delivery_status_message": "Jaki jest status mojej dostawy?"
+        "delivery_status_message": "Sprawdź tutaj status swojej dostawy.",
+        "payment_refunds": "Zwroty płatności",
+        "payment_refunds_message": "Zwroty płatności ",
+        "payment_complaints": "Reklamacje płatności",
+        "payment_complaints_message": " Reklamacje płatności.",
+        "payment": "Płatność",
+        "payment_message": "Płatność",
+        "gift_voucher_teachers": "Bon dla nauczycieli",
+        "gift_voucher_teachers_message": "Bon dla nauczycieli"
+      },
+
+      "bot":{
+        "defaultResponse": "Przepraszam nie rozumiem spróbuj jeszcze raz ",
+        "Witam": "Cześć, jestem Botem TechWave. Nazywam się Koksuś. Jak mogę Ci dzisiaj pomóc?",
+        "Cześć": "Cześć, jak mogę Ci pomóc?",
+        "Witaj": "Witaj, jak mogę Ci pomóc?",
+        "Pomoc": "W czym mogę Ci pomóc?",
+        "TV": "Szukasz nowego telewizora? Sprawdź naszą szeroką gamę opcji.",
+        "Telewizory": "Szukasz nowego telewizora? Sprawdź naszą szeroką gamę opcji.",
+        "Laptop": "Potrzebujesz nowego laptopa? Mamy różnorodne modele do wyboru.",
+        "Laptopy": "Potrzebujesz nowego laptopa? Mamy różnorodne modele do wyboru.",
+        "Smartfony": "Interesują Cię smartfony? Znajdź najnowsze modele tutaj.",
+        "Smartfon": "Interesuje Cię smartfon? Znajdź najnowsze modele tutaj.",
+        "Tablety": "Sprawdź naszą ofertę tabletów, idealnych do pracy i rozrywki.",
+        "Tablet": "Sprawdź naszą ofertę tabletów, idealnych do pracy i rozrywki.",
+        "Monitor": "Potrzebujesz nowego monitora? Zapoznaj się z naszą gamą opcji.",
+        "Monitory": "Potrzebujesz nowego monitora? Zapoznaj się z naszą gamą opcji.",
+        "Newsletter": "Zapisz się do naszego newslettera, aby otrzymywać najnowsze wiadomości i promocje.",
+        "Akcesoria": "Przeglądaj nasz asortyment akcesoriów komputerowych.",
+      
+
+
+
+         "Zwroty płatności ":"Zwrot produktu jest możliwy w ciągu 14 dni od daty otrzymania towaru. Produkt musi być w stanie nienaruszonym, w oryginalnym opakowaniu",
+         "Reklamacje płatności." : "Klient ma prawo do reklamacji w przypadku otrzymania produktu uszkodzonego lub niezgodnego z zamówieniem. Reklamację należy zgłosić w ciągu 14 dni od otrzymania towaru",
+         "Płatność" : "W naszym sklepie akceptujemy płatności kartą kredytową, BLIK iprzelewem bankowym",
+         "Bon dla nauczycieli":"Niestety w naszym sklepie nie mamy laptopów dla nauczycieli."
       }
 }

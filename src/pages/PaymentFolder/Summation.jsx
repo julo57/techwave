@@ -204,7 +204,7 @@ const finalAmountWithDiscounts = discountedAmount + finalDeliveryCost;
             <button className="close-btn" onClick={() => setShowBlikCodeModal(false)}>X</button>
             {showSuccessModal && (
   <div className="success-modal">
-    <p>Dziękujemy za zakup! Zaraz zostaniesz przekierowany na stronę główną.</p>
+      <p>Dziękujemy za zakup! Zaraz zostaniesz przekierowany na stronę główną.</p>
   </div>
 
 )}

@@ -339,9 +339,59 @@
 
       "chat": {
         "hi": "Hi, I'm the TechWave ChatBot. My name is Koksuś. How can I assist you today?",
-        "apple_expert": "Spytaj eksperta Apple",
-        "apple_expert_message": "Chcę porozmawiać z ekspertem Apple.",
-        "delivery_status": "Status dostawy",
-        "delivery_status_message": "Jaki jest status mojej dostawy?"
+        "apple_expert": "Apple Expert",
+        "apple_expert_message": "How can I assist you with Apple products?",
+        "delivery_status": "Delivery Status",
+        "delivery_status_message": "Check your delivery status here.",
+        "payment_refunds": "Payment Refunds",
+        "payment_refunds_message": " Payment Refunds .",
+        "payment_complaints": "Payment Complaints",
+        "payment_complaints_message": " Payment Complaints .",
+        "payment": "Payment",
+        "payment_message": " Payment .",
+        "gift_voucher_teachers": "Gift Voucher for Teachers",
+        "gift_voucher_teachers_message": "Gift Voucher for Teachers"
+      }
+      ,
+      "bot":{
+      
+        "defaultResponse": "I'm sorry I cant understand please try again ",
+      
+        "welcome": "Hi, I'm the TechWave Bot. My name is Koksuś. How can I assist you today?",
+        "hi": "Hi How can I assist you?",
+        "hello": "Hellow How can I assist you?",
+        "help": "How can I help you?",
+        "TV": "Looking for a new television? Check out our wide range of options.",
+        "televisions": "Looking for a new television? Check out our wide range of options.",
+        "laptop": "In need of a new laptop? We have a variety of models to choose from.",
+        "laptops": "In need of a new laptop? We have a variety of models to choose from.",
+        "smartphones": "Interested in smartphones? Find the latest models here.",
+        "smartphone": "Interested in smartphones? Find the latest models here.",
+        "tablets": "Check out our selection of tablets, perfect for work and entertainment.",
+        "tablet": "Check out our selection of tablets, perfect for work and entertainment.",
+        "monitor": "Need a new monitor? Explore our range of options.",
+        "monitors": "Need a new monitor? Explore our range of options.",
+        "newsletter": "Subscribe to our newsletter to receive the latest news and promotions.",
+        "accessories": "Browse our assortment of computer accessories.",
+        "payment": "We accept all major credit cards and Blik.",
+        "delivery": "We offer free delivery for orders over PLN 200.",
+        "speakers": "Need speakers? We offer various models for every need.",
+        "headphones": "Searching for headphones? We have a wide selection.",
+        "printers": "Looking for a printer? Check out our home and office solutions.",
+        "hard drives": "Need more storage? Take a look at our hard drives.",
+        
+        "processors": "Looking for a new processor? We offer top models.",
+        "questions": "What are yours questions?",
+        "question": "What is your question?",
+        "bye": "Bye! Hope to see you again soon.",
+        "What is your name?": "My name is Koksuś",
+        "My name is {name}": "Hi {name}, nice to meet you!",
+        "wonderful": "I am happy to hear that! ",
+        "great": "I am happy to hear that!",
+        "Payment Refunds .":"The return of the product is possible within 14 days from the date of receiving the goods.The product must be in an undamaged condition, in its original packaging",
+        "Payment Complaints":"The customer has the right to complain if they receive a damaged product or one that does not correspond to the order. A complaint should be reported within 14 days of receiving the goods.",
+        "Payment" : "In our store you can pay by credit card , online payment or Blik.",
+        "Gift Voucher for Teachers" : "Unfortuneately, we do not offer gift vouchers for teachers."
+
       }
 }
