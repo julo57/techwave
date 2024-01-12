@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Product } from "./product";
 import "./shop.css";
 import useProducts from "./useProducts";
+import { useTranslation } from "react-i18next";
 
 export const Shop = (props) => {
+  const {t} = useTranslation("global");
   const { isLoading, error, products } = useProducts();
   const [displayedProducts, setDisplayedProducts] = useState([]);
 
@@ -121,25 +123,25 @@ export const Shop = (props) => {
       case "Phone":
         categorySpecificFilters = (
           <>
-            <label htmlFor="RAM">RAM:</label>
+            <label htmlFor="RAM">RAM</label>
             <select
               id="RAM"
               value={filters.RAM}
               onChange={(e) => setFilters({ ...filters, RAM: e.target.value })}
             >
-              <option value="">Select</option>
+              <option value="">{t("product.Select")}</option>
               <option value="8">8 GB</option>
               <option value="16">16 GB</option>
               {/* Add more options as needed */}
             </select>
   
-            <label htmlFor="Storage">Storage:</label>
+            <label htmlFor="Storage">{t("product.Storage")}:</label>
             <select
               id="Storage"
               value={filters.Storage}
               onChange={(e) => setFilters({ ...filters, Storage: e.target.value })}
             >
-              <option value="">Select</option>
+              <option value="">{t("product.Select")}</option>
               <option value="256">256 GB</option>
               <option value="512">512 GB</option>
               {/* Add more options as needed */}
@@ -151,21 +153,22 @@ export const Shop = (props) => {
       case "Monitor":
         categorySpecificFilters = (
           <>
-            <label htmlFor="Diagonal">Diagonal:</label>
+            <label htmlFor="Diagonal">{t("product.Diagonal")}:</label>
             <input
+              className="border-2 mr-1"
               id="Diagonal"
               type="number"
               value={filters.Diagonal}
               onChange={(e) => setFilters({ ...filters, Diagonal: e.target.value })}
             />
   
-            <label htmlFor="Matrix">Matrix Type:</label>
+            <label htmlFor="Matrix">{t("product.Matrix")}</label>
             <select
               id="Matrix"
               value={filters.Matrix}
               onChange={(e) => setFilters({ ...filters, Matrix: e.target.value })}
             >
-              <option value="">Select</option>
+              <option value="">{t("product.Select")}</option>
               <option value="IPS">IPS</option>
               <option value="VA">VA</option>
               {/* Add more options as needed */}
@@ -182,8 +185,9 @@ export const Shop = (props) => {
     const priceRangeFilter = (
       <div className="filter-container">
         <div className="filter-item">
-          <label htmlFor="priceMin">Min Price:</label>
+          <label htmlFor="priceMin">{t("filter.Pricelow")}</label>
           <input
+            className="border-2 ml-1"
             id="priceMin"
             type="number"
             value={filters.priceMin}
@@ -192,8 +196,9 @@ export const Shop = (props) => {
         </div>
     
         <div className="filter-item">
-          <label htmlFor="priceMax">Max Price:</label>
+          <label htmlFor="priceMax">{t("filter.Pricehigh")}</label>
           <input
+             className="border-2 ml-1"
             id="priceMax"
             type="number"
             value={filters.priceMax}
@@ -216,7 +221,7 @@ export const Shop = (props) => {
   
   // Display products and handle loading and errors
   return (
-    <div className="shop p-16 sm:p-8 md:p-16 lg:p-10">
+    <div className="shop p-16 sm:p-8 md:p-16 lg:p-10 ">
       {isLoading && <div>Loading...</div>}
       {error && <div>Error: {error.message}</div>}
       {!isLoading && !error && (

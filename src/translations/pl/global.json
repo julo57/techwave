@@ -21,14 +21,15 @@
     "link3": "Zarejestruj się",
     "link4": "Porównaj produkty",
     "link5":"Filtruj produkty",
-    "placeholder": "Szukaj produktu"
+    "placeholder": "Szukaj produktu",
+    "Search": "Szukaj"
   },
   "login": {
     "paragraph": "Zaloguj się",
-    "label": "Nazwa użytkownika",
+    "label": "Email użytkownika",
     "label2": "Hasło",
     "button": "Zaloguj się",
-    "placeholder": "Nazwa użytkownika",
+    "placeholder": "Email użytkownika",
     "placeholder2": "Hasło",
     "anchor": "Zapomniałeś hasła?",
     "anchor2": "Zrób teraz!",
@@ -101,7 +102,10 @@
       "link4": "Regulamin",
       "link5": "Najczęściej zadawane pytania",
       "link6": "2023 TechWave. Wszelkie prawa zastrzeżone."
+     
   },
+
+
   "profile":
   {
       "title": "Cześć",
@@ -303,6 +307,7 @@
 
      },
      "product": {
+      "Select":"Wybierz",
       "Diagonal": "Przekątna",
       "Matrix": "Matryca",
       "Resolution": "Rozdzielczość",
@@ -364,5 +369,8 @@
          "Reklamacje płatności." : "Klient ma prawo do reklamacji w przypadku otrzymania produktu uszkodzonego lub niezgodnego z zamówieniem. Reklamację należy zgłosić w ciągu 14 dni od otrzymania towaru",
          "Płatność" : "W naszym sklepie akceptujemy płatności kartą kredytową, BLIK iprzelewem bankowym",
          "Bon dla nauczycieli":"Niestety w naszym sklepie nie mamy laptopów dla nauczycieli."
+      },
+      "PaymentContext":{
+        "deliveryMethod": "kurier"
       }
 }

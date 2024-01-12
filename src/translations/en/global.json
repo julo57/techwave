@@ -25,16 +25,18 @@
         "link3":"Register",
         "link4":"Compare products",
         "link5":"Filter page",
-        "placeholder": "Search product"
+        "placeholder": "Search product ",
+        "Search": "Search"
+
         
     },
     "login":
     {
         "paragraph": "Sign in",
-        "label": "Username",
+        "label": "Email",
         "label2": "Password",
         "button": "Sign in",
-        "placeholder": "Username",
+        "placeholder": "Email",
         "placeholder2": "Password",
         "anchor":"Forgot Password?",
         "anchor2": "Create one now!",
@@ -316,8 +318,12 @@
         "continueAsGuest": "Continue "
 
      },
+    
+  
+
 
     "product": {
+        "Select":"Select",
         "Diagonal": "Diagonal",
         "Matrix": "Matrix",
         "Resolution": "Resolution",

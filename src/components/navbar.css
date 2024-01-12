@@ -158,10 +158,7 @@ nav.bg-white.border-gray-200.dark\:bg-gray-900.p-4 {
 }
 
 #light .ok:hover {
-	color: #fff;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	padding: 10px;
+	background-color: gray;
 	cursor: pointer;
 }
 
@@ -181,6 +178,11 @@ nav.bg-white.border-gray-200.dark\:bg-gray-900.p-4 {
 	border-radius: 5px;
 	padding: 10px;
 	cursor: pointer;
+}
+
+button
+{
+	padding-left: 5px;
 }
 
 .Bialy {
