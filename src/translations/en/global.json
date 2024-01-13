@@ -340,7 +340,21 @@
         "Interfaces": "Interfaces",
         "PrintSpeed": "Print Speed",
         "DuplexPrinting": "Duplex Printing",
-        "NoSpecifications": "No specifications available for this category."
+        "NoSpecifications": "No specifications available for this category.",
+       
+      
+        "Laser": "Laser",
+        "Inkjet": "Inkjet",
+       
+        "USB": "USB",
+        "Wireless": "Wireless",
+        "Ethernet": "Ethernet",
+        
+        "EnterPrintSpeed": "Enter print speed",
+        
+        "Available": "Available",
+        "NotAvailable": "Not available",
+        "Term": "Thermal"
       },
 
       "chat": {

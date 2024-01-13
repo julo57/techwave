@@ -320,11 +320,22 @@
       "Microphone": "Mikrofon",
       "NoiseCancelling": "Redukcja szumów",
       "HeadphoneType": "Typ słuchawek",
+     
+      "NoSpecifications": "Brak specyfikacji dla tej kategorii.",
+      
       "PrintingTechnology": "Technologia druku",
+      "Laser": "Laserowa",
+      "Inkjet": "Atramentowa",
       "Interfaces": "Interfejsy",
-      "PrintSpeed": "Prędkość druku",
+      "USB": "USB",
+      "Wireless": "USB, Wi-Fi, LAN",
+      "Ethernet": "Ethernet",
+      "PrintSpeed": "Szybkość druku",
+      "EnterPrintSpeed": "Wpisz szybkość druku",
       "DuplexPrinting": "Druk dwustronny",
-      "NoSpecifications": "Brak specyfikacji dla tej kategorii."
+      "Available": "Dostępny",
+      "NotAvailable": "Niedostępny",
+      "Term": "Termiczna"
     },
 
       "chat": {
