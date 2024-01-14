@@ -88,18 +88,19 @@ function ProductSite() {
   
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setIsSubmitting(true);
-
+  
     if (!productId) {
       console.error("ProductId is undefined");
       return;
     }
-
-    if (!comment.trim()) {
-      alert('Komentarz nie może być pusty.');
+  
+    if (!rating || !comment.trim()) {
+      alert('Ocena i komentarz nie mogą być puste.');
       return;
     }
-
+  
+    setIsSubmitting(true); // Przeniesienie ustawienia flagi tutaj
+  
     try {
       await axios.get('/sanctum/csrf-cookie');
       const response = await axios.post(`http://localhost:8000/api/products/${productId}/comments`, {
@@ -125,8 +126,9 @@ function ProductSite() {
       } else {
         console.error("Error submitting comment:", error);
       }
+    } finally {
+      setIsSubmitting(false); // Zawsze wyłączaj animację, niezależnie od wyniku
     }
-    setIsSubmitting(false);
   };
 
   if (!product) {
@@ -303,9 +305,15 @@ function ProductSite() {
               <textarea id="comment" value={comment} onChange={(e) => setComment(e.target.value)} />
             </div>
             <button type="submit" className={`submit-button ${isSubmitting ? 'loading' : ''}`} disabled={isSubmitting}>
-              Wyślij ocenę i komentarz
-              {isSubmitting && <FontAwesomeIcon icon={faSpinner} spin />}
-            </button>
+            Wyślij ocenę i komentarz
+            {isSubmitting && (
+              <div className="loading-icon">
+                <div className="pulse-dot"></div>
+                <div className="pulse-dot"></div>
+                <div className="pulse-dot"></div>
+              </div>
+            )}
+          </button>
           </form>
         ) : (
           <div className="comment-form disabled">
