@@ -10,19 +10,20 @@ export const Shop = (props) => {
   const [displayedProducts, setDisplayedProducts] = useState([]);
 
   const [filters, setFilters] = useState({
-    RAM: '',  // For Laptop and Phone categories
-    Storage: '',  // For Laptop and Phone categories
-    diagonal: '',  // For TV and Monitor categories
-    Matrix: '',  // For TV and Monitor categories
-    Resolution: '',  // For TV and Monitor categories
-    Energyclass: '',  // For TV and Monitor categories
-    Printspeed: '',  // For Printer category
-    NoiseCancelling: '',  // For Headphones category
-    // ... add other specific filters for each category
+    RAM: '',  // Dla kategorii Laptop i Phone
+    Storage: '',  // Dla kategorii Laptop i Phone
+    diagonal: '',  // Dla kategorii TV i Monitor
+    Matrix: '',  // Dla kategorii TV i Monitor
+    Resolution: '',  // Dla kategorii TV i Monitor
+    Energyclass: '',  // Dla kategorii TV i Monitor
+    Printspeed: '',  // Dla kategorii Printer
+    noisecancelling: '',  // Dla kategorii Headphones
+    microphone: '',  // Dla kategorii Headphones
+    connection: '',  // Dla kategorii Headphones
+    headphonetype: '',  // Dla kategorii Headphones
     priceMin: '',
     priceMax: '',
   });
-
   // Function to filter products based on selected category and filters
   const getFilteredProducts = () => {
     return products.filter(product => {
@@ -97,20 +98,32 @@ export const Shop = (props) => {
           return false;
         }
       
-        // ... add other specific filters for printers
+        
       }
 
       // Specific filters for Headphones
       if (props.selectedCategory === "Headphones") {
-        if (filters.NoiseCancelling && product.NoiseCancelling !== filters.NoiseCancelling) {
+        if (filters.noisecancelling && product.noisecancelling !== filters.noisecancelling) {
           return false;
         }
-        // ... add other specific filters for headphones
+
+        // Filtrowanie po mikrofonie
+        if (filters.microphone && filters.microphone !== '' && product.microphone !== filters.microphone) {
+          return false;
+        }
+        
+        // Upewnij się, że puste wartości filtrów są ignorowane
+        if (filters.connection && filters.connection !== '' && product.connection !== filters.connection) {
+          return false;
+        }
+        
+        // Upewnij się, że puste wartości filtrów są ignorowane
+        if (filters.headphonetype && filters.headphonetype !== '' && product.headphonetype !== filters.headphonetype) {
+          return false;
+        }
       }
+      
 
-      // ... add more conditions for other categories
-
-      // If all checks pass, include the product
       return true;
     });
   };
@@ -131,10 +144,10 @@ export const Shop = (props) => {
     Resolution: '',
     Energyclass: '',
     Printspeed: '',
-    NoiseCancelling: '',
-    Connection: '',
-    Microphone: '',
-    HeadphoneType: '',
+    noisecancelling: '',
+    connection: '',
+    microphone: '',
+    headphonetype: '',
     Printingtechnology: '',
     Interfaces: '',
     Duplexprinting: '',
@@ -159,6 +172,7 @@ export const Shop = (props) => {
           <>
            <label htmlFor="Screen">HZ</label>
             <select
+            className="border-2 ml-1"
               id="Screen"
               value={filters.Screen}
               onChange={(e) => setFilters({ ...filters, Screen: e.target.value })}
@@ -171,6 +185,7 @@ export const Shop = (props) => {
 
             <label htmlFor="RAM">RAM</label>
             <select
+            className="border-2 ml-1"
               id="RAM"
               value={filters.RAM}
               onChange={(e) => setFilters({ ...filters, RAM: e.target.value })}
@@ -186,6 +201,7 @@ export const Shop = (props) => {
   
             <label htmlFor="Storage">{t("product.Storage")}:</label>
             <select
+            className="border-2 ml-1"
               id="Storage"
               value={filters.Storage}
               onChange={(e) => setFilters({ ...filters, Storage: e.target.value })}
@@ -204,7 +220,8 @@ export const Shop = (props) => {
           <>
            <label htmlFor="diagonal">{t("product.Diagonal")}:</label>
             <select
-              className="border-2 mr-1"
+            className="border-2 ml-1"
+              
               id="diagonal"
               value={filters.diagonal}
               onChange={(e) => setFilters({ ...filters, diagonal: e.target.value })}
@@ -217,6 +234,7 @@ export const Shop = (props) => {
             </select>
             <label htmlFor="Matrix">{t("product.Matrix")}</label>
             <select
+            className="border-2 ml-1"
               id="Matrix"
               value={filters.Matrix}
               onChange={(e) => setFilters({ ...filters, Matrix: e.target.value })}
@@ -229,24 +247,22 @@ export const Shop = (props) => {
               <option value="QLED">QLED</option>
               {/* Add more options as needed */}
             </select>
-            <label htmlFor="Resolution">{t("Resolution")}</label>
+            <label htmlFor="Resolution">{t("product.Resolution")}</label>
             <select
+            className="border-2 ml-1"
               id="Resolution"
               value={filters.Resolution}
               onChange={(e) => setFilters({ ...filters, Resolution: e.target.value })}
             >
               <option value="">{t("product.Select")}</option>
               <option value="3840x2160">3840x2160</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-              <option value="E">E</option>
-              <option value="F">F</option>
-              <option value="G">G</option>
+            
               
               {/* Add more options as needed */}
             </select>
-            <label htmlFor="Energyclass">{t("Energyclass")}</label>
+            <label htmlFor="Energyclass">{t("product.EnergyClass")}</label>
             <select
+            className="border-2 ml-1"
               id="Energyclass"
               value={filters.Energyclass}
               onChange={(e) => setFilters({ ...filters, Energyclass: e.target.value })}
@@ -268,55 +284,59 @@ export const Shop = (props) => {
         case "Headphones":
           categorySpecificFilters = (
             <>
-              <label htmlFor="Connection">{t("product.Connection")}</label>
+              <label htmlFor="connection">{t("product.Connection")}</label>
               <select
-                id="Connection"
-                value={filters.Connection}
-                onChange={(e) => setFilters({ ...filters, Connection: e.target.value })}
+              className="border-2 ml-1"
+                id="connection"
+                value={filters.connection}
+                onChange={(e) => setFilters({ ...filters, connection: e.target.value })}
               >
                 <option value="">{t("product.Select")}</option>
                 <option value="True Wireless">{t("product.TrueWireless")}</option>
-                <option value="Wired">{t("product.Wired")}</option>
-                <option value="Wireless">{t("product.Wireless")}</option>
+                <option value="Przewodowe">{t("product.Wired")}</option>
+                <option value="Bezprzewodowe">{t("product.Wireless")}</option>
                 {/* Add more options as needed */}
               </select>
     
-              <label htmlFor="Microphone">{t("product.Microphone")}</label>
+              <label htmlFor="microphone">{t("product.Microphone")}</label>
               <select
-                id="Microphone"
-                value={filters.Microphone}
-                onChange={(e) => setFilters({ ...filters, Microphone: e.target.value })}
+              className="border-2 ml-1"
+                id="microphone"
+                value={filters.microphone}
+                onChange={(e) => setFilters({ ...filters, microphone: e.target.value })}
               >
                 <option value="">{t("product.Select")}</option>
-                <option value="Built-in">{t("product.BuiltIn")}</option>
-                <option value="Detachable">{t("product.Detachable")}</option>
+                <option value="Posiada">{t("product.BuiltIn")}</option>
+                
                 <option value="None">{t("product.None")}</option>
                 {/* Add more options as needed */}
               </select>
     
-              <label htmlFor="NoiseCancelling">{t("product.NoiseCancelling")}</label>
+              <label htmlFor="noisecancelling">{t("product.NoiseCancelling")}</label>
               <select
-                id="NoiseCancelling"
-                value={filters.NoiseCancelling}
-                onChange={(e) => setFilters({ ...filters, NoiseCancelling: e.target.value })}
+              className="border-2 ml-1"
+                id="noisecancelling"
+                value={filters.noisecancelling}
+                onChange={(e) => setFilters({ ...filters, noisecancelling: e.target.value })}
               >
                 <option value="">{t("product.Select")}</option>
-                <option value="Active">{t("product.Active")}</option>
-                <option value="Passive">{t("product.Passive")}</option>
-                <option value="None">{t("product.None")}</option>
+                <option value="Aktywna">{t("product.Active")}</option>
+                <option value="Pasywna">{t("product.Passive")}</option>
+                <option value="Nie">{t("product.None")}</option>
                 {/* Add more options as needed */}
               </select>
     
-              <label htmlFor="HeadphoneType">{t("product.HeadphoneType")}</label>
+              <label htmlFor="headphonetype">{t("product.HeadphoneType")}</label>
               <select
-                id="HeadphoneType"
-                value={filters.HeadphoneType}
-                onChange={(e) => setFilters({ ...filters, HeadphoneType: e.target.value })}
+              className="border-2 ml-1"
+                id="headphonetype"
+                value={filters.headphonetype}
+                onChange={(e) => setFilters({ ...filters, headphonetype: e.target.value })}
               >
                 <option value="">{t("product.Select")}</option>
-                <option value="In-ear">{t("product.InEar")}</option>
-                <option value="On-ear">{t("product.OnEar")}</option>
-                <option value="Over-ear">{t("product.OverEar")}</option>
+                <option value="Dokanałowe">{t("product.InEar")}</option>
+                <option value="Nauszne">{t("product.OnEar")}</option>
+               
                 {/* Add more options as needed */}
               </select>
             </>
@@ -327,6 +347,7 @@ export const Shop = (props) => {
     <>
       <label htmlFor="Printingtechnology">{t("product.PrintingTechnology")}</label>
       <select
+      className="border-2 ml-1"
         id="Printingtechnology"
         value={filters.Printingtechnology}
         onChange={(e) => setFilters({ ...filters, Printingtechnology: e.target.value })}
@@ -341,6 +362,7 @@ export const Shop = (props) => {
 
       <label htmlFor="Interfaces">{t("product.Interfaces")}</label>
       <select
+      className="border-2 ml-1"
         id="Interfaces"
         value={filters.Interfaces}
         onChange={(e) => setFilters({ ...filters, Interfaces: e.target.value })}
@@ -355,6 +377,7 @@ export const Shop = (props) => {
 
       <label htmlFor="Printspeed">{t("product.PrintSpeed")}</label>
       <input
+      className="border-2 ml-1"
         id="Printspeed"
         type="number"
         value={filters.Printspeed}
@@ -364,6 +387,7 @@ export const Shop = (props) => {
 
       <label htmlFor="Duplexprinting">{t("product.DuplexPrinting")}</label>
       <select
+      className="border-2 ml-1"
         id="Duplexprinting"
         value={filters.Duplexprinting}
         onChange={(e) => setFilters({ ...filters, Duplexprinting: e.target.value })}

@@ -201,8 +201,8 @@
     },
     "filter":
     {
-        "Pricelow": "Sort by Price (Low to High)",
-        "Pricehigh": "Sort by Price (High to Low)",
+        "Pricelow": "Minimal Price",
+        "Pricehigh": "Maximal Price",
         "RAMlow": "Sort by RAM (Low to High)",
         "RAMhigh": "Sort by RAM (High to Low)",
         "Storagehigh": "Sort by Storage (High to Low)",
@@ -323,6 +323,7 @@
 
 
     "product": {
+        
         "Select":"Select",
         "Diagonal": "Diagonal",
         "Matrix": "Matrix",
@@ -354,7 +355,21 @@
         
         "Available": "Available",
         "NotAvailable": "Not available",
-        "Term": "Thermal"
+        "Term": "Thermal",
+
+       
+    "TrueWireless": "True Wireless",
+    "Wired": "Wired",
+ 
+    
+    "BuiltIn": "Built-in",
+    "None": "None",
+    
+    "Active": "Active",
+    "Passive": "Passive",
+   
+    "InEar": "In-Ear",
+    "OnEar": "On-Ear"
       },
 
       "chat": {
@@ -366,9 +381,9 @@
         "payment_refunds": "Payment Refunds",
         "payment_refunds_message": " Payment Refunds .",
         "payment_complaints": "Payment Complaints",
-        "payment_complaints_message": " Payment Complaints .",
+        "payment_complaints_message": "Complaints",
         "payment": "Payment",
-        "payment_message": " Payment .",
+        "payment_message": "Payment",
         "gift_voucher_teachers": "Gift Voucher for Teachers",
         "gift_voucher_teachers_message": "Gift Voucher for Teachers"
       }
@@ -377,39 +392,28 @@
       
         "defaultResponse": "I'm sorry I cant understand please try again ",
       
-        "welcome": "Hi, I'm the TechWave Bot. My name is Koksuś. How can I assist you today?",
-        "hi": "Hi How can I assist you?",
-        "hello": "Hellow How can I assist you?",
-        "help": "How can I help you?",
-        "TV": "Looking for a new television? Check out our wide range of options.",
-        "televisions": "Looking for a new television? Check out our wide range of options.",
-        "laptop": "In need of a new laptop? We have a variety of models to choose from.",
-        "laptops": "In need of a new laptop? We have a variety of models to choose from.",
-        "smartphones": "Interested in smartphones? Find the latest models here.",
-        "smartphone": "Interested in smartphones? Find the latest models here.",
-        "tablets": "Check out our selection of tablets, perfect for work and entertainment.",
-        "tablet": "Check out our selection of tablets, perfect for work and entertainment.",
-        "monitor": "Need a new monitor? Explore our range of options.",
-        "monitors": "Need a new monitor? Explore our range of options.",
-        "newsletter": "Subscribe to our newsletter to receive the latest news and promotions.",
-        "accessories": "Browse our assortment of computer accessories.",
-        "payment": "We accept all major credit cards and Blik.",
-        "delivery": "We offer free delivery for orders over PLN 200.",
-        "speakers": "Need speakers? We offer various models for every need.",
-        "headphones": "Searching for headphones? We have a wide selection.",
-        "printers": "Looking for a printer? Check out our home and office solutions.",
-        "hard drives": "Need more storage? Take a look at our hard drives.",
-        
-        "processors": "Looking for a new processor? We offer top models.",
-        "questions": "What are yours questions?",
-        "question": "What is your question?",
-        "bye": "Bye! Hope to see you again soon.",
-        "What is your name?": "My name is Koksuś",
-        "My name is {name}": "Hi {name}, nice to meet you!",
-        "wonderful": "I am happy to hear that! ",
-        "great": "I am happy to hear that!",
+            "Hello": "Hi, I'm TechWave Bot. My name is Koksuś. How can I help you today?",
+    "Hi": "Hi, how can I help you?",
+    "Welcome": "Welcome, how can I help you?",
+    "Help": "How can I assist you?",
+    "TVs": "Looking for a new TV? Go to the TV section and choose one using our filters.",
+    "Television": "Looking for a new television? Go to the TV section and choose one using our filters.",
+    "Laptop": "Need a new laptop? Go to the Laptops section and pick one using our filters.",
+    "Laptops": "Need a new laptop? Go to the Laptops section and pick one using our filters.",
+    "Smartphones": "Interested in smartphones? Go to the Phones section and pick one using our filters.",
+    "Smartphone": "Interested in a smartphone? Go to the Phones section. Unfortunately, we do not have any.",
+    "Tablets": "Unfortunately, we do not carry any.",
+    "Tablet": "Unfortunately, we do not have any",
+    "Monitor": "Need a new monitor? Go to the Monitors section and pick one using our filters.",
+    "Monitors": "Need a new monitor? Go to the Monitors section and pick one using our filters.",
+    "Newsletter": "Sign up for our newsletter to receive the latest news and promotions.",
+    "Headphones": "Need new headphones? Go to the Headphones section and pick some using our filters.",
+    "Headphone": "Need new headphones? Go to the Headphones section and pick some using our filters.",
+    "Printers": "Need a new printer? Go to the Printers section and pick one using our filters.",
+    "Printer": "Need a new printer? Go to the Printers section and pick one using our filters.",
+    "Delivery": "Delivery is free for orders over 200 zł.",
         "Payment Refunds .":"The return of the product is possible within 14 days from the date of receiving the goods.The product must be in an undamaged condition, in its original packaging",
-        "Payment Complaints":"The customer has the right to complain if they receive a damaged product or one that does not correspond to the order. A complaint should be reported within 14 days of receiving the goods.",
+        "Complaints":"The customer has the right to complain if they receive a damaged product or one that does not correspond to the order. A complaint should be reported within 14 days of receiving the goods.",
         "Payment" : "In our store you can pay by credit card , online payment or Blik.",
         "Gift Voucher for Teachers" : "Unfortuneately, we do not offer gift vouchers for teachers."
 

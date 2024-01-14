@@ -168,22 +168,75 @@ function ProductSite() {
             <p><strong>{t("product.Storage")}: {product.Storage}GB</strong></p>
           </>
         );
-      case 'Headphones':
-        return (
-          <>
-            <p><strong>{t("product.Connection")}: {product.connection}</strong></p>
-            <p><strong>{t("product.Microphone")}: {product.microphone}</strong></p>
-            <p><strong>{t("product.NoiseCancelling")}: {product.noisecancelling}</strong></p>
-            <p><strong>{t("product.HeadphoneType")}: {product.headphonetype}</strong></p>
-          </>
-        );
+        case 'Headphones':
+          return (
+            <>
+              <p><strong>{t("product.Connection")}: 
+                {
+                  product.connection === 'True Wireless' ? t("product.TrueWireless") :
+                  product.connection === 'Przewodowe' ? t("product.Wired") :
+                  product.connection === 'Bezprzewodowe' ? t("product.Wireless") :
+                  product.connection // Domyślnie
+                }
+              </strong></p>
+              <p><strong>{t("product.Microphone")}: 
+                {
+                  product.microphone === 'Posiada' ? t("product.BuiltIn") :
+                  product.microphone === 'None' ? t("product.None") :
+                  product.microphone // Domyślnie
+                }
+              </strong></p>
+              <p><strong>{t("product.NoiseCancelling")}: 
+                {
+                  product.noisecancelling === 'Aktywna' ? t("product.Active") :
+                  product.noisecancelling === 'Pasywna' ? t("product.Passive") :
+                  product.noisecancelling === 'Nie' ? t("product.None") :
+                  product.noisecancelling // Domyślnie
+                }
+              </strong></p>
+              <p><strong>{t("product.HeadphoneType")}: 
+                {
+                  product.headphonetype === 'Dokanałowe' ? t("product.InEar") :
+                  product.headphonetype === 'Nauszne' ? t("product.OnEar") :
+                  product.headphonetype // Domyślnie
+                }
+              </strong></p>
+            </>
+          );
       case 'Printer':
         return (
           <>
-            <p><strong>{t("product.PrintingTechnology")}: {product.Printingtechnology}</strong></p>
-            <p><strong>{t("product.Interfaces")}: {product.Interfaces}</strong></p>
+            <p>
+            <strong>{t("product.PrintingTechnology")}: 
+              {
+                product.Printingtechnology === 'Laserowa' ? t("product.Laser") :
+                product.Printingtechnology === 'Atramentowa' ? t("product.Inkjet") :
+                product.Printingtechnology === 'Termiczna' ? t("product.Term") :
+                product.Printingtechnology // Domyślnie, jeśli nie znajduje się w powyższych kategoriach
+              }
+            </strong>
+            </p>
+            <p>
+              <strong>{t("product.Interfaces")}: 
+                {
+                  product.Interfaces === 'USB' ? t("product.USB") :
+                  product.Interfaces === 'USB, Wi-Fi' ? t("USB, Wi-Fi") :
+                  product.Interfaces === 'USB, Wi-Fi, LAN' ? t("USB, Wi-Fi, LAN") :
+                  product.Interfaces === 'USB, Wi-Fi, Air' ? t("USB, Wi-Fi, Air") :
+                  product.Interfaces
+                }
+              </strong>
+            </p>
             <p><strong>{t("product.PrintSpeed")}: {product.Printspeed}</strong></p>
-            <p><strong>{t("product.DuplexPrinting")}: {product.Duplexprinting}</strong></p>
+            <p>
+            <strong>{t("product.DuplexPrinting")}: 
+              {
+                product.Duplexprinting === 'Automatyczny' ? t("product.Automatic") :
+                product.Duplexprinting === 'Brak' ? t("product.NotAvailable") :
+                product.Duplexprinting
+              }
+            </strong>
+          </p>
           </>
         );
       default:
