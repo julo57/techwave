@@ -212,8 +212,10 @@ export const Shop = (props) => {
               onChange={(e) => setFilters({ ...filters, Storage: e.target.value })}
             >
               <option value="">{t("product.Select")}</option>
+              <option value="64">64 GB</option>
               <option value="256">256 GB</option>
               <option value="512">512 GB</option>
+              <option value="1000">1000 GB</option>
               {/* Add more options as needed */}
             </select>
           </>
