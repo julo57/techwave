@@ -165,7 +165,7 @@ function ProductSite() {
             <p><strong>{t("product.Screen")}: {product.Screen}Hz</strong></p>
             <p><strong>{t("product.Processor")}: {product.Processor}</strong></p>
             <p><strong>{t("product.RAM")}: {product.RAM}GB</strong></p>
-            <p><strong>{t("product.Storage")}: {product.Storage}GB</strong></p>
+            <p><strong>{t("product.Storage")}: {product.storage}GB</strong></p>
           </>
         );
         case 'Headphones':

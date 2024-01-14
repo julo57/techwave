@@ -179,7 +179,12 @@ export const Shop = (props) => {
             >
               <option value="">{t("product.Select")}</option>
               <option value="60">60 HZ</option>
+              <option value="65">65 HZ</option>
+              <option value="75">75 HZ</option>
+              <option value="77">77 HZ</option>
               <option value="120">120 HZ</option>
+              <option value="130">130 HZ</option>
+              <option value="144">144 HZ</option>
               {/* Add more options as needed */}
             </select>
 
@@ -255,9 +260,12 @@ export const Shop = (props) => {
               onChange={(e) => setFilters({ ...filters, Resolution: e.target.value })}
             >
               <option value="">{t("product.Select")}</option>
+              <option value="7680x4320">7680x4320</option>
               <option value="3840x2160">3840x2160</option>
-            
-              
+              <option value="2560x1440">2560x1440</option>
+              <option value="2560x1080">2560x1080</option>
+              <option value="1920x1080">1920x1080</option>
+
               {/* Add more options as needed */}
             </select>
             <label htmlFor="Energyclass">{t("product.EnergyClass")}</label>
