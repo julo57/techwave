@@ -36,8 +36,17 @@
 	font-size: 1rem;
 	font-weight: bold;
 	margin-bottom: 5px;
-	color: #ccc;
+	color: #333;
 }
+
+
+#dark .cart-item-name {
+	font-size: 1rem;
+	font-weight: bold;
+	margin-bottom: 5px;
+	color: #ccc
+}
+
 
 .cart-item-pricing {
 	display: flex;
