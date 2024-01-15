@@ -30,7 +30,7 @@ function ProductSite() {
 
   const fetchRandomProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/products');
+      const response = await axios.get('http://techwave-online-shop.wuaze.com/products');
       const allProducts = response.data;
       let randomProducts = [];
   
@@ -57,7 +57,7 @@ function ProductSite() {
     const fetchProduct = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get(`http://localhost:8000/api/products/${productId}`);
+        const response = await axios.get(`http://techwave-online-shop.wuaze.com/api/products/${productId}`);
         setProduct(response.data);
         setCommentsList(response.data.comments || []);
       } catch (error) {
@@ -103,7 +103,7 @@ function ProductSite() {
   
     try {
       await axios.get('/sanctum/csrf-cookie');
-      const response = await axios.post(`http://localhost:8000/api/products/${productId}/comments`, {
+      const response = await axios.post(`http://techwave-online-shop.wuaze.com/api/products/${productId}/comments`, {
         rating,
         content: comment,
       }, {
