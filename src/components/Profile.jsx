@@ -17,7 +17,7 @@ const Profile = () => {
   const { t } = useTranslation("global");
   const [currentView, setCurrentView] = useState("Order"); // Default view
 
-  const isTabletMid = useMediaQuery({ query: "(max-width: 768px)" });
+  const isTabletMid = useMediaQuery({ query: "(max-width: 767px)" });
   const [open, setOpen] = useState(!isTabletMid);
   const sidebarRef = useRef();
 
