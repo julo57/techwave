@@ -57,7 +57,7 @@ function ProductSite() {
     const fetchProduct = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get(`http://techwave-online-shop.wuaze.com/api/products/${productId}`);
+        const response = await axios.get('http://localhost:8000/api/api/products/${productId}');
         setProduct(response.data);
         setCommentsList(response.data.comments || []);
       } catch (error) {
