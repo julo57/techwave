@@ -38,7 +38,7 @@ const AccountSettings = () => {
       try {
         localStorage.clear();
         const response = await axios.post(
-          'http://techwave-online-shop.wuaze.com/api/delete-account',
+          'http://localhost:8000/api/delete-account',
           {},
           { withCredentials: true }
         );
@@ -74,7 +74,7 @@ const AccountSettings = () => {
       }
 
       const response = await axios.post(
-        'http://techwave-online-shop.wuaze.com/api/change-password',
+        'http://localhost:8000/api/change-password',
         {
           current_password: oldPassword,
           new_password: newPassword,
@@ -100,7 +100,7 @@ const AccountSettings = () => {
       }
 
       const response = await axios.post(
-        'http://techwave-online-shop.wuaze.com/api/change-email',
+        'http://localhost:8000/api/change-email',
         {
           current_email: oldEmail,
           new_email: newEmail,
