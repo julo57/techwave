@@ -10,7 +10,7 @@ const ShowComment = () => {
   const { user } = useAuthContext();
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/comment', { withCredentials: true })
+    axios.get('http://techwave-online-shop.wuaze.com/api/comment', { withCredentials: true })
       .then(response => {
         if (Array.isArray(response.data)) {
           setComments(response.data);
@@ -30,7 +30,7 @@ const ShowComment = () => {
   // Funkcja do pobierania informacji o produktach
   const fetchProducts = (productIds) => {
     const productPromises = productIds.map(productId => {
-      return axios.get(`http://localhost:8000/api/products/${productId}`)
+      return axios.get(`http://techwave-online-shop.wuaze.com/api/products/${productId}`)
         .then(response => {
           // Ustaw informacje o produkcie w stanie, używając product_id jako klucza
           setProducts(prevProducts => ({

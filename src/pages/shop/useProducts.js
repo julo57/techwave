@@ -22,7 +22,7 @@ const useProducts = () => {
           }
         }
 
-        const response = await axios.get('http://localhost:8000/api/products');
+        const response = await axios.get('http://techwave-online-shop.wuaze.com/api/products');
         setProducts(response.data);
 
         const timestamp = new Date().getTime();

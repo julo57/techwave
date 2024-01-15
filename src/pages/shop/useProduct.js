@@ -12,7 +12,7 @@ const useProduct = (productId) => {
     const fetchProduct = async () => {
       try {
         // console.log("fetchProduct")
-        const response = await axios.get(`http://localhost:8000/api/products/${productId}`);
+        const response = await axios.get(`http://techwave-online-shop.wuaze.com/api/products/${productId}`);
         setProduct(response.data);
       } catch (error) {
         setError(error);

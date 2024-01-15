@@ -22,9 +22,9 @@ function NewsletterForm() {
 
     try {
       // Pobierz CSRF cookie
-      await axios.get('http://localhost:8000/sanctum/csrf-cookie');
+      await axios.get('http://techwave-online-shop.wuaze.com/sanctum/csrf-cookie');
 
-      const response = await axios.post('http://localhost:8000/api/subscribe', {
+      const response = await axios.post('http://techwave-online-shop.wuaze.com/api/subscribe', {
         email: email,
       }, {
         withCredentials: true,

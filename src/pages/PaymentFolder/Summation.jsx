@@ -91,7 +91,7 @@ const finalAmountWithDiscounts = discountedAmount + finalDeliveryCost;
     console.log("Order data being sent to server:", orderData);
   
     try {
-      const response = await axios.post('http://localhost:8000/api/orders', orderData, {
+      const response = await axios.post('http://techwave-online-shop.wuaze.com/api/orders', orderData, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',

@@ -37,7 +37,7 @@ export const ComparationSite = () => {
     }
     console.log(`Wyszukiwanie: ${searchTerm}, Kategoria: ${Category}`); // Dodaj ten log
     try {
-      const response = await axios.get(`http://localhost:8000/api/products`, {
+      const response = await axios.get(`http://techwave-online-shop.wuaze.com/api/products`, {
         params: { search: searchTerm, Category: Category }
       });
       setSearchResults(response.data.length > 0 ? response.data : []);
