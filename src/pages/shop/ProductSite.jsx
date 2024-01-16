@@ -30,7 +30,7 @@ function ProductSite() {
 
   const fetchRandomProducts = async () => {
     try {
-      const response = await axios.get('https://techwavetrue.wuaze.com/api/products');
+      const response = await axios.get('http://techwavetrue.wuaze.com/api/products');
       const allProducts = response.data;
       let randomProducts = [];
   
@@ -57,7 +57,7 @@ function ProductSite() {
     const fetchProduct = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get(`https://techwavetrue.wuaze.com/api/products/${productId}`);
+        const response = await axios.get(`http://techwavetrue.wuaze.com/api/products/${productId}`);
         setProduct(response.data);
         setCommentsList(response.data.comments || []);
       } catch (error) {
@@ -103,7 +103,7 @@ function ProductSite() {
   
     try {
       await axios.get('/sanctum/csrf-cookie');
-      const response = await axios.post(`https://techwavetrue.wuaze.com/api/products/${productId}/comments`, {
+      const response = await axios.post(`http://techwavetrue.wuaze.com/api/products/${productId}/comments`, {
         rating,
         content: comment,
       }, {
@@ -114,7 +114,7 @@ function ProductSite() {
       setComments([...comments, response.data]);
       setRating(0);
       setComment('');
-      axios.get(`https://techwavetrue.wuaze.com/api/products/${productId}`)
+      axios.get(`http://techwavetrue.wuaze.com/api/products/${productId}`)
         .then(response => {
           setProduct(response.data);
           setCommentsList(response.data.comments || []);
