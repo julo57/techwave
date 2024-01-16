@@ -38,7 +38,7 @@ const AccountSettings = () => {
       try {
         localStorage.clear();
         const response = await axios.post(
-          'http://localhost:8000/api/delete-account',
+          'https://techwavetrue.wuaze.com/api/delete-account',
           {},
           { withCredentials: true }
         );
@@ -74,7 +74,7 @@ const AccountSettings = () => {
       }
 
       const response = await axios.post(
-        'http://localhost:8000/api/change-password',
+        'https://techwavetrue.wuaze.com/api/change-password',
         {
           current_password: oldPassword,
           new_password: newPassword,
