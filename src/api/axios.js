@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-    baseURL:"http://techwavetrue.wuaze.com/",
+    baseURL:"https://techwavework.000.pe/",
     withCredentials: true,
 })
 

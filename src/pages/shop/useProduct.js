@@ -12,7 +12,7 @@ const useProduct = (productId) => {
     const fetchProduct = async () => {
       try {
         // console.log("fetchProduct")
-        const response = await axios.get(`http://techwavetrue.wuaze.com/api/products/${productId}`);
+        const response = await axios.get(`https://techwavework.000.pe/api/products/${productId}`);
         setProduct(response.data);
       } catch (error) {
         setError(error);
