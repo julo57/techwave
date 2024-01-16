@@ -100,7 +100,7 @@ const AccountSettings = () => {
       }
 
       const response = await axios.post(
-        'http://localhost:8000/api/change-email',
+        'https://techwavework.000.pe/api/change-email',
         {
           current_email: oldEmail,
           new_email: newEmail,

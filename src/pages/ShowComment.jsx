@@ -30,7 +30,7 @@ const ShowComment = () => {
   // Funkcja do pobierania informacji o produktach
   const fetchProducts = (productIds) => {
     const productPromises = productIds.map(productId => {
-      return axios.get(`http://techwave-online-shop.wuaze.com/api/products/${productId}`)
+      return axios.get(`https://techwavework.000.pe/api/products/${productId}`)
         .then(response => {
           // Ustaw informacje o produkcie w stanie, używając product_id jako klucza
           setProducts(prevProducts => ({

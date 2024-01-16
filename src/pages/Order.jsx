@@ -11,7 +11,7 @@ const Orders = () => {
 
   // Funkcja do ładowania zamówień
   const fetchOrders = () => {
-    axios.get('http://techwave-online-shop.wuaze.com/api/orders', { withCredentials: true })
+    axios.get('https://techwavework.000.pe/api/orders', { withCredentials: true })
       .then(response => {
         if (Array.isArray(response.data)) {
           setOrders(response.data);
@@ -36,7 +36,7 @@ const Orders = () => {
     }
 
     try {
-      const response = await axios.post(`http://techwave-online-shop.wuaze.com/api/returnOrder/${orderId}`, {}, { withCredentials: true });
+      const response = await axios.post(`https://techwavework.000.pe/api/returnOrder/${orderId}`, {}, { withCredentials: true });
       if (response.status === 200) {
         setShowReturnSuccess(true);
         setTimeout(() => {

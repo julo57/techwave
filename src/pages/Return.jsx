@@ -7,7 +7,7 @@ const Returns = () => {
     const [returns, setReturns] = useState([]);
 
     useEffect(() => {
-        axios.get('http://techwave-online-shop.wuaze.com/api/returns', { withCredentials: true })
+        axios.get('https://techwavework.000.pe/api/returns', { withCredentials: true })
             .then(response => {
                 if (Array.isArray(response.data)) {
                     setReturns(response.data);
