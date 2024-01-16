@@ -6,6 +6,8 @@ import "./navbar.css";
 import useAuthContext from "../context/AuthContext";
 import flagaImage2 from '../assets/products/flaga2.png';
 import flagaImage from '../assets/products/flaga.png';
+import logo from '../assets/products/logo.png';
+
 import { useTranslation } from "react-i18next";
 import 'regenerator-runtime/runtime';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
@@ -111,7 +113,7 @@ export const Navbar = ({ toggleTheme, theme, setSelectedCategory }) => {
         <Link to="/" className="text-white hover:text-blue-500" onClick={()=>{
           setSelectedCategory("");
         }}>
-          <img src="/logo.png" alt="logo" className="h-12" />
+          <img src={logo} alt="logo" className="h-12" />
         </Link>
 
         <div className="flex items-center space-x-4">
